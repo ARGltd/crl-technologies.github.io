@@ -6,13 +6,13 @@
   <title>CRL Technologies — No Margin Calls. Ever.</title>
 
   <!-- SEO / Social -->
-  <meta name="description" content="Patent-pending leverage technology for professional counterparties. Retroactive multiplication when markets confirm your thesis."/>
+  <meta name="description" content="CRL Base™ is the first retroactive leverage overlay engineered as an anti-churn product for professional brokers. Turn short-term leveraged trading into long-term, no-margin-call relationships with higher client lifetime value."/>
   <meta name="robots" content="index, follow"/>
   <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="/>
   <link rel="canonical" href="https://crl-technologies.com/"/>
 
   <meta property="og:title" content="CRL Technologies — Conditional Retroactive Leverage™"/>
-  <meta property="og:description" content="The only leverage that activates retroactively. Professional counterparties only."/>
+  <meta property="og:description" content="Retroactive leverage overlays for banks and professional brokers. One engine to launch a new product line, monetize existing positions and structurally reduce derivatives client churn."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://crl-technologies.com/"/>
   <meta property="og:image" content="https://crl-technologies.com/og-penrose.jpg"/>
@@ -408,74 +408,6 @@
       font-size:13px;
       color:var(--g700);
       line-height:1.6;
-    }
-
-    /* ====== ROI CALCULATOR (NEW) ====== */
-    .roi-section {
-      background:var(--g100);
-      padding:60px 40px;
-    }
-    .roi-calculator {
-      max-width:800px;
-      margin:0 auto;
-      background:white;
-      padding:32px;
-      border-radius:16px;
-      box-shadow:var(--shadow-sm);
-    }
-    .roi-inputs {
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:20px;
-      margin-bottom:32px;
-    }
-    .roi-input-group {
-      display:flex;
-      flex-direction:column;
-    }
-    .roi-input-group label {
-      font-size:14px;
-      font-weight:600;
-      margin-bottom:8px;
-      color:var(--g800);
-    }
-    .roi-input-group input {
-      padding:12px;
-      border:1px solid var(--g300);
-      border-radius:8px;
-      font-size:16px;
-      font-family:inherit;
-    }
-    .roi-results {
-      background:var(--accent);
-      color:white;
-      padding:24px;
-      border-radius:12px;
-      text-align:center;
-    }
-    .roi-value {
-      font-size:48px;
-      font-weight:700;
-      margin-bottom:8px;
-    }
-    .roi-label {
-      font-size:14px;
-      opacity:0.9;
-    }
-    .roi-download {
-      display:inline-block;
-      margin-top:20px;
-      padding:12px 24px;
-      background:white;
-      color:var(--accent);
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:700;
-      transition:all 0.2s;
-    }
-    .roi-download:hover {
-      transform:translateY(-2px);
-      box-shadow:var(--shadow-sm);
     }
 
     /* ====== VALIDATION METRICS SECTION (EXISTING - ENHANCED) ====== */
@@ -1031,6 +963,15 @@
     Retail distribution prohibited.
   </div>
 
+<!-- FOUNDER ACCESS BAR -->
+<div style="background:#f7f7f7;border-bottom:1px solid #e5e5e5;padding:12px 20px;text-align:center;">
+  <p style="font-size:13px;color:#404040;margin:0;">
+    <strong style="color:#0066cc;">Direct founder access:</strong> 
+    First 10 clients work directly with Andrea (CTO) on integration.
+    <a href="#about" style="color:#0066cc;text-decoration:none;margin-left:12px;font-weight:600;">→ About</a>
+  </p>
+</div>
+
   <!-- Navigation -->
   <nav aria-label="Main navigation">
     <div class="nav-wrap">
@@ -1040,6 +981,7 @@
       </a>
       <div class="nav-links" aria-label="Primary">
         <a href="#how">How It Works</a>
+        <a href="#developers">API</a>
         <a href="#products">Products</a>
         <a href="#validation">Evidence</a>
         <a href="#integration">Integration</a>
@@ -1062,101 +1004,267 @@
         Patent Filed July 2025 • PCT Pending
       </span>
       <h1 id="hero-title" class="display">
-        No margin calls. Ever.<br/>
-        <span class="highlight">Leverage that activates only when you're right.</span>
+        Stop Losing Professional Clients to Margin Calls<br/>
+        <span class="highlight">One overlay to launch a new product line, boost existing P&L, and structurally reduce client churn.</span>
       </h1>
+
       <p class="body-lg">
-        Built for licensed institutions serving professional clients seeking asymmetric risk with premium-capped downside.
-        Conditional Retroactive Leverage™ applies multiplicative factors to accumulated profit retroactively upon predefined validation.
+        CRL™ is a patent-pending, retroactive leverage overlay for licensed brokers, banks and prop firms.
+        You can offer a new premium-based leverage product with no client margin calls at product level, apply CRL dynamically on top of existing positions or books to multiply profit, and compress client losses into a fixed premium — reducing churn and improving the lifetime value of your best professional clients.
       </p>
 
       <!-- Updated Key Metrics from Testing -->
-      <div class="hero-metrics">
+    <div class="hero-metrics">
         <div class="hero-metric">
-          <div class="hero-metric-value">83.3%</div>
-          <div class="hero-metric-label">Trigger Accuracy</div>
+            <div class="hero-metric-value">98.4%</div>
+            <div class="hero-metric-label">Historical edge vs constant leverage</div>
         </div>
         <div class="hero-metric">
-          <div class="hero-metric-value"><50μs</div>
-          <div class="hero-metric-label">Transformation Latency</div>
+            <div class="hero-metric-value">$7,157</div>
+            <div class="hero-metric-label">Average advantage per $100k ticket</div>
         </div>
         <div class="hero-metric">
-          <div class="hero-metric-value">6:1</div>
-          <div class="hero-metric-label">Risk/Reward Ratio</div>
+            <div class="hero-metric-value">83% · 100%</div>
+            <div class="hero-metric-label">Triggers in 83% of trades, wins 100% of them</div>
         </div>
         <div class="hero-metric">
-          <div class="hero-metric-value">10M+</div>
-          <div class="hero-metric-label">Simulations Run</div>
+            <div class="hero-metric-value">1M</div>
+            <div class="hero-metric-label">Monte Carlo paths validating ~99% edge</div>
         </div>
-      </div>
+    </div>
 
-      <div class="hero-ctas">
-        <a class="hero-cta" href="#demo" id="hero-demo-btn">See Live Demonstration <span class="arrow">→</span></a>
-        <a class="hero-cta secondary" href="#qualification" id="hero-qualify-btn">Quick Qualification <span class="arrow">→</span></a>
-      </div>
+
+    <div class="hero-ctas">
+        <a class="hero-cta" href="https://crl-api.crl-technologies.com/sandbox" target="_blank" id="hero-sandbox-btn">
+            Test Live API Sandbox (5 minutes) <span class="arrow">→</span>
+        </a>
+        <a class="hero-cta secondary" href="#demo" id="hero-demo-btn">
+            Book Technical Call with CTO <span class="arrow">→</span>
+        </a>
+    </div>
+    <p style="text-align:center;margin-top:12px;font-size:13px;color:#525252;">
+        No signup required for sandbox • See actual CRL calculations in real-time
+    </p>
       <p class="caption" style="text-align:center;margin-top:10px">
-        Based on 50 institutional trades and 10M+ Monte Carlo simulations. Performance measured in controlled environments.  Performance metrics refer specifically to CRL Base™.
-        Conditional Retroactive Leverage™ is a trademark of CRL Technologies, Inc.
+        Churn insights derived from internal backtests on leveraged derivatives (2020–2025) across major US indices and single names, plus calibrated Monte Carlo scenarios. Figures are indicative and refer specifically to CRL Base™ backtests and simulations, not a guarantee of future performance. Conditional Retroactive Leverage™ is a trade structuring tool, not an investment firm.
       </p>
     </section>
 
+    <!-- WHO QUALIFIES SECTION -->
+    <section style="max-width:800px;margin:60px auto;padding:0 40px;">
+        <div style="text-align:center;background:var(--g100);border:1px solid var(--g300);border-radius:16px;padding:40px;">
+            
+            <h3 style="font-size:22px;font-weight:700;color:var(--g900);margin-bottom:24px;">
+            This is NOT for everyone
+            </h3>
+            
+            <p style="font-size:15px;color:var(--g700);margin-bottom:28px;line-height:1.6;">
+            CRL Base requires €10M+ monthly derivatives volume, licensed broker status, 
+            and existing professional client base.
+            </p>
+            
+            <div style="max-width:600px;margin:0 auto 24px;">
+            <p style="font-size:13px;color:var(--g600);line-height:1.7;">
+                <strong>Minimum Requirements:</strong> Licensed entity • Institutional infrastructure • Compliance framework in place
+            </p>
+            </div>
+            
+            <a href="#qualification" 
+            style="display:inline-block;padding:14px 28px;background:var(--accent);color:#fff;border-radius:24px;text-decoration:none;font-weight:700;font-size:14px;">
+            Check Your Qualification →
+            </a>
+            
+        </div>
+    </section>
+
+
     <!-- NEW: Executive Summary Box -->
     <div class="executive-box">
-      <h3>CRL Base™: Retroactive leverage technology for professional brokers</h3>
-      <ul>
-        <li>No margin calls for clients</li>
-        <li>Leverage activates only after market validation</li>
-        <li>Patent-protected (US provisional filed July 2025)</li>
-        <li>Ready for institutional integration</li>
-        <li>Average winning payout: €3,639</li>
-        <li>Risk/Reward asymmetry: 6:1</li>
-      </ul>
+     <h3>CRL Base™ in 60 Seconds</h3>
+    <ul>
+        <li><strong>New Product Line:</strong> Patent-protected derivative your competitors can't copy for 20 years. Launch in 2 weeks, not 18 months.</li>
+        <li><strong>Overlay on Existing Positions:</strong> Multiply P&L on winning trades. Same client flow, additional desk revenue. Zero cannibalization.</li>
+        <li><strong>Eliminate Churn:</strong> Professional clients never get margin-called on CRL positions. Premium-capped risk = long-term relationships.</li>
+        <li><strong>Technology-Only:</strong> You keep the broker license and client relationships. We provide the calculation engine and audit trails.</li>
+    </ul>
+
       <p class="disclaimer">
-        Technology-only solution. CRL provides calculation engine; compliance, product approval, and client onboarding remain with the authorized intermediary.
+         Technology-only solution. CRL provides the calculation engine and API; licensing, product governance, risk policies and client onboarding remain under the responsibility of the authorized intermediary.
       </p>
     </div>
 
     <!-- Technology-only banner -->
     <div class="tech-only">
-      <strong>Technology-only.</strong> CRL provides a calculation engine; compliance, product approval, and client onboarding remain with the authorized intermediary.
+      <strong>Technology-only.</strong> CRL delivers the engine; you remain the broker, with full control over licensing, product governance and client relationships.
     </div>
+
+   <!-- API VALIDATION KIT SECTION -->
+    <section id="developers" style="max-width:1100px;margin:80px auto;padding:0 40px;">
+    
+        <!-- Header -->
+        <div style="text-align:center;margin-bottom:48px;">
+            <span style="display:inline-block;padding:6px 14px;background:var(--g100);border-radius:20px;font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:var(--g700);font-weight:700;margin-bottom:20px;">
+            FOR TECHNICAL TEAMS
+            </span>
+            <h2 class="headline" style="margin-bottom:16px;">API Validation Kit</h2>
+            <p class="body-lg" style="max-width:700px;margin:0 auto;color:var(--g700);">
+            Technical validation package for professional counterparties. Validate CRL Base calculations, HMAC authentication, and API contract in approximately 30 minutes.
+            </p>
+        </div>
+
+        <!-- Features Grid -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px;">
+            
+            <div class="benefit">
+            <div class="benefit-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+            </div>
+            <div class="k">HMAC Authentication</div>
+            <div class="v">
+                Automatic HMAC-SHA256 signature generation. Collection-level pre-request script handles authentication flow.
+            </div>
+            </div>
+
+            <div class="benefit">
+            <div class="benefit-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+            </div>
+            <div class="k">Four Test Scenarios</div>
+            <div class="v">
+                LONG/SHORT positions, ITM/OTM outcomes. Validates trigger detection logic and retroactive leverage calculations.
+            </div>
+            </div>
+
+            <div class="benefit">
+            <div class="benefit-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+            <div class="k">Automated Test Assertions</div>
+            <div class="v">
+                Built-in Postman test suite verifies response format, PnL accuracy, and state transitions.
+            </div>
+            </div>
+
+        </div>
+
+        <!-- Package Contents -->
+        <div style="background:var(--g100);border:1px solid var(--g300);border-radius:12px;padding:32px;margin-bottom:32px;">
+            <h3 style="font-size:18px;font-weight:700;margin-bottom:24px;text-align:center;color:var(--g900);">
+            Package Contents
+            </h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px 32px;max-width:800px;margin:0 auto;">
+            <div style="display:flex;align-items:start;gap:10px;">
+                <span style="color:var(--accent);font-weight:700;font-size:14px;">→</span>
+                <span style="font-size:14px;color:var(--g800);">Postman Collection (5 requests)</span>
+            </div>
+            <div style="display:flex;align-items:start;gap:10px;">
+                <span style="color:var(--accent);font-weight:700;font-size:14px;">→</span>
+                <span style="font-size:14px;color:var(--g800);">Environment template</span>
+            </div>
+            <div style="display:flex;align-items:start;gap:10px;">
+                <span style="color:var(--accent);font-weight:700;font-size:14px;">→</span>
+                <span style="font-size:14px;color:var(--g800);">Complete API reference</span>
+            </div>
+            <div style="display:flex;align-items:start;gap:10px;">
+                <span style="color:var(--accent);font-weight:700;font-size:14px;">→</span>
+                <span style="font-size:14px;color:var(--g800);">Quick Start guide</span>
+            </div>
+            <div style="display:flex;align-items:start;gap:10px;">
+                <span style="color:var(--accent);font-weight:700;font-size:14px;">→</span>
+                <span style="font-size:14px;color:var(--g800);">Error handling documentation</span>
+            </div>
+            <div style="display:flex;align-items:start;gap:10px;">
+                <span style="color:var(--accent);font-weight:700;font-size:14px;">→</span>
+                <span style="font-size:14px;color:var(--g800);">Sandbox credentials instructions</span>
+            </div>
+            </div>
+        </div>
+
+        <!-- Download CTA -->
+        <div style="text-align:center;margin-bottom:32px;">
+            <a href="/downloads/CRL_Base_v1.0_Kit.tar.gz" 
+            download 
+            style="display:inline-flex;align-items:center;gap:10px;background:var(--black);color:#fff;padding:16px 32px;border-radius:28px;text-decoration:none;font-weight:700;font-size:16px;box-shadow:var(--shadow);transition:all .2s;">
+            Download Validation Kit
+            </a>
+            <p style="margin-top:16px;font-size:13px;color:var(--g600);">
+            9KB archive • MiFID II Professional Counterparties Only
+            </p>
+            <p style="margin-top:8px;font-size:13px;color:var(--g600);">
+            Sandbox credentials: <a href="mailto:support@crl-technologies.com" style="color:var(--accent);text-decoration:none;font-weight:600;">support@crl-technologies.com</a>
+            </p>
+        </div>
+
+        <!-- Compliance Notice -->
+        <div style="background:var(--g100);border:1px solid var(--g400);border-radius:12px;padding:24px;">
+            <p style="font-size:13px;color:var(--g800);line-height:1.6;text-align:center;">
+            <strong style="color:var(--g900);">Professional Counterparties Only</strong><br/>
+            This validation kit is intended exclusively for MiFID II Eligible Contract Participants and regulated financial institutions. 
+            Not suitable for retail clients or live trading. Production deployment requires separate compliance verification and onboarding procedures.
+            </p>
+        </div>
+
+    </section>
 
     <!-- NEW: Performance Validation Section (Enhanced) -->
     <section class="validation-metrics">
-      <div class="wrap">
-        <h2 class="headline">Validated Through Rigorous Testing</h2>
-        <p class="subtitle">10 million Monte Carlo simulations • 50 institutional-grade stress tests</p>
-        
-        <div class="metrics-grid">
-          <div class="metric-card">
-            <div class="metric-value">83.3%</div>
-            <div class="metric-label">Trigger Accuracy</div>
-            <div class="metric-detail">When triggered, profitable 5 out of 6 times</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-value">6:1</div>
-            <div class="metric-label">Risk/Reward Ratio</div>
-            <div class="metric-detail">Average win 6x larger than average loss</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-value">100%</div>
-            <div class="metric-label">Stress Tests Passed</div>
-            <div class="metric-detail">Including 10x leverage scenarios</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-value">0</div>
-            <div class="metric-label">Tail Risk Events</div>
-            <div class="metric-detail">Loss always capped at premium</div>
-          </div>
+        <div class="wrap">
+            <h2 class="headline">Validated Through Rigorous Testing</h2>
+            <p class="subtitle">
+                5-year historical backtesting · 1,976 rule-based trades · 8 major US instruments
+            </p>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">98.4%</div>
+                    <div class="metric-label">CRL economic edge</div>
+                    <div class="metric-detail">
+                        Trade-level cases where CRL outperformed a standard 6× leveraged position in the base configuration.
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-value">1,976</div>
+                    <div class="metric-label">Rule-based trades tested</div>
+                    <div class="metric-detail">
+                        Every trade opened, managed and closed by a fixed algorithm, with no optimisation after the fact.
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-value">8</div>
+                    <div class="metric-label">Core underlyings</div>
+                    <div class="metric-detail">
+                        SPY, QQQ, AAPL, MSFT, NVDA, TSLA, JPM, XOM across indices, tech, finance and energy.
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-value">53 · 31 · 16</div>
+                    <div class="metric-label">Market regimes (%)</div>
+                    <div class="metric-detail">
+                        Range / trend / high-volatility windows, validating CRL where clients usually lose most: sideways markets.
+                    </div>
+                </div>
+            </div>
+
+            <div class="metrics-disclaimer">
+                <strong>Note:</strong> Results refer to CRL Base™ in a single, transparent configuration
+                (21-day TTL, 6× leverage, 0.25% premium, daily data 2020–2025, Yahoo Finance feed). Figures measure
+                economic advantage vs a plain leveraged CFD, not guaranteed profit for the client. Past performance is not
+                indicative of future results; the full methodology and code are available under NDA.
+            </div>
         </div>
-        
-        <div class="metrics-disclaimer">
-          <strong>Note:</strong> Performance metrics refer specifically to CRL Base™. 
-          Additional products (Adaptive CRL™, Dual-Trigger CRL™) available for exclusive single-client deployment. 
-          Based on 5-year backtesting across major indices. Live pilot results under NDA.
-        </div>
-      </div>
     </section>
+
 
     <!-- Trust Bar -->
     <div class="trust-bar">
@@ -1164,7 +1272,7 @@
         <div class="trust-item"><div class="trust-icon">✓</div><span>Limited pilot program - selective onboarding for Q4 2025</span></div>
         <div class="trust-item"><div class="trust-icon">◆</div><span>Latency <50μs (tested on AWS t3.medium)</span></div>
         <div class="trust-item"><div class="trust-icon">■</div><span>No client margin calls at product level</span></div>
-        <div class="trust-item"><div class="trust-icon">▲</div><span>Sharpe ratio improvement: 1.97 (backtested)</span></div>
+        <div class="trust-item"><div class="trust-icon">▲</div><span>Full backtest and methodology pack available under NDA</span></div>
       </div>
       <p class="caption" style="text-align:center;margin-top:6px">*Standard collateral policies may apply at broker level; full methodology under NDA.</p>
     </div>
@@ -1203,42 +1311,57 @@
    </section>
 
    <!-- ENHANCED: Pilot Program Section -->
-   <section class="pilot-program">
-     <div class="wrap">
-       <div class="pilot-badge">NOW ACCEPTING PILOT PARTNERS</div>
-       <h2 class="headline">Early Access Program</h2>
-       <p style="margin:20px auto;color:var(--g600);max-width:600px;">Join institutional partners across 3 European markets</p>
-       
-       <div class="pilot-benefits">
-         <div class="benefit">
-           <h3>Pilot Terms</h3>
-           <ul>
-             <li>Zero integration fees</li>
-             <li>50/50 revenue share</li>
-             <li>3-month exclusive in your market</li>
-             <li>Direct founder support</li>
-           </ul>
-         </div>
-         <div class="benefit">
-           <h3>Requirements</h3>
-           <ul>
-             <li>Professional clients only</li>
-             <li>€10M+ monthly volume</li>
-             <li>API connectivity</li>
-             <li>Quarterly feedback calls</li>
-           </ul>
-         </div>
+    <section class="pilot-program">
+        <div class="wrap">
+            <div class="pilot-badge">FOUNDING PARTNER PROGRAM</div>
+            <h2 class="headline">Early Access Program</h2>
+            <p style="margin:20px auto;color:var(--g600);max-width:620px;">
+            Preferred economics for the first institutional partners integrating CRL Base™ in Europe.
+            </p>
+    
+            <div class="pilot-benefits">
+             <div class="benefit">
+                <h3>What you get</h3>
+                <ul>
+                <li>No platform or integration fees during pilot</li>
+                <li>Revenue-share only on CRL premium</li>
+                <li>Time-boxed market exclusivity in your core jurisdiction</li>
+                <li>Direct founder support and priority on roadmap</li>
+                <li>Option to lock founding economics for 3 years</li>
+                </ul>
+            </div>
+            <div class="benefit">
+                <h3>What we ask</h3>
+                <ul>
+                    <li>Professional clients only (no retail distribution)</li>
+                    <li>€10M+ monthly derivatives volume</li>
+                    <li>API connectivity and real-time price feed</li>
+                    <li>Dedicated product / risk owner for CRL</li>
+                    <li>Quarterly feedback and anonymised performance data</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="pilot-status">
+            <div class="status-bar">
+                <div class="status-fill" style="width: 40%"></div>
+            </div>
+            <p>Limited founding partner program – selective onboarding for Q4 2025</p>
+            <p class="subtext">2 of 5 pilot slots remaining</p>
+            <p class="subtext" style="margin-top:10px;">
+                Pricing principles: no per-ticket fees, no charges on your existing spread or commission. 
+                We participate only in the CRL premium that your clients choose to pay.
+             </p>
+            </div>
+
+         <div style="margin-top:28px;">
+            <button class="btn primary" data-open-demo type="button">
+                Discuss Economics with Founder <span>→</span>
+            </button>
+        </div>
        </div>
-       
-       <div class="pilot-status">
-         <div class="status-bar">
-           <div class="status-fill" style="width: 40%"></div>
-         </div>
-         <p>Limited pilot program - selective onboarding for Q4 2025</p>
-         <p class="subtext">2 of 5 pilot slots remaining</p>
-       </div>
-     </div>
-   </section>
+    </section>
+
 
    <!-- Live Chart Demo + Technical Snapshot -->
    <section id="demo" class="section">
@@ -1328,24 +1451,32 @@
        <h2 class="headline" style="text-align:center;margin-bottom:40px;">Integration Timeline</h2>
        <div class="timeline-bar"></div>
        <div class="timeline-progress" style="width:25%"></div>
-       <div class="timeline-weeks">
-         <div class="week-box completed">
-           <div class="week-title">Weeks 1-2</div>
-           <div class="week-tasks">Technical review & API specifications</div>
-         </div>
-         <div class="week-box">
-           <div class="week-title">Weeks 3-4</div>
-           <div class="week-tasks">Sandbox integration & testing</div>
-         </div>
-         <div class="week-box">
-           <div class="week-title">Weeks 5-6</div>
-           <div class="week-tasks">Live deployment & monitoring</div>
-         </div>
-         <div class="week-box">
-           <div class="week-title">Weeks 7-8</div>
-           <div class="week-tasks">Performance optimization & go-live</div>
-         </div>
-       </div>
+       <p style="text-align:center;max-width:800px;margin:0 auto 32px;font-size:15px;color:#525252;">
+            <strong>Tier-3 integration: 2 weeks (10 business days)</strong> from NDA to production go-live.
+            <strong>Tier-2 integration: 6-12 weeks</strong> (includes advanced security, HSM, pen-testing).
+        </p>
+        <div class="timeline-weeks">
+            <div class="week-box completed">
+                <div class="week-title">Week 1: Days 1-2</div>
+                <div class="week-tasks">Kickoff, NDA, sandbox credentials, mTLS certificates</div>
+            </div>
+            <div class="week-box">
+                <div class="week-title">Week 1: Days 3-5</div>
+                <div class="week-tasks">SDK integration (npm/Maven/NuGet), HMAC auth testing, Postman</div>
+            </div>
+            <div class="week-box">
+                <div class="week-title">Week 2: Days 6-9</div>
+                <div class="week-tasks">Production credentials, real feed, pilot with 5 professional clients</div>
+            </div>
+            <div class="week-box">
+                <div class="week-title">Week 2: Day 10</div>
+                <div class="week-tasks">Production go-live, monitoring, operational handoff</div>
+            </div>
+        </div>
+        <p style="text-align:center;margin-top:20px;font-size:14px;color:#737373;">
+            <strong>SDK available in 5 languages:</strong> Python (pip), Java (Maven), C# (NuGet), TypeScript (npm), Go (modules). 
+            Published on public registries.
+        </p>
      </div>
    </section>
 
@@ -1400,9 +1531,15 @@
    <section id="products" class="section">
      <div class="wrap">
        <h2 class="headline">Product Architecture</h2>
-       <p class="intro body-lg">
-         Modular suite designed for different trading strategies and risk profiles. All products protected under PCT patent application.
-       </p>
+        <p class="intro body-lg">
+            CRL starts from a single engine, CRL Base™ — a retroactive leverage overlay that sits on top of your existing FX, equity and index offering. 
+            The same engine delivers three outcomes for your desk: 
+            a new, differentiated product line for professional clients, 
+            conditional overlays on existing positions that multiply P&amp;L on winning trades,
+            and a defensive configuration that structurally reduces derivatives client churn by capping losses at the premium. 
+            Advanced variants (Adaptive CRL™, Dual-Trigger CRL™, Dynamic Overlays) are reserved for single-client enterprise agreements under NDA.
+        </p>
+
 
        <div class="p-grid">
          <div class="card">
@@ -1419,396 +1556,79 @@
              <a href="#" data-open-gate>CTO — FIX/REST Spec</a>
            </div>
            <button class="btn secondary" style="margin-top:16px;width:100%" data-open-demo>Technical Specifications →</button>
-         </div>
-
-         <div class="card">
-           <span class="badge">Available Now</span>
-           <h3 class="title" style="margin:12px 0">Adaptive CRL™</h3>
-           <ul style="margin-top:12px;padding-left:20px;color:var(--g700)">
-             <li>Progressive leverage zone</li>
-             <li>Volatility-responsive</li>
-             <li>Automatic profit protection</li>
-             <li>Integration time: ~3 weeks</li>
-           </ul>
-           <div class="role-ctas">
-             <a href="#" data-open-gate>Risk — Volatility Note</a>
-             <a href="#" data-open-gate>CTO — Latency Profile</a>
-           </div>
-           <button class="btn secondary" style="margin-top:16px;width:100%" data-open-demo>Technical Specifications →</button>
-         </div>
-
-         <div class="card">
-           <span class="badge soon">Q2 2026</span>
-           <h3 class="title" style="margin:12px 0">Dual-Trigger CRL™</h3>
-           <ul style="margin-top:12px;padding-left:20px;color:var(--g700)">
-             <li>Knock-in/knock-out mechanics</li>
-             <li>Limited leverage window</li>
-             <li>Auto-deleverage on reversal</li>
-             <li>Perfect for range markets</li>
-           </ul>
-           <div class="role-ctas">
-             <a href="#" data-open-gate>For Product — Roadmap Brief</a>
-           </div>
-           <button class="btn secondary" style="margin-top:16px;width:100%" disabled>Coming Soon</button>
-         </div>
+         </div>      
        </div>
        
        <div class="product-disclaimer">
-         Metrics shown refer to CRL Base™. Contact us for information on Adaptive CRL™ and custom enterprise solutions.
+          All public examples and references on this page refer to CRL Base™. Advanced structures are discussed only under NDA in custom enterprise engagements.
        </div>
      </div>
    </section>
 
- <!-- ROI Calculator Section - Professional Brokers Only -->
-<section class="roi-section">
-  <div class="roi-calculator">
-    <h2 class="headline" style="text-align:center;margin-bottom:32px;">ROI Calculator</h2>
-    
-    <!-- Scenario Selector -->
-    <div class="scenario-selector" style="text-align:center;margin-bottom:24px;">
-      <button class="scenario-btn active" data-scenario="conservative">Conservative</button>
-      <button class="scenario-btn" data-scenario="realistic">Realistic</button>
-      <button class="scenario-btn" data-scenario="growth">Growth</button>
-    </div>
-    
-    <div class="roi-inputs">
-      <div class="roi-input-group">
-        <label>Monthly Trading Volume (€)</label>
-        <input type="text" id="volume" value="50,000,000" />
-        <span class="input-hint">Professional clients only</span>
-      </div>
-      
-      <div class="roi-input-group">
-        <label>Average Commission (basis points)</label>
-        <input type="number" id="commission" value="4" min="2" max="10" step="0.5" />
-        <span class="input-hint">Your current average spread/commission</span>
-      </div>
-      
-      <div class="roi-input-group">
-        <label>Professional Client Base</label>
-        <input type="text" id="clients" value="1,000" />
-        <span class="input-hint">MiFID II Professional only</span>
-      </div>
-      
-      <div class="roi-input-group">
-        <label>CRL Adoption Rate (%)</label>
-        <input type="number" id="adoption" value="10" min="5" max="30" />
-        <span class="input-hint">Based on 50 live institutional trades</span>
-      </div>
-      
-      <div class="roi-input-group">
-        <label>Average CRL Premium (%)</label>
-        <input type="number" id="premium" value="1.5" min="0.8" max="3" step="0.1" />
-        <span class="input-hint">Market-tested range: 0.8-3%</span>
-      </div>
-    </div>
-    
-    <!-- Detailed Breakdown -->
-    <div class="roi-breakdown">
-      <h3>Revenue Breakdown</h3>
-      <div class="breakdown-item">
-        <span>Annual CRL Volume:</span>
-        <span id="annual-volume">€60,000,000</span>
-      </div>
-      <div class="breakdown-item">
-        <span>Total CRL Premiums Generated:</span>
-        <span id="total-premiums">€900,000</span>
-      </div>
-      <div class="breakdown-item">
-        <span>Your Revenue Share (75%):</span>
-        <span id="broker-share">€675,000</span>
-      </div>
-      <div class="breakdown-item">
-        <span>CRL Platform Fee (25%):</span>
-        <span id="crl-share">€225,000</span>
-      </div>
-    </div>
-    
-    <!-- Main Result -->
-    <div class="roi-results">
-      <div class="roi-value" id="roi-result">€675,000</div>
-      <div class="roi-label">Additional Annual Revenue from CRL</div>
-      <div class="roi-comparison">
-        <span class="comparison-metric">+140% increase on current commission income</span>
-      </div>
-    </div>
-    
-    <!-- Validation Points -->
-    <div class="validation-points">
-      <p class="validation-header">These projections are based on:</p>
-      <ul>
-        <li>✓ 50 completed institutional trades with 83.3% directional accuracy</li>
-        <li>✓ Average winning payout: €3,639 per trade</li>
-        <li>✓ 58% trigger activation rate (ACRL configuration)</li>
-        <li>✓ Live testing with 2 professional brokers</li>
-      </ul>
-    </div>
-    
-    <a href="#" class="roi-download" data-open-gate>Download Detailed ROI Spreadsheet</a>
-  </div>
-</section>
-
-<style>
-  .scenario-selector {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-  }
-  
-  .scenario-btn {
-    padding: 8px 20px;
-    border: 1px solid #d4d4d4;
-    background: white;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  
-  .scenario-btn.active {
-    background: black;
-    color: white;
-  }
-  
-  .input-hint {
-    display: block;
-    font-size: 11px;
-    color: #737373;
-    margin-top: 4px;
-  }
-  
-  .roi-breakdown {
-    background: #f7f7f7;
-    padding: 20px;
-    border-radius: 12px;
-    margin: 24px 0;
-  }
-  
-  .roi-breakdown h3 {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 16px;
-  }
-  
-  .breakdown-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px solid #e5e5e5;
-    font-size: 14px;
-  }
-  
-  .breakdown-item:last-child {
-    border-bottom: none;
-    font-weight: 600;
-  }
-  
-  .roi-comparison {
-    margin-top: 12px;
-    font-size: 14px;
-    color: #0066cc;
-    font-weight: 500;
-  }
-  
-  .validation-points {
-    background: #f0f7ff;
-    padding: 20px;
-    border-radius: 12px;
-    margin: 24px 0;
-  }
-  
-  .validation-header {
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 12px;
-    color: #404040;
-  }
-  
-  .validation-points ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .validation-points li {
-    font-size: 12px;
-    color: #525252;
-    padding: 4px 0;
-  }
-</style>
-
-<script>
-  // Format number with commas
-  function formatNumber(num) {
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-  
-  // Parse number removing commas
-  function parseNumber(str) {
-    return parseFloat(str.replace(/,/g, '')) || 0;
-  }
-  
-  // Format input fields
-  function formatInput(inputId) {
-    const input = document.getElementById(inputId);
-    const value = parseNumber(input.value);
-    if (!isNaN(value) && value > 0) {
-      input.value = formatNumber(Math.round(value));
-    }
-  }
-  
-  // Add formatting to volume and clients inputs
-  document.getElementById('volume').addEventListener('blur', function() {
-    formatInput('volume');
-  });
-  
-  document.getElementById('clients').addEventListener('blur', function() {
-    formatInput('clients');
-  });
-  
-  // Handle input while typing (remove non-numeric except commas)
-  document.getElementById('volume').addEventListener('input', function(e) {
-    let value = e.target.value;
-    // Allow only numbers and commas
-    value = value.replace(/[^\d,]/g, '');
-    e.target.value = value;
-  });
-  
-  document.getElementById('clients').addEventListener('input', function(e) {
-    let value = e.target.value;
-    // Allow only numbers and commas
-    value = value.replace(/[^\d,]/g, '');
-    e.target.value = value;
-  });
-  
-  // Scenario presets based on actual business plan data
-  const scenarios = {
-    conservative: {
-      volume: '50,000,000',
-      commission: 4,
-      clients: '1,000',
-      adoption: 10,
-      premium: 1.5
-    },
-    realistic: {
-      volume: '100,000,000',
-      commission: 4,
-      clients: '1,500',
-      adoption: 15,
-      premium: 1.8
-    },
-    growth: {
-      volume: '200,000,000',
-      commission: 3.5,
-      clients: '2,500',
-      adoption: 20,
-      premium: 2.0
-    }
-  };
-  
-  function calculateROI() {
-    // Get input values (parse numbers removing commas)
-    const monthlyVolume = parseNumber(document.getElementById('volume').value);
-    const commissionBP = parseFloat(document.getElementById('commission').value) || 0;
-    const clients = parseNumber(document.getElementById('clients').value);
-    const adoptionRate = parseFloat(document.getElementById('adoption').value) / 100 || 0;
-    const premiumRate = parseFloat(document.getElementById('premium').value) / 100 || 0;
-    
-    // Calculate based on business plan formula
-    const annualVolume = monthlyVolume * 12;
-    const crlVolume = annualVolume * adoptionRate;
-    const totalPremiums = crlVolume * premiumRate;
-    
-    // Revenue split: 75% broker, 25% CRL (from business plan)
-    const brokerShare = totalPremiums * 0.75;
-    const crlShare = totalPremiums * 0.25;
-    
-    // Current commission income for comparison
-    const currentCommission = annualVolume * (commissionBP / 10000);
-    const percentIncrease = currentCommission > 0 ? (brokerShare / currentCommission * 100).toFixed(0) : 0;
-    
-    // Update display with formatted numbers
-    document.getElementById('annual-volume').textContent = '€' + crlVolume.toLocaleString('en-US', {maximumFractionDigits: 0});
-    document.getElementById('total-premiums').textContent = '€' + totalPremiums.toLocaleString('en-US', {maximumFractionDigits: 0});
-    document.getElementById('broker-share').textContent = '€' + brokerShare.toLocaleString('en-US', {maximumFractionDigits: 0});
-    document.getElementById('crl-share').textContent = '€' + crlShare.toLocaleString('en-US', {maximumFractionDigits: 0});
-    document.getElementById('roi-result').textContent = '€' + brokerShare.toLocaleString('en-US', {maximumFractionDigits: 0});
-    document.querySelector('.comparison-metric').textContent = `+${percentIncrease}% increase on current commission income`;
-  }
-  
-  // Scenario buttons
-  document.querySelectorAll('.scenario-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('.scenario-btn').forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-      
-      const scenario = scenarios[this.dataset.scenario];
-      document.getElementById('volume').value = scenario.volume;
-      document.getElementById('commission').value = scenario.commission;
-      document.getElementById('clients').value = scenario.clients;
-      document.getElementById('adoption').value = scenario.adoption;
-      document.getElementById('premium').value = scenario.premium;
-      
-      calculateROI();
-    });
-  });
-  
-  // Update on any input change
-  document.querySelectorAll('input').forEach(input => {
-    input.addEventListener('input', calculateROI);
-  });
-  
-  // Initial calculation
-  calculateROI();
-</script>
 
    <!-- Validation / Evidence -->
    <section id="validation" class="section alt">
-     <div class="wrap">
-       <h2 class="headline">Rigorous Validation</h2>
-       <p class="intro body-lg">
-         Extensive testing across multiple market conditions and asset classes. Results independently verified through Monte Carlo simulation.
-       </p>
+        <div class="wrap">
+            <h2 class="headline">Rigorous Validation</h2>
+            <p class="intro body-lg">
+                Evidence is built in layers: transparent rules, public data and reproducible code. Every result can be
+                re-run on your own market data and stress framework.
+            </p>
 
-       <div class="p-grid">
-         <div class="card">
-           <h3 class="title">Backtesting Evidence</h3>
-           <p style="margin:12px 0;color:var(--g700)">
-             5-year historical analysis across major indices:
-           </p>
-           <ul style="padding-left:20px;color:var(--g700)">
-             <li>Sharpe ratio: <strong>1.97</strong> (validated through 50+ institutional-grade executions)</li>
-             <li>Maximum drawdown: <strong>capped at premium</strong></li>
-             <li>Trigger activation rate: <strong>58% (ACRL)</strong></li>
-             <li>Average winning payout: <strong>€3,639</strong></li>
-           </ul>
-           <p class="caption" style="margin-top:10px">Based on 2019–2024 data. Past performance not indicative of future results.</p>
-         </div>
+            <div class="p-grid">
+                <div class="card">
+                    <h3 class="title">Backtesting Evidence</h3>
+                    <p style="margin:12px 0;color:var(--g700)">
+                        5-year historical analysis across major indices and single names:
+                    </p>
+                    <ul style="padding-left:20px;color:var(--g700)">
+                        <li>Period: <strong>Nov 2020 – Nov 2025</strong>, 21-day rolling windows with entries every 5 trading days</li>
+                        <li>Universe: <strong>8 liquid US underlyings</strong> (SPY, QQQ, AAPL, MSFT, NVDA, TSLA, JPM, XOM)</li>
+                        <li>Trades: <strong>1,976 rule-based entries</strong>; CRL shows a positive economic edge in <strong>98.4%</strong> of them</li>
+                        <li>Ticker range: <strong>96.8% – 100%</strong> edge across index, tech, finance and energy names</li>
+                        <li>Average advantage: <strong>$7,157 per 100k notional</strong> in the base configuration</li>
+                        </ul>
+                        <p class="caption" style="margin-top:8px;color:var(--g500)">
+                            Figures refer to the CRL Base™ configuration described in the technical backtest report.
+                        </p>
+                    </div>
 
-         <div class="card">
-           <h3 class="title">Live Trading & Ops</h3>
-           <p style="margin:12px 0;color:var(--g700)">Selected institutional runs (sample under NDA):</p>
-           <ul style="padding-left:20px;color:var(--g700)">
-             <li>Latency: <strong><50μs engine</strong> • <10ms API</li>
-             <li>Throughput: <strong>50k trades/day</strong> (tested)</li>
-             <li>Uptime: <strong>99.9%</strong> (target 99.5%)</li>
-           </ul>
-           <button class="btn secondary" style="margin-top:16px;width:100%" data-open-gate>Request Full Report →</button>
-         </div>
+                    <div class="card">
+                        <h3 class="title">Methodology &amp; Controls</h3>
+                        <p style="margin:12px 0;color:var(--g700)">Designed to match how banks validate new overlay products:</p>
+                        <ul style="padding-left:20px;color:var(--g700)">
+                            <li>Fixed, documented trade rules (TTL, trigger, leverage, premium) locked before testing</li>
+                            <li>Public data source (Yahoo Finance) with code that can be pointed to your internal market data</li>
+                            <li>Market regime classification (range / trend / high-volatility) for each trade window</li>
+                            <li>Cost-sensitivity grid across <strong>9 combinations</strong> of premium and funding to test parameter fragility</li>
+                        </ul>
+                        <button class="btn secondary" style="margin-top:16px;width:100%" data-open-gate>
+                            Request Validation Pack →
+                        </button>
+                    </div>
 
-         <div class="card">
-           <h3 class="title">Risk Analytics</h3>
-           <p style="margin:12px 0;color:var(--g700)">Comprehensive stress testing including:</p>
-           <ul style="padding-left:20px;color:var(--g700)">
-             <li>10-day 99% VaR: <strong><10% of notional</strong></li>
-             <li>CVaR/ES: <strong>-213.6%</strong> (ultra-conservative)</li>
-             <li>Stress tests passed: <strong>100%</strong> (10× leverage)</li>
-             <li>Correlation: <strong>low systematic risk</strong></li>
-           </ul>
-           <button class="btn secondary" style="margin-top:16px;width:100%" data-open-gate>Download Whitepaper →</button>
-         </div>
-       </div>
-     </div>
-   </section>
+                    <div class="card">
+                        <h3 class="title">Risk Analytics</h3>
+                        <p style="margin:12px 0;color:var(--g700)">Structural properties that simplify risk and regulatory treatment:</p>
+                        <ul style="padding-left:20px;color:var(--g700)">
+                            <li>Incremental cost of adding CRL is structurally limited to a single fixed premium per trade
+                                (typically 0.25–0.35% of notional); there is no variable financing stream attached to the overlay.</li>
+                            <li>No CRL-driven margin calls or leverage escalation; margin and liquidation remain entirely at platform level,
+                                under your existing risk engine.</li>
+                            <li>Finite per-trade exposure through a 21–30 day TTL with automatic reversion to 1× when the trigger never fires,
+                                making CRL easy to plug into existing VaR / ES and stress-testing frameworks.</li>
+                            <li>In the 5-year backtest, CRL reduced 21-day 95% VaR by roughly 34% and 99% VaR by about 20% versus a constant 6× leveraged CFD
+                                on the same tickets; full tables are available under NDA.</li>
+                        </ul>
+
+                        <button class="btn secondary" style="margin-top:16px;width:100%" data-open-gate>
+                            Download Risk Memo →
+                        </button>
+                    </div>
+            </div>
+        </div>
+    </section>
+
 
    <!-- Technical Comparison -->
    <section class="diff">
@@ -1916,7 +1736,7 @@
      <div class="wrap">
        <h2 class="headline">Seamless Integration</h2>
        <p class="intro body-lg">
-         Enterprise-grade infrastructure designed for institutional deployment. Patent-protected technology with full API documentation.
+          CRL Base™ plugs into your existing stack as a stateless calculation engine. Your public edge stays under your control; we expose a hardened API surface (mTLS + HMAC), clear states (INITIAL → LEVERAGED → CLOSED) and full documentation so your team can integrate without redesigning your core platform.
        </p>
 
        <div class="p-grid">
@@ -1989,7 +1809,7 @@
                <li>Patent author: "System and Method for Conditional Retroactive Leverage" (Filed July 31, 2025)</li>
                <li>Mathematical framework: Non-replicability proof via Carr-Lee decomposition</li>
                <li>Engineering: Sub-50μs atomic transformation architecture</li>
-               <li>Validation: 10M+ Monte Carlo simulations, 50 institutional trades</li>
+               <li>Validation: 1,976 historical trades plus 1M Monte Carlo paths across 8 US underlyings</li>
              </ul>
            </div>
            
@@ -2113,7 +1933,7 @@
    <!-- CTA -->
    <section class="cta">
      <h2 class="headline">Ready to differentiate your derivatives offering?</h2>
-     <p>Join leading brokers already implementing CRL for their most sophisticated clients. Limited pilot program slots available.</p>
+     <p>Join the first brokers and banks evaluating CRL with their most sophisticated clients. Limited pilot program slots available.</p>
      <div class="cta-btns">
        <button class="btn primary" data-open-demo type="button">Request Institutional Demo <span>→</span></button>
        <a href="#" class="btn secondary" data-open-gate>Download Term Sheet</a>
@@ -2227,7 +2047,7 @@
    <div class="modal">
      <h3 id="gate-title">Professional Qualification Required</h3>
      <p class="modal-subtitle">
-       Access to technical documentation and research is restricted to MiFID II Professional Clients and Eligible Counterparties.
+       Access to technical documentation and detailed research is reserved for licensed institutions and professional or eligible counterparties. If you are a retail client, this material is not intended for you.
      </p>
      <form id="gateForm" novalidate>
        <div>
@@ -2264,7 +2084,7 @@
        </div>
      </form>
      <p class="small">
-       Your information will be verified against our approved institution database. Misrepresentation of professional status may result in legal action.
+       Your information may be used to confirm eligibility and prevent unauthorized access to professional-only materials. Please do not submit this form if you are not acting on behalf of a licensed institution.
      </p>
      <p class="privacy-notice">
        We process your data solely to verify professional status. See our <a href="/privacy.html">Privacy Policy</a>. We do not sell personal data.
@@ -2277,7 +2097,7 @@
    <div class="modal">
      <h3 id="demo-title">Schedule Technical Demonstration</h3>
      <p class="modal-subtitle">
-       15-minute technical overview with our derivatives team. Live calculation engine demonstration included.
+       30-minute session to walk through the payoff, technical integration and risk model. Live calculation engine demonstration included.
      </p>
      <form id="demoForm" novalidate>
        <div>
@@ -2333,26 +2153,8 @@
  <!-- LOI modals remain the same as original -->
  <!-- [Rest of LOI modals code unchanged] -->
 
- <!-- JS (Enhanced with ROI Calculator) -->
+ <!-- JS -->
  <script>
-   // ROI Calculator
-   function calculateROI() {
-     const volume = parseFloat(document.getElementById('volume').value) || 0;
-     const commission = parseFloat(document.getElementById('commission').value) / 100 || 0;
-     const clients = parseFloat(document.getElementById('clients').value) || 0;
-     const adoption = parseFloat(document.getElementById('adoption').value) / 100 || 0;
-     
-     // Simplified calculation
-     const monthlyRevenue = volume * commission * adoption * 0.2; // 20% of commission to CRL
-     const annualRevenue = monthlyRevenue * 12;
-     
-     document.getElementById('roi-result').textContent = '€' + annualRevenue.toLocaleString('en-US', {maximumFractionDigits: 0});
-   }
-   
-   // Add event listeners for ROI inputs
-   document.querySelectorAll('.roi-input-group input').forEach(input => {
-     input.addEventListener('input', calculateROI);
-   });
    
    // Quick Qualification Form
    document.getElementById('quickQualForm')?.addEventListener('submit', (e) => {
