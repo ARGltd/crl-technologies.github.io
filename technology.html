@@ -286,11 +286,10 @@
           <article class="card">
             <h3 class="title">Authentication &amp; transport</h3>
             <p style="margin-top:8px;">
-              Requests are signed with HMAC keys dedicated to each institution and carried over TLS 1.3. For production
-              tenants we support mutual TLS and IP controls on both sides to align with your security policies. The
-              public test credentials shipped in the HMAC SDK pack are isolated from live tenants and heavily
-              rate-limited. Production keys are delivered out-of-band, stored in your own secure secret store or KMS,
-              and never stored inside the calculation engine as reusable secrets.
+              Requests are signed with HMAC keys dedicated to each institution. Real tenant credentials are issued under NDA
+              via secure out-of-band channels during onboarding and must be stored in your own secret management system.
+              mTLS and IP controls can be added on your side and ours to align with your security policies. No tenant secrets
+              are exposed in SDK documentation or public materials.
             </p>
           </article>
 
@@ -330,6 +329,13 @@
           with minimal client stubs in Python, TypeScript/Node.js, Java, C# and Go. Each language
           uses the same golden test vector: if the request you send reproduces the expected hash and
           signature and returns <code>201 Created</code> on our side, your implementation is correct.
+        </p>
+
+        <p style="margin-top:12px;max-width:780px;">
+          The SDK pack includes example credentials that are <strong>not valid</strong> against any live CRL endpoint.
+          They are provided purely to let developer teams verify their local HMAC implementation against the golden vector
+          without requiring network access or real credentials. Test and production credentials for real tenants are issued
+          separately, under NDA, via secure out-of-band channels and are never shipped inside the SDK pack or public documentation.
         </p>
 
         <p style="margin-top:12px;max-width:780px;">
