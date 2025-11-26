@@ -6,6 +6,8 @@
   <title>CRL Materials — Institutional Documentation & Downloads</title>
   <meta name="description" content="Institutional materials for CRL: term sheet, API validation kit and gated documentation for professional counterparties. Designed for product, risk and technology teams."/>
   <link rel="canonical" href="https://crl-technologies.com/materials.html"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png"/>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -65,7 +67,7 @@
         </p>
 
         <div class="hero-ctas" style="justify-content:center;margin-top:24px;">
-          <button class="hero-cta" type="button" data-open-gate>
+          <button class="hero-cta" type="button" data-open-gate data-doc="Full Materials Pack">
             Request full materials pack <span class="arrow">→</span>
           </button>
           <a href="#public-downloads" class="hero-cta secondary" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;">
@@ -101,7 +103,7 @@
             </ul>
             <div style="margin-top:14px;">
               <!-- Aggiorna l'href con il percorso reale del PDF -->
-              <a href="downloads/CRL_Term_Sheet_v1.0.pdf" class="hero-cta secondary" style="font-size:13px;padding:8px 14px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">
+              <a href="downloads/CRL_Term_Sheet_WEBSITE.pdf" class="hero-cta secondary" style="font-size:13px;padding:8px 14px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">
                 Download PDF <span class="arrow">→</span>
               </a>
             </div>
@@ -143,7 +145,7 @@
             </ul>
             <div style="margin-top:14px;">
               <!-- Aggiorna l'href quando il PDF è pronto -->
-              <a href="downloads/CRL_Commercial_Overview_v1.0.pdf" class="hero-cta secondary" style="font-size:13px;padding:8px 14px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">
+              <a href="downloads/CRL_Commercial_Overview.pdf" class="hero-cta secondary" style="font-size:13px;padding:8px 14px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">
                 Download PDF <span class="arrow">→</span>
               </a>
             </div>
@@ -196,7 +198,7 @@
               Shared only under NDA and after eligibility checks.
             </p>
             <div style="margin-top:12px;">
-              <button class="hero-cta secondary" type="button" data-open-gate>
+              <button class="hero-cta secondary" type="button" data-open-gate data-doc="Technical & Structural Annex">
                 Request access <span class="arrow">→</span>
               </button>
             </div>
@@ -214,7 +216,7 @@
               Shared only under NDA and after eligibility checks.
             </p>
             <div style="margin-top:12px;">
-              <button class="hero-cta secondary" type="button" data-open-gate>
+              <button class="hero-cta secondary" type="button" data-open-gate data-doc="Risk & Dealer-Hedging Notes">
                 Request access <span class="arrow">→</span>
               </button>
             </div>
@@ -232,14 +234,14 @@
               Supports your internal product approval and IT security processes.
             </p>
             <div style="margin-top:12px;">
-              <button class="hero-cta secondary" type="button" data-open-gate>
+              <button class="hero-cta secondary" type="button" data-open-gate data-doc="Product Governance & Integration Notes">
                 Request access <span class="arrow">→</span>
               </button>
             </div>
           </article>
         </div>
 
-        <p style="margin-top:24px;max-width:760px;">
+        <p style="margin-top:24px;max-width:780px;margin-left:auto;margin-right:auto;text-align:center;">
           If you prefer, we can walk through the materials live with your product, risk and technology teams,
           instead of sending everything upfront. The goal is to align on where CRL sits in your architecture
           and which questions matter most for your institution.
@@ -252,37 +254,7 @@
   <!-- Footer (same pattern as other pages) -->
   <footer>
     <div class="f-grid">
-      <div>
-        <h4>Products</h4>
-        <a href="#" data-open-gate>CRL Base Specifications</a>
-        <a href="#" data-open-gate>Adaptive CRL Details</a>
-        <a href="#" data-open-gate>Integration Guide</a>
-        <a href="#" data-open-gate>API Documentation</a>
-      </div>
-      <div>
-        <h4>Resources</h4>
-        <a href="materials.html#public-downloads">Downloads</a>
-        <a href="#" data-open-gate>Technical Annex (gated)</a>
-        <a href="#" data-open-gate>Dealer Hedging Framework (gated)</a>
-        <a href="#" data-open-gate>Backtesting Pack (gated)</a>
-      </div>
-      <div>
-        <h4>Institutional Contacts</h4>
-        <a href="mailto:andrea@crl-technologies.com">Founder &amp; CEO</a>
-        <a href="mailto:partners@crl-technologies.com">Partnerships</a>
-        <a href="mailto:support@crl-technologies.com">Technical Support</a>
-        <a href="mailto:info@crl-technologies.com">General Info</a>
-      </div>
-      <div>
-        <h4>Security &amp; Legal</h4>
-        <a href="/privacy.html">Privacy Policy</a>
-        <a href="/terms.html">Terms of Service</a>
-        <a href="/cookies.html">Cookie Policy</a>
-        <a href="/regulatory.html">Regulatory Disclosures</a>
-      </div>
-    </div>
-
-    <div class="footer-address">
+      <div class="footer-address">
       <strong>CRL Technologies, Inc.</strong><br>
       1313 N Market Street, Suite 5100<br>
       Wilmington, DE 19801<br>
@@ -345,7 +317,8 @@
      <p class="modal-subtitle">
        Access to technical documentation and detailed research is reserved for licensed institutions and professional or eligible counterparties. If you are a retail client, this material is not intended for you.
      </p>
-     <form id="gateForm" novalidate>
+     <form id="gateForm" action="https://formspree.io/f/xpwevykk" method="POST" novalidate>
+       <input type="hidden" id="requestedDoc" name="requested_document" value="Full Materials Pack">
        <div>
          <label for="jurisdiction">Regulatory Jurisdiction</label>
          <select id="jurisdiction" name="jurisdiction" required>
@@ -520,7 +493,12 @@
      gate.style.display = 'none'; gate.setAttribute('aria-hidden', 'true');
      document.body.style.overflow = ''; if (gateOpenerElement){ gateOpenerElement.focus(); gateOpenerElement=null; }
    }
-   gateOpeners.forEach(el => el.addEventListener('click', e => { e.preventDefault(); openGate(el); }));
+   gateOpeners.forEach(el => el.addEventListener('click', e => { 
+      e.preventDefault(); 
+      const doc = el.getAttribute('data-doc') || 'General Request';
+      document.getElementById('requestedDoc').value = doc;
+      openGate(el); 
+    }));
    gateClosers.forEach(el => el.addEventListener('click', closeGate));
    gate.addEventListener('click', e => { if (e.target === gate) closeGate(); });
 
@@ -541,19 +519,29 @@
    demoClosers.forEach(el => el.addEventListener('click', closeDemo));
    demoModal.addEventListener('click', e => { if (e.target === demoModal) closeDemo(); });
 
-   // Gate & Demo form validation (light)
    document.getElementById('gateForm').addEventListener('submit', e => {
-     e.preventDefault();
-     const formData = new FormData(e.target);
-     const email = formData.get('email') || '';
-     const freeProviders = ['gmail.com','yahoo.com','outlook.com','hotmail.com','icloud.com','proton.me','aol.com','gmx.com'];
-     const domain = (email.split('@')[1] || '').toLowerCase();
-     if (freeProviders.includes(domain)) { alert('Please use your corporate email address.'); return; }
-     setTimeout(() => {
-       closeGate();
-       alert('Access granted. Gated content is now available.');
-     }, 500);
-   });
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const email = formData.get('email') || '';
+      const freeProviders = ['gmail.com','yahoo.com','outlook.com','hotmail.com','icloud.com','proton.me','aol.com','gmx.com'];
+      const domain = (email.split('@')[1] || '').toLowerCase();
+      if (freeProviders.includes(domain)) { alert('Please use your corporate email address.'); return; }
+      
+      // Invia a Formspree
+      fetch('https://formspree.io/f/xpwevykk', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          closeGate();
+          alert('Access granted. We will contact you shortly.');
+          e.target.reset();
+        } else {
+          alert('Error submitting form. Please try again.');
+        }
+      }).catch(() => alert('Error submitting form. Please try again.'));
+    });
    // Form now handled by Formspree
 
    // Mobile Menu
