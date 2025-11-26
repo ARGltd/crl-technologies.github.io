@@ -836,7 +836,7 @@
     .btn.secondary:hover{background:var(--g100);border-color:var(--accent);}
     .requirements{color:var(--g600);font-size:12px;padding:10px 16px;background:var(--g100);border-radius:8px;display:inline-block;margin-top:10px;}
 
-    footer{background:var(--g100);border-top:1px solid var(--g200);padding:60px 40px 40px;}
+    footer{background:var(--g100);border-top:1px solid var(--g200);padding:20px 20px 20px;}
     .f-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:40px;margin-bottom:32px;}
     .f-grid h4{font-size:13px;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.05em;color:var(--g700);}
     .f-grid a{display:block;color:var(--g700);text-decoration:none;margin:10px 0;font-size:14px;font-weight:700;transition:color 0.2s;}
@@ -845,9 +845,12 @@
     /* Footer Address (EXISTING) */
     .footer-address {
       text-align: center;
-      margin-top: 32px;
-      padding-top: 32px;
-      border-top: 1px solid var(--g200);
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--g300);
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .footer-address strong {
       font-size: 16px;
