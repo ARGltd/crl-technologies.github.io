@@ -1068,3 +1068,8 @@
     background-position:center;
   }
 }
+
+/* Fix for fixed header blocking anchor targets */
+[id] {
+  scroll-margin-top: 120px;
+}
