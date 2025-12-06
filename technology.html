@@ -97,10 +97,10 @@
           append-only and compatible with WORM / immutable storage if you require it.
         </p>
         <p style="margin-top:12px;max-width:780px;margin-left:auto;margin-right:auto;">
-          <strong>Performance and observability.</strong> The engine is deterministic and optimised
-          for low double-digit millisecond latency on typical payloads. Standard metrics for latency,
-          error rates and per-tenant throughput mean your NOC can treat CRL like any other core
-          service.
+          <strong>Performance and observability.</strong> The engine is deterministic and sized so
+          that, in production, it sits well within the latency budgets of professional trading stacks.
+          Standard metrics for latency, error rates and per-tenant throughput mean your NOC can treat
+          CRL like any other core service.
         </p>
         <p style="margin-top:12px;max-width:780px;margin-left:auto;margin-right:auto;">
           <strong>Tooling.</strong> We provide an OpenAPI specification, a Postman collection and
@@ -279,9 +279,9 @@
           <article class="card">
             <h3 class="title">API surface</h3>
             <p style="margin-top:8px;">
-              The public surface is a small set of REST endpoints for pricing and state updates. Response times in
-              testing are in the low tens of milliseconds, suitable for professional trading environments without
-              adding perceptible latency to your clients.
+               The public surface is a small set of REST endpoints for pricing and state updates.
+               Response times in testing are well within typical latency budgets for professional
+               trading environments, so the CRL layer does not add perceptible delay for your clients.
             </p>
           </article>
 
