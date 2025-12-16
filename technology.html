@@ -58,54 +58,107 @@
   <main id="main">
 
     <!-- Section 1: What the engine really does -->
-    <section class="section">
-      <div class="wrap" style="text-align:center;">
-        <h1 class="headline">How the CRL engine works</h1>
-        <p class="body-lg" style="margin-top:16px;max-width:780px;margin-left:auto;margin-right:auto;">
-          Technically, CRL is a leverage engine that sits between your price feed and your order
-          management. It does not replace your platform and it does not touch execution or custody.
-          It receives prices and order instructions, maintains a state for each position, and returns
-          the payoffs and settlements of a conditional, retroactive leverage structure that your
-          clients can trade as a product.
-        </p>
-        <p style="margin-top:16px;max-width:780px;margin-left:auto;margin-right:auto;">
-          The core design principle is simple: until a specific trigger is hit, the client behaves as if they were
-          essentially linear. When the trigger is confirmed, the whole move from entry is multiplied according to
-          a predefined rule, with a payoff that can be hedged and reported using standard tools.
-        </p>
+    <section class="section" style="background-image:url('images/code.jpg');background-size:cover;background-position:center;position:relative;padding:100px 20px;">
+      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.75);"></div>
+      <div style="position:relative;z-index:1;">
+        <div class="wrap" style="text-align:center;">
+          <h1 class="headline" style="color:white;">How the CRL engine works</h1>
+          <div style="background:rgba(255,255,255,0.95);padding:40px;border-radius:12px;max-width:800px;margin:32px auto 0;">
+            <p class="body-lg" style="margin:0 0 16px;">
+              Technically, CRL is a leverage engine that sits between your price feed and your order
+              management. It does not replace your platform and it does not touch execution or custody.
+            </p>
+            <p style="margin:0;">
+              The core design principle is simple: until a specific trigger is hit, the client behaves as if they were
+              essentially linear. When the trigger is confirmed, the whole move from entry is multiplied according to
+              a predefined rule, with a payoff that can be hedged and reported using standard tools.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- For CTO and architects -->
     <section class="section alt" id="for-cto">
-      <div class="wrap" style="text-align:center;">
-        <h2 class="headline">For your CTO and architects</h2>
-        <p style="margin-top:12px;max-width:780px;margin-left:auto;margin-right:auto;">
+      <div class="wrap" style="max-width:1000px;margin:0 auto;">
+        <h2 class="headline" style="text-align:center;">For your CTO and architects</h2>
+        <p style="text-align:center;max-width:780px;margin:12px auto 40px;">
           CRL is designed as a narrow, well-defined engine sitting between your price feed and your
           order / risk systems. No custody, no execution, no client-facing UI: just deterministic
           payoff calculations that your own systems can book, hedge and report.
         </p>
-        <p style="margin-top:12px;max-width:780px;margin-left:auto;margin-right:auto;">
-          <strong>Integration surface.</strong> REST API over mTLS with HMAC authentication per
-          institution. You send instrument, direction, size and configuration parameters; the engine
-          returns a full payoff path and a small set of risk / margin metrics. Idempotent endpoints
-          with correlation IDs keep your audit trails clean.
+        
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:24px;">
+          
+          <div style="padding:24px;background:white;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+            <h4 style="font-size:18px;font-weight:600;margin-bottom:12px;color:var(--accent);">Integration surface</h4>
+            <p style="font-size:15px;color:var(--g600);line-height:1.6;margin:0;">
+              REST API over mTLS with HMAC authentication per institution. You send instrument, direction, size and configuration; the engine returns a full payoff path and risk metrics.
+            </p>
+          </div>
+          
+          <div style="padding:24px;background:white;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+            <h4 style="font-size:18px;font-weight:600;margin-bottom:12px;color:var(--accent);">Security and isolation</h4>
+            <p style="font-size:15px;color:var(--g600);line-height:1.6;margin:0;">
+              mTLS, IP allow-listing and HMAC keys segregated per institution. CRL never stores client login credentials or payment details. Logs are append-only and WORM-compatible.
+            </p>
+          </div>
+          
+          <div style="padding:24px;background:white;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+            <h4 style="font-size:18px;font-weight:600;margin-bottom:12px;color:var(--accent);">Performance</h4>
+            <p style="font-size:15px;color:var(--g600);line-height:1.6;margin:0;">
+              The engine is deterministic and sized to sit within the latency budgets of professional trading stacks. Standard metrics for latency, error rates and per-tenant throughput.
+            </p>
+          </div>
+          
+          <div style="padding:24px;background:white;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+            <h4 style="font-size:18px;font-weight:600;margin-bottom:12px;color:var(--accent);">Tooling</h4>
+            <p style="font-size:15px;color:var(--g600);line-height:1.6;margin:0;">
+              OpenAPI specification, Postman collection and example client code so your team can exercise the API on day one. SDK available if needed.
+            </p>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Monitoring & Audit -->
+    <section class="section" id="monitoring-audit">
+      <div class="wrap" style="max-width:1000px;margin:0 auto;">
+        <h2 class="headline" style="text-align:center;">Monitoring & Audit</h2>
+        <p style="text-align:center;max-width:780px;margin:12px auto 40px;">
+          CRL runs with continuous operational monitoring and an integrity-grade audit trail 
+          designed for professional counterparties.
         </p>
-        <p style="margin-top:12px;max-width:780px;margin-left:auto;margin-right:auto;">
-          <strong>Security and isolation.</strong> mTLS, IP allow-listing and HMAC keys segregated
-          per institution. CRL never stores client login credentials or payment details. Logs are
-          append-only and compatible with WORM / immutable storage if you require it.
-        </p>
-        <p style="margin-top:12px;max-width:780px;margin-left:auto;margin-right:auto;">
-          <strong>Performance and observability.</strong> The engine is deterministic and sized so
-          that, in production, it sits well within the latency budgets of professional trading stacks.
-          Standard metrics for latency, error rates and per-tenant throughput mean your NOC can treat
-          CRL like any other core service.
-        </p>
-        <p style="margin-top:12px;max-width:780px;margin-left:auto;margin-right:auto;">
-          <strong>Tooling.</strong> We provide an OpenAPI specification, a Postman collection and
-          example client code so your team can exercise the API on day one. A more opinionated SDK
-          can be added if needed.
+        
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:24px;">
+          
+          <div style="padding:24px;background:white;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+            <h4 style="font-size:18px;font-weight:600;margin-bottom:12px;color:var(--accent);">Observability</h4>
+            <p style="font-size:15px;color:var(--g600);line-height:1.6;margin:0;">
+              Prometheus-based metrics and Grafana dashboards track latency (p50/p95/p99), error rates, upstream health, and capacity signals across the API and core engine.
+            </p>
+          </div>
+          
+          <div style="padding:24px;background:white;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+            <h4 style="font-size:18px;font-weight:600;margin-bottom:12px;color:var(--accent);">Security telemetry</h4>
+            <p style="font-size:15px;color:var(--g600);line-height:1.6;margin:0;">
+              Authentication failures are measured by reason (unknown key, bad signature, timestamp out of range) to support operational and security review.
+            </p>
+          </div>
+          
+          <div style="padding:24px;background:white;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+            <h4 style="font-size:18px;font-weight:600;margin-bottom:12px;color:var(--accent);">Audit integrity</h4>
+            <p style="font-size:15px;color:var(--g600);line-height:1.6;margin:0;">
+              Each calculation emits a structured audit event with cryptographic linkage (prev-hash chaining) and periodic Merkle batching. Batch roots signed via AWS KMS, stored in S3 WORM.
+            </p>
+          </div>
+          
+        </div>
+        
+        <p class="caption" style="text-align:center;margin-top:24px;">
+          <strong>Snapshot (Dec 2025):</strong> monitoring targets 8/8 up • 5,900+ audit events recorded • 
+          0 signature failures in latest integrity checks.
         </p>
       </div>
     </section>
@@ -115,11 +168,11 @@
       <div class="wrap" style="text-align:center;">
         <h2 class="headline">From linear exposure to conditional leverage</h2>
         <p style="margin-top:12px;max-width:780px;margin-left:auto;margin-right:auto;">
-          CRL does not add hidden exposure to your book. It reshapes <em>when</em> leverage appears and how it
-          is accounted for. Each CRL position lives in a small, finite set of states that your risk team can read
-          in plain language. In risk terms, you move from an always-leveraged profile, you move from an always-leveraged profile, where the client is exposed from the first tick,
-          to a structure where leverage only appears once the move you care about has actually happened.
-
+         <p style="margin-top:12px;max-width:780px;margin-left:auto;margin-right:auto;">
+            CRL does not add hidden exposure to your book. It reshapes <em>when</em> leverage appears and how it
+            is accounted for. Each CRL position lives in a small, finite set of states that your risk team can read
+            in plain language. In risk terms, you move from an always-leveraged profile, where the client is exposed from the first tick,
+            to a structure where leverage only appears once the move you care about has actually happened.
         </p>
 
         <div class="steps-timeline" style="margin-top:28px;">
@@ -155,6 +208,9 @@
         </div>
       </div>
     </section>
+
+    <!-- Break visivo -->
+    <section style="height:250px;background-image:url('images/tower-dark.jpg');background-size:cover;background-position:center;"></section>
 
     <!-- Section 3: Price, state, and calculations -->
     <section class="section">
@@ -257,6 +313,32 @@
       </div>
     </section>
 
+    <!-- Use Cases -->
+    <section class="section alt" id="use-cases">
+      <div class="wrap">
+        <h2 class="headline" style="text-align:center;">Two ways to deploy CRL</h2>
+        <p style="text-align:center;max-width:700px;margin:12px auto 48px;">
+          Most pilots start with one of these configurations.
+        </p>
+        <div class="p-grid">
+          <article class="card">
+            <span class="badge">Leverage upgrade</span>
+            <h3 class="title" style="margin-top:10px">Upgrade existing products</h3>
+            <p>
+              Turn the leverage you already offer into conditional leverage. Until confirmation, the client is linear. After trigger, the whole move from entry is multiplied.
+            </p>
+          </article>
+          <article class="card">
+            <span class="badge">Churn reduction</span>
+            <h3 class="title" style="margin-top:10px">Path for at-risk clients</h3>
+            <p>
+              Move clients statistically close to blow-up into a smarter leverage path — without asking them to stop trading.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>  
+
     <!-- Section 4: Integration and security -->
     <section class="section alt">
       <div class="wrap" style="text-align:center;">
@@ -301,9 +383,8 @@
             <p style="margin-top:8px;">
               The engine emits structured audit events and operational metrics that can be pulled into your existing
               monitoring stack. On top of the database audit trail, CRL runs a cryptographic audit chain: Merkle roots
-              for the audit log are signed through AWS KMS, stored in S3 buckets with object-lock/WORM policies and
-              exposed via Prometheus exporters so your risk and internal audit teams can independently verify integrity
-              over time.
+              for the audit log are signed through AWS KMS and stored in S3 with WORM retention (COMPLIANCE mode, 7 years).
+              Prometheus exporters allow your risk and internal audit teams to independently verify integrity over time.
             </p>
           </article>
         </div>
@@ -401,54 +482,65 @@
       </div>
     </section>
 
-        <!-- For Legal, Compliance and Risk -->
-    <section class="section" id="legal-risk">
-      <div class="wrap" style="text-align:center;">
-        <h2 class="headline">For Legal, Compliance and Risk</h2>
-        <p style="margin-top:12px;max-width:780px;margin-left:auto;margin-right:auto;">
+    <!-- For Legal, Compliance and Risk -->
+    <section class="section alt" id="legal-risk">
+      <div class="wrap" style="max-width:1000px;margin:0 auto;">
+        <h2 class="headline" style="text-align:center;">For Legal, Compliance and Risk</h2>
+        <p style="text-align:center;max-width:780px;margin:12px auto 32px;">
           CRL is delivered strictly as a business-to-business calculation engine. We are not a
           broker-dealer, we do not execute trades, we do not hold client assets and we do not
-          face your end-clients directly. Your institution remains fully responsible for product
-          governance, client classification, suitability / appropriateness, disclosures and
-          regulatory reporting.
+          face your end-clients directly.
         </p>
-        <p style="margin-top:12px;max-width:780px;margin-left:auto;margin-right:auto;">
-          In practice, CRL operates as a configurable software component inside your existing
-          framework and under your own approvals. You decide which client segments and instruments
-          may access CRL-based structures, how they are labelled, and what level of leverage and
-          risk is appropriate for each segment.
-        </p>
-        <p style="margin-top:12px;max-width:780px;margin-left:auto;margin-right:auto;">
-          Any quantitative statements we make (for example, the 60–75% reduction in early account
-          wipe-outs and the 5–6 month increase in median relationship duration) are anchored in a
-          documented Monte Carlo simulation with clearly stated assumptions and limitations. We apply
-          a conservative haircut to all figures used in external communications, and we provide the
-          full technical note so your risk and model-validation teams can review or reproduce the
-          results.
-        </p>
-        <p class="caption" style="margin-top:16px;">
-          Full methodology, assumptions and code are available in the CRL Quantitative Evidence
-          Report, shared under NDA as part of the gated documentation pack for qualified
-          institutions.
+        
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:24px;">
+          
+          <div style="padding:24px;background:white;border-radius:8px;border:1px solid var(--g200);">
+            <h4 style="font-size:16px;font-weight:600;margin-bottom:8px;">Your governance</h4>
+            <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
+              Your institution remains fully responsible for product governance, client classification, suitability, disclosures and regulatory reporting.
+            </p>
+          </div>
+          
+          <div style="padding:24px;background:white;border-radius:8px;border:1px solid var(--g200);">
+            <h4 style="font-size:16px;font-weight:600;margin-bottom:8px;">Configurable</h4>
+            <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
+              CRL operates as a configurable software component inside your existing framework. You decide which client segments and instruments may access CRL-based structures.
+            </p>
+          </div>
+          
+          <div style="padding:24px;background:white;border-radius:8px;border:1px solid var(--g200);">
+            <h4 style="font-size:16px;font-weight:600;margin-bottom:8px;">Evidence-based</h4>
+            <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
+              All quantitative statements anchored in documented 1M-path Monte Carlo simulation. Stop-out reduction from 43.5% to 3.0% (−93%) in standard 5D configuration.
+            </p>
+          </div>
+          
+        </div>
+        
+        <p class="caption" style="text-align:center;margin-top:24px;">
+          Full methodology, assumptions and code available in the CRL Quantitative Evidence Report, shared under NDA.
         </p>
       </div>
     </section>
 
     <!-- Section 5: Next steps CTA -->
-    <section class="section">
-      <div class="wrap" style="text-align:center;">
-        <h2 class="headline">See the engine in your own architecture</h2>
-        <p style="margin-top:12px;max-width:720px;margin-left:auto;margin-right:auto;">
-          The most useful conversation is not abstract. It is to look at how CRL would sit next to your current
-          products, platforms and risk views, and what a small, controlled pilot would look like.
-        </p>
-        <div class="hero-ctas" style="display:flex;justify-content:center;margin-top:24px;">
-          <button class="hero-cta" type="button" data-open-demo>
-            Request technical demo <span class="arrow">→</span>
-          </button>
-          <a href="materials.html" class="hero-cta secondary" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;">
-            View gated materials <span class="arrow">→</span>
-          </a>
+    <section class="section" style="background-image:url('images/facade-dark.jpg');background-size:cover;background-position:center;position:relative;padding:80px 20px;">
+      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.7);"></div>
+      <div style="position:relative;z-index:1;">
+        <div class="wrap" style="text-align:center;">
+          <h2 class="headline" style="color:white;">See the engine in your own architecture</h2>
+          <p style="margin-top:12px;max-width:720px;margin-left:auto;margin-right:auto;color:rgba(255,255,255,0.85);">
+            The most useful conversation is not abstract. It is to look at how CRL would sit next to your current
+            products, platforms and risk views, and what a small, controlled pilot would look like.
+          </p>
+          <div class="hero-ctas" style="display:flex;justify-content:center;margin-top:24px;gap:16px;flex-wrap:wrap;">
+            <button class="hero-cta" type="button" data-open-demo>
+              Request technical demo <span class="arrow">→</span>
+            </button>
+            <a href="materials.html" class="hero-cta secondary" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;">
+              View gated materials <span class="arrow">→</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -502,7 +594,7 @@
         <p style="margin: 12px 0; font-size: 0.9em; line-height: 1.6;">
           © 2025 CRL Technologies, Inc. All rights reserved.
           Conditional Retroactive Leverage™ is a trademark of CRL Technologies, Inc.
-          Patent filed July 31, 2025 (US provisional). PCT application pending.
+          Patent filed July 31, 2025 (US provisional). PCT filing planned.
           CRL provides calculation technology only; no investment advice or execution services.
           Derivatives trading involves substantial risk of loss. Past performance is not indicative of future results.
         </p>

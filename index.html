@@ -57,6 +57,7 @@
       <div class="nav-links" aria-label="Primary">
         <a href="technology.html">Technology</a>
         <a href="materials.html">Materials</a>
+        <a href="for-traders.html">For Institutions</a>   
         <a href="faq.html">FAQ</a>
         <a href="about.html">About</a>
         <a href="#contacts">Contacts</a>
@@ -69,57 +70,51 @@
     </div>
   </nav>
 
+  <section style="padding:0;margin:0;">
+    <img src="images/semyon-borisov-EmL4sxke4PY-unsplash.jpg" alt="" style="width:100%;height:auto;display:block;">
+  </section>
 
     <main id="main">
     <!-- Hero -->
     <section class="hero fade-in" aria-labelledby="hero-title">
       <span class="patent">
         <span class="patent-icon">™</span>
-        Patent Filed July 2025 • PCT Pending
+        Provisional filed July 2025 • PCT filing planned
       </span>
 
       <h1 id="hero-title" class="display">
-         White-label leverage engine for professional brokers<br/>
+        <span class="hero-headline">Leverage that waits</span><span class="dots"></span><br/>
         <span class="highlight">
-          Professional leverage, without the churn and burn. CRL is a production-ready calculation layer that lets you offer conditional leverage on top of the products you already sell.
+          Same stop price. Less front-loaded exposure before confirmation.
         </span>
       </h1>
 
+      <p style="font-size:14px;color:var(--g600);margin-bottom:8px;">
+        Built for brokers and venues. Not a retail product.
+      </p>
+
       <p class="body-lg">
-        CRL runs as an authenticated API under your existing infrastructure — your clients
-        trade on the same tickets and your risk team keeps using the same tools.
-        Behind the scenes, the CRL engine manages conditional leverage payoffs and state transitions
-        so that fewer clients blow up in the early months and more of your client acquisition cost
-        turns into recurring, compounding margin.
+        A white-label calculation engine for professional brokers.<br/>
+        Base exposure before confirmation. Leverage applied retroactively after trigger.<br/>
+        <strong>Discontinuous payoff jump — capped, auditable, policy-controlled.</strong>
       </p>
 
       <p class="caption hero-sub-metrics">
-        <strong>Production environment:</strong>
-        17 test tenants in a production-grade environment •
-        300+ positions processed through the full lifecycle •
-        2.3M+ position updates across validation campaigns •
-        zero data-loss events •
-        cryptographic audit chain (AWS KMS + S3 WORM)
-        <br/>
-        <a href="#" style="color:var(--accent);font-weight:600;text-decoration:none;">
-          → View monitoring and audit stack
-        </a>
-        •
-        <a href="#" style="color:var(--accent);font-weight:600;text-decoration:none;">
+        <a href="materials.html#public-downloads" style="color:var(--accent);font-weight:600;text-decoration:none;">
           → Test the API (Postman kit)
         </a>
-        •
-        <a href="#" style="color:var(--accent);font-weight:600;text-decoration:none;">
-          → Request full technical spec
-        </a>
+        &nbsp;·&nbsp;
+        <button type="button" data-open-gate style="background:none;border:none;color:var(--accent);font-weight:600;cursor:pointer;font-size:inherit;padding:0;">
+          → View technical spec
+        </button>
       </p>
 
       <div class="hero-ctas">
-        <button class="hero-cta" type="button" data-open-demo>
-          Request institutional demo <span class="arrow">→</span>
+        <button class="hero-cta" type="button" data-open-gate>
+          Request Evidence Pack <span class="arrow">→</span>
         </button>
-        <button class="hero-cta secondary" type="button" data-open-gate>
-          Download technical term sheet <span class="arrow">→</span>
+        <button class="hero-cta secondary" type="button" data-open-demo>
+          Request Institutional Demo <span class="arrow">→</span>
         </button>
       </div>
 
@@ -133,81 +128,408 @@
           <div class="hero-metric-label">Fewer liquidations, longer LTV</div>
         </div>
         <div class="hero-metric">
-          <div class="hero-metric-value">Infrastructure</div>
-          <div class="hero-metric-label">API on top of what you have + KMS-signed cryptographic audit chain</div>
+          <div class="hero-metric-value">Audit</div>
+          <div class="hero-metric-label">Signed records, exportable for compliance</div>
         </div>
       </div>
     </section>
 
-    <!-- Who we are -->
-    <section class="section" id="about">
-      <div class="wrap">
-        <h2 class="headline">Who we are and what we really do</h2>
-        <p>
-          We build a leverage engine for professional clients that is explicitly designed to turn a high churn leveraged business
-          into a higher margin, longer lived one.
-        </p>
-        <p>
-          We sit as a calculation and payoff engine under the products you already sell and reshape when and how leverage applies.
-          Instead of one off P and L spikes and early blow ups, more of your “almost good” clients stay in the game long enough
-          to become your best clients.
-        </p>
-        <p>
-          <strong>
-            In one line: CRL lets you keep selling leverage, but in a way that reduces ruin events and increases client lifetime value,
-            using the infrastructure and risk models you already have.
-          </strong>
+    <!-- Production Status -->
+    <section class="section" id="production-status" style="background:var(--g100);padding:60px 20px;">
+      <div style="max-width:1000px;margin:0 auto;text-align:center;">
+        <h2 class="headline" style="margin-bottom:32px;">Production environment</h2>
+        <div style="display:flex;justify-content:center;gap:48px;flex-wrap:wrap;">
+          <div>
+            <div style="font-size:36px;font-weight:700;color:var(--g900);" data-counter="17">0</div>
+            <div style="font-size:14px;color:var(--g600);">Internal tenants</div>
+          </div>
+          <div>
+            <div style="font-size:36px;font-weight:700;color:var(--g900);" data-counter="300+">0</div>
+            <div style="font-size:14px;color:var(--g600);">Positions processed</div>
+          </div>
+          <div>
+            <div style="font-size:36px;font-weight:700;color:var(--g900);" data-counter="2.3M+">0</div>
+            <div style="font-size:14px;color:var(--g600);">Position updates</div>
+          </div>
+          <div>
+            <div style="font-size:36px;font-weight:700;color:var(--g900);" data-counter="0">0</div>
+            <div style="font-size:14px;color:var(--g600);">Data-loss events</div>
+          </div>
+        </div>
+        <p style="margin-top:24px;font-size:14px;color:var(--g600);">
+          Cryptographic audit chain (AWS KMS + S3 WORM) · Full lifecycle validation
         </p>
       </div>
+    </section>
+
+    <!-- The Problem -->
+    <section class="section" id="the-problem" style="background:var(--g900);color:white;padding:100px 20px;">
+      <div style="max-width:900px;margin:0 auto;text-align:center;">
+        
+        <h2 style="color:white;font-size:42px;margin-bottom:48px;font-family:'Times New Roman',Times,serif;font-weight:700;text-align:center;">
+          Leverage doesn't distinguish timing from direction.
+        </h2>
+        
+        <p style="font-size:20px;line-height:1.8;margin:0 0 32px;color:rgba(255,255,255,0.9);">
+          A client can be right about where the market is going and still get liquidated — because the move took three days instead of three hours. Standard leverage treats both outcomes the same way.
+        </p>
+        
+        <p style="font-size:20px;line-height:1.8;margin:0 0 32px;color:rgba(255,255,255,0.9);">
+          For brokers, this creates a predictable pattern: accounts that survive the first weeks become profitable; accounts that don't, never get the chance. The economics of early liquidation are structural, not behavioral.
+        </p>
+
+        <div style="margin:48px auto;padding:32px 40px;border-left:4px solid var(--accent);background:rgba(255,255,255,0.03);text-align:left;max-width:600px;">
+          <p style="margin:0 0 16px;font-size:18px;color:var(--accent);font-weight:600;">
+            CRL changes when leverage activates — not whether it activates.
+          </p>
+          <p style="margin:0;font-size:17px;line-height:1.7;color:rgba(255,255,255,0.8);">
+            <strong style="color:white;">Pre-confirmation:</strong> base exposure only.<br/>
+            <strong style="color:white;">Post-confirmation:</strong> leverage applied retroactively from entry.
+          </p>
+        </div>
+
+        <p style="font-size:18px;line-height:1.8;margin:0 0 48px;color:rgba(255,255,255,0.7);">
+          Based on 10M+ Monte Carlo paths, CRL profiles show a <strong style="color:white;">60–85% reduction</strong> in early wipe-outs and <strong style="color:white;">+5–6 months</strong> extension in average client lifetime. Simulation methodology included in the Evidence Pack.
+        </p>
+        
+        <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
+          <button class="hero-cta" type="button" data-open-gate style="background:white;color:var(--g900);font-size:16px;padding:16px 32px;border:none;border-radius:6px;cursor:pointer;font-weight:600;">
+            Request Evidence Pack <span class="arrow">→</span>
+          </button>
+          <button class="hero-cta secondary" type="button" data-open-demo style="background:transparent;border:2px solid rgba(255,255,255,0.4);color:white;font-size:16px;padding:16px 32px;border-radius:6px;cursor:pointer;font-weight:600;">
+            Request Institutional Demo <span class="arrow">→</span>
+          </button>
+        </div>
+        
+        <p style="margin-top:40px;color:rgba(255,255,255,0.4);font-size:13px;text-align:center;">
+          Professional counterparties only. Simulated performance is not indicative of future results.
+        </p>
+      </div>
+    </section>
+
+    <!-- The Solution -->
+    <section class="section" id="the-solution" style="background:var(--g100);padding:80px 20px;">
+      <div class="wrap" style="max-width:800px;margin:0 auto;">
+        
+        <h2 class="headline" style="margin-bottom:24px;">The payoff difference</h2>
+        
+        <p style="font-size:17px;line-height:1.8;margin:0 0 32px;color:var(--g800);">
+          Both structures offer leveraged exposure. The difference is how they behave when timing is wrong — when the market moves against the position before eventually moving in the expected direction.
+        </p>
+
+        <!-- Example table -->
+        <div style="background:white;border:1px solid var(--g300);border-radius:8px;overflow:hidden;margin:32px 0;">
+          <table style="width:100%;border-collapse:collapse;font-size:15px;">
+            <thead>
+              <tr style="background:var(--g900);color:white;">
+                <th style="padding:16px 20px;text-align:left;font-weight:600;">Scenario</th>
+                <th style="padding:16px 20px;text-align:right;font-weight:600;">Traditional 5×</th>
+                <th style="padding:16px 20px;text-align:right;font-weight:600;">CRL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--g200);">
+                <td style="padding:16px 20px;color:var(--g700);">Price drops 10%, then recovers<br/><span style="font-size:13px;color:var(--g500);">(client is right, but early)</span></td>
+                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--g800);">−50% equity<br/><span style="font-size:13px;font-weight:400;color:var(--g500);">Likely liquidated</span></td>
+                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--accent);">−Premium<br/><span style="font-size:13px;font-weight:400;color:var(--g500);">Position survives</span></td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--g200);">
+                <td style="padding:16px 20px;color:var(--g700);">Price rises 10%, trigger hit<br/><span style="font-size:13px;color:var(--g500);">(client is right, confirmed)</span></td>
+                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--g800);">+50% equity</td>
+                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--accent);">+Kicker from entry<br/><span style="font-size:13px;font-weight:400;color:var(--g500);">Retroactive leverage</span></td>
+              </tr>
+              <tr>
+                <td style="padding:16px 20px;color:var(--g700);">Price never reaches trigger, expires<br/><span style="font-size:13px;color:var(--g500);">(no confirmation)</span></td>
+                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--g600);">Depends on exit</td>
+                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--accent);">−Premium<br/><span style="font-size:13px;font-weight:400;color:var(--g500);">Max loss (ticket terms)</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p style="font-size:15px;line-height:1.7;margin:0 0 16px;color:var(--g700);">
+          <strong>The structural difference:</strong> traditional leverage applies full amplification from entry. CRL defers amplification until market confirmation, bounding the cost of being early to the premium.
+        </p>
+
+        <p style="font-size:13px;color:var(--g500);margin:0;">
+          Illustrative. Actual outcomes depend on issuer terms, trigger parameters, and market conditions.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section" id="how-it-works" style="background-image:url('images/precious-madubuike-6VvhrA5t4nM-unsplash.jpg');background-size:cover;background-position:center;">
+      <div class="wrap">
+        <div style="background:rgba(255,255,255,0.95);padding:48px 40px;border-radius:12px;max-width:1000px;margin:0 auto;">
+          <h2 class="headline" style="text-align:center;">How it works</h2>
+          <p style="text-align:center;max-width:700px;margin:12px auto 48px;">
+            Four steps from entry to leveraged payoff. No changes to your execution or risk infrastructure.
+          </p>
+          
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:24px;">
+            
+            <div style="text-align:center;padding:24px;background:white;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+              <div style="font-size:48px;font-weight:700;color:var(--accent);margin-bottom:12px;font-style:italic;">1</div>
+              <h3 style="font-size:18px;font-weight:600;margin-bottom:8px;">Define the trigger</h3>
+              <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
+                Choose a confirmation condition that represents market validation.
+              </p>
+            </div>
+            
+            <div style="text-align:center;padding:24px;background:white;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+              <div style="font-size:48px;font-weight:700;color:var(--accent);margin-bottom:12px;font-style:italic;">2</div>
+              <h3 style="font-size:18px;font-weight:600;margin-bottom:8px;">Premium upfront</h3>
+              <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
+                Issuer-defined premium to access the kicker. Ticket terms can bound max loss to that premium.
+              </p>
+            </div>
+            
+            <div style="text-align:center;padding:24px;background:white;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+              <div style="font-size:48px;font-weight:700;color:var(--accent);margin-bottom:12px;font-style:italic;">3</div>
+              <h3 style="font-size:18px;font-weight:600;margin-bottom:8px;">Trigger hit</h3>
+              <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
+                When the trigger is hit, leverage activates. Not from now—from entry.
+              </p>
+            </div>
+            
+            <div style="text-align:center;padding:24px;background:white;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+              <div style="font-size:48px;font-weight:700;color:var(--accent);margin-bottom:12px;font-style:italic;">4</div>
+              <h3 style="font-size:18px;font-weight:600;margin-bottom:8px;">Retroactive payoff</h3>
+              <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
+                Leverage (policy-defined, e.g. 5×) applied from original entry. Discontinuous payoff jump.
+              </p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Brokers Choose CRL -->
+    <section class="section" id="why-brokers">
+      <div class="wrap">
+        <h2 class="headline" style="text-align:center;">Why brokers choose CRL</h2>
+        <p style="text-align:center;max-width:700px;margin:12px auto 48px;">
+          Built for your economics, not just your clients' experience.
+        </p>
+        
+        <div class="p-grid">
+          
+          <article class="card">
+            <h3 class="title">Longer client lifetime</h3>
+            <p>
+              Reduce early wipe-outs structurally and extend account longevity. Evidence is simulation-based and provided for internal review.
+            </p>
+            <p style="font-size:14px;color:var(--accent);font-weight:600;margin-top:12px;">
+              +5–6 months median survival
+            </p>
+          </article>
+          
+          <article class="card">
+            <h3 class="title">Differentiation you can explain</h3>
+            <p>
+              CRL is not "better leverage." It is leverage that activates on confirmation—simple to communicate, hard to copy.
+            </p>
+            <p style="font-size:14px;color:var(--accent);font-weight:600;margin-top:12px;">
+              Patent pending (US/EU)
+            </p>
+          </article>
+          
+          <article class="card">
+            <h3 class="title">Additive revenue line</h3>
+            <p>
+              New margin stream sized to your rollout scope. Commercial model and pilot economics included in the Evidence Pack.
+            </p>
+            <p style="font-size:14px;color:var(--accent);font-weight:600;margin-top:12px;">
+              Structure in Evidence Pack
+            </p>
+          </article>
+          
+          <article class="card">
+            <h3 class="title">Low integration friction</h3>
+            <p>
+              API-first integration designed to fit inside existing broker workflows. No changes to your execution stack.
+            </p>
+            <p style="font-size:14px;color:var(--accent);font-weight:600;margin-top:12px;">
+              &lt;2 weeks typical timeline
+            </p>
+          </article>
+
+          <article class="card">
+            <h3 class="title">Built for churn economics</h3>
+            <p>
+              Most losses concentrate in the first months. Clients who survive 12+ months generate multiple times the LTV. CRL targets that gap structurally.
+            </p>
+            <p style="font-size:14px;color:var(--accent);font-weight:600;margin-top:12px;">
+              Same clients, longer lifetime
+            </p>
+          </article>
+
+          <article class="card">
+            <h3 class="title">Works with what you have</h3>
+            <p>
+              If you already invest in retention, education and governance, CRL gives your product stack a leverage profile that finally matches that strategy.
+            </p>
+            <p style="font-size:14px;color:var(--accent);font-weight:600;margin-top:12px;">
+              No platform rebuild required
+            </p>
+          </article>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Numbers -->
+    <section class="section alt" id="numbers">
+      <div class="wrap" style="max-width:1000px;margin:0 auto;">
+        <h2 class="headline" style="text-align:center;">Measured claims. Reviewable evidence.</h2>
+        <p style="text-align:center;max-width:600px;margin:12px auto 48px;color:var(--g600);">
+          All figures are documented. No performance or return promises.
+        </p>
+        
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:48px;">
+          
+          <!-- Business Impact -->
+          <div style="text-align:center;">
+            <h3 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--g500);margin-bottom:24px;">Business impact</h3>
+            <div style="margin-bottom:24px;">
+              <div style="font-size:36px;font-weight:700;color:var(--g900);" data-counter="43.5%">0%</div>
+              <div style="font-size:15px;color:var(--g600);">→ 3.0% · Stop-out rate under Monte Carlo (5D profile)</div>
+            </div>
+            <div style="margin-bottom:24px;">
+              <div style="font-size:36px;font-weight:700;color:var(--g900);" data-counter="−93%">0%</div>
+              <div style="font-size:15px;color:var(--g600);">Reduction in margin liquidations</div>
+            </div>
+            <div>
+              <div style="font-size:36px;font-weight:700;color:var(--g900);">Additive ARPU</div>
+              <div style="font-size:15px;color:var(--g600);">Model in Evidence Pack</div>
+            </div>
+          </div>
+          
+          <!-- Technical Profile -->
+          <div style="text-align:center;">
+            <h3 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--g500);margin-bottom:24px;">Technical profile</h3>
+            <div style="margin-bottom:24px;">
+              <div style="font-size:36px;font-weight:700;color:var(--g900);" data-counter="100">0</div>
+              <div style="font-size:15px;color:var(--g600);">p99 latency (µs, core path)</div>
+            </div>
+            <div style="margin-bottom:24px;">
+              <div style="font-size:36px;font-weight:700;color:var(--g900);" data-counter="2">0</div>
+              <div style="font-size:15px;color:var(--g600);">Weeks typical API integration</div>
+            </div>
+            <div>
+              <div style="font-size:36px;font-weight:700;color:var(--g900);" data-counter="10M+">0</div>
+              <div style="font-size:15px;color:var(--g600);">Monte Carlo paths evaluated</div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Integration -->
+    <section class="section" id="integration-preview">
+      <div class="wrap" style="max-width:800px;margin:0 auto;text-align:center;">
+        <h2 class="headline">API-first. Built for procurement.</h2>
+        
+        <p style="font-size:18px;line-height:1.7;margin:24px auto 32px;max-width:650px;">
+          CRL is delivered as a white-label calculation engine with integration tooling designed for fast evaluation: SDKs, request signing patterns, sandbox access, and a clear day-by-day rollout plan.
+        </p>
+        
+        <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:32px;">
+          <a href="integration.html" class="hero-cta secondary" style="text-decoration:none;">
+            View Integration Requirements <span class="arrow">→</span>
+          </a>
+          <button class="hero-cta secondary" type="button" data-open-gate>
+            Request Sandbox Access <span class="arrow">→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security & Compliance -->
+    <section class="section alt" id="security-compliance-preview" style="background-image:url('images/kevin-bessat-pAvCsFr13pU-unsplash.jpg');background-size:cover;background-position:center;position:relative;">
+     <div style="position:absolute;inset:0;background:rgba(248,248,248,0.92);"></div>
+     <div style="position:relative;z-index:1;">
+      <div class="wrap" style="max-width:900px;margin:0 auto;">
+        <h2 class="headline" style="text-align:center;">Clear perimeter. Defensible audit.</h2>
+        
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:24px;margin-top:40px;">
+          
+          <div style="padding:24px;background:white;border-radius:8px;border:1px solid var(--g200);">
+            <h4 style="font-size:16px;font-weight:600;margin-bottom:8px;">Professional only</h4>
+            <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
+              MiFID II professional counterparties. Not a retail product.
+            </p>
+          </div>
+          
+          <div style="padding:24px;background:white;border-radius:8px;border:1px solid var(--g200);">
+            <h4 style="font-size:16px;font-weight:600;margin-bottom:8px;">Perimeter clarity</h4>
+            <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
+              CRL is not a broker, not an execution venue, not custody.
+            </p>
+          </div>
+          
+          <div style="padding:24px;background:white;border-radius:8px;border:1px solid var(--g200);">
+            <h4 style="font-size:16px;font-weight:600;margin-bottom:8px;">Secure integration</h4>
+            <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
+              mTLS where required, HMAC-style request integrity.
+            </p>
+          </div>
+          
+          <div style="padding:24px;background:white;border-radius:8px;border:1px solid var(--g200);">
+            <h4 style="font-size:16px;font-weight:600;margin-bottom:8px;">Signed audit trail</h4>
+            <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
+              Every request generates a signed record (timestamp, input hash, output hash).
+            </p>
+          </div>
+          
+        </div>
+        
+        <p style="text-align:center;margin-top:32px;">
+          <a href="security-compliance.html" style="color:var(--accent);font-weight:600;text-decoration:none;">
+            View full Security & Compliance details →
+          </a>
+        </p>
+      </div>
+    </div>
     </section>
 
     <!-- Outcomes -->
     <section class="section" id="outcomes">
-      <div class="wrap">
-      <h2 class="headline">What changes in your numbers</h2>
-      <p>
-        CRL is not a new asset class. It is a leverage engine that reshapes 
-        how risk and payoff are distributed across time. The result is simple:
-        fewer early blow-ups, a longer useful life for the same clients, and
-        leverage economics that are easier to defend internally.
-      </p>
-
-      <div class="metrics-grid">
-        <div class="metric">
-          <h3>Fewer early wipe-outs</h3>
-          <p>
-            In internal Monte Carlo testing on 1,000,000 scenarios, CRL-style
-            conditional leverage structures reduced early account wipe-outs
-            (first 30 days) by <strong>84.8%</strong> compared
-            to equivalent fixed-leverage positions.
-          </p>
+      <div class="wrap" style="max-width:800px;margin:0 auto;">
+        <h2 class="headline">What changes in your numbers</h2>
+        
+        <p style="font-size:19px;line-height:1.8;margin:24px 0 32px;">
+          CRL is not a new asset class. It is a leverage engine that reshapes 
+          how risk and payoff are distributed across time.
+        </p>
+        
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:24px;margin:32px 0;">
+          <div style="padding:24px;background:var(--g100);border-radius:8px;">
+            <h4 style="font-size:16px;font-weight:600;margin-bottom:8px;">Fewer stop-outs</h4>
+            <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
+              Fewer accounts hitting liquidation in the critical early period.
+            </p>
+          </div>
+          <div style="padding:24px;background:var(--g100);border-radius:8px;">
+            <h4 style="font-size:16px;font-weight:600;margin-bottom:8px;">Longer relationships</h4>
+            <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
+              Same clients, extended lifetime, higher cumulative value.
+            </p>
+          </div>
+          <div style="padding:24px;background:var(--g100);border-radius:8px;">
+            <h4 style="font-size:16px;font-weight:600;margin-bottom:8px;">Defendable P&L</h4>
+            <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
+              Smoother payoff path, easier to explain to risk and compliance.
+            </p>
+          </div>
         </div>
-        <div class="metric">
-          <h3>Longer client relationships</h3>
-          <p>
-            Under the same testing assumptions, median relationship duration
-            increased by <strong>6.8 months</strong> for
-            comparable leverage profiles, as accounts were less likely to be
-            wiped out by early adverse volatility.
-          </p>
-        </div>
-        <div class="metric">
-          <h3>Defendable P&amp;L profile</h3>
-          <p>
-            The payoff path becomes smoother: more trades, fewer extreme tail
-            events, and a P&amp;L profile that is easier to explain to risk,
-            compliance and the board than traditional “all-or-nothing”
-            leverage.
-          </p>
-        </div>
-      </div>
-
-      <p class="disclaimer">
-        Results based on internal Monte Carlo simulation using simplified
-        price dynamics. Model does not include transaction costs or 
-        behavioural effects. Simulated performance is not a reliable
-        indicator of future results. Professional clients only.
-      </p>
+        
+        <p style="font-size:14px;color:var(--g500);margin-top:24px;">
+          Evidence: 1M+ Monte Carlo paths, five market regimes. Full methodology in Evidence Pack.
+        </p>
       </div>
     </section>
 
@@ -264,32 +586,18 @@
       </div>
     </section>
 
-    <!-- Churn angle -->
-    <section class="section" id="churn">
-      <div class="wrap">
-        <h2 class="headline">Built for the economics of churn</h2>
-        <p style="margin-top:12px;max-width:780px;"></p>
-          The leveraged industry has accepted extremely high churn in active clients as “the nature of the game”. Public data show
-          that most losses and departures are concentrated in the first months of activity, while the clients who survive beyond
-          twelve months generate several times the lifetime value.
-        </p>
-        <p style="margin-top:10px;max-width:780px;"></p>
-          Players that shifted from churn and burn to retention have already seen client lifetime value and revenue stability
-          improve sharply. But most of this progress lives in limits, wrappers and coaching, not in a different payoff engine.
-        </p>
-        <p style="margin-top:10px;max-width:780px;"></p>
-          CRL is built exactly for that gap. Instead of asking clients to behave perfectly around a fragile payoff, we redesign
-          the payoff itself so that normal human behaviour is less likely to end in a permanent wipe out. If you are already
-          investing in retention, client education and product governance, CRL gives you a leverage engine that finally matches
-          that strategy.
-        </p>
-      </div>
-    </section>
-
     <!-- Technical Comparison -->
     <section class="diff">
       <div class="diff-wrap">
         <h2 class="headline" style="text-align:center">Superior to Traditional Leverage</h2>
+        <p>CRL is not a turbo, a barrier or a CFD with nicer marketing. It is a different payoff family.</p>
+        <p>The table below shows, in one glance, what changes structurally: retroactive profit multiplication, loss bounded to premium (per ticket terms), no client margin calls at product level (per issuer terms), and patent protection on the core mechanics.</p>
+        
+        <p style="margin:12px auto 14px;max-width:980px;opacity:.85;line-height:1.5;">
+          Note: “ticket-level” characteristics apply when CRL-enabled structures are issued under the broker’s product terms.
+          Client protection, margining and eligibility remain subject to the authorized intermediary’s policies and jurisdiction.
+        </p>
+
         <div class="table-scroll">
           <table>
             <thead>
@@ -303,9 +611,9 @@
             </thead>
             <tbody>
               <tr><td>Retroactive Profit Multiplication</td><td class="crl-col"><span class="pill yes">Yes</span></td><td><span class="pill no">No</span></td><td><span class="pill no">No</span></td><td><span class="pill no">No</span></td></tr>
-              <tr><td>Loss Limited to Premium</td><td class="crl-col"><span class="pill yes">Always</span></td><td><span class="pill yes">Yes</span></td><td><span class="pill yes">Yes</span></td><td><span class="pill no">No</span></td></tr>
-              <tr><td>Zero Margin Requirements (client)</td><td class="crl-col"><span class="pill yes">At product</span></td><td><span class="pill yes">Yes</span></td><td><span class="pill yes">Yes</span></td><td><span class="pill no">No</span></td></tr>
-              <tr><td>Client Margin Calls</td><td class="crl-col"><span class="pill yes">None*</span></td><td><span class="pill yes">None</span></td><td><span class="pill yes">None</span></td><td><span class="pill no">Possible</span></td></tr>
+              <tr><td>Loss Bounded to Premium (ticket terms)</td><td class="crl-col"><span class="pill yes">Per ticket</span></td><td><span class="pill yes">Yes</span></td><td><span class="pill yes">Yes</span></td><td><span class="pill no">No</span></td></tr>
+              <tr><td>Zero Margin Requirements (product level)</td><td class="crl-col"><span class="pill yes">Per terms</span></td><td><span class="pill yes">Yes</span></td><td><span class="pill yes">Yes</span></td><td><span class="pill no">No</span></td></tr>
+              <tr><td>Client Margin Calls</td><td class="crl-col"><span class="pill yes">Per terms*</span></td><td><span class="pill yes">None</span></td><td><span class="pill yes">None</span></td><td><span class="pill no">Possible</span></td></tr>
               <tr><td>Discontinuous Payoff Jump</td><td class="crl-col"><span class="pill yes">Yes</span></td><td><span class="pill no">No</span></td><td><span class="pill no">No</span></td><td><span class="pill no">No</span></td></tr>
               <tr><td>Path-Dependency</td><td class="crl-col"><span class="pill yes">Yes</span></td><td><span class="pill no">No</span></td><td><span class="pill no">No</span></td><td><span class="pill no">No</span></td></tr>
               <tr><td>Patent Protection</td><td class="crl-col"><span class="pill pending">Filed</span></td><td><span class="pill no">No</span></td><td><span class="pill no">No</span></td><td><span class="pill no">No</span></td></tr>
@@ -313,9 +621,11 @@
           </table>
         </div>
         <div class="table-disclaimer">
-          <strong>Patent/Trademark Notice:</strong> Conditional Retroactive Leverage™ is a trademark of CRL Technologies, Inc. Technology protected under provisional filings (US/EU/PCT).
+          <p style="margin-bottom:12px;"><strong>Note:</strong> Ticket-level characteristics apply when CRL structures are issued under the broker's product terms. Client protection, margining and eligibility remain subject to the authorized intermediary's policies and jurisdiction.</p>
+          <strong>Patent/Trademark Notice:</strong> Conditional Retroactive Leverage™ is a trademark of CRL Technologies, Inc. Technology protected under US provisional patent filed July 31, 2025. PCT filing planned.
           Independent replication with standard instruments has not reproduced the retroactive jump; details in gated whitepaper.
-          Features vary by issuer/jurisdiction. *Broker collateral policies may apply.
+          Features vary by issuer/jurisdiction. *Subject to broker collateral policies and ticket terms..
+          <p>In practice: you keep the familiarity of listed-style tickets, but with a payoff your competitors cannot replicate one-to-one.</p>
         </div>
       </div>
     </section>
@@ -432,36 +742,23 @@
 
   <!-- CTA -->
   <section class="cta">
-    <h2 class="headline">Ready to differentiate your derivatives offering?</h2>
-    <p>Join the first brokers and banks evaluating CRL with their most sophisticated clients. Limited pilot program slots available.</p>
+    <h2 class="headline">Start with evidence, not a pitch.</h2>
+    <p>If you're evaluating differentiation with low operational risk, request the Evidence Pack.</p>
 
     <div class="cta-btns">
-      <button class="btn primary" data-open-demo type="button">
-        Request Institutional Demo <span>→</span>
+      <button class="btn primary" data-open-gate type="button">
+        Request Evidence Pack <span>→</span>
       </button>
 
-      <a href="#" class="btn secondary" data-open-gate>
-        Download Term Sheet
-      </a>
-
-      <a href="/downloads/CRL_Letter_of_Intent_Template.pdf"
-        download="CRL_Letter_of_Intent.pdf"
-        class="btn secondary btn-loi">
-        Download LOI (PDF)
-      </a>
-
-      <a href="/downloads/CRL_Letter_of_Intent_Template.docx"
-        download="CRL_Letter_of_Intent.docx"
-        class="btn secondary btn-loi-alt">
-        Download LOI (DOCX)
-      </a>
+      <button class="btn secondary" data-open-demo type="button">
+        Request Institutional Demo
+      </button>
     </div>
 
     <div class="requirements">
-      Requirements: Licensed broker • Professional clients only • €10M+ monthly volume • API capability
+      Professional Counterparties Only · No retail offering · No investment advice · No guarantee of returns
     </div>
   </section>
-
 
  <!-- Footer (stile identico alla home) -->
   <footer>
@@ -510,7 +807,7 @@
       <p style="margin: 12px 0; font-size: 0.9em; line-height: 1.6;">
         © 2025 CRL Technologies, Inc. All rights reserved.
         Conditional Retroactive Leverage™ is a trademark of CRL Technologies, Inc.
-        Patent filed July 31, 2025 (US provisional). PCT application pending.
+        Patent filed July 31, 2025 (US provisional). PCT filing planned.
         CRL provides calculation technology only; no investment advice or execution services.
         Derivatives trading involves substantial risk of loss. Past performance is not indicative of future results.
       </p>
@@ -786,6 +1083,51 @@
      if (y > 300 && window.innerWidth <= 980){ sticky.setAttribute('aria-hidden','false'); }
      else { sticky.setAttribute('aria-hidden','true'); }
    });
+ 
+  // Counter Animation on Scroll
+   const counters = document.querySelectorAll('[data-counter]');
+
+   const animateCounter = (el) => {
+     const target = el.getAttribute('data-counter');
+     const duration = 2000;
+     const start = 0;
+     const startTime = performance.now();
+     
+     const prefix = target.match(/^[^0-9]*/)[0];
+     const suffix = target.match(/[^0-9]*$/)[0];
+     const numberPart = target.replace(prefix, '').replace(suffix, '');
+     const end = parseFloat(numberPart);
+     const decimals = numberPart.includes('.') ? numberPart.split('.')[1].length : 0;
+     
+     const animate = (currentTime) => {
+       const elapsed = currentTime - startTime;
+       const progress = Math.min(elapsed / duration, 1);
+       const easeOut = 1 - Math.pow(1 - progress, 3);
+       const current = start + (end - start) * easeOut;
+       
+       el.textContent = prefix + current.toFixed(decimals) + suffix;
+       
+       if (progress < 1) {
+         requestAnimationFrame(animate);
+       } else {
+         el.textContent = target;
+       }
+     };
+     
+     requestAnimationFrame(animate);
+   };
+
+   const counterObserver = new IntersectionObserver((entries) => {
+     entries.forEach(entry => {
+       if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+         entry.target.classList.add('counted');
+         animateCounter(entry.target);
+       }
+     });
+   }, { threshold: 0.5 });
+
+   counters.forEach(counter => counterObserver.observe(counter));
+
  </script>
 </body>
-</html>
+</html> 
