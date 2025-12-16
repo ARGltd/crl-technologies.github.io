@@ -1076,3 +1076,26 @@
 [id] {
   scroll-margin-top: 120px;
 }
+
+/* ====== HERO HEADLINE ANIMATION ====== */
+.hero-headline {
+  font-size: 1.3em;
+}
+
+.dots {
+  display: inline-block;
+  width: 0.8em;
+  text-align: left;
+  font-size: 1.3em;
+}
+
+.dots::after {
+  content: '.';
+  animation: dots 1.5s steps(1) infinite;
+}
+
+@keyframes dots {
+  0%, 25% { content: '.'; }
+  25%, 50% { content: '..'; }
+  50%, 100% { content: '...'; }
+}
