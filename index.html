@@ -6,23 +6,79 @@
 
   <title>CRL Technologies — White-label leverage engine for professional brokers</title>
 
-  <meta name="description" content="CRL is a production-ready white-label leverage engine for professional brokers and banks. It runs as a calculation layer under your existing derivatives platform to deliver conditional leverage, dynamic overlays and CRL-enabled strategies without touching custody or execution."/>
-
-  <meta name="robots" content="index, follow"/>
+  <meta name="description" content="CRL is not a bridge, not a risk tool, not a higher leverage ratio. It's a white-label payoff engine that activates leverage only after market confirmation and applies profit multiplication retroactively. API-first, for professional brokers only."/>
+  <meta name="keywords" content="conditional retroactive leverage, CRL, payoff engine, retroactive leverage, white-label API, professional brokers, not a bridge, not a risk tool, leverage after confirmation"/>
 
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png"/>
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png"/>
   <link rel="canonical" href="https://crl-technologies.com/"/>
 
   <meta property="og:title" content="CRL Technologies — White-label leverage engine for professional brokers"/>
-  <meta property="og:description" content="Production-ready leverage calculation engine for professional counterparties. Add conditional leverage to the products you already sell, with cryptographic audit chain, multi-tenant isolation and professional-only distribution."/>
-  <meta property="og:type" content="website"/>
+  <meta property="og:description" content="CRL is not a bridge, not a risk tool, not a plugin. A white-label payoff engine that activates leverage only after market confirmation. Retroactive profit multiplication, API-first, for professional brokers only."/>  <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://crl-technologies.com/"/>
   <meta property="og:image" content="https://crl-technologies.com/og-penrose.jpg"/>
 
   <meta name="twitter:card" content="summary_large_image"/>
 
   <link rel="stylesheet" href="css/styles.css">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "CRL - Conditional Retroactive Leverage",
+    "applicationCategory": "FinanceApplication",
+    "description": "Payoff engine that activates leverage only after market confirmation. Not a bridge, not a risk tool, not a plugin. Retroactive profit multiplication via API for professional brokers.",
+    "operatingSystem": "API",
+    "offers": {
+      "@type": "Offer",
+      "category": "B2B",
+      "eligibleCustomerType": "Professional counterparties only"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "CRL Technologies, Inc.",
+      "url": "https://crl-technologies.com"
+    }
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "CRL Technologies, Inc.",
+    "url": "https://crl-technologies.com",
+    "description": "Fintech company building conditional retroactive leverage technology. Not a bridge, not a broker, not a risk tool. Payoff engine for professional counterparties.",
+    "foundingDate": "2025",
+    "founder": {
+      "@type": "Person",
+      "name": "Andrea Riccardo Galié"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1313 N Market Street, Suite 5100",
+      "addressLocality": "Wilmington",
+      "addressRegion": "DE",
+      "postalCode": "19801",
+      "addressCountry": "US"
+    }
+  }
+  </script>
+  
+  <style>
+    /* Animated dots */
+    .dots::after {
+      content: '';
+      animation: dots 1.5s infinite;
+    }
+    @keyframes dots {
+      0%, 20% { content: ''; }
+      40% { content: '.'; }
+      60% { content: '..'; }
+      80%, 100% { content: '...'; }
+    }
+  </style>
 </head>
 
 <body>
@@ -98,6 +154,11 @@
         Base exposure before confirmation. Leverage applied retroactively after trigger.<br/>
         <strong>Discontinuous payoff jump — capped, auditable, policy-controlled.</strong>
       </p>
+      
+      <p style="font-size:15px;color:var(--g800);margin-top:16px;">
+        Not a bridge. Not a risk tool. Not a plugin. Not a higher leverage ratio.<br/>
+        <strong>A new payoff structure.</strong>
+      </p>
 
       <p class="caption hero-sub-metrics">
         <a href="materials.html#public-downloads" style="color:var(--accent);font-weight:600;text-decoration:none;">
@@ -163,49 +224,66 @@
     </section>
 
     <!-- The Problem -->
-    <section class="section" id="the-problem" style="background:var(--g900);color:white;padding:100px 20px;">
+    <section style="background:var(--g900);color:white;padding:80px 20px;">
       <div style="max-width:900px;margin:0 auto;text-align:center;">
-        
-        <h2 style="color:white;font-size:42px;margin-bottom:48px;font-family:'Times New Roman',Times,serif;font-weight:700;text-align:center;">
-          Leverage doesn't distinguish timing from direction.
+
+        <p style="font-size:22px;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:16px;font-weight:600;">
+          The leverage paradox
+        </p>
+
+        <h2 class="headline" style="color:white;margin-bottom:48px;font-size:40px;">
+          Standard leverage punishes clients instantly.<br/>
+          <span style="color:var(--accent);">Whether they're early or wrong.</span>
         </h2>
-        
-        <p style="font-size:20px;line-height:1.8;margin:0 0 32px;color:rgba(255,255,255,0.9);">
-          A client can be right about where the market is going and still get liquidated — because the move took three days instead of three hours. Standard leverage treats both outcomes the same way.
-        </p>
-        
-        <p style="font-size:20px;line-height:1.8;margin:0 0 32px;color:rgba(255,255,255,0.9);">
-          For brokers, this creates a predictable pattern: accounts that survive the first weeks become profitable; accounts that don't, never get the chance. The economics of early liquidation are structural, not behavioral.
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-bottom:48px;text-align:center;">
+          <div style="padding:32px 24px;background:rgba(255,255,255,0.08);border-radius:8px;">
+            <div style="font-size:48px;font-weight:700;color:white;margin-bottom:8px;">5×</div>
+            <div style="font-size:15px;color:rgba(255,255,255,0.85);">leverage on entry</div>
+          </div>
+          <div style="padding:32px 24px;background:rgba(255,255,255,0.08);border-radius:8px;">
+            <div style="font-size:48px;font-weight:700;color:white;margin-bottom:8px;">−10%</div>
+            <div style="font-size:15px;color:rgba(255,255,255,0.85);">routine adverse move</div>
+          </div>
+          <div style="padding:32px 24px;background:rgba(255,255,255,0.08);border-radius:8px;">
+            <div style="font-size:48px;font-weight:700;color:white;margin-bottom:8px;">−50%</div>
+            <div style="font-size:15px;color:rgba(255,255,255,0.85);">equity hit → margin pressure</div>
+          </div>
+        </div>
+
+        <p style="font-size:19px;line-height:1.7;color:white;max-width:760px;margin:0 auto 36px;">
+          That's front-loaded churn: leverage amplifies losses immediately, so accounts get forced out early
+          <strong>before</strong> the market confirms anything — including accounts brokers paid to acquire.
         </p>
 
-        <div style="margin:48px auto;padding:32px 40px;border-left:4px solid var(--accent);background:rgba(255,255,255,0.03);text-align:left;max-width:600px;">
-          <p style="margin:0 0 16px;font-size:18px;color:var(--accent);font-weight:600;">
-            CRL changes when leverage activates — not whether it activates.
+        <div style="background:rgba(255,255,255,0.06);border-left:4px solid var(--accent);padding:30px 38px;text-align:left;max-width:900px;margin:36px auto 0;border-radius:0 8px 8px 0;">
+          <p style="margin:0 0 14px;font-size:18px;line-height:1.7;color:white;">
+            Standard leverage is a <strong style="color:var(--accent);">bomb with a hair-trigger</strong>.
+            It detonates on the first move against the client — whether the client is <strong>early</strong> or simply <strong>wrong</strong>.
           </p>
-          <p style="margin:0;font-size:17px;line-height:1.7;color:rgba(255,255,255,0.8);">
-            <strong style="color:white;">Pre-confirmation:</strong> base exposure only.<br/>
-            <strong style="color:white;">Post-confirmation:</strong> leverage applied retroactively from entry.
+
+          <p style="margin:0 0 14px;font-size:18px;line-height:1.7;color:white;">
+            CRL keeps that bomb <strong style="color:var(--accent);">dormant</strong> until a confirmation trigger.
+            Until confirmation, downside is not leverage-amplified — so losses stay closer to base exposure even when the market moves against the client.
+          </p>
+
+          <p style="margin:0 0 12px;font-size:16px;line-height:1.65;color:white;">
+            <strong>Pre-confirmation:</strong> base exposure only.<br/>
+            <strong>Post-confirmation:</strong> leverage applied retroactively from entry.
+          </p>
+
+          <p style="margin:0;font-size:15px;color:white;">
+            Same stop price. Smaller equity hit before confirmation. <strong>Fewer forced liquidations.</strong>
+          </p>
+
+          <p style="margin:12px 0 0;font-size:13px;line-height:1.45;color:rgba(255,255,255,0.7);">
+            Illustrative framing. Equity impact depends on leverage, margining policy, execution conditions and jurisdiction.
           </p>
         </div>
 
-        <p style="font-size:18px;line-height:1.8;margin:0 0 48px;color:rgba(255,255,255,0.7);">
-          Based on 1M+ Monte Carlo paths, CRL profiles show a <strong style="color:white;">60–85% reduction</strong> in early wipe-outs and <strong style="color:white;">+5–6 months</strong> extension in average client lifetime. Simulation methodology included in the Evidence Pack.
-        </p>
-        
-        <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
-          <button class="hero-cta" type="button" data-open-gate style="background:white;color:var(--g900);font-size:16px;padding:16px 32px;border:none;border-radius:6px;cursor:pointer;font-weight:600;">
-            Request Evidence Pack <span class="arrow">→</span>
-          </button>
-          <button class="hero-cta secondary" type="button" data-open-demo style="background:transparent;border:2px solid rgba(255,255,255,0.4);color:white;font-size:16px;padding:16px 32px;border-radius:6px;cursor:pointer;font-weight:600;">
-            Request Institutional Demo <span class="arrow">→</span>
-          </button>
-        </div>
-        
-        <p style="margin-top:40px;color:rgba(255,255,255,0.4);font-size:13px;text-align:center;">
-          Professional counterparties only. Simulated performance is not indicative of future results.
-        </p>
       </div>
     </section>
+
 
     <!-- The Solution -->
     <section class="section" id="the-solution" style="background:var(--g100);padding:80px 20px;">
