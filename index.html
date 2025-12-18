@@ -145,7 +145,7 @@
         </span>
       </h1>
 
-      <p style="font-size:14px;color:var(--g600);margin-bottom:8px;">
+      <p style="font-size:15px;color:var(--g600);margin-bottom:8px;">
         Built for brokers and venues. Not a retail product.
       </p>
 
@@ -197,37 +197,37 @@
 
     <!-- Production Status -->
     <section class="section" id="production-status" style="background:var(--g100);padding:60px 20px;">
-      <div style="max-width:1000px;margin:0 auto;text-align:center;">
+      <div class="wrap" style="text-align:center;">
         <h2 class="headline" style="margin-bottom:32px;">Production environment</h2>
         <div style="display:flex;justify-content:center;gap:48px;flex-wrap:wrap;">
           <div>
             <div style="font-size:36px;font-weight:700;color:var(--g900);" data-counter="17">0</div>
-            <div style="font-size:14px;color:var(--g600);">Internal tenants</div>
+            <div style="font-size:15px;color:var(--g600);">Internal tenants</div>
           </div>
           <div>
             <div style="font-size:36px;font-weight:700;color:var(--g900);" data-counter="300+">0</div>
-            <div style="font-size:14px;color:var(--g600);">Positions processed</div>
+            <div style="font-size:15px;color:var(--g600);">Positions processed</div>
           </div>
           <div>
             <div style="font-size:36px;font-weight:700;color:var(--g900);" data-counter="2.3M+">0</div>
-            <div style="font-size:14px;color:var(--g600);">Position updates</div>
+            <div style="font-size:15px;color:var(--g600);">Position updates</div>
           </div>
           <div>
             <div style="font-size:36px;font-weight:700;color:var(--g900);" data-counter="0">0</div>
-            <div style="font-size:14px;color:var(--g600);">Data-loss events</div>
+            <div style="font-size:15px;color:var(--g600);">Data-loss events</div>
           </div>
         </div>
-        <p style="margin-top:24px;font-size:14px;color:var(--g600);">
+        <p style="margin-top:24px;font-size:15px;color:var(--g600);">
           Cryptographic audit chain (AWS KMS + S3 WORM) · Full lifecycle validation
         </p>
       </div>
     </section>
 
     <!-- The Problem -->
-    <section style="background:var(--g900);color:white;padding:80px 20px;">
-      <div style="max-width:900px;margin:0 auto;text-align:center;">
+    <section class="section" id="the-problem" style="background:var(--g900);color:white;padding:80px 20px;">
+      <div class="wrap" style="text-align:center;">
 
-        <p style="font-size:22px;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:16px;font-weight:600;">
+        <p style="font-size:19px;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:16px;font-weight:600;">
           The leverage paradox
         </p>
 
@@ -251,32 +251,28 @@
           </div>
         </div>
 
-        <p style="font-size:19px;line-height:1.7;color:white;max-width:760px;margin:0 auto 36px;">
+        <p style="font-size:19px;line-height:1.75;color:white;margin:0 auto 36px;">
           That's front-loaded churn: leverage amplifies losses immediately, so accounts get forced out early
           <strong>before</strong> the market confirms anything — including accounts that cost money to acquire.
         </p>
 
-        <div style="background:rgba(255,255,255,0.06);border-left:4px solid var(--accent);padding:30px 38px;text-align:left;max-width:900px;margin:36px auto 0;border-radius:0 8px 8px 0;">
-          <p style="margin:0 0 14px;font-size:18px;line-height:1.7;color:white;">
-            Standard leverage is a <strong style="color:var(--accent);">bomb with a hair-trigger</strong>.
-            It detonates on the first move against the account — whether the client is <strong>early</strong> or simply <strong>wrong</strong>.
+        <div style="background:rgba(255,255,255,0.06);border-left:5px solid var(--accent);padding:40px 48px;text-align:left;margin:48px auto 0;border-radius:0 10px 10px 0;">
+          <p style="margin:0 0 20px;font-size:19px;line-height:1.75;color:white;">
+            Standard leverage is a <strong style="color:var(--accent);">bomb that's armed at entry</strong>.
+            The account is exposed to full amplification immediately — long before the market has confirmed direction.
           </p>
-
-          <p style="margin:0 0 14px;font-size:18px;line-height:1.7;color:white;">
-            CRL keeps that bomb <strong style="color:var(--accent);">dormant</strong> until a confirmation trigger.
-            Until confirmation, downside is not leverage-amplified — so losses stay closer to base exposure even when the market moves against the client.
+          <p style="margin:0 0 20px;font-size:19px;line-height:1.75;color:white;">
+            CRL changes the paradigm: leverage stays <strong style="color:var(--accent);">disarmed</strong> until a confirmation trigger.
+            Before confirmation, losses are not leverage-amplified. After confirmation, leverage can apply retroactively from entry.
           </p>
-
-          <p style="margin:0 0 12px;font-size:16px;line-height:1.65;color:white;">
+          <p style="margin:0 0 16px;font-size:15px;line-height:1.7;color:white;">
             <strong>Pre-confirmation:</strong> base exposure only.<br/>
             <strong>Post-confirmation:</strong> leverage applied retroactively from entry.
           </p>
-
-          <p style="margin:0;font-size:15px;color:white;">
-            Same stop price. Smaller equity hit before confirmation. <strong>Fewer forced liquidations.</strong>
+          <p style="margin:0;font-size:19px;color:white;">
+            Same stop price. <strong>Different equity outcome.</strong> Bounded equity hit before confirmation.
           </p>
-
-          <p style="margin:12px 0 0;font-size:13px;line-height:1.45;color:rgba(255,255,255,0.7);">
+          <p style="margin:16px 0 0;font-size:13px;line-height:1.5;color:rgba(255,255,255,0.6);">
             Illustrative framing. Equity impact depends on leverage, margining policy, execution conditions and jurisdiction.
           </p>
         </div>
@@ -287,12 +283,13 @@
 
     <!-- The Solution -->
     <section class="section" id="the-solution" style="background:var(--g100);padding:80px 20px;">
-      <div class="wrap" style="max-width:800px;margin:0 auto;">
+      <div class="wrap">
         
         <h2 class="headline" style="margin-bottom:24px;">The payoff difference</h2>
         
-        <p style="font-size:17px;line-height:1.8;margin:0 0 32px;color:var(--g800);">
-          Both structures offer leveraged exposure. The difference is how they behave when timing is wrong — when the market moves against the position before eventually moving in the expected direction.
+        <p style="font-size:19px;line-height:1.75;margin:0 0 32px;color:var(--g800);">
+          Both structures offer leverage. The difference shows up <strong>before confirmation</strong> —
+          when price moves against the position (early) or never confirms at all (wrong).
         </p>
 
         <!-- Example table -->
@@ -326,10 +323,12 @@
         </div>
 
         <p style="font-size:15px;line-height:1.7;margin:0 0 16px;color:var(--g700);">
-          <strong>The structural difference:</strong> traditional leverage applies full amplification from entry. CRL defers amplification until market confirmation, bounding the cost of being early to the premium.
+          <strong>Paradigm shift:</strong> standard leverage amplifies losses immediately. CRL can keep downside closer to base exposure until confirmation,
+          and only then apply leverage from entry — per ticket terms.
         </p>
 
-        <p style="font-size:13px;color:var(--g500);margin:0;">
+        <p style="font-size:13px;line-height:1.5;color:var(--g500);margin:0;">
+          Note: premium, max loss and margining depend on the issuer's ticket terms and jurisdiction.
           Illustrative. Actual outcomes depend on issuer terms, trigger parameters, and market conditions.
         </p>
 
@@ -339,9 +338,9 @@
     <!-- How It Works -->
     <section class="section" id="how-it-works" style="background-image:url('images/precious-madubuike-6VvhrA5t4nM-unsplash.jpg');background-size:cover;background-position:center;">
       <div class="wrap">
-        <div style="background:rgba(255,255,255,0.95);padding:48px 40px;border-radius:12px;max-width:1000px;margin:0 auto;">
+         <div style="background:rgba(255,255,255,0.95);padding:48px 40px;border-radius:12px;">
           <h2 class="headline" style="text-align:center;">How it works</h2>
-          <p style="text-align:center;max-width:700px;margin:12px auto 48px;">
+          <p style="text-align:center;font-size:15px;color:var(--g600);margin:12px auto 48px;">
             Four steps from entry to leveraged payoff. No changes to your execution or risk infrastructure.
           </p>
           
@@ -349,7 +348,7 @@
             
             <div style="text-align:center;padding:24px;background:white;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
               <div style="font-size:48px;font-weight:700;color:var(--accent);margin-bottom:12px;font-style:italic;">1</div>
-              <h3 style="font-size:18px;font-weight:600;margin-bottom:8px;">Define the trigger</h3>
+              <h3 style="font-size:19px;font-weight:600;margin-bottom:8px;">Define the trigger</h3>
               <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
                 Choose a confirmation condition that represents market validation.
               </p>
@@ -357,7 +356,7 @@
             
             <div style="text-align:center;padding:24px;background:white;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
               <div style="font-size:48px;font-weight:700;color:var(--accent);margin-bottom:12px;font-style:italic;">2</div>
-              <h3 style="font-size:18px;font-weight:600;margin-bottom:8px;">Premium upfront</h3>
+              <h3 style="font-size:19px;font-weight:600;margin-bottom:8px;">Premium upfront</h3>
               <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
                 Issuer-defined premium to access the kicker. Ticket terms can bound max loss to that premium.
               </p>
@@ -365,7 +364,7 @@
             
             <div style="text-align:center;padding:24px;background:white;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
               <div style="font-size:48px;font-weight:700;color:var(--accent);margin-bottom:12px;font-style:italic;">3</div>
-              <h3 style="font-size:18px;font-weight:600;margin-bottom:8px;">Trigger hit</h3>
+              <h3 style="font-size:19px;font-weight:600;margin-bottom:8px;">Trigger hit</h3>
               <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
                 When the trigger is hit, leverage activates. Not from now—from entry.
               </p>
@@ -373,7 +372,7 @@
             
             <div style="text-align:center;padding:24px;background:white;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
               <div style="font-size:48px;font-weight:700;color:var(--accent);margin-bottom:12px;font-style:italic;">4</div>
-              <h3 style="font-size:18px;font-weight:600;margin-bottom:8px;">Retroactive payoff</h3>
+              <h3 style="font-size:19px;font-weight:600;margin-bottom:8px;">Retroactive payoff</h3>
               <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
                 Leverage (policy-defined, e.g. 5×) applied from original entry. Discontinuous payoff jump.
               </p>
@@ -399,7 +398,7 @@
             <p>
               Reduce early wipe-outs structurally and extend account longevity. Evidence is simulation-based and provided for internal review.
             </p>
-            <p style="font-size:14px;color:var(--accent);font-weight:600;margin-top:12px;">
+            <p style="font-size:15px;color:var(--accent);font-weight:600;margin-top:12px;">
               +5–6 months median survival
             </p>
           </article>
@@ -409,7 +408,7 @@
             <p>
               CRL is not "better leverage." It is leverage that activates on confirmation—simple to communicate, hard to copy.
             </p>
-            <p style="font-size:14px;color:var(--accent);font-weight:600;margin-top:12px;">
+            <p style="font-size:15px;color:var(--accent);font-weight:600;margin-top:12px;">
               Patent pending (US/EU)
             </p>
           </article>
@@ -419,7 +418,7 @@
             <p>
               New margin stream sized to your rollout scope. Commercial model and pilot economics included in the Evidence Pack.
             </p>
-            <p style="font-size:14px;color:var(--accent);font-weight:600;margin-top:12px;">
+            <p style="font-size:15px;color:var(--accent);font-weight:600;margin-top:12px;">
               Structure in Evidence Pack
             </p>
           </article>
@@ -429,7 +428,7 @@
             <p>
               API-first integration designed to fit inside existing broker workflows. No changes to your execution stack.
             </p>
-            <p style="font-size:14px;color:var(--accent);font-weight:600;margin-top:12px;">
+            <p style="font-size:15px;color:var(--accent);font-weight:600;margin-top:12px;">
               &lt;2 weeks typical timeline
             </p>
           </article>
@@ -439,7 +438,7 @@
             <p>
               Most losses concentrate in the first months. Clients who survive 12+ months generate multiple times the LTV. CRL targets that gap structurally.
             </p>
-            <p style="font-size:14px;color:var(--accent);font-weight:600;margin-top:12px;">
+            <p style="font-size:15px;color:var(--accent);font-weight:600;margin-top:12px;">
               Same clients, longer lifetime
             </p>
           </article>
@@ -449,7 +448,7 @@
             <p>
               If you already invest in retention, education and governance, CRL gives your product stack a leverage profile that finally matches that strategy.
             </p>
-            <p style="font-size:14px;color:var(--accent);font-weight:600;margin-top:12px;">
+            <p style="font-size:15px;color:var(--accent);font-weight:600;margin-top:12px;">
               No platform rebuild required
             </p>
           </article>
@@ -460,7 +459,7 @@
 
     <!-- Numbers -->
     <section class="section alt" id="numbers">
-      <div class="wrap" style="max-width:1000px;margin:0 auto;">
+      <div class="wrap">
         <h2 class="headline" style="text-align:center;">Measured claims. Reviewable evidence.</h2>
         <p style="text-align:center;max-width:600px;margin:12px auto 48px;color:var(--g600);">
           All figures are documented. No performance or return promises.
@@ -470,7 +469,7 @@
           
           <!-- Business Impact -->
           <div style="text-align:center;">
-            <h3 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--g500);margin-bottom:24px;">Business impact</h3>
+            <h3 style="font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--g500);margin-bottom:24px;">Business impact</h3>
             <div style="margin-bottom:24px;">
               <div style="font-size:36px;font-weight:700;color:var(--g900);" data-counter="43.5%">0%</div>
               <div style="font-size:15px;color:var(--g600);">→ 3.0% · Stop-out rate under Monte Carlo (5D profile)</div>
@@ -487,7 +486,7 @@
           
           <!-- Technical Profile -->
           <div style="text-align:center;">
-            <h3 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--g500);margin-bottom:24px;">Technical profile</h3>
+            <h3 style="font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--g500);margin-bottom:24px;">Technical profile</h3>
             <div style="margin-bottom:24px;">
               <div style="font-size:36px;font-weight:700;color:var(--g900);" data-counter="100">0</div>
               <div style="font-size:15px;color:var(--g600);">p99 latency (µs, core path)</div>
@@ -508,10 +507,10 @@
 
     <!-- Integration -->
     <section class="section" id="integration-preview">
-      <div class="wrap" style="max-width:800px;margin:0 auto;text-align:center;">
+      <div class="wrap" style="text-align:center;">
         <h2 class="headline">API-first. Built for procurement.</h2>
         
-        <p style="font-size:18px;line-height:1.7;margin:24px auto 32px;max-width:650px;">
+        <p style="font-size:19px;line-height:1.7;margin:24px auto 32px;max-width:650px;">
           CRL is delivered as a white-label calculation engine with integration tooling designed for fast evaluation: SDKs, request signing patterns, sandbox access, and a clear day-by-day rollout plan.
         </p>
         
@@ -536,28 +535,28 @@
         <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:24px;margin-top:40px;">
           
           <div style="padding:24px;background:white;border-radius:8px;border:1px solid var(--g200);">
-            <h4 style="font-size:16px;font-weight:600;margin-bottom:8px;">Professional only</h4>
+            <h4 style="font-size:15px;font-weight:600;margin-bottom:8px;">Professional only</h4>
             <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
               MiFID II professional counterparties. Not a retail product.
             </p>
           </div>
           
           <div style="padding:24px;background:white;border-radius:8px;border:1px solid var(--g200);">
-            <h4 style="font-size:16px;font-weight:600;margin-bottom:8px;">Perimeter clarity</h4>
+            <h4 style="font-size:15px;font-weight:600;margin-bottom:8px;">Perimeter clarity</h4>
             <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
               CRL is not a broker, not an execution venue, not custody.
             </p>
           </div>
           
           <div style="padding:24px;background:white;border-radius:8px;border:1px solid var(--g200);">
-            <h4 style="font-size:16px;font-weight:600;margin-bottom:8px;">Secure integration</h4>
+            <h4 style="font-size:15px;font-weight:600;margin-bottom:8px;">Secure integration</h4>
             <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
               mTLS where required, HMAC-style request integrity.
             </p>
           </div>
           
           <div style="padding:24px;background:white;border-radius:8px;border:1px solid var(--g200);">
-            <h4 style="font-size:16px;font-weight:600;margin-bottom:8px;">Signed audit trail</h4>
+            <h4 style="font-size:15px;font-weight:600;margin-bottom:8px;">Signed audit trail</h4>
             <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
               Every request generates a signed record (timestamp, input hash, output hash).
             </p>
@@ -566,7 +565,7 @@
         </div>
         
         <p style="text-align:center;margin-top:32px;">
-          <a href="security-compliance.html" style="color:var(--accent);font-weight:600;text-decoration:none;">
+          <a href="technology.html#monitoring-audit" style="color:var(--accent);font-weight:600;text-decoration:none;">
             View full Security & Compliance details →
           </a>
         </p>
@@ -576,7 +575,7 @@
 
     <!-- Outcomes -->
     <section class="section" id="outcomes">
-      <div class="wrap" style="max-width:800px;margin:0 auto;">
+      <div class="wrap">
         <h2 class="headline">What changes in your numbers</h2>
         
         <p style="font-size:19px;line-height:1.8;margin:24px 0 32px;">
@@ -586,26 +585,26 @@
         
         <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:24px;margin:32px 0;">
           <div style="padding:24px;background:var(--g100);border-radius:8px;">
-            <h4 style="font-size:16px;font-weight:600;margin-bottom:8px;">Fewer stop-outs</h4>
+            <h4 style="font-size:15px;font-weight:600;margin-bottom:8px;">Fewer stop-outs</h4>
             <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
               Fewer accounts hitting liquidation in the critical early period.
             </p>
           </div>
           <div style="padding:24px;background:var(--g100);border-radius:8px;">
-            <h4 style="font-size:16px;font-weight:600;margin-bottom:8px;">Longer relationships</h4>
+            <h4 style="font-size:15px;font-weight:600;margin-bottom:8px;">Longer relationships</h4>
             <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
               Same clients, extended lifetime, higher cumulative value.
             </p>
           </div>
           <div style="padding:24px;background:var(--g100);border-radius:8px;">
-            <h4 style="font-size:16px;font-weight:600;margin-bottom:8px;">Defendable P&L</h4>
+            <h4 style="font-size:15px;font-weight:600;margin-bottom:8px;">Defendable P&L</h4>
             <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
               Smoother payoff path, easier to explain to risk and compliance.
             </p>
           </div>
         </div>
         
-        <p style="font-size:14px;color:var(--g500);margin-top:24px;">
+        <p style="font-size:15px;color:var(--g500);margin-top:24px;">
           Evidence: 1M+ Monte Carlo paths, five market regimes. Full methodology in Evidence Pack.
         </p>
       </div>
