@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>CRL for Professional Traders — Early isn't the same as wrong</title>
+  <title>CRL for Professional Traders — Leverage that waits for confirmation</title>
 
   <meta name="description" content="Understand how CRL changes the leverage profile: base exposure before confirmation, full leverage after. Same stop price, smaller equity loss before confirmation. Available via participating brokers."/>
 
@@ -14,8 +14,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png"/>
   <link rel="canonical" href="https://crl-technologies.com/for-traders.html"/>
 
-  <meta property="og:title" content="CRL for Professional Traders — Early isn't the same as wrong"/>
-  <meta property="og:description" content="Same stop price. Smaller equity loss before confirmation. Understand how CRL works and ask your broker about availability."/>
+  <meta property="og:title" content="CRL for Professional Traders — Leverage that waits for confirmation"/>
+  <meta property="og:description" content="Standard leverage amplifies from the first tick. CRL changes when amplification engages — base exposure until confirmation, full leverage after."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://crl-technologies.com/for-traders.html"/>
   <meta property="og:image" content="https://crl-technologies.com/og-penrose.jpg"/>
@@ -59,59 +59,147 @@
 
   <main id="main">
 
-    <!-- Hero -->
-    <section class="hero fade-in" aria-labelledby="hero-title">
-      <span class="patent">
-        <span class="patent-icon">™</span>
-        Understanding the payoff
-      </span>
+    <!-- Cinematic Hero -->
+    <section class="cinematic-hero">
+      <div class="cinematic-sticky">
+        <div class="cinematic-bg" id="heroBg"></div>
+        <div class="cinematic-overlay"></div>
+        
+        <div class="cinematic-text">
+          <div class="hero-badge" id="heroBadge">Professional-only leverage upgrade</div>
+          <h1>
+            <div class="hero-line1" id="heroLine1">Leverage is a bomb.</div>
+            <div class="hero-line2" id="heroLine2">CRL disarms it.</div>
+          </h1>
+          <p class="hero-caption" id="heroCaption">Same stop price. Less damage before confirmation.</p>
+        </div>
 
-      <h1 id="hero-title" class="display">
-        Early isn't the same as wrong.
-      </h1>
-
-      <p class="body-lg" style="max-width:720px;margin:24px auto 20px;">
-        Leverage is time-blind. It punishes you the moment price moves against you — even if the market later confirms your direction.
-      </p>
-
-      <p class="body-lg" style="max-width:720px;margin:0 auto 18px;">
-        The same stop price can produce radically different equity damage: with standard leverage, a routine dip can become a wipe-out.
-        CRL separates <strong>being wrong</strong> from <strong>being early</strong> by changing <em>when</em> amplification engages.
-      </p>
-
-      <p class="body-lg" style="max-width:720px;margin:0 auto 40px;color:var(--accent);font-weight:700;">
-        Same stop price. Smaller equity loss before confirmation.
-      </p>
+        <div class="scroll-indicator" id="scrollIndicator">
+          <span>Scroll</span>
+          <div class="scroll-arrow"></div>
+        </div>
+      </div>
     </section>
 
-    <!-- The Problem -->
-    <section class="section" style="background:var(--g100);padding:80px 20px;">
-      <div class="wrap" style="max-width:800px;margin:0 auto;">
-        <h2 class="headline" style="text-align:center;margin-bottom:40px;">The timing problem</h2>
+    <!-- The Real Problem -->
+    <section class="section" style="padding:100px 20px;background:var(--white);">
+      <div class="wrap" style="max-width:820px;margin:0 auto;">
+
+        <p class="body-lg" style="font-size:22px;line-height:1.7;margin:0 0 28px;color:var(--g800);">
+          You did the work. You have a thesis. You size responsibly. You enter with rules.
+        </p>
+
+        <p class="body-lg" style="font-size:22px;line-height:1.7;margin:0 0 28px;color:var(--g800);">
+          Then the market does what markets do: it tests the position first. A routine adverse move hits your stop or margin threshold. You’re out — at a loss.
+        </p>
+
+        <p class="body-lg" style="font-size:22px;line-height:1.7;margin:0 0 28px;color:var(--g800);">
+          Later, price moves exactly in the direction you predicted.
+        </p>
+
+        <p class="body-lg" style="font-size:20px;line-height:1.7;margin:0;color:var(--g600);font-style:italic;">
+          Your thesis can be right. The path can be normal. But standard leverage doesn’t wait for confirmation —
+          it amplifies damage from the first tick.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- The False Fix -->
+    <section class="section" style="padding:90px 20px;background:var(--g100);">
+      <div class="wrap" style="max-width:900px;margin:0 auto;">
+
+        <h2 class="headline" style="text-align:center;margin:0 0 22px;">The industry’s “solution” is to amputate upside.</h2>
+
+        <p class="body-lg" style="max-width:760px;margin:0 auto 26px;color:var(--g700);font-size:18px;line-height:1.75;text-align:center;">
+          When leverage causes repeated wipe-outs, the default advice is always the same: reduce exposure.
+          Trade smaller. Tighten stops. Lower the multiplier.
+        </p>
+
+        <p class="body-lg" style="max-width:760px;margin:0 auto 26px;color:var(--g700);font-size:18px;line-height:1.75;text-align:center;">
+          That’s not a structural fix. It’s damage control. It may reduce the probability of death — but it also reduces the payoff when you’re right.
+          You pay twice: less upside, and the same early amplification when the market tests you first.
+        </p>
+
+        <p class="body-lg" style="max-width:760px;margin:0 auto;color:var(--g800);font-size:18px;line-height:1.75;text-align:center;font-weight:600;">
+          The real problem isn’t leverage. It’s <span style="color:var(--g900);">when</span> leverage engages.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- What CRL Changes -->
+    <section class="section" style="padding:90px 20px;background:var(--white);">
+      <div class="wrap" style="max-width:820px;margin:0 auto;">
+
+        <h2 class="headline" style="text-align:center;margin:0 0 46px;">CRL changes one thing: timing.</h2>
+
+        <div style="display:grid;gap:22px;">
+
+          <div style="display:flex;gap:18px;align-items:flex-start;">
+            <div style="min-width:48px;height:48px;background:var(--g100);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--g600);">1</div>
+            <div>
+              <p class="body-lg" style="margin:0;color:var(--g800);">
+                <strong>Entry:</strong> You open a position. Exposure starts at base level.
+              </p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;align-items:flex-start;">
+            <div style="min-width:48px;height:48px;background:var(--g100);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--g600);">2</div>
+            <div>
+              <p class="body-lg" style="margin:0;color:var(--g800);">
+                <strong>Pre-confirmation:</strong> If the market moves against you, losses are calculated at base exposure.
+                No leverage multiplier punishing the first adverse move.
+              </p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;align-items:flex-start;">
+            <div style="min-width:48px;height:48px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:white;">3</div>
+            <div>
+              <p class="body-lg" style="margin:0;color:var(--g800);">
+                <strong>Confirmation trigger hit:</strong> Once a predefined trigger is reached, amplification can activate under the product rules — the profitable move is treated as leveraged from entry.
+                              <br/><span style="color:var(--g600);font-weight:400;font-size:15px;display:block;margin-top:8px;">Losses prior to confirmation remain at base exposure. Activation occurs only after trigger.</span>
+              </p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;align-items:flex-start;">
+            <div style="min-width:48px;height:48px;background:var(--g100);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--g600);">4</div>
+            <div>
+              <p class="body-lg" style="margin:0;color:var(--g800);">
+                <strong>No confirmation?</strong> Amplification never activates. You exit at base exposure — smaller damage, higher survival.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="margin-top:44px;padding:22px 28px;background:var(--g100);border-radius:12px;border-left:4px solid var(--accent);">
+          <p class="body-lg" style="margin:0;color:var(--g800);">
+            <strong>Result:</strong> you don’t have to shrink your edge just to survive the path. Upside remains meaningful when the market confirms.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- The Timing Problem (with background image) -->
+    <section class="quote-section-bg">
+      <div class="wrap" style="max-width:700px;margin:0 auto;text-align:center;">
         
-        <div style="margin:40px auto;padding:32px 40px;border-left:5px solid var(--accent);background:white;max-width:600px;border-radius:0 12px 12px 0;box-shadow:var(--shadow-sm);">
-          <p style="margin:0;font-size:24px;font-style:italic;color:var(--g800);font-family:'Times New Roman',Times,serif;">
+        <div class="quote-box">
+          <p class="quote-text">
             "I was right, but I got stopped out."
           </p>
         </div>
 
-        <p style="margin:18px 0 0;color:var(--g700);font-size:16px;line-height:1.6;">
-          In leveraged markets, the first loss often decides the whole account — before the thesis has a chance to play out.
+        <p class="quote-caption">
+          Standard leverage amplifies from the first tick. CRL changes the rule: <strong>before confirmation, exposure stays at base</strong>. If confirmation arrives, leverage activates. If it doesn't, it never engages.
         </p>
 
-        <p style="font-size:18px;line-height:1.7;margin:32px 0 18px;">
-          This isn’t bad luck. It’s the leverage profile.
-        </p>
-
-        <p style="font-size:18px;line-height:1.7;margin:0 0 18px;">
-          Standard leverage amplifies from the first tick. It does not wait for confirmation.
-          So the market can punish your account <em>before</em> it validates your thesis — whether you’re early or simply wrong.
-        </p>
-
-        <p style="font-size:18px;line-height:1.7;margin:0;">
-          CRL changes the rule: <strong>before confirmation, exposure stays at base</strong>.
-          If confirmation arrives, leverage can activate. If it doesn’t, leverage never engages.
-        </p>
       </div>
     </section>
 
@@ -155,7 +243,7 @@
     <!-- Illustrative Example -->
     <section class="section" style="background:var(--g900);color:white;padding:80px 20px;">
       <div class="wrap" style="max-width:800px;margin:0 auto;text-align:center;">
-        <h2 style="color:white;font-size:32px;margin-bottom:48px;font-family:'Times New Roman',Times,serif;font-weight:700;">
+        <h2 class="headline" style="color:white;margin-bottom:48px;">
           Illustrative example
         </h2>
 
@@ -163,37 +251,37 @@
           
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-bottom:32px;text-align:center;">
             <div>
-              <div style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:8px;">Entry</div>
-              <div style="font-size:32px;font-weight:700;">100</div>
+              <div class="caption" style="color:rgba(255,255,255,0.6);margin-bottom:8px;">Entry</div>
+              <div class="title" style="color:white;">100</div>
             </div>
             <div>
-              <div style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:8px;">Stop</div>
-              <div style="font-size:32px;font-weight:700;">90</div>
+              <div class="caption" style="color:rgba(255,255,255,0.6);margin-bottom:8px;">Stop</div>
+              <div class="title" style="color:white;">90</div>
             </div>
             <div>
-              <div style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:8px;">Leverage (policy-defined)</div>
-              <div style="font-size:32px;font-weight:700;">5×</div>
+              <div class="caption" style="color:rgba(255,255,255,0.6);margin-bottom:8px;">Leverage (policy-defined)</div>
+              <div class="title" style="color:white;">5×</div>
             </div>
           </div>
 
           <div style="border-top:1px solid rgba(255,255,255,0.2);padding-top:32px;">
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
               <div style="text-align:center;">
-                <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;">Standard leverage</div>
-                <div style="font-size:24px;font-weight:700;color:#ff6b6b;">-50% equity (illustrative)</div>
-                <div style="font-size:14px;color:rgba(255,255,255,0.7);margin-top:8px;">at stop price</div>
+                <div class="caption" style="color:rgba(255,255,255,0.5);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;">Standard leverage</div>
+                <div class="title" style="color:var(--g400);">-50% loss at stop (illustrative)</div>
+                <div class="caption" style="color:rgba(255,255,255,0.6);margin-top:8px;">at stop price</div>
               </div>
               <div style="text-align:center;">
-                <div style="font-size:13px;color:var(--accent);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;">CRL (before confirmation)</div>
-                <div style="font-size:24px;font-weight:700;color:#4ade80;">-10% equity (illustrative)</div>
-                <div style="font-size:14px;color:rgba(255,255,255,0.7);margin-top:8px;">at same stop price</div>
+                <div class="caption" style="color:var(--accent);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;">CRL (before confirmation)</div>
+                <div class="title" style="color:var(--accent);">-10% loss at stop (illustrative)</div>
+                <div class="caption" style="color:rgba(255,255,255,0.6);margin-top:8px;">at same stop price</div>
               </div>
             </div>
           </div>
 
         </div>
 
-        <p style="font-size:13px;color:rgba(255,255,255,0.5);max-width:600px;margin:0 auto;">
+        <p class="caption" style="color:rgba(255,255,255,0.5);max-width:600px;margin:0 auto;">
           Assumes the stop is hit during the pre-confirmation phase (base exposure).<br/>
           Illustrative only. Actual outcomes depend on product configuration, trigger parameters, and market conditions.
         </p>
@@ -205,7 +293,7 @@
       <div class="wrap" style="max-width:800px;margin:0 auto;">
         <h2 class="headline" style="text-align:center;margin-bottom:40px;">What CRL does not do</h2>
 
-        <div style="display:grid;gap:20px;max-width:600px;margin:0 auto;">
+        <div style="display:grid;gap:20px;max-width:800px;margin:0 auto;">
           
           <div style="display:flex;align-items:flex-start;gap:16px;padding:20px;background:var(--g100);border-radius:10px;">
             <span style="font-size:20px;">✕</span>
@@ -227,7 +315,7 @@
             <span style="font-size:20px;">✕</span>
             <div>
               <strong>Guarantee profits</strong>
-              <p style="margin:8px 0 0;color:var(--g700);">If the trigger is never hit, you don't get leveraged returns — even if the market eventually moves your way.</p>
+              <p style="margin:8px 0 0;color:var(--g700);">If the trigger is never hit, you exit at base exposure only — no amplification, even if the market eventually moves your way.</p>
             </div>
           </div>
 
@@ -240,44 +328,61 @@
       </div>
     </section>
 
-    <!-- How to Access -->
-    <section class="section" style="background:var(--g100);padding:80px 20px;">
-      <div class="wrap" style="max-width:700px;margin:0 auto;text-align:center;">
-        <h2 class="headline" style="margin-bottom:24px;">How to access CRL</h2>
+  <!-- How to Access -->
+  <section class="section" style="background:var(--g100);padding:80px 20px;">
+    <div class="wrap" style="max-width:700px;margin:0 auto;text-align:center;">
+      <h2 class="headline" style="margin-bottom:24px;">How to access CRL</h2>
 
-        <p style="font-size:18px;line-height:1.7;margin:0 0 32px;">
-          CRL is not available for direct purchase. It is offered exclusively through 
-          participating brokers and venues that have integrated the CRL calculation engine.
+      <p style="font-size:18px;line-height:1.7;margin:0 0 32px;">
+        You can't buy CRL directly. CRL-enabled products are offered only through participating brokers and venues that have integrated the CRL calculation engine.
+      </p>
+
+      <div style="background:white;border:2px solid var(--accent);border-radius:12px;padding:32px;margin:32px 0;text-align:left;">
+        <p style="font-size:18px;font-weight:600;margin:0 0 12px;color:var(--g900);text-align:center;">
+          If leverage has ever blown up a trade you later got right, don't accept it as "part of the game."
         </p>
-
-        <div style="background:white;border:2px solid var(--accent);border-radius:12px;padding:32px;margin:32px 0;">
-          <p style="font-size:20px;font-weight:600;margin:0 0 16px;color:var(--g900);">
-            Interested in CRL-enabled leverage?
-          </p>
-          <p style="font-size:16px;color:var(--g700);margin:0;">
-            Ask your broker if they offer CRL products, or if they're interested in adding them.
-          </p>
-        </div>
-
-        <p style="font-size:15px;color:var(--g600);margin:32px 0 0;">
-          If you're a broker or venue interested in offering CRL to your professional clients, 
-          <a href="index.html" style="color:var(--accent);font-weight:600;">visit our main site</a> 
-          for integration information.
+        <p style="font-size:16px;color:var(--accent);margin:0;text-align:center;font-weight:700;">
+          Ask your broker for CRL-enabled leverage.
         </p>
       </div>
-    </section>
+
+      <!-- Email Template -->
+      <div id="broker-template" style="background:var(--g900);border-radius:12px;padding:32px;margin:40px 0;text-align:left;scroll-margin-top:120px;">
+        <p style="color:var(--accent);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin:0 0 16px;">
+          Broker request template (professional accounts)
+        </p>
+        <div id="emailTemplate" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:20px;font-family:monospace;font-size:13px;color:rgba(255,255,255,0.85);line-height:1.7;">
+          <strong style="color:white;">Subject:</strong> Request: CRL-enabled leverage profile for professional accounts<br/><br/>
+          Hi [Name],<br/><br/>
+          I'm a professional client and I'm requesting access to a leverage profile where amplification activates only after a defined confirmation trigger (base exposure prior to confirmation).<br/><br/>
+          CRL (Conditional Retroactive Leverage) provides this via a calculation layer integrated into the trading stack. Execution venue, LP terms, margin policy, and risk limits remain under your control.<br/><br/>
+          Can you confirm whether you offer CRL-enabled products? If not, could you route this to the person responsible for leveraged product design / platform integrations for professional clients? I can share a short technical overview and evidence pack.<br/><br/>
+          Best regards,<br/>
+          [Your name]<br/>
+          [Account / company]
+        </div>
+        <button onclick="copyEmail()" style="margin-top:16px;background:var(--accent);color:white;border:none;padding:12px 24px;border-radius:8px;font-weight:700;cursor:pointer;font-family:inherit;transition:all 0.2s;">
+          Copy to clipboard
+        </button>
+        <span id="copyConfirm" style="margin-left:12px;color:var(--accent);font-size:14px;opacity:0;transition:opacity 0.3s;">✓ Copied</span>
+      </div>
+  </section>
 
     <!-- Final CTA -->
     <section class="cta" style="background:var(--g900);padding:80px 20px;">
       <div style="max-width:700px;margin:0 auto;text-align:center;">
-        <h2 class="headline" style="color:white;margin-bottom:24px;">Talk to your broker</h2>
+        <h2 class="headline" style="color:white;margin-bottom:24px;">Stop getting liquidated for being early.</h2>
         <p style="color:rgba(255,255,255,0.8);font-size:18px;margin-bottom:32px;">
-          CRL products are distributed exclusively through participating brokers and venues. 
-          If you're a professional trader interested in this leverage profile, start the conversation with your broker.
+          CRL is available only via participating brokers and venues. If you're a professional trader, ask your broker's product or risk team to evaluate CRL-enabled leverage.
         </p>
-        <a href="index.html" class="hero-cta secondary" style="background:white;color:var(--g900);border:none;">
-          Learn more about CRL for institutions <span class="arrow">→</span>
-        </a>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+          <a href="#broker-template" class="hero-cta" style="background:var(--accent);color:white;border:none;">
+            Contact my broker <span class="arrow">→</span>
+          </a>
+          <a href="materials.html" class="hero-cta secondary" style="background:transparent;color:white;border:2px solid rgba(255,255,255,0.3);">
+            Request evidence pack
+          </a>
+        </div>
       </div>
     </section>
 
@@ -293,7 +398,7 @@
       1313 N Market Street, Suite 5100<br>
       Wilmington, DE 19801<br>
       United States<br>
-      <a href="mailto:info@crl-technologies.com">info@crl-technologies.com</a>
+      <a href="mailto:support@crl-technologies.com">support@crl-technologies.com</a>
     </div>
   </footer>
 
@@ -331,6 +436,72 @@
       </div>
     </div>
   </section>
+
+<script>
+// Cinematic Hero Scroll
+const heroBg = document.getElementById('heroBg');
+const heroBadge = document.getElementById('heroBadge');
+const heroLine1 = document.getElementById('heroLine1');
+const heroLine2 = document.getElementById('heroLine2');
+const heroCaption = document.getElementById('heroCaption');
+const scrollIndicator = document.getElementById('scrollIndicator');
+
+function handleHeroScroll() {
+  const hero = document.querySelector('.cinematic-hero');
+  if (!hero) return;
+  
+  const heroRect = hero.getBoundingClientRect();
+  const heroHeight = hero.offsetHeight - window.innerHeight;
+  const scrolled = Math.max(0, -heroRect.top);
+  const progress = Math.min(1, scrolled / heroHeight);
+
+  if (progress > 0.03) heroBadge.classList.add('visible');
+  if (progress > 0.08) heroLine1.classList.add('visible');
+  
+  if (progress > 0.22) {
+    heroLine2.classList.add('visible');
+    heroBg.classList.add('desaturated');
+  } else {
+    heroBg.classList.remove('desaturated');
+  }
+  
+  if (progress > 0.32) heroCaption.classList.add('visible');
+  
+  if (progress > 0.04) {
+    scrollIndicator.classList.add('hidden');
+  } else {
+    scrollIndicator.classList.remove('hidden');
+  }
+}
+
+window.addEventListener('scroll', handleHeroScroll, { passive: true });
+handleHeroScroll();
+
+// Copy email template
+function copyEmail() {
+  const template = `Subject: Request: CRL-enabled leverage profile for professional accounts
+
+Hi [Name],
+
+I'm a professional client and I'm requesting access to a leverage profile where amplification activates only after a defined confirmation trigger (base exposure prior to confirmation).
+
+CRL (Conditional Retroactive Leverage) provides this via a calculation layer integrated into the trading stack. Execution venue, LP terms, margin policy, and risk limits remain under your control.
+
+Can you confirm whether you offer CRL-enabled products? If not, could you route this to the person responsible for leveraged product design / platform integrations for professional clients? I can share a short technical overview and evidence pack.
+
+Best regards,
+[Your name]
+[Account / company]`;
+  
+  navigator.clipboard.writeText(template).then(() => {
+    document.getElementById('copyConfirm').style.opacity = '1';
+    setTimeout(() => {
+      document.getElementById('copyConfirm').style.opacity = '0';
+    }, 2000);
+  });
+}
+
+</script>  
 
 </body>
 </html>
