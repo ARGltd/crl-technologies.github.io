@@ -1128,10 +1128,12 @@
 
    // Mobile Menu
    const hamb = document.querySelector('.hamb');
-   if (hamb) {
+   const navLinks = document.querySelector('.nav-links');
+   if (hamb && navLinks) {
      hamb.addEventListener('click', () => {
        const expanded = hamb.getAttribute('aria-expanded') === 'true';
        hamb.setAttribute('aria-expanded', !expanded);
+       navLinks.classList.toggle('is-open');
      });
    }
 
