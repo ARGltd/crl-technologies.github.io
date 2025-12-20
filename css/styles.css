@@ -943,43 +943,74 @@
     .sticky-cta .row{display:flex;gap:10px;justify-content:space-between}
     .sticky-cta .btn{flex:1;justify-content:center}
 
-    /* ====== RESPONSIVE ====== */
-    @media (max-width:980px){
-      .nav-links{display:none}
-      .nav-cta-wrapper{display:none}
-      .hamb{display:block}
-      .section{padding:60px 24px}
-      .hero{padding:60px 24px 12px}
-      .nav-wrap{padding:14px 24px}
-      .benefits{grid-template-columns:1fr}
-      .p-grid{grid-template-columns:1fr}
-      .cta-btns{flex-direction:column;align-items:center}
-      .hero-ctas{flex-direction:column;align-items:center}
-      .contacts-grid{grid-template-columns:1fr}
-      .chart-grid{grid-template-columns:1fr}
-      .sticky-cta{display:block}
-      .metrics-grid{grid-template-columns:1fr}
-      .pilot-benefits{grid-template-columns:1fr}
-      .executive-box ul{grid-template-columns:1fr}
-      .timeline-weeks{grid-template-columns:1fr}
-      .roi-inputs{grid-template-columns:1fr}
-      .steps-timeline{grid-template-columns:1fr}
+ /* ====== RESPONSIVE ====== */
+  @media (max-width:980px){
+    .nav-links{
+      display:none;
+      position:absolute;
+      top:100%;
+      left:0;
+      right:0;
+      background:white;
+      flex-direction:column;
+      padding:20px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.1);
+      border-top:1px solid var(--g200);
+      z-index:999;
     }
     
-    @media (max-width: 768px) {
-      .modal-wide {
-        max-width:95%;
-        margin:10px;
-      }
-      .loi-document {
-        max-height:300px;
-        font-size:12px;
-      }
-      .loi-parties {
-        grid-template-columns:1fr;
-      }
+    .nav-links.is-open{
+      display:flex;
     }
+    
+    .nav-links a{
+      padding:12px 0;
+      border-bottom:1px solid var(--g100);
+    }
+    
+    nav{
+      position:relative;
+    }
+    
+    .nav-cta-wrapper{display:none}
+    .hamb{display:block}
+    .section{padding:60px 24px}
+    .hero{padding:60px 24px 12px}
+    .nav-wrap{padding:14px 24px}
+    .benefits{grid-template-columns:1fr}
+    .p-grid{grid-template-columns:1fr}
+    .cta-btns{flex-direction:column;align-items:center}
+    .hero-ctas{flex-direction:column;align-items:center}
+    .contacts-grid{grid-template-columns:1fr}
+    .chart-grid{grid-template-columns:1fr}
+    .sticky-cta{display:block}
+    .metrics-grid{grid-template-columns:1fr}
+    .pilot-benefits{grid-template-columns:1fr}
+    .executive-box ul{grid-template-columns:1fr}
+    .timeline-weeks{grid-template-columns:1fr}
+    .roi-inputs{grid-template-columns:1fr}
+    .steps-timeline{grid-template-columns:1fr}
+  }
 
+  @media (max-width:768px) {
+    .modal-wide {
+      max-width:95%;
+      margin:10px;
+    }
+    .loi-document {
+      max-height:300px;
+      font-size:12px;
+    }
+    .loi-parties {
+      grid-template-columns:1fr;
+    }
+    
+    /* Fix box 3 colonne */
+    [style*="grid-template-columns:repeat(3,1fr)"],
+    [style*="grid-template-columns: repeat(3, 1fr)"] {
+      grid-template-columns:1fr !important;
+    }
+  }
     /* ====== ANIMATIONS ====== */
     .fade-in{animation:fadeIn 0.6s ease-out;}
     @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
