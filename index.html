@@ -1031,18 +1031,28 @@
  <script>
    
    // Quick Qualification Form
-   document.getElementById('quickQualForm')?.addEventListener('submit', (e) => {
-     e.preventDefault();
-     const formData = new FormData(e.target);
-     const volume = formData.get('volume');
-     const clientBase = formData.get('client_base');
-     
-     if (volume === '<10M' || clientBase === 'no') {
-       alert('Unfortunately, CRL requires minimum €10M monthly volume and professional client base. Please contact us when you meet these requirements.');
-     } else {
-       alert('Excellent! You qualify for our pilot program. A representative will contact you within 24 hours.');
-     }
-   });
+   document.getElementById('gateForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const email = formData.get('email') || '';
+      const freeProviders = ['gmail.com','yahoo.com','outlook.com','hotmail.com','icloud.com','proton.me','aol.com','gmx.com'];
+      const domain = (email.split('@')[1] || '').toLowerCase();
+      if (freeProviders.includes(domain)) { alert('Please use your corporate email address.'); return; }
+      
+      fetch('https://formspree.io/f/xpwevykk', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          closeGate();
+          alert('Access granted. We will contact you shortly.');
+          e.target.reset();
+        } else {
+          alert('Error submitting form. Please try again.');
+        }
+      }).catch(() => alert('Error submitting form. Please try again.'));
+    });
    
    // Checkbox visual feedback
    document.querySelectorAll('.checkbox-label input[type="checkbox"]').forEach(checkbox => {
@@ -1111,6 +1121,29 @@
    demoOpeners.forEach(el => el.addEventListener('click', e => { e.preventDefault(); openDemo(el); }));
    demoClosers.forEach(el => el.addEventListener('click', closeDemo));
    demoModal.addEventListener('click', e => { if (e.target === demoModal) closeDemo(); });
+
+   document.getElementById('demoForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const email = formData.get('email') || '';
+      const freeProviders = ['gmail.com','yahoo.com','outlook.com','hotmail.com','icloud.com','proton.me','aol.com','gmx.com'];
+      const domain = (email.split('@')[1] || '').toLowerCase();
+      if (freeProviders.includes(domain)) { alert('Please use your corporate email address.'); return; }
+      
+      fetch('https://formspree.io/f/mwpzyldd', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          closeDemo();
+          alert('Demo request received. We will contact you within 24 hours.');
+          e.target.reset();
+        } else {
+          alert('Error submitting form. Please try again.');
+        }
+      }).catch(() => alert('Error submitting form. Please try again.'));
+    });
 
    // Gate & Demo form validation (light)
    document.getElementById('gateForm').addEventListener('submit', e => {
