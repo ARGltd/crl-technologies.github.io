@@ -526,6 +526,31 @@
       </div>
     </section>
 
+    <!-- Live System Status -->
+    <section class="section" id="live-status">
+      <div class="wrap" style="max-width:1200px;margin:0 auto;">
+        <h2 class="headline" style="text-align:center;">Live System Status</h2>
+        <p style="text-align:center;max-width:780px;margin:12px auto 32px;">
+          Real-time operational metrics from our production infrastructure. 
+          Full transparency on uptime, latency, audit integrity and compliance systems.
+        </p>
+        <div style="background:#f8f9fa;border-radius:12px;padding:20px;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+          <iframe 
+            src="https://grafana.crl-api.crl-technologies.com/d/crl-public-status/crl-api-public-status?orgId=1&kiosk=tv&theme=light&refresh=30s"
+            width="100%" 
+            height="900" 
+            frameborder="0"
+            style="border-radius:8px;"
+            title="CRL API Live Status Dashboard">
+          </iframe>
+        </div>
+        <p class="caption" style="text-align:center;margin-top:16px;color:var(--g500);">
+          Dashboard refreshes automatically every 30 seconds. 
+          <a href="https://grafana.crl-api.crl-technologies.com/d/crl-public-status/crl-api-public-status?orgId=1&kiosk=tv&theme=light" target="_blank" rel="noopener" style="color:var(--accent);">Open full screen →</a>
+        </p>
+      </div>
+    </section>
+
     <!-- Section 5: Next steps CTA -->
     <section class="section" style="background-image:url('images/facade-dark.jpg');background-size:cover;background-position:center;position:relative;padding:80px 20px;">
       <div style="position:absolute;inset:0;background:rgba(0,0,0,0.7);"></div>
