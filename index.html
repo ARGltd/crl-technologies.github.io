@@ -248,7 +248,7 @@
           </div>
           <div style="padding:32px 24px;background:rgba(255,255,255,0.08);border-radius:8px;">
             <div style="font-size:48px;font-weight:700;color:white;margin-bottom:8px;">−50%</div>
-            <div style="font-size:15px;color:rgba(255,255,255,0.85);">equity hit → margin pressure</div>
+            <div style="font-size:15px;color:rgba(255,255,255,0.85);">leveraged P&amp;L shock → margin pressure</div>
           </div>
         </div>
 
@@ -262,19 +262,19 @@
             Standard leverage is a <strong style="color:var(--accent);">bomb that's armed at entry</strong>.
             The account is exposed to full amplification immediately — long before the market has confirmed direction.
           </p>
+
           <p style="margin:0 0 20px;font-size:19px;line-height:1.75;color:white;">
             CRL changes the paradigm: leverage stays <strong style="color:var(--accent);">disarmed</strong> until a confirmation trigger.
             Before confirmation, losses are not leverage-amplified. After confirmation, leverage can apply retroactively from entry.
           </p>
+
           <p style="margin:0 0 16px;font-size:15px;line-height:1.7;color:white;">
             <strong>Pre-confirmation:</strong> base exposure only.<br/>
             <strong>Post-confirmation:</strong> leverage applied retroactively from entry.
           </p>
+
           <p style="margin:0;font-size:19px;color:white;">
-            Same stop price. <strong>Different equity outcome.</strong> Bounded equity hit before confirmation.
-          </p>
-          <p style="margin:16px 0 0;font-size:13px;line-height:1.5;color:rgba(255,255,255,0.6);">
-            Illustrative framing. Equity impact depends on leverage, margining policy, execution conditions and jurisdiction.
+            Same stop price. <strong>Different risk path.</strong> Bounded loss amplification before confirmation.
           </p>
         </div>
 
@@ -293,44 +293,70 @@
           when price moves against the position (early) or never confirms at all (wrong).
         </p>
 
-        <!-- Example table -->
+        <!-- Example table (illustrative) -->
         <div style="background:white;border:1px solid var(--g300);border-radius:8px;overflow:hidden;margin:32px 0;">
           <table style="width:100%;border-collapse:collapse;font-size:15px;">
             <thead>
               <tr style="background:var(--g900);color:white;">
                 <th style="padding:16px 20px;text-align:left;font-weight:600;">Scenario</th>
-                <th style="padding:16px 20px;text-align:right;font-weight:600;">Traditional 5×</th>
-                <th style="padding:16px 20px;text-align:right;font-weight:600;">CRL</th>
+                <th style="padding:16px 20px;text-align:right;font-weight:600;">Traditional 5× (illustrative)</th>
+                <th style="padding:16px 20px;text-align:right;font-weight:600;">CRL (illustrative)</th>
               </tr>
             </thead>
             <tbody>
               <tr style="border-bottom:1px solid var(--g200);">
-                <td style="padding:16px 20px;color:var(--g700);">Price drops 10%, then recovers<br/><span style="font-size:13px;color:var(--g500);">(client is right, but early)</span></td>
-                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--g800);">−50% equity<br/><span style="font-size:13px;font-weight:400;color:var(--g500);">Likely liquidated</span></td>
-                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--accent);">−Premium<br/><span style="font-size:13px;font-weight:400;color:var(--g500);">Position survives</span></td>
+                <td style="padding:16px 20px;color:var(--g700);">
+                  Price drops 10%, then recovers<br/>
+                  <span style="font-size:13px;color:var(--g500);">(client is right, but early)</span>
+                </td>
+                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--g800);">
+                  −50% P&amp;L move on leveraged exposure<br/>
+                  <span style="font-size:13px;font-weight:400;color:var(--g500);">Higher liquidation risk under many margin policies</span>
+                </td>
+                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--accent);">
+                  −Premium (per ticket terms)<br/>
+                  <span style="font-size:13px;font-weight:400;color:var(--g500);">Pre-confirmation not leverage-amplified</span>
+                </td>
               </tr>
+
               <tr style="border-bottom:1px solid var(--g200);">
-                <td style="padding:16px 20px;color:var(--g700);">Price rises 10%, trigger hit<br/><span style="font-size:13px;color:var(--g500);">(client is right, confirmed)</span></td>
-                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--g800);">+50% equity</td>
-                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--accent);">+Kicker from entry<br/><span style="font-size:13px;font-weight:400;color:var(--g500);">Retroactive leverage</span></td>
+                <td style="padding:16px 20px;color:var(--g700);">
+                  Price rises 10%, trigger hit<br/>
+                  <span style="font-size:13px;color:var(--g500);">(client is right, confirmed)</span>
+                </td>
+                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--g800);">
+                  +50% P&amp;L move on leveraged exposure
+                </td>
+                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--accent);">
+                  +Kicker from entry (per ticket terms)<br/>
+                  <span style="font-size:13px;font-weight:400;color:var(--g500);">Retroactive leverage after confirmation</span>
+                </td>
               </tr>
+
               <tr>
-                <td style="padding:16px 20px;color:var(--g700);">Price never reaches trigger, expires<br/><span style="font-size:13px;color:var(--g500);">(no confirmation)</span></td>
-                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--g600);">Depends on exit</td>
-                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--accent);">−Premium<br/><span style="font-size:13px;font-weight:400;color:var(--g500);">Max loss (ticket terms)</span></td>
+                <td style="padding:16px 20px;color:var(--g700);">
+                  Price never reaches trigger, expires<br/>
+                  <span style="font-size:13px;color:var(--g500);">(no confirmation)</span>
+                </td>
+                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--g600);">
+                  Depends on exit and margin policy
+                </td>
+                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--accent);">
+                  −Premium (per ticket terms)<br/>
+                  <span style="font-size:13px;font-weight:400;color:var(--g500);">Max loss bounded per ticket terms</span>
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <p style="font-size:15px;line-height:1.7;margin:0 0 16px;color:var(--g700);">
-          <strong>Paradigm shift:</strong> standard leverage amplifies losses immediately. CRL can keep downside closer to base exposure until confirmation,
-          and only then apply leverage from entry — per ticket terms.
+          <strong>Interpretation:</strong> traditional leverage amplifies P&amp;L immediately. CRL is intended to keep downside closer to base exposure
+          until confirmation, and only then apply leverage from entry, subject to the issuer's ticket terms.
         </p>
 
         <p style="font-size:13px;line-height:1.5;color:var(--g500);margin:0;">
-          Note: premium, max loss and margining depend on the issuer's ticket terms and jurisdiction.
-          Illustrative. Actual outcomes depend on issuer terms, trigger parameters, and market conditions.
+          Illustrative framing only. Outcomes depend on the intermediary's product terms, margining and liquidation policy, execution conditions, and jurisdiction.
         </p>
 
       </div>
@@ -395,14 +421,18 @@
         <div class="p-grid">
           
           <article class="card">
-            <h3 class="title">Longer client lifetime</h3>
-            <p>
-              Reduce early wipe-outs structurally and extend account longevity. Evidence is simulation-based and provided for internal review.
-            </p>
-            <p style="font-size:15px;color:var(--accent);font-weight:600;margin-top:12px;">
-              +5–6 months median survival
-            </p>
-          </article>
+              <h3 class="title">Longer client lifetime</h3>
+              <p>
+                Reduce early wipe-outs structurally and extend account longevity. Evidence is simulation-based and provided for internal review.
+              </p>
+
+              <p style="font-size:15px;color:var(--accent);font-weight:600;margin-top:12px;margin-bottom:4px;">
+                +5–6 months median survival
+              </p>
+              <p style="font-size:12px;line-height:1.35;color:var(--g600);margin:0;">
+                Simulation-based estimate. Methodology available in the Evidence Pack (NDA).
+              </p>
+            </article>
           
           <article class="card">
             <h3 class="title">Differentiation you can explain</h3>
