@@ -152,7 +152,14 @@
           <div style="padding:24px;background:white;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
             <h4 style="font-size:18px;font-weight:600;margin-bottom:12px;color:var(--accent);">Audit integrity</h4>
             <p style="font-size:15px;color:var(--g600);line-height:1.6;margin:0;">
-              Each calculation emits a structured audit event with cryptographic linkage (prev-hash chaining) and periodic Merkle batching. Batch roots signed via AWS KMS, stored in S3 WORM.
+              Each calculation emits a structured audit event with cryptographic linkage (prev-hash chaining) and daily Merkle tree batching. Tamper-evident by design: any modification breaks the hash chain.
+            </p>
+          </div>
+
+          <div style="padding:24px;background:white;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+            <h4 style="font-size:18px;font-weight:600;margin-bottom:12px;color:var(--accent);">Cryptographic signing</h4>
+            <p style="font-size:15px;color:var(--g600);line-height:1.6;margin:0;">
+              Daily Merkle roots signed with AWS KMS Multi-Region Keys (RSA-2048). Keys rotatable via alias without service interruption. Signatures stored in S3 WORM for MiFID II Article 16 compliance.
             </p>
           </div>
           
