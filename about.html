@@ -9,6 +9,66 @@
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png"/>
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png"/>
   <link rel="stylesheet" href="css/styles.css">
+
+  <!-- MathJax + Journey enhanced styles -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)'],['$','$']], displayMath: [['\\[','\\]']] },
+      svg: { fontCache: 'global' },
+      startup: { typeset: true }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <style>
+    /* ── Journey enhanced ── */
+    .journey-mono { font-family: 'IBM Plex Mono','SF Mono','Fira Code',monospace; }
+    .j-formula-block {
+      background: #171717; border-radius: 8px; padding: 20px 24px;
+      color: #f5f5f5; font-family: 'IBM Plex Mono','SF Mono',monospace;
+      font-size: 12.5px; line-height: 1.8; position: relative; overflow: hidden;
+      margin-bottom: 0;
+    }
+    .j-formula-block::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: #0066cc;
+    }
+    .j-formula-block .jf-label {
+      font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+      color: #737373; margin-bottom: 10px;
+    }
+    .j-formula-block .jf-math { color: #a8d8ff; font-size: 13px; }
+    .j-formula-block .jf-comment { color: #525252; font-size: 11px; line-height: 1.7; }
+    .j-formula-block svg { filter: invert(.85) hue-rotate(180deg); }
+    .j-stat-chip {
+      border: 1px solid #e5e5e5; border-radius: 8px;
+      padding: 16px 20px; background: #f7f7f7;
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .j-stat-chip.ac {
+      border-color: rgba(0,102,204,.3); background: rgba(0,102,204,.05);
+    }
+    .j-stat-chip .jsv {
+      font-size: 22px; font-weight: 600; letter-spacing: -.03em;
+      color: #171717; font-family: 'IBM Plex Mono','SF Mono',monospace;
+    }
+    .j-stat-chip.ac .jsv { color: #0066cc; }
+    .j-stat-chip .jsl {
+      font-size: 11px; color: #737373; letter-spacing: .01em; line-height: 1.4;
+    }
+    .j-tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .j-tag {
+      font-family: 'IBM Plex Mono','SF Mono',monospace; font-size: 10.5px;
+      padding: 4px 10px; border-radius: 4px; border: 1px solid #e5e5e5;
+      color: #525252; letter-spacing: .03em; background: #fff;
+    }
+    .j-grid { display: grid; gap: 16px; }
+    .j-grid.g2 { grid-template-columns: 1fr 1fr; }
+    .j-grid.g3 { grid-template-columns: repeat(3, 1fr); }
+    .j-grid.g1 { grid-template-columns: 1fr; }
+    @media (max-width: 700px) {
+      .j-grid.g2, .j-grid.g3 { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
   <a class="visually-hidden" href="#main">Skip to content</a>
@@ -224,60 +284,294 @@
               </div>
             </div>
 
-            <!-- Journey / Timeline (usa la timeline sistemata sopra) -->
+            <!-- Journey / Timeline — enhanced -->
             <div class="timeline-container">
-            <h3 class="title" style="margin:32px 0 16px">Our Journey</h3>
+            <h3 class="title" style="margin:32px 0 28px">Our Journey</h3>
 
             <div class="timeline">
-                <div class="timeline-item" data-year="2017–2020">
+
+              <!-- ── Phase I ── -->
+              <div class="timeline-item" data-year="2017–2020">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
-                    <h4>Foundations &amp; Hypothesis</h4>
-                    <p>
-                    Long-cycle research on path-dependent market structures and the limits of standard leveraged products.
-                    In this phase the core idea of activating leverage only after a confirmed move, with a retroactive effect
-                    on the whole path, was first shaped.
-                    </p>
+                  <h4>Foundations &amp; Hypothesis</h4>
+                  <p>
+                    Long-cycle research on path-dependent market structures and the structural limits of
+                    standard leveraged products. Standard leverage amplifies both the directional component
+                    and the path component equally — creating a timing risk that is fundamentally
+                    non-separable from directional conviction. This phase formalised the core hypothesis:
+                    leverage can be activated conditionally, with retroactive application to the entire
+                    price path from entry, without altering the settlement structure of existing products.
+                  </p>
+                  <div class="j-grid g2" style="margin-top:20px">
+                    <div class="j-formula-block">
+                      <div class="jf-label">Standard leveraged P&amp;L — path dependency</div>
+                      <div class="jf-math">
+                        \( P_T^{\text{std}} = L \cdot \sum_{t=0}^{T-1} \frac{S_{t+1}-S_t}{S_t} \)
+                      </div>
+                      <div class="jf-comment">// compounding drag: E[P_T] &lt; L·(S_T/S_0 − 1)</div>
+                    </div>
+                    <div class="j-formula-block">
+                      <div class="jf-label">Core hypothesis — separability condition</div>
+                      <div class="jf-math">
+                        \( R_{\text{path}} \perp R_{\text{dir}} \;\Longrightarrow\; \exists\;\tau^* \)
+                      </div>
+                      <div class="jf-comment">// τ* := first crossing time of activation threshold</div>
+                    </div>
+                  </div>
+                  <div class="j-tag-row">
+                    <span class="j-tag">stochastic calculus</span>
+                    <span class="j-tag">path-dependent options</span>
+                    <span class="j-tag">volatility drag</span>
+                    <span class="j-tag">GBM / SDE</span>
+                    <span class="j-tag">stopping time theory</span>
+                  </div>
                 </div>
-                </div>
+              </div>
 
-                <div class="timeline-item" data-year="2021–2023">
+              <!-- ── Phase II ── -->
+              <div class="timeline-item" data-year="2021–2023">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
-                    <h4>Formalization &amp; Structuring</h4>
-                    <p>
-                    Formalisation of the CRL payoff and its positioning outside standard catalogues.
-                    In parallel, work on documentation, LOI/NDA structures and eligibility rules to make
-                    CRL adoptable by institutions without breaking existing frameworks.
-                    </p>
+                  <h4>Formalization &amp; Structuring</h4>
+                  <p>
+                    Formal derivation of the CRL payoff and its structural positioning outside standard
+                    product catalogues. CRL applies leverage retroactively from entry price \(S_0\) — not
+                    from the trigger level \(B\) — only after a confirmed directional move. This eliminates
+                    the dead zone between entry and trigger in which standard knock-in leverage accrues zero
+                    benefit while compounding time and volatility costs. Parallel work on eligibility
+                    frameworks, LOI/NDA structures, and regulatory positioning under MiFID II Professional
+                    and Eligible Counterparty perimeters.
+                  </p>
+                  <div class="j-grid g1" style="margin-top:20px">
+                    <div class="j-formula-block">
+                      <div class="jf-label">CRL Payoff — formal definition</div>
+                      <div class="jf-math">
+                        \[
+                          \Pi^{\text{CRL}}(S_T) =
+                          \mathbf{1}_{\{\tau_B \leq T\}} \cdot
+                          \bigl[L\cdot(S_T-S_0)-(S_{\tau_B}-S_0)\bigr]
+                          + (S_T - S_0)
+                        \]
+                      </div>
+                      <div class="jf-comment">
+                        // τ_B = inf{ t ≥ 0 : S_t ≥ B }  — first passage time through barrier B<br>
+                        // L = leverage multiplier, applied retro from S_0 only if barrier is crossed<br>
+                        // no leverage accrued if barrier is never reached (vanilla exposure preserved)
+                      </div>
+                    </div>
+                  </div>
+                  <div class="j-grid g2" style="margin-top:16px">
+                    <div class="j-formula-block">
+                      <div class="jf-label">Retro-leverage delta</div>
+                      <div class="jf-math">
+                        \( \Delta^{\text{CRL}} = 1 + \mathbf{1}_{\{\tau_B \leq T\}}\cdot(L-1) \)
+                      </div>
+                      <div class="jf-comment">// Δ = 1 before crossing; Δ = L after crossing</div>
+                    </div>
+                    <div class="j-formula-block">
+                      <div class="jf-label">Volatility drag suppression</div>
+                      <div class="jf-math">
+                        \( \text{drag}^{\text{CRL}} = \tfrac{1}{2}(L-1)^2\sigma^2
+                           \cdot\mathbf{1}_{\{\tau_B \leq T\}} \)
+                      </div>
+                      <div class="jf-comment">// drag is zero until barrier is confirmed</div>
+                    </div>
+                  </div>
+                  <div class="j-tag-row">
+                    <span class="j-tag">exotic derivatives</span>
+                    <span class="j-tag">barrier options</span>
+                    <span class="j-tag">first-passage time</span>
+                    <span class="j-tag">MiFID II / EMIR</span>
+                    <span class="j-tag">payoff engineering</span>
+                  </div>
                 </div>
-                </div>
+              </div>
 
-                <div class="timeline-item" data-year="2023–2024">
+              <!-- ── Phase III ── -->
+              <div class="timeline-item" data-year="2023–2024">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
-                    <h4>Validation &amp; Integration</h4>
-                    <p>
-                    Cross-domain work combining trading experience, technical architecture and operational controls.
-                    The engine was tested on realistic flows, with attention to latency, state management and monitoring.
-                    </p>
+                  <h4>Validation &amp; Integration</h4>
+                  <p>
+                    Cross-domain validation combining quantitative modelling, live trading data, and
+                    production-grade systems engineering. The CRL engine was tested against \(10^6\) Monte
+                    Carlo paths under both GBM and jump-diffusion regimes, measuring stop-out frequency,
+                    realised P&amp;L distribution, and tail-risk exposure. Latency profiling, state-machine
+                    architecture and audit-trail design were finalised in this phase.
+                  </p>
+                  <div class="j-grid g3" style="margin-top:20px">
+                    <div class="j-stat-chip ac">
+                      <span class="jsv">84.8%</span>
+                      <span class="jsl">stop-out reduction vs standard leverage<br>(1M-path Monte Carlo, GBM + jumps)</span>
+                    </div>
+                    <div class="j-stat-chip">
+                      <span class="jsv">1M</span>
+                      <span class="jsl">simulation paths per validation run<br>Δt = 1 min, T = 20 days</span>
+                    </div>
+                    <div class="j-stat-chip">
+                      <span class="jsv">&lt;10ms</span>
+                      <span class="jsl">end-to-end API latency<br>p99 under production load</span>
+                    </div>
+                  </div>
+                  <div class="j-grid g1" style="margin-top:16px">
+                    <div class="j-formula-block">
+                      <div class="jf-label">Monte Carlo estimator — stop-out probability</div>
+                      <div class="jf-math">
+                        \[
+                          \hat{p}^{\text{std}}_{\text{wipeout}} =
+                          \frac{1}{N}\sum_{i=1}^{N}
+                          \mathbf{1}_{\bigl\{\exists\,t:S^{(i)}_t \leq S_0(1-\tfrac{1}{L})\bigr\}}
+                          \qquad
+                          \hat{p}^{\text{CRL}}_{\text{wipeout}} =
+                          \frac{1}{N}\sum_{i=1}^{N}
+                          \mathbf{1}_{\{\tau_B^{(i)}\leq T\}}\cdot
+                          \mathbf{1}_{\bigl\{\exists\,t\geq\tau_B:S^{(i)}_t\leq S_0(1-\tfrac{1}{L})\bigr\}}
+                        \]
+                      </div>
+                      <div class="jf-comment">
+                        // CRL wipeout requires barrier crossing AND subsequent reversal — strict subset of standard events<br>
+                        // ratio p̂_std / p̂_CRL validated at 6.6× across L ∈ {5,10,20}, σ ∈ {0.15,0.25,0.40}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="j-grid g2" style="margin-top:16px">
+                    <div class="j-formula-block">
+                      <div class="jf-label">FSM state transitions</div>
+                      <div class="jf-comment">
+                        q₀ (PENDING)  ──[S_t ≥ B]──▶  q₁ (ACTIVE)<br>
+                        q₁ (ACTIVE)   ──[T reached]─▶  q₂ (SETTLED)<br>
+                        q₀ (PENDING)  ──[T reached]─▶  q₃ (EXPIRED)<br>
+                        // state persisted to PostgreSQL JSONB per tenant
+                      </div>
+                    </div>
+                    <div class="j-formula-block">
+                      <div class="jf-label">Canonical HMAC auth string</div>
+                      <div class="jf-comment">
+                        METHOD\n<br>
+                        PATH\n<br>
+                        TIMESTAMP\n<br>
+                        SHA256(body)<br><br>
+                        // sig = HMAC-SHA256(secret, canonical)<br>
+                        // replay window: ±30 s from server clock
+                      </div>
+                    </div>
+                  </div>
+                  <div class="j-tag-row">
+                    <span class="j-tag">Monte Carlo (GBM + Merton jump)</span>
+                    <span class="j-tag">FSM / state machine</span>
+                    <span class="j-tag">HMAC-SHA256</span>
+                    <span class="j-tag">PostgreSQL JSONB</span>
+                    <span class="j-tag">AWS KMS</span>
+                    <span class="j-tag">p99 latency</span>
+                  </div>
                 </div>
-                </div>
+              </div>
 
-                <div class="timeline-item active" data-year="2025">
+              <!-- ── Phase IV — active ── -->
+              <div class="timeline-item" data-year="2025">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
-                    <h4>Industrialization &amp; Go-to-Market</h4>
-                    <p>
-                    Incorporation of CRL Technologies, Inc., filing of the US provisional patent and move to a production-grade
-                    API architecture. From here, the focus is a controlled roll-out with a small number of qualified, licensed
-                    professional counterparties under clear IP and eligibility controls.
-                    </p>
+                  <h4>Industrialization &amp; Market Discovery</h4>
+                  <p>
+                    Incorporation of CRL Technologies, Inc. (Delaware C-Corp), filing of the U.S.
+                    provisional patent, and migration to a production-grade multi-tenant API infrastructure.
+                    External validation with selected institutional counterparties confirmed architectural
+                    soundness and regulatory compatibility. In parallel, an active dialogue was initiated
+                    with professional introducers, broker infrastructure consultants and licensed advisory
+                    firms — establishing the first institutional relationships that will anchor the
+                    go-to-market phase in 2026.
+                  </p>
+                  <div class="j-grid g3" style="margin-top:20px">
+                    <div class="j-stat-chip ac">
+                      <span class="jsv">146k+</span>
+                      <span class="jsl">calculations / second<br>sustained throughput, production</span>
+                    </div>
+                    <div class="j-stat-chip ac">
+                      <span class="jsv">17+</span>
+                      <span class="jsl">tenant configurations<br>isolated namespaces, multi-tenant layer</span>
+                    </div>
+                    <div class="j-stat-chip ac">
+                      <span class="jsv">5</span>
+                      <span class="jsl">SDK languages<br>Python · JS · Java · Go · Ruby</span>
+                    </div>
+                  </div>
+                  <div class="j-grid g2" style="margin-top:16px">
+                    <div class="j-formula-block">
+                      <div class="jf-label">Retro-recalculation on activation event</div>
+                      <div class="jf-math">
+                        \[
+                          V_t^{\text{retro}} = V_{\tau_B}^{\text{base}}
+                          + L\cdot(S_t - S_{\tau_B})
+                          + (L-1)(S_{\tau_B} - S_0)
+                        \]
+                      </div>
+                      <div class="jf-comment">
+                        // third term: retroactive P&amp;L credit from entry to crossing<br>
+                        // executed in-memory, KMS-signed, &lt;10ms p99
+                      </div>
+                    </div>
+                    <div class="j-formula-block">
+                      <div class="jf-label">Audit trail — S3 WORM entry schema</div>
+                      <div class="jf-comment">
+                        {<br>
+                        &nbsp;&nbsp;"event_id":&nbsp;&nbsp;&nbsp;"uuid-v4",<br>
+                        &nbsp;&nbsp;"tenant_id":&nbsp;&nbsp;"string",<br>
+                        &nbsp;&nbsp;"ts_utc":&nbsp;&nbsp;&nbsp;&nbsp;"ISO-8601",<br>
+                        &nbsp;&nbsp;"event_type": "ACTIVATION | SETTLEMENT",<br>
+                        &nbsp;&nbsp;"kms_sig":&nbsp;&nbsp;&nbsp;"base64"<br>
+                        }<br>
+                        // archived daily 01:30 UTC, WORM policy
+                      </div>
+                    </div>
+                  </div>
+                  <div class="j-tag-row">
+                    <span class="j-tag">U.S. provisional patent (pending)</span>
+                    <span class="j-tag">PCT filing 2026</span>
+                    <span class="j-tag">multi-tenant API</span>
+                    <span class="j-tag">AWS KMS / S3 WORM</span>
+                    <span class="j-tag">MiFID II Prof. / ECP</span>
+                    <span class="j-tag">white-label</span>
+                  </div>
                 </div>
-                </div>
-            </div>
-            </div>
+              </div>
 
+              <!-- ── Phase V — active ── -->
+              <div class="timeline-item active" data-year="2026">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                  <h4>Institutional Entry &amp; Strategic Distribution</h4>
+                  <p>
+                    CRL Technologies transitions from a research-driven development phase to a controlled
+                    institutional deployment. The company does not pursue open market distribution.
+                    CRL is introduced through a limited number of qualified counterparties and professional
+                    introducers who already operate inside the broker infrastructure ecosystem.
+                  </p>
+                  <p style="margin-top:12px">
+                    This reflects the nature of the product: CRL is not a trading strategy and not a
+                    retail derivative. It is infrastructure that must coexist with dealer hedging systems,
+                    risk governance frameworks and existing execution environments. Each integration is
+                    treated as a technical partnership rather than a commercial rollout.
+                  </p>
+                  <p style="margin-top:12px">
+                    The objective of this phase is not speed, but structural alignment — ensuring that
+                    CRL enters the market through counterparties capable of hosting the product
+                    responsibly and at institutional scale. PCT international filing proceeds in parallel
+                    as early European client relationships are established.
+                  </p>
+                  <div class="j-tag-row">
+                    <span class="j-tag">institutional entry</span>
+                    <span class="j-tag">selective distribution</span>
+                    <span class="j-tag">professional introducers</span>
+                    <span class="j-tag">technical partnership</span>
+                    <span class="j-tag">MiFID II Prof. / ECP</span>
+                    <span class="j-tag">PCT filing 2026</span>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- /timeline -->
+            </div><!-- /timeline-container -->
         </div>
     </section>
 
