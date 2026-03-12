@@ -268,29 +268,60 @@
     </div>
     <h1>CRL Design Map<br/><span class="highlight">Trigger-Dependent Regimes</span></h1>
     <p class="sub">
-      The parametric surface governing Conditional Retroactive Leverage across time horizons and asset classes.
-      Every point on these curves is a valid CRL configuration.
-      The regime — not the absolute horizon — defines the product.
+      CRL is not defined by a fixed time horizon, but by a trigger regime
+      determined by the volatility&ndash;time scale.
     </p>
     <div class="formula-hero">d(T) = z &times; &sigma; &times; &radic;T</div>
   </div>
 </div>
 
-<!-- Chart -->
+<!-- Theory intro -->
 <div class="section">
   <div class="wrap">
-    <div class="section-label">Parametric Surface</div>
+    <div class="section-label">Trigger Scaling Law</div>
     <div class="section-title">The CRL Design Map</div>
-    <p class="section-body">
-      The chart shows trigger distance d(T) as a function of time horizon T for three asset classes,
-      calibrated to maintain a standard activation regime (p<sub>event</sub>&nbsp;&asymp;&nbsp;1&ndash;3%).
-      Hover to read exact values. Shaded bands show &plusmn;18% around each calibration curve.
+
+    <p class="section-body" style="margin-bottom:20px;">
+      Conditional Retroactive Leverage is a leverage mechanism whose activation is governed by the distance
+      between the trigger and the initial price, relative to the volatility&ndash;time scale of the asset.
+      The natural scaling variable is the normalised trigger parameter:
+    </p>
+
+    <div style="text-align:center;margin:28px 0;font-family:'Courier New',monospace;font-size:22px;font-weight:700;color:var(--g900);">
+      z &nbsp;=&nbsp; d &nbsp;/&nbsp; (&sigma;&radic;T)
+    </div>
+
+    <p class="section-body" style="margin-bottom:20px;">
+      where d is the trigger distance, &sigma; the asset volatility, and T the time horizon.
+      This parameter expresses the trigger distance in units of volatility&ndash;time magnitude.
+    </p>
+
+    <p class="section-body" style="margin-bottom:20px;">
+      When CRL configurations across different horizons share the same value of z, the activation
+      regime of the mechanism remains structurally consistent. Equivalently, trigger distances
+      scale with the square root of time:
+    </p>
+
+    <div style="text-align:center;margin:28px 0;font-family:'Courier New',monospace;font-size:22px;font-weight:700;color:var(--g900);">
+      d(T) &nbsp;=&nbsp; z &nbsp;&times;&nbsp; &sigma;&radic;T
+    </div>
+
+    <p class="section-body" style="margin-bottom:20px;">
+      Simulations indicate that different ranges of z correspond to distinct behavioural regimes
+      of the mechanism. Very large values produce extremely rare activations, while very small
+      values lead to frequent activation that approaches conventional leverage behaviour.
+      Between these extremes lies the region where the trigger remains a meaningful event
+      and the retroactive leverage mechanism preserves its distinctive economic role.
+    </p>
+
+    <p class="section-body" style="margin-bottom:40px;">
+      The design map below illustrates this scaling structure and the corresponding trigger regimes.
     </p>
 
     <div class="chart-outer">
       <div class="chart-header">
         <div>
-          <div class="chart-title-txt">Trigger distance d(T) by asset class &mdash; standard activation regime</div>
+          <div class="chart-title-txt">Trigger distance d(T) by asset class &mdash; constant-z path through the parametric surface</div>
           <div class="chart-sub-txt">Axis X: time horizon (log scale, hours) &middot; Axis Y: trigger distance (% of price) &middot; Points: Monte Carlo calibration</div>
         </div>
         <div class="chart-legend" id="legend"></div>
@@ -307,8 +338,7 @@
 
       <div class="chart-footer">
         Trigger distances derived from historical annualised volatility estimates (EURUSD &asymp;&nbsp;7%, SP500 &asymp;&nbsp;17%, Gold &asymp;&nbsp;15%) under GBM assumptions.
-        Calibration points from Monte Carlo simulation (1M paths). Values are illustrative and should be recalibrated to current implied volatility for live configurations.
-        This document does not constitute a product specification or an offer of any financial instrument.
+        Calibration points from Monte Carlo simulation (1M paths). Each curve represents a constant-z path through the parametric surface &mdash; same regime, different absolute scale.
       </div>
     </div>
   </div>
@@ -335,38 +365,39 @@
 <!-- Regime section -->
 <div class="section alt">
   <div class="wrap">
-    <div class="section-label">Activation Regimes</div>
-    <div class="section-title">Three principal configurations</div>
+    <div class="section-label">Regime Classification</div>
+    <div class="section-title">Three structural regimes — defined by z, not by horizon</div>
     <p class="section-body">
-      Economically viable CRL configurations correspond to activation probabilities in the range of 1&ndash;3%.
-      The table below summarises the three principal regimes identified through Monte Carlo simulation
-      across representative asset classes.
+      The regime is determined entirely by the normalised trigger parameter z&nbsp;=&nbsp;d&nbsp;/&nbsp;(&sigma;&radic;T).
+      As z decreases, the trigger becomes easier to reach and CRL converges toward standard leverage.
+      As z increases, the trigger becomes structurally selective and the mechanism preserves its identity.
+      The same three regimes apply at 6h intraday and at 30-day horizon &mdash; only the absolute trigger distance changes.
+      Activation probabilities are a consequence of the chosen z and the volatility structure of the asset, not a design target.
     </p>
     <div class="regime-grid">
-      <div class="card aggressive">
-        <div class="regime-name">Aggressive</div>
-        <div class="regime-z">z &asymp; 1.8</div>
-        <div class="regime-p">p<sub>event</sub> &asymp; 5&ndash;8%</div>
-        <div class="regime-desc">High activation frequency. Trigger is reached often. Suitable where frequent payoff events are structurally intended by the issuer.</div>
+      <div class="card rare">
+        <div class="regime-name">Rare</div>
+        <div class="regime-z">z &asymp; 2.6</div>
+        <div class="regime-p">p<sub>event</sub> &asymp; 1% <span style="font-size:11px;color:var(--g400)">(indicative)</span></div>
+        <div class="regime-desc">Trigger is structurally selective. The mechanism is almost never activated. Suitable for high-conviction, event-driven configurations where the payoff is exceptional by design.</div>
       </div>
       <div class="card standard">
-        <div class="regime-name">Standard</div>
+        <div class="regime-name">Meaningful</div>
         <div class="regime-z">z &asymp; 2.2</div>
-        <div class="regime-p">p<sub>event</sub> &asymp; 2&ndash;3%</div>
-        <div class="regime-desc">Balanced economic structure. Primary design target for most CRL configurations across asset classes and time horizons.</div>
+        <div class="regime-p">p<sub>event</sub> &asymp; 2&ndash;3% <span style="font-size:11px;color:var(--g400)">(indicative)</span></div>
+        <div class="regime-desc">Trigger is reached with real but controlled frequency. CRL maintains full structural identity. Primary design target across asset classes and time horizons.</div>
       </div>
-      <div class="card rare">
-        <div class="regime-name">Rare Event</div>
-        <div class="regime-z">z &asymp; 2.6</div>
-        <div class="regime-p">p<sub>event</sub> &asymp; 1%</div>
-        <div class="regime-desc">Structurally selective. Trigger is reached rarely. Suitable for high-conviction, event-driven configurations.</div>
+      <div class="card aggressive">
+        <div class="regime-name">Banalised</div>
+        <div class="regime-z">z &asymp; 1.8</div>
+        <div class="regime-p">p<sub>event</sub> &asymp; 5&ndash;8% <span style="font-size:11px;color:var(--g400)">(indicative)</span></div>
+        <div class="regime-desc">Trigger is reached too often. The mechanism degrades toward standard leverage. The retroactive property survives structurally, but the economic distinction collapses.</div>
       </div>
     </div>
     <div class="callout">
       <p>
-        <strong>Note.</strong> In practice, empirical distributions, jump risk, and volatility clustering introduce deviations
-        from the idealised GBM-based mapping between z and p<sub>event</sub>. These values should be treated as reference
-        ranges. Full calibration requires Monte Carlo simulation over empirically observed return distributions.
+        <strong>The boundary between Meaningful and Banalised is the critical design constraint.</strong>
+        Below z&nbsp;&asymp;&nbsp;2.0, the trigger becomes so accessible that the pre-confirmation protection erodes and CRL loses its structural advantage over conventional leverage. Full calibration requires Monte Carlo simulation over empirically observed return distributions, accounting for jump risk and volatility clustering.
       </p>
     </div>
   </div>
@@ -375,11 +406,13 @@
 <!-- Scaling table -->
 <div class="section">
   <div class="wrap">
-    <div class="section-label">Calibration Reference</div>
-    <div class="section-title">Trigger distances by asset class and horizon</div>
+    <div class="section-label">Scaling Reference</div>
+    <div class="section-title">The same z, across asset classes and horizons</div>
     <p class="section-body">
-      Applies the scaling rule d(T) = z &times; &sigma; &times; &radic;T to representative asset classes
-      across two reference horizons, calibrated to maintain a standard activation regime (p<sub>event</sub>&nbsp;&asymp;&nbsp;1&ndash;3%).
+      The table below applies d(T)&nbsp;=&nbsp;z&nbsp;&times;&nbsp;&sigma;&nbsp;&times;&nbsp;&radic;T to three asset classes across two reference horizons,
+      holding z constant at the Meaningful regime target. The absolute trigger distance changes with &sigma; and T &mdash; the regime does not.
+      This is the structural content of the scaling law: the same CRL mechanism operates consistently across intraday, multi-day,
+      and multi-week horizons, provided that trigger distances scale proportionally to volatility-time magnitude.
     </p>
     <div class="table-scroll">
       <table class="data-table">
@@ -394,20 +427,19 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>Foreign Exchange (EURUSD)</td><td class="mono">&asymp;&nbsp;7%</td><td>6h (intraday)</td><td class="mono accent">&asymp;&nbsp;1.0%</td><td>Standard</td><td>1&ndash;3%</td></tr>
-          <tr><td>Foreign Exchange (EURUSD)</td><td class="mono">&asymp;&nbsp;7%</td><td>30-day</td><td class="mono accent">&asymp;&nbsp;6&ndash;7%</td><td>Standard</td><td>1&ndash;3%</td></tr>
-          <tr><td>Equity Indices (SP500)</td><td class="mono">&asymp;&nbsp;17%</td><td>6h (intraday)</td><td class="mono accent">&asymp;&nbsp;1.8%</td><td>Standard</td><td>1&ndash;3%</td></tr>
-          <tr><td>Equity Indices (SP500)</td><td class="mono">&asymp;&nbsp;17%</td><td>30-day</td><td class="mono accent">&asymp;&nbsp;10&ndash;12%</td><td>Standard</td><td>1&ndash;3%</td></tr>
-          <tr><td>Gold (XAU/USD)</td><td class="mono">&asymp;&nbsp;15%</td><td>6h (intraday)</td><td class="mono accent">&asymp;&nbsp;2.2%</td><td>Standard</td><td>1&ndash;3%</td></tr>
-          <tr><td>Gold (XAU/USD)</td><td class="mono">&asymp;&nbsp;15%</td><td>30-day</td><td class="mono accent">&asymp;&nbsp;13&ndash;15%</td><td>Standard</td><td>1&ndash;3%</td></tr>
+          <tr><td>Foreign Exchange (EURUSD)</td><td class="mono">&asymp;&nbsp;7%</td><td>6h (intraday)</td><td class="mono accent">&asymp;&nbsp;1.0%</td><td>Meaningful</td><td>~1&ndash;3%</td></tr>
+          <tr><td>Foreign Exchange (EURUSD)</td><td class="mono">&asymp;&nbsp;7%</td><td>30-day</td><td class="mono accent">&asymp;&nbsp;6&ndash;7%</td><td>Meaningful</td><td>~1&ndash;3%</td></tr>
+          <tr><td>Equity Indices (SP500)</td><td class="mono">&asymp;&nbsp;17%</td><td>6h (intraday)</td><td class="mono accent">&asymp;&nbsp;1.8%</td><td>Meaningful</td><td>~1&ndash;3%</td></tr>
+          <tr><td>Equity Indices (SP500)</td><td class="mono">&asymp;&nbsp;17%</td><td>30-day</td><td class="mono accent">&asymp;&nbsp;10&ndash;12%</td><td>Meaningful</td><td>~1&ndash;3%</td></tr>
+          <tr><td>Gold (XAU/USD)</td><td class="mono">&asymp;&nbsp;15%</td><td>6h (intraday)</td><td class="mono accent">&asymp;&nbsp;2.2%</td><td>Meaningful</td><td>~1&ndash;3%</td></tr>
+          <tr><td>Gold (XAU/USD)</td><td class="mono">&asymp;&nbsp;15%</td><td>30-day</td><td class="mono accent">&asymp;&nbsp;13&ndash;15%</td><td>Meaningful</td><td>~1&ndash;3%</td></tr>
         </tbody>
       </table>
     </div>
     <div class="callout" style="margin-top:20px">
       <p>
-        <strong>These values illustrate scaling behaviour, not product parameters.</strong>
-        Recalibrate to current implied volatility and empirical return distributions before use in any live configuration.
-        This document does not constitute a product specification or an offer of any financial instrument.
+        <strong>These values illustrate z-constancy across the parametric surface, not fixed product parameters.</strong>
+        For live configurations, recalibrate d to current implied volatility. The regime classification &mdash; Rare, Meaningful, Banalised &mdash; is determined by z alone and is horizon-invariant.
       </p>
     </div>
   </div>
@@ -564,9 +596,9 @@ function buildChart() {
 
   // Zone labels
   [
-    {x:CW*0.88,y:yLin(2.2), txt:"high activation", col:"#c0392b"},
-    {x:CW*0.70,y:yLin(7.0), txt:"standard regime",  col:"#0066cc"},
-    {x:CW*0.52,y:yLin(12.5),txt:"rare event",        col:"#166534"},
+    {x:CW*0.88,y:yLin(2.2), txt:"banalised",  col:"#c0392b"},
+    {x:CW*0.70,y:yLin(7.0), txt:"meaningful", col:"#0066cc"},
+    {x:CW*0.52,y:yLin(12.5),txt:"rare",        col:"#166534"},
   ].forEach(z => g.appendChild(mk("text",{
     x:z.x,y:z.y,fill:z.col,"font-size":11,"text-anchor":"middle",
     "font-style":"italic","font-family":"Times New Roman, serif"}, z.txt)));
