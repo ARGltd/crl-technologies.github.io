@@ -337,8 +337,9 @@
       </div>
 
       <div class="chart-footer">
-        Trigger distances derived from historical annualised volatility estimates (EURUSD &asymp;&nbsp;7%, SP500 &asymp;&nbsp;17%, Gold &asymp;&nbsp;15%) under GBM assumptions.
-        Calibration points from Monte Carlo simulation (1M paths). Each curve represents a constant-z path through the parametric surface &mdash; same regime, different absolute scale.
+        Trigger distances derived from historical annualised volatility estimates (EURUSD&nbsp;7%, SP500&nbsp;17%, Gold&nbsp;15%) under GBM assumptions.
+        Calibration points computed analytically at z&nbsp;=&nbsp;2.2 via d(T)&nbsp;=&nbsp;z&nbsp;&times;&nbsp;&sigma;&nbsp;&times;&nbsp;&radic;(T/8760).
+        <strong>This map shows the first-order GBM scaling law. Final live calibration requires asset-specific jump-diffusion correction, particularly for SP500 and Gold.</strong>
       </div>
     </div>
   </div>
@@ -385,7 +386,7 @@
         <div class="regime-name">Meaningful</div>
         <div class="regime-z">2.0 &le; z &le; 2.5</div>
         <div class="regime-p">p<sub>event</sub> 1.24%&ndash;4.55% <span style="font-size:11px;color:var(--g400)">(exact, P=2&Phi;(&minus;z))</span></div>
-        <div class="regime-desc">Trigger is reached with real but controlled frequency. CRL maintains full structural identity. Primary design target across asset classes and time horizons.</div>
+        <div class="regime-desc">Trigger is reached with real but controlled frequency. CRL maintains full structural identity. Primary design target across time horizons. Asset-class suitability requires jump-diffusion correction before live calibration.</div>
       </div>
       <div class="card aggressive">
         <div class="regime-name">Banalised</div>
@@ -444,8 +445,10 @@
     </div>
     <div class="callout" style="margin-top:20px">
       <p>
-        <strong>These values illustrate z-constancy across the parametric surface, not fixed product parameters.</strong>
-        For live configurations, recalibrate d to current implied volatility. The regime classification &mdash; Rare, Meaningful, Banalised &mdash; is determined by z alone and is horizon-invariant.
+        <strong>These values illustrate z-constancy across the parametric surface, not commercial product parameters.</strong>
+        For live configurations, recalibrate d to current implied volatility and apply asset-specific jump-diffusion correction.
+        Geometric consistency with z&nbsp;=&nbsp;2.2 does not automatically imply commercial suitability: SP500 and Gold at 30d produce trigger distances that are structurally valid but operationally demanding.
+        The regime classification &mdash; Rare, Meaningful, Banalised &mdash; is determined by z alone and is horizon-invariant under GBM.
       </p>
     </div>
   </div>
