@@ -619,7 +619,7 @@ function buildChart() {
   [
     {x:CW*0.82,y:yLin(13.0),txt:"rare (z>2.5)",          col:"#166534"},
     {x:CW*0.82,y:yLin(7.8), txt:"meaningful (z 2.0\u20132.5)",col:"#0066cc"},
-    {x:CW*0.82,y:yLin(2.5), txt:"banalised (z<2.0)",     col:"#c0392b"},
+    {x:CW*0.30,y:yLin(0.35),txt:"banalised (z<2.0)",     col:"#c0392b"},
   ].forEach(z => g.appendChild(mk("text",{
     x:z.x,y:z.y,fill:z.col,"font-size":10.5,"text-anchor":"middle",
     "font-style":"italic","font-family":"Times New Roman, serif"}, z.txt)));
