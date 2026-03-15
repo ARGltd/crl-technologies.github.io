@@ -377,20 +377,20 @@
     <div class="regime-grid">
       <div class="card rare">
         <div class="regime-name">Rare</div>
-        <div class="regime-z">z &asymp; 2.6</div>
-        <div class="regime-p">p<sub>event</sub> &asymp; 1% <span style="font-size:11px;color:var(--g400)">(indicative)</span></div>
+        <div class="regime-z">z &gt; 2.5</div>
+        <div class="regime-p">p<sub>event</sub> &lt; 1.24% <span style="font-size:11px;color:var(--g400)">(exact boundary)</span></div>
         <div class="regime-desc">Trigger is structurally selective. The mechanism is almost never activated. Suitable for high-conviction, event-driven configurations where the payoff is exceptional by design.</div>
       </div>
       <div class="card standard">
         <div class="regime-name">Meaningful</div>
-        <div class="regime-z">z &asymp; 2.2</div>
-        <div class="regime-p">p<sub>event</sub> &asymp; 2&ndash;3% <span style="font-size:11px;color:var(--g400)">(indicative)</span></div>
+        <div class="regime-z">2.0 &le; z &le; 2.5</div>
+        <div class="regime-p">p<sub>event</sub> 1.24%&ndash;4.55% <span style="font-size:11px;color:var(--g400)">(exact, P=2&Phi;(&minus;z))</span></div>
         <div class="regime-desc">Trigger is reached with real but controlled frequency. CRL maintains full structural identity. Primary design target across asset classes and time horizons.</div>
       </div>
       <div class="card aggressive">
         <div class="regime-name">Banalised</div>
-        <div class="regime-z">z &asymp; 1.8</div>
-        <div class="regime-p">p<sub>event</sub> &asymp; 5&ndash;8% <span style="font-size:11px;color:var(--g400)">(indicative)</span></div>
+        <div class="regime-z">z &lt; 2.0</div>
+        <div class="regime-p">p<sub>event</sub> &gt; 4.55% <span style="font-size:11px;color:var(--g400)">(exact boundary)</span></div>
         <div class="regime-desc">Trigger is reached too often. The mechanism degrades toward standard leverage. The retroactive property survives structurally, but the economic distinction collapses.</div>
       </div>
     </div>
@@ -427,12 +427,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>Foreign Exchange (EURUSD)</td><td class="mono">&asymp;&nbsp;7%</td><td>6h (intraday)</td><td class="mono accent">&asymp;&nbsp;1.0%</td><td>Meaningful</td><td>~1&ndash;3%</td></tr>
-          <tr><td>Foreign Exchange (EURUSD)</td><td class="mono">&asymp;&nbsp;7%</td><td>30-day</td><td class="mono accent">&asymp;&nbsp;6&ndash;7%</td><td>Meaningful</td><td>~1&ndash;3%</td></tr>
-          <tr><td>Equity Indices (SP500)</td><td class="mono">&asymp;&nbsp;17%</td><td>6h (intraday)</td><td class="mono accent">&asymp;&nbsp;1.8%</td><td>Meaningful</td><td>~1&ndash;3%</td></tr>
-          <tr><td>Equity Indices (SP500)</td><td class="mono">&asymp;&nbsp;17%</td><td>30-day</td><td class="mono accent">&asymp;&nbsp;10&ndash;12%</td><td>Meaningful</td><td>~1&ndash;3%</td></tr>
-          <tr><td>Gold (XAU/USD)</td><td class="mono">&asymp;&nbsp;15%</td><td>6h (intraday)</td><td class="mono accent">&asymp;&nbsp;2.2%</td><td>Meaningful</td><td>~1&ndash;3%</td></tr>
-          <tr><td>Gold (XAU/USD)</td><td class="mono">&asymp;&nbsp;15%</td><td>30-day</td><td class="mono accent">&asymp;&nbsp;13&ndash;15%</td><td>Meaningful</td><td>~1&ndash;3%</td></tr>
+          <tr><td>Foreign Exchange (EURUSD)</td><td class="mono">7%</td><td>6h</td><td class="mono accent">0.403%</td><td>Meaningful</td><td>2.78%</td></tr>
+          <tr><td>Foreign Exchange (EURUSD)</td><td class="mono">7%</td><td>1d</td><td class="mono accent">0.806%</td><td>Meaningful</td><td>2.78%</td></tr>
+          <tr><td>Foreign Exchange (EURUSD)</td><td class="mono">7%</td><td>7d</td><td class="mono accent">2.133%</td><td>Meaningful</td><td>2.78%</td></tr>
+          <tr><td>Foreign Exchange (EURUSD)</td><td class="mono">7%</td><td>30d</td><td class="mono accent">4.415%</td><td>Meaningful</td><td>2.78%</td></tr>
+          <tr><td>Equity Indices (SP500)</td><td class="mono">17%</td><td>6h</td><td class="mono accent">0.979%</td><td>Meaningful</td><td>2.78%</td></tr>
+          <tr><td>Equity Indices (SP500)</td><td class="mono">17%</td><td>1d</td><td class="mono accent">1.958%</td><td>Meaningful</td><td>2.78%</td></tr>
+          <tr><td>Equity Indices (SP500)</td><td class="mono">17%</td><td>7d</td><td class="mono accent">5.179%</td><td>Meaningful</td><td>2.78%</td></tr>
+          <tr><td>Equity Indices (SP500)</td><td class="mono">17%</td><td>30d</td><td class="mono accent">10.722%</td><td>Meaningful</td><td>2.78%</td></tr>
+          <tr><td>Gold (XAU/USD)</td><td class="mono">15%</td><td>6h</td><td class="mono accent">0.864%</td><td>Meaningful</td><td>2.78%</td></tr>
+          <tr><td>Gold (XAU/USD)</td><td class="mono">15%</td><td>1d</td><td class="mono accent">1.727%</td><td>Meaningful</td><td>2.78%</td></tr>
+          <tr><td>Gold (XAU/USD)</td><td class="mono">15%</td><td>7d</td><td class="mono accent">4.570%</td><td>Meaningful</td><td>2.78%</td></tr>
+          <tr><td>Gold (XAU/USD)</td><td class="mono">15%</td><td>30d</td><td class="mono accent">9.461%</td><td>Meaningful</td><td>2.78%</td></tr>
         </tbody>
       </table>
     </div>
@@ -455,14 +461,14 @@
 </footer>
 
 <script>
-// ── Chart engine ──────────────────────────────────────────────────────────────
+// ── Chart engine — exact formula d(T) = z·σ·√(T/8760) ──────────────────────
 const SVG_W = 820, SVG_H = 460;
-const PAD   = { t:50, r:120, b:60, l:66 };
+const PAD   = { t:50, r:130, b:60, l:66 };
 const CW    = SVG_W - PAD.l - PAD.r;
 const CH    = SVG_H - PAD.t  - PAD.b;
 
 const T_MIN = 6, T_MAX = 720;
-const D_MIN = 0, D_MAX = 20;
+const D_MIN = 0, D_MAX = 14;
 
 const xLog = T => Math.log(T/T_MIN) / Math.log(T_MAX/T_MIN) * CW;
 const yLin = d => CH * (1 - (d - D_MIN)/(D_MAX - D_MIN));
@@ -470,37 +476,43 @@ const clY  = y => Math.max(0, Math.min(CH, y));
 const xInv = x => T_MIN * Math.pow(T_MAX/T_MIN, x/CW);
 const yInv = y => D_MIN + (1 - y/CH) * (D_MAX - D_MIN);
 
+const HOURS_PER_YEAR = 8760;
 const N  = 400;
 const Ts = Array.from({length:N}, (_,i) => T_MIN * Math.pow(T_MAX/T_MIN, i/(N-1)));
 
-const fitPow = (p1, p2) => {
-  const b = Math.log(p2.d/p1.d) / Math.log(p2.T/p1.T);
-  const A = p1.d / Math.pow(p1.T, b);
-  return T => A * Math.pow(T, b);
-};
+// Exact: d(T) = z * sigma * sqrt(T / HOURS_PER_YEAR) * 100  [in %]
+const exactFn = (sigma, z) => T => z * sigma * Math.sqrt(T / HOURS_PER_YEAR) * 100;
+
+const Z_MAIN = 2.2, Z_LO = 2.0, Z_HI = 2.5;
 
 const ASSETS = [
-  { name:"Foreign Exchange", sub:"EURUSD &middot; &sigma;&asymp;7%",  abbr:"FX",
-     color:"#0066cc", dash:"",    pts:[{T:6,d:1.0},{T:720,d:6.5}] },
-  { name:"Equity Indices",   sub:"SP500 &middot; &sigma;&asymp;17%",  abbr:"EQ",
-     color:"#c0392b", dash:"8,5", pts:[{T:6,d:1.8},{T:720,d:11.0}] },
-  { name:"Gold (XAU)",       sub:"&sigma;&asymp;15%",                  abbr:"Au",
-     color:"#9a6800", dash:"4,4", pts:[{T:6,d:2.2},{T:720,d:14.0}] },
+  { name:"Foreign Exchange", sub:"EURUSD \u00b7 \u03c3=7%",  abbr:"FX",
+    color:"#0066cc", dash:"",    sigma:0.07,
+    pts:[{T:6,d:0.403},{T:24,d:0.806},{T:168,d:2.133},{T:720,d:4.415}] },
+  { name:"Equity Indices",   sub:"SP500 \u00b7 \u03c3=17%",  abbr:"EQ",
+    color:"#c0392b", dash:"8,5", sigma:0.17,
+    pts:[{T:6,d:0.979},{T:24,d:1.958},{T:168,d:5.179},{T:720,d:10.722}] },
+  { name:"Gold (XAU)",       sub:"\u03c3=15%",               abbr:"Au",
+    color:"#9a6800", dash:"4,4", sigma:0.15,
+    pts:[{T:6,d:0.864},{T:24,d:1.727},{T:168,d:4.570},{T:720,d:9.461}] },
 ];
-ASSETS.forEach(a => { a.fn = fitPow(a.pts[0], a.pts[1]); });
+ASSETS.forEach(a => {
+  a.fn   = exactFn(a.sigma, Z_MAIN);
+  a.fnLo = exactFn(a.sigma, Z_LO);
+  a.fnHi = exactFn(a.sigma, Z_HI);
+});
 
 const TGRID = [6,12,24,72,168,360,720];
 const TLABS = {6:"6h",12:"12h",24:"1d",72:"3d",168:"7d",360:"15d",720:"30d"};
-const DGRID = [2,4,6,8,10,12,14,16,18];
-
-const fmtT = T => T < 24 ? `${Math.round(T)}h` : `${(T/24).toFixed(1)}d`;
+const DGRID = [1,2,3,4,5,6,7,8,9,10,11,12,13];
+const fmtT  = T => T < 24 ? `${Math.round(T)}h` : `${(T/24).toFixed(1)}d`;
 
 const linePath = fn =>
   "M" + Ts.map(T => `${xLog(T).toFixed(1)},${clY(yLin(fn(T))).toFixed(1)}`).join("L");
 
-const bandPath = (fn, lo, hi) => {
-  const f = Ts.map(T => `${xLog(T).toFixed(1)},${clY(yLin(fn(T)*lo)).toFixed(1)}`);
-  const r = [...Ts].reverse().map(T => `${xLog(T).toFixed(1)},${clY(yLin(Math.min(D_MAX,fn(T)*hi))).toFixed(1)}`);
+const betweenPath = (fnLo, fnHi) => {
+  const f = Ts.map(T => `${xLog(T).toFixed(1)},${clY(yLin(fnHi(T))).toFixed(1)}`);
+  const r = [...Ts].reverse().map(T => `${xLog(T).toFixed(1)},${clY(yLin(fnLo(T))).toFixed(1)}`);
   return `M${f.join("L")}L${r.join("L")}Z`;
 };
 
@@ -525,25 +537,20 @@ function buildChart() {
   const g = mk("g", {transform:`translate(${PAD.l},${PAD.t})`});
   svg.appendChild(g);
 
-  // BG
   g.appendChild(mk("rect",{x:0,y:0,width:CW,height:CH,fill:"#f7f7f7",rx:2}));
 
-  // Subtle horizontal regime tints
+  // Subtle regime tints
   [
-    {y1:yLin(D_MAX),y2:yLin(14),fill:"#171717",op:0.03},
-    {y1:yLin(14), y2:yLin(8), fill:"#166534", op:0.04},
-    {y1:yLin(8),  y2:yLin(4), fill:"#0066cc", op:0.05},
-    {y1:yLin(4),  y2:yLin(0), fill:"#c0392b", op:0.05},
-  ].forEach(b => {
-    g.appendChild(mk("rect",{x:0,y:b.y1,width:CW,height:b.y2-b.y1,
-      fill:b.fill,"fill-opacity":b.op}));
-  });
+    {y1:yLin(D_MAX), y2:yLin(12), fill:"#166534", op:0.04},
+    {y1:yLin(12),    y2:yLin(0),  fill:"#0066cc", op:0.04},
+  ].forEach(b => g.appendChild(mk("rect",{x:0,y:b.y1,width:CW,
+    height:b.y2-b.y1,fill:b.fill,"fill-opacity":b.op})));
 
   // Grid
   DGRID.forEach(d => {
     const y = yLin(d);
     g.appendChild(mk("line",{x1:0,y1:y,x2:CW,y2:y,
-      stroke:"#e5e5e5","stroke-width":d%4===0?1.2:0.7}));
+      stroke:"#e5e5e5","stroke-width":d%5===0?1.2:0.6}));
     g.appendChild(mk("text",{x:-10,y:y+4,fill:"#737373","font-size":11,
       "text-anchor":"end","font-family":"monospace"}, `${d}%`));
   });
@@ -557,31 +564,35 @@ function buildChart() {
   const cg = mk("g",{"clip-path":"url(#cp)"});
   g.appendChild(cg);
 
-  // Bands
+  // Meaningful band per asset (z=2.0 to z=2.5)
   ASSETS.forEach(a => cg.appendChild(mk("path",{
-    d:bandPath(a.fn,0.82,1.22),fill:a.color,"fill-opacity":0.09})));
+    d:betweenPath(a.fnLo,a.fnHi),fill:a.color,"fill-opacity":0.10})));
 
-  // Glow
-  ASSETS.forEach(a => {
-    const p = mk("path",{d:linePath(a.fn),fill:"none",
-      stroke:a.color,"stroke-width":7,"stroke-opacity":0.14,"stroke-linecap":"round"});
-    if(a.dash) p.setAttribute("stroke-dasharray",a.dash);
+  // Boundary curves z=2.0 and z=2.5
+  ASSETS.forEach(a => [a.fnLo,a.fnHi].forEach(fn => {
+    const p = mk("path",{d:linePath(fn),fill:"none",
+      stroke:a.color,"stroke-width":1,"stroke-opacity":0.4,
+      "stroke-dasharray":"3,3","stroke-linecap":"round"});
     cg.appendChild(p);
-  });
+  }));
 
-  // Curves
+  // Glow + main curves z=2.2
   ASSETS.forEach(a => {
-    const p = mk("path",{d:linePath(a.fn),fill:"none",
+    const glow = mk("path",{d:linePath(a.fn),fill:"none",
+      stroke:a.color,"stroke-width":7,"stroke-opacity":0.13,"stroke-linecap":"round"});
+    if(a.dash) glow.setAttribute("stroke-dasharray",a.dash);
+    cg.appendChild(glow);
+    const main = mk("path",{d:linePath(a.fn),fill:"none",
       stroke:a.color,"stroke-width":2.5,"stroke-linecap":"round"});
-    if(a.dash) p.setAttribute("stroke-dasharray",a.dash);
-    cg.appendChild(p);
+    if(a.dash) main.setAttribute("stroke-dasharray",a.dash);
+    cg.appendChild(main);
   });
 
-  // Calibration dots
+  // 4 calibration dots per asset
   ASSETS.forEach(a => a.pts.forEach(pt => {
     const cx=xLog(pt.T), cy=clY(yLin(pt.d));
-    cg.appendChild(mk("circle",{cx,cy,r:9,fill:a.color,"fill-opacity":0.13}));
-    cg.appendChild(mk("circle",{cx,cy,r:4.5,fill:a.color,stroke:"white","stroke-width":2}));
+    cg.appendChild(mk("circle",{cx,cy,r:8,fill:a.color,"fill-opacity":0.12}));
+    cg.appendChild(mk("circle",{cx,cy,r:4,fill:a.color,stroke:"white","stroke-width":2}));
   }));
 
   // Right labels
@@ -591,19 +602,26 @@ function buildChart() {
     g.appendChild(mk("text",{x:CW+13,y:y+4,fill:a.color,
       "font-size":12,"font-weight":"bold","font-family":"monospace"}, a.abbr));
     g.appendChild(mk("text",{x:CW+13,y:y+17,fill:"#a3a3a3",
-      "font-size":10,"font-family":"monospace"}, `${a.fn(720).toFixed(1)}%`));
+      "font-size":10,"font-family":"monospace"}, `${a.fn(720).toFixed(2)}%`));
   });
 
-  // Zone labels
+  // z boundary labels on right
+  [{z:Z_LO,label:"z=2.0"},{z:Z_HI,label:"z=2.5"}].forEach(({z,label}) => {
+    const y = clY(yLin(exactFn(ASSETS[0].sigma,z)(720)));
+    g.appendChild(mk("text",{x:CW+13,y:y+4,fill:"#a3a3a3",
+      "font-size":9,"font-family":"monospace","font-style":"italic"}, label));
+  });
+
+  // Zone annotations
   [
-    {x:CW*0.88,y:yLin(2.2), txt:"banalised",  col:"#c0392b"},
-    {x:CW*0.70,y:yLin(7.0), txt:"meaningful", col:"#0066cc"},
-    {x:CW*0.52,y:yLin(12.5),txt:"rare",        col:"#166534"},
+    {x:CW*0.82,y:yLin(13.0),txt:"rare (z>2.5)",          col:"#166534"},
+    {x:CW*0.82,y:yLin(7.8), txt:"meaningful (z 2.0\u20132.5)",col:"#0066cc"},
+    {x:CW*0.82,y:yLin(2.5), txt:"banalised (z<2.0)",     col:"#c0392b"},
   ].forEach(z => g.appendChild(mk("text",{
-    x:z.x,y:z.y,fill:z.col,"font-size":11,"text-anchor":"middle",
+    x:z.x,y:z.y,fill:z.col,"font-size":10.5,"text-anchor":"middle",
     "font-style":"italic","font-family":"Times New Roman, serif"}, z.txt)));
 
-  // Crosshair elements
+  // Crosshair
   const crossV = mk("line",{x1:0,y1:0,x2:0,y2:CH,
     stroke:"#a3a3a3","stroke-width":1,"stroke-dasharray":"4,3",id:"crossV",display:"none"});
   const crossH = mk("line",{x1:0,y1:0,x2:CW,y2:0,
@@ -613,10 +631,8 @@ function buildChart() {
   // Axes
   g.appendChild(mk("line",{x1:0,y1:CH,x2:CW,y2:CH,stroke:"#d4d4d4","stroke-width":1}));
   g.appendChild(mk("line",{x1:0,y1:0,x2:0,y2:CH,stroke:"#d4d4d4","stroke-width":1}));
-
-  // Axis labels
   g.appendChild(mk("text",{x:CW/2,y:CH+46,fill:"#737373","font-size":12,
-    "text-anchor":"middle"}, "Time horizon T — log scale (hours)"));
+    "text-anchor":"middle"}, "Time horizon T \u2014 log scale (hours)"));
   g.appendChild(mk("text",{transform:`translate(-50,${CH/2}) rotate(-90)`,
     fill:"#737373","font-size":12,"text-anchor":"middle"}, "Trigger distance d(T)"));
 }
@@ -666,8 +682,8 @@ function initInteraction() {
     ASSETS.forEach(a=>{ const diff=Math.abs(a.fn(T)-d); if(diff<md){md=diff;near=a;} });
     ttT.textContent = fmtT(T);
     ttD.textContent = d.toFixed(2)+"%";
-    ttA.innerHTML   = near ? `<span style="color:${near.color}">${near.abbr}</span> curve: ${near.fn(T).toFixed(2)}%` : "";
-    const tipW=172,tipH=72,px=e.clientX-rect.left,py=e.clientY-rect.top;
+    ttA.innerHTML   = near ? `<span style="color:${near.color}">${near.abbr}</span> z=2.2: ${near.fn(T).toFixed(3)}%` : "";
+    const tipW=180,tipH=72,px=e.clientX-rect.left,py=e.clientY-rect.top;
     tip.style.left=(px+16+tipW>rect.width  ? px-tipW-10 : px+16)+"px";
     tip.style.top =(py+16+tipH>rect.height ? py-tipH-10 : py+16)+"px";
     tip.style.display="block";
