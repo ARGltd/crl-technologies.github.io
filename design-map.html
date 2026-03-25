@@ -338,8 +338,9 @@
 
       <div class="chart-footer">
         Trigger distances derived from real-data calibrated annualised volatility estimates (EURUSD&nbsp;5.8%, SP500&nbsp;13%, Gold&nbsp;12%, from daily returns 2019&ndash;2024) under GBM assumptions.
-        Main curve at z&nbsp;=&nbsp;2.2; shaded band z&nbsp;=&nbsp;2.0&ndash;2.5 (Zone B deep region). Canonical commercial operating point: z&nbsp;&asymp;&nbsp;1.70 (p<sub>event</sub>&nbsp;&asymp;&nbsp;9%).
-        <strong>This map shows the first-order GBM scaling law. Final live calibration requires asset-specific jump-diffusion correction (&Delta;z real-data: EURUSD&nbsp;+0.62, SP500&nbsp;+1.30, Gold&nbsp;+0.71).</strong>
+        Solid curves: z&nbsp;=&nbsp;2.2 (deep Zone B reference). Shaded band: z&nbsp;=&nbsp;2.0&ndash;2.5.
+        Dotted curves: z&nbsp;=&nbsp;1.70 — canonical commercial operating point (p<sub>event</sub>&nbsp;&asymp;&nbsp;9%).
+        <strong>Final live calibration requires asset-specific jump-diffusion correction (&Delta;z real-data: EURUSD&nbsp;+0.62, SP500&nbsp;+1.30, Gold&nbsp;+0.71).</strong>
       </div>
     </div>
   </div>
@@ -469,7 +470,7 @@
 <script>
 // ── Chart engine — exact formula d(T) = z·σ·√(T/8760) ──────────────────────
 const SVG_W = 820, SVG_H = 460;
-const PAD   = { t:50, r:155, b:60, l:66 };
+const PAD   = { t:50, r:175, b:60, l:66 };
 const CW    = SVG_W - PAD.l - PAD.r;
 const CH    = SVG_H - PAD.t  - PAD.b;
 
@@ -610,25 +611,42 @@ function buildChart() {
     cg.appendChild(mk("circle",{cx,cy,r:4,fill:a.color,stroke:"white","stroke-width":2}));
   }));
 
-  // Right-side asset labels
-  ASSETS.forEach(a => {
-    const y = clY(yLin(a.fn(720)));
-    g.appendChild(mk("line",{x1:CW,y1:y,x2:CW+10,y2:y,stroke:a.color,"stroke-width":1.5}));
-    g.appendChild(mk("text",{x:CW+14,y:y+4,fill:a.color,
+  // Right-side asset labels — with collision avoidance (min 26px gap)
+  const labelSpacing = 26;
+  const rawLabels = ASSETS.map(a => ({ a, y: clY(yLin(a.fn(720))) }))
+    .sort((a, b) => a.y - b.y); // top to bottom
+  // Push labels apart if too close
+  for (let i = 1; i < rawLabels.length; i++) {
+    if (rawLabels[i].y - rawLabels[i-1].y < labelSpacing) {
+      rawLabels[i].y = rawLabels[i-1].y + labelSpacing;
+    }
+  }
+  rawLabels.forEach(({a, y}) => {
+    const yOrig = clY(yLin(a.fn(720)));
+    // tick line from curve end to label
+    g.appendChild(mk("line",{x1:CW,y1:yOrig,x2:CW+8,y2:yOrig,stroke:a.color,"stroke-width":1.2,"stroke-opacity":0.7}));
+    if (Math.abs(y - yOrig) > 4) {
+      g.appendChild(mk("line",{x1:CW+8,y1:yOrig,x2:CW+12,y2:y,stroke:a.color,"stroke-width":0.8,"stroke-opacity":0.4,"stroke-dasharray":"2,2"}));
+    }
+    g.appendChild(mk("text",{x:CW+15,y:y+4,fill:a.color,
       "font-size":12,"font-weight":"bold","font-family":"monospace"}, a.abbr));
-    g.appendChild(mk("text",{x:CW+14,y:y+18,fill:"#737373",
+    g.appendChild(mk("text",{x:CW+15,y:y+17,fill:"#737373",
       "font-size":11,"font-family":"monospace"}, `${a.fn(720).toFixed(2)}%`));
   });
 
-  // Zone annotations — 4-zone system
+  // Zone annotations — minimal, positioned away from curves
   [
-    {x:CW*0.55, y:yLin(12.5), txt:"Zone A — rare (z > 2.5)",              col:"#166534"},
-    {x:CW*0.55, y:yLin(6.0),  txt:"Zone B — meaningful (z 1.5\u20132.5)", col:"#0066cc"},
-    {x:CW*0.55, y:yLin(2.2),  txt:"z \u2248 1.70 — canonical operating point", col:"#0066cc"},
-    {x:CW*0.55, y:CH-10,      txt:"Zone C — banalised (z < 1.0)",         col:"#c0392b"},
-  ].forEach(z => g.appendChild(mk("text",{
-    x:z.x,y:z.y,fill:z.col,"font-size":10.5,"text-anchor":"middle",
-    "font-style":"italic","font-family":"Times New Roman, serif"}, z.txt)));
+    {x:CW*0.22, y:yLin(13.0), txt:"Zone A — rare (z > 2.5)",           col:"#166534"},
+    {x:CW*0.22, y:yLin(5.8),  txt:"Zone B — meaningful (z 1.5\u20132.5)", col:"#0066cc"},
+    {x:CW*0.22, y:yLin(0.6),  txt:"Zone C — banalised (z < 1.0)",       col:"#c0392b"},
+  ].forEach(z => {
+    // background pill for readability
+    const tw = z.txt.length * 6.2;
+    g.appendChild(mk("rect",{x:z.x - tw/2 - 6, y:z.y - 11, width:tw + 12, height:16,
+      fill:"white","fill-opacity":0.75,rx:3}));
+    g.appendChild(mk("text",{x:z.x, y:z.y,fill:z.col,"font-size":10.5,"text-anchor":"middle",
+      "font-style":"italic","font-family":"Times New Roman, serif"}, z.txt));
+  });
 
   // Crosshair
   const crossV = mk("line",{x1:0,y1:0,x2:0,y2:CH,
