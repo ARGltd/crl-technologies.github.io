@@ -582,6 +582,67 @@
 
   </main>
 
+  <!-- Demo Booking Modal -->
+  <div class="backdrop" id="demoModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="demo-title">
+    <div class="modal">
+      <h3 id="demo-title">Schedule Technical Demonstration</h3>
+      <p class="modal-subtitle">
+        30-minute session to walk through the payoff, technical integration and risk model. Live calculation engine demonstration included.
+      </p>
+      <form id="demoForm" action="https://formspree.io/f/mwpzyldd" method="POST">
+        <div>
+          <label for="demo-name">Full Name</label>
+          <input type="text" id="demo-name" name="name" required>
+        </div>
+        <div>
+          <label for="demo-title-field">Title</label>
+          <input type="text" id="demo-title-field" name="title" placeholder="e.g., Head of Trading" required>
+        </div>
+        <div>
+          <label for="demo-company">Institution</label>
+          <input type="text" id="demo-company" name="company" required>
+        </div>
+        <div>
+          <label for="demo-email">Work Email</label>
+          <input type="email" id="demo-email" name="email" required>
+        </div>
+        <div>
+          <label for="demo-volume">Monthly Derivatives Volume</label>
+          <select id="demo-volume" name="volume" required>
+            <option value="">Select range...</option>
+            <option>€10-50M</option>
+            <option>€50-200M</option>
+            <option>€200-500M</option>
+            <option>€500M+</option>
+          </select>
+        </div>
+        <div>
+          <label for="demo-interest">Primary Interest</label>
+          <select id="demo-interest" name="interest" required>
+            <option value="">Select focus...</option>
+            <option>Integration timeline &amp; requirements</option>
+            <option>Hedging and risk management</option>
+            <option>Commercial terms &amp; pricing</option>
+            <option>Regulatory considerations</option>
+            <option>Technical architecture</option>
+          </select>
+        </div>
+        <input type="hidden" name="_next" value="https://crl-technologies.com/thank-you.html">
+        <input type="hidden" name="_subject" value="New CRL Demo Request — Technology page">
+        <input type="hidden" name="_gotcha" style="display:none">
+        <div class="actions">
+          <button type="button" class="btn secondary" data-close-demo>Cancel</button>
+          <button type="submit" class="btn primary">Book Demo</button>
+        </div>
+      </form>
+      <p class="small">We'll send a calendar invite within 24 hours. Demos are conducted via secure video conference.</p>
+      <p class="privacy-notice">
+        We process your data solely to verify professional status and schedule a demo.
+        See our <a href="/privacy.html">Privacy Policy</a>. We do not sell personal data.
+      </p>
+    </div>
+  </div>
+
   <!-- Footer (stile identico alla home) -->
   <footer>
     <div style="text-align:center;margin-top:20px;margin-bottom:15px;">
@@ -593,7 +654,7 @@
       Wilmington, DE 19801<br>
       EIN: 61-2277123<br>
       United States<br>
-      <a href="mailto:info@crl-technologies.com">info@crl-technologies.com</a>
+      <a href="/cdn-cgi/l/email-protection#2940474f46694a5b45045d4c4a41474645464e404c5a074a4644"><span class="__cf_email__" data-cfemail="026b6c646d4261706e2f7667616a6c6d6e6d656b67712c616d6f">[email&#160;protected]</span></a>
     </div>
   </footer>
 
@@ -643,20 +704,67 @@
     </div>
   </section>
 
-  <script src="js/main.js"></script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.js"></script>
 
   <script>
   // Mobile Menu
   const hamb = document.querySelector('.hamb');
   const navLinks = document.querySelector('.nav-links');
   if (hamb && navLinks) {
-    hamb.addEventListener('click', () => {
-      const expanded = hamb.getAttribute('aria-expanded') === 'true';
-      hamb.setAttribute('aria-expanded', !expanded);
-      navLinks.classList.toggle('is-open');
-    });
-  }
-  </script>
+    ha
 
-</body>
-</html>
+  // Demo Modal
+  const demoModal = document.getElementById('demoModal');
+  const demoOpeners = document.querySelectorAll('[data-open-demo]');
+  const demoClosers = document.querySelectorAll('[data-close-demo]');
+  let demoOpenerElement = null;
+
+  function trapFocusDemo(modal) {
+    const focusables = modal.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])');
+    const first = focusables[0], last = focusables[focusables.length - 1];
+    modal.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { closeDemo(); return; }
+      if (e.key !== 'Tab') return;
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+    if (first) first.focus();
+  }
+  function openDemo(opener) {
+    demoOpenerElement = opener;
+    demoModal.style.display = 'flex';
+    demoModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    trapFocusDemo(demoModal.querySelector('.modal'));
+  }
+  function closeDemo() {
+    demoModal.style.display = 'none';
+    demoModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (demoOpenerElement) { demoOpenerElement.focus(); demoOpenerElement = null; }
+  }
+  demoOpeners.forEach(el => el.addEventListener('click', e => { e.preventDefault(); openDemo(el); }));
+  demoClosers.forEach(el => el.addEventListener('click', closeDemo));
+  demoModal.addEventListener('click', e => { if (e.target === demoModal) closeDemo(); });
+
+  document.getElementById('demoForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const email = formData.get('email') || '';
+    const freeProviders = ['gmail.com','yahoo.com','outlook.com','hotmail.com','icloud.com','proton.me','aol.com','gmx.com'];
+    const domain = (email.split('@')[1] || '').toLowerCase();
+    if (freeProviders.includes(domain)) { alert('Please use your corporate email address.'); return; }
+    fetch('https://formspree.io/f/mwpzyldd', {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        closeDemo();
+        alert('Demo request received. We will contact you within 24 hours.');
+        e.target.reset();
+      } else {
+        alert('Error submitting form. Please try again.');
+      }
+    }).catch(() => alert('Error submitting form. Please try again.'));
+  });
