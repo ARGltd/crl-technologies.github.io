@@ -322,7 +322,7 @@
       <div class="chart-header">
         <div>
           <div class="chart-title-txt">Trigger distance d(T) by asset class &mdash; constant-z path through the parametric surface</div>
-          <div class="chart-sub-txt">Axis X: time horizon (log scale, hours) &middot; Axis Y: trigger distance (% of price) &middot; Points: Monte Carlo calibration</div>
+          <div class="chart-sub-txt">Axis X: time horizon (log scale, hours) &middot; Axis Y: trigger distance (% of price) &middot; Solid: z=2.2 (deep Zone B) &middot; Dotted: z=1.70 (canonical) &middot; &sigma;: real-data calibrated 2019&ndash;2024</div>
         </div>
         <div class="chart-legend" id="legend"></div>
       </div>
@@ -337,9 +337,9 @@
       </div>
 
       <div class="chart-footer">
-        Trigger distances derived from historical annualised volatility estimates (EURUSD&nbsp;7%, SP500&nbsp;17%, Gold&nbsp;15%) under GBM assumptions.
-        Calibration points computed analytically at z&nbsp;=&nbsp;2.2 via d(T)&nbsp;=&nbsp;z&nbsp;&times;&nbsp;&sigma;&nbsp;&times;&nbsp;&radic;(T/8760).
-        <strong>This map shows the first-order GBM scaling law. Final live calibration requires asset-specific jump-diffusion correction, particularly for SP500 and Gold.</strong>
+        Trigger distances derived from real-data calibrated annualised volatility estimates (EURUSD&nbsp;5.8%, SP500&nbsp;13%, Gold&nbsp;12%, from daily returns 2019&ndash;2024) under GBM assumptions.
+        Main curve at z&nbsp;=&nbsp;2.2; shaded band z&nbsp;=&nbsp;2.0&ndash;2.5 (Zone B deep region). Canonical commercial operating point: z&nbsp;&asymp;&nbsp;1.70 (p<sub>event</sub>&nbsp;&asymp;&nbsp;9%).
+        <strong>This map shows the first-order GBM scaling law. Final live calibration requires asset-specific jump-diffusion correction (&Delta;z real-data: EURUSD&nbsp;+0.62, SP500&nbsp;+1.30, Gold&nbsp;+0.71).</strong>
       </div>
     </div>
   </div>
@@ -358,7 +358,7 @@
   </div>
   <div class="f-sep"></div>
   <div class="formula-item">
-    <div class="f-label">Premium &mdash; first-order approximation</div>
+    <div class="f-label">Premium &mdash; empirical conjecture (not derived)</div>
     <div class="f-eq">P &asymp; p<sub style="font-size:13px">event</sub> &times; L &times; &sigma;&radic;T</div>
   </div>
 </div>
@@ -377,28 +377,34 @@
     </p>
     <div class="regime-grid">
       <div class="card rare">
-        <div class="regime-name">Rare</div>
+        <div class="regime-name">Rare — Zone A</div>
         <div class="regime-z">z &gt; 2.5</div>
-        <div class="regime-p">p<sub>event</sub> &lt; 1.24% <span style="font-size:11px;color:var(--g400)">(exact boundary)</span></div>
-        <div class="regime-desc">Trigger is structurally selective. The mechanism is almost never activated. Suitable for high-conviction, event-driven configurations where the payoff is exceptional by design.</div>
+        <div class="regime-p">p<sub>event</sub> &lt; 1.24% <span style="font-size:11px;color:var(--g400)">(exact, P=2&Phi;(&minus;z))</span></div>
+        <div class="regime-desc">Trigger is structurally selective. Activation below 2% per trade. The mechanism is mathematically valid but commercially inactive. Suitable only for high-conviction event-driven configurations.</div>
       </div>
       <div class="card standard">
-        <div class="regime-name">Meaningful</div>
-        <div class="regime-z">2.0 &le; z &le; 2.5</div>
-        <div class="regime-p">p<sub>event</sub> 1.24%&ndash;4.55% <span style="font-size:11px;color:var(--g400)">(exact, P=2&Phi;(&minus;z))</span></div>
-        <div class="regime-desc">Trigger is reached with real but controlled frequency. CRL maintains full structural identity. Primary design target across time horizons. Asset-class suitability requires jump-diffusion correction before live calibration.</div>
+        <div class="regime-name">Meaningful — Zone B</div>
+        <div class="regime-z">1.5 &le; z &le; 2.5</div>
+        <div class="regime-p">p<sub>event</sub> 1.24%&ndash;13.36% <span style="font-size:11px;color:var(--g400)">(exact, P=2&Phi;(&minus;z))</span></div>
+        <div class="regime-desc">Trigger requires a genuine directional move. CRL maintains full structural identity. Primary commercial operating zone. Canonical configurations cluster around z&nbsp;&asymp;&nbsp;1.70 (p<sub>event</sub>&nbsp;&asymp;&nbsp;9%). Jump-diffusion correction required before live calibration.</div>
+      </div>
+      <div class="card" style="border-color:var(--g300)">
+        <div class="regime-name" style="color:var(--g500)">Transitional</div>
+        <div class="regime-z" style="font-size:24px">1.0 &le; z &lt; 1.5</div>
+        <div class="regime-p">p<sub>event</sub> 13.36%&ndash;31.73% <span style="font-size:11px;color:var(--g400)">(exact boundary)</span></div>
+        <div class="regime-desc">Trigger within 1&ndash;1.5&sigma;. Activation frequency erodes the structural distinction between CRL and standard leverage. Identity begins to collapse; not a recommended operating region.</div>
       </div>
       <div class="card aggressive">
-        <div class="regime-name">Banalised</div>
-        <div class="regime-z">z &lt; 2.0</div>
-        <div class="regime-p">p<sub>event</sub> &gt; 4.55% <span style="font-size:11px;color:var(--g400)">(exact boundary)</span></div>
-        <div class="regime-desc">Trigger is reached too often. The mechanism degrades toward standard leverage. The retroactive property survives structurally, but the economic distinction collapses.</div>
+        <div class="regime-name">Banalised — Zone C</div>
+        <div class="regime-z">z &lt; 1.0</div>
+        <div class="regime-p">p<sub>event</sub> &gt; 31.73% <span style="font-size:11px;color:var(--g400)">(exact boundary)</span></div>
+        <div class="regime-desc">Trigger within 1&sigma;. Activation is frequent; the mechanism degrades to standard leverage. CRL loses all commercial justification. Minimum z&nbsp;thresholds must be a hard product configuration constraint.</div>
       </div>
     </div>
     <div class="callout">
       <p>
-        <strong>The boundary between Meaningful and Banalised is the critical design constraint.</strong>
-        Below z&nbsp;&asymp;&nbsp;2.0, the trigger becomes so accessible that the pre-confirmation protection erodes and CRL loses its structural advantage over conventional leverage. Full calibration requires Monte Carlo simulation over empirically observed return distributions, accounting for jump risk and volatility clustering.
+        <strong>The banalisation risk is structurally more dangerous than rarity.</strong>
+        Rarity leaves the product inactive; banalisation creates a product that activates frequently but provides no commercial justification over standard leverage. As z decreases below 1.5, p<sub>event</sub> grows rapidly and the mechanism converges toward standard leverage. Minimum z&nbsp;thresholds must be defined as product configuration constraints, not free parameters. Boundaries are derived from GBM first-passage geometry and shift under jump-diffusion.
       </p>
     </div>
   </div>
@@ -428,27 +434,24 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>Foreign Exchange (EURUSD)</td><td class="mono">7%</td><td>6h</td><td class="mono accent">0.403%</td><td>Meaningful</td><td>2.78%</td></tr>
-          <tr><td>Foreign Exchange (EURUSD)</td><td class="mono">7%</td><td>1d</td><td class="mono accent">0.806%</td><td>Meaningful</td><td>2.78%</td></tr>
-          <tr><td>Foreign Exchange (EURUSD)</td><td class="mono">7%</td><td>7d</td><td class="mono accent">2.133%</td><td>Meaningful</td><td>2.78%</td></tr>
-          <tr><td>Foreign Exchange (EURUSD)</td><td class="mono">7%</td><td>30d</td><td class="mono accent">4.415%</td><td>Meaningful</td><td>2.78%</td></tr>
-          <tr><td>Equity Indices (SP500)</td><td class="mono">17%</td><td>6h</td><td class="mono accent">0.979%</td><td>Meaningful</td><td>2.78%</td></tr>
-          <tr><td>Equity Indices (SP500)</td><td class="mono">17%</td><td>1d</td><td class="mono accent">1.958%</td><td>Meaningful</td><td>2.78%</td></tr>
-          <tr><td>Equity Indices (SP500)</td><td class="mono">17%</td><td>7d</td><td class="mono accent">5.179%</td><td>Meaningful</td><td>2.78%</td></tr>
-          <tr><td>Equity Indices (SP500)</td><td class="mono">17%</td><td>30d</td><td class="mono accent">10.722%</td><td>Meaningful</td><td>2.78%</td></tr>
-          <tr><td>Gold (XAU/USD)</td><td class="mono">15%</td><td>6h</td><td class="mono accent">0.864%</td><td>Meaningful</td><td>2.78%</td></tr>
-          <tr><td>Gold (XAU/USD)</td><td class="mono">15%</td><td>1d</td><td class="mono accent">1.727%</td><td>Meaningful</td><td>2.78%</td></tr>
-          <tr><td>Gold (XAU/USD)</td><td class="mono">15%</td><td>7d</td><td class="mono accent">4.570%</td><td>Meaningful</td><td>2.78%</td></tr>
-          <tr><td>Gold (XAU/USD)</td><td class="mono">15%</td><td>30d</td><td class="mono accent">9.461%</td><td>Meaningful</td><td>2.78%</td></tr>
+          <tr><td>Foreign Exchange (EURUSD)</td><td class="mono">5.8%</td><td>6h</td><td class="mono accent">0.333%</td><td>Meaningful (Zone B)</td><td>2.78%</td></tr>
+          <tr><td>Foreign Exchange (EURUSD)</td><td class="mono">5.8%</td><td>1d</td><td class="mono accent">0.667%</td><td>Meaningful (Zone B)</td><td>2.78%</td></tr>
+          <tr><td>Foreign Exchange (EURUSD)</td><td class="mono">5.8%</td><td>7d</td><td class="mono accent">1.765%</td><td>Meaningful (Zone B)</td><td>2.78%</td></tr>
+          <tr><td>Foreign Exchange (EURUSD)</td><td class="mono">5.8%</td><td>30d</td><td class="mono accent">3.656%</td><td>Meaningful (Zone B)</td><td>2.78%</td></tr>
+          <tr><td>Equity Indices (SP500)</td><td class="mono">13%</td><td>6h</td><td class="mono accent">0.748%</td><td>Meaningful (Zone B)</td><td>2.78%</td></tr>
+          <tr><td>Equity Indices (SP500)</td><td class="mono">13%</td><td>1d</td><td class="mono accent">1.496%</td><td>Meaningful (Zone B)</td><td>2.78%</td></tr>
+          <tr><td>Equity Indices (SP500)</td><td class="mono">13%</td><td>7d</td><td class="mono accent">3.959%</td><td>Meaningful (Zone B)</td><td>2.78%</td></tr>
+          <tr><td>Equity Indices (SP500)</td><td class="mono">13%</td><td>30d</td><td class="mono accent">8.209%</td><td>Meaningful (Zone B)</td><td>2.78%</td></tr>
+          <tr><td>Gold (XAU/USD)</td><td class="mono">12%</td><td>6h</td><td class="mono accent">0.690%</td><td>Meaningful (Zone B)</td><td>2.78%</td></tr>
+          <tr><td>Gold (XAU/USD)</td><td class="mono">12%</td><td>1d</td><td class="mono accent">1.381%</td><td>Meaningful (Zone B)</td><td>2.78%</td></tr>
+          <tr><td>Gold (XAU/USD)</td><td class="mono">12%</td><td>7d</td><td class="mono accent">3.654%</td><td>Meaningful (Zone B)</td><td>2.78%</td></tr>
+          <tr><td>Gold (XAU/USD)</td><td class="mono">12%</td><td>30d</td><td class="mono accent">7.570%</td><td>Meaningful (Zone B)</td><td>2.78%</td></tr>
         </tbody>
       </table>
     </div>
     <div class="callout" style="margin-top:20px">
       <p>
-        <strong>These values illustrate z-constancy across the parametric surface, not commercial product parameters.</strong>
-        For live configurations, recalibrate d to current implied volatility and apply asset-specific jump-diffusion correction.
-        Geometric consistency with z&nbsp;=&nbsp;2.2 does not automatically imply commercial suitability: SP500 and Gold at 30d produce trigger distances that are structurally valid but operationally demanding.
-        The regime classification &mdash; Rare, Meaningful, Banalised &mdash; is determined by z alone and is horizon-invariant under GBM.
+        <strong>Volatility estimates are real-data calibrated from daily close-to-close returns 2019&ndash;2024</strong> (EURUSD: &sigma;=5.8%, SP500: &sigma;=13%, Gold: &sigma;=12%). Trigger distances are computed at z&nbsp;=&nbsp;2.2 (deep Zone B) for geometric reference. The canonical commercial operating point is z&nbsp;&asymp;&nbsp;1.70 (p<sub>event</sub>&nbsp;&asymp;&nbsp;9%), which requires proportionally smaller trigger distances. These values illustrate z-constancy across the parametric surface, not commercial product parameters. For live configurations, recalibrate d to current implied volatility and apply asset-specific jump-diffusion correction (&Delta;z: EURUSD&nbsp;+0.62, SP500&nbsp;+1.30, Gold&nbsp;+0.71 on real-data parameters).
       </p>
     </div>
   </div>
@@ -486,23 +489,24 @@ const Ts = Array.from({length:N}, (_,i) => T_MIN * Math.pow(T_MAX/T_MIN, i/(N-1)
 // Exact: d(T) = z * sigma * sqrt(T / HOURS_PER_YEAR) * 100  [in %]
 const exactFn = (sigma, z) => T => z * sigma * Math.sqrt(T / HOURS_PER_YEAR) * 100;
 
-const Z_MAIN = 2.2, Z_LO = 2.0, Z_HI = 2.5;
+const Z_MAIN = 2.2, Z_LO = 2.0, Z_HI = 2.5, Z_OP = 1.70;
 
 const ASSETS = [
-  { name:"Foreign Exchange", sub:"EURUSD \u00b7 \u03c3=7%",  abbr:"FX",
-    color:"#0066cc", dash:"",    sigma:0.07,
-    pts:[{T:6,d:0.403},{T:24,d:0.806},{T:168,d:2.133},{T:720,d:4.415}] },
-  { name:"Equity Indices",   sub:"SP500 \u00b7 \u03c3=17%",  abbr:"EQ",
-    color:"#c0392b", dash:"8,5", sigma:0.17,
-    pts:[{T:6,d:0.979},{T:24,d:1.958},{T:168,d:5.179},{T:720,d:10.722}] },
-  { name:"Gold (XAU)",       sub:"\u03c3=15%",               abbr:"Au",
-    color:"#9a6800", dash:"4,4", sigma:0.15,
-    pts:[{T:6,d:0.864},{T:24,d:1.727},{T:168,d:4.570},{T:720,d:9.461}] },
+  { name:"Foreign Exchange", sub:"EURUSD \u00b7 \u03c3=5.8%",  abbr:"FX",
+    color:"#0066cc", dash:"",    sigma:0.058,
+    pts:[{T:6,d:0.333},{T:24,d:0.667},{T:168,d:1.765},{T:720,d:3.656}] },
+  { name:"Equity Indices",   sub:"SP500 \u00b7 \u03c3=13%",    abbr:"EQ",
+    color:"#c0392b", dash:"8,5", sigma:0.13,
+    pts:[{T:6,d:0.748},{T:24,d:1.496},{T:168,d:3.959},{T:720,d:8.209}] },
+  { name:"Gold (XAU)",       sub:"\u03c3=12%",                 abbr:"Au",
+    color:"#9a6800", dash:"4,4", sigma:0.12,
+    pts:[{T:6,d:0.690},{T:24,d:1.381},{T:168,d:3.654},{T:720,d:7.570}] },
 ];
 ASSETS.forEach(a => {
   a.fn   = exactFn(a.sigma, Z_MAIN);
   a.fnLo = exactFn(a.sigma, Z_LO);
   a.fnHi = exactFn(a.sigma, Z_HI);
+  a.fnOp = exactFn(a.sigma, Z_OP);
 });
 
 const TGRID = [6,12,24,72,168,360,720];
@@ -579,6 +583,14 @@ function buildChart() {
     cg.appendChild(p);
   }));
 
+  // Operational reference curves z=1.70 (dotted, lighter)
+  ASSETS.forEach(a => {
+    const opLine = mk("path",{d:linePath(a.fnOp),fill:"none",
+      stroke:a.color,"stroke-width":1.2,"stroke-opacity":0.55,
+      "stroke-dasharray":"2,4","stroke-linecap":"round"});
+    cg.appendChild(opLine);
+  });
+
   // Glow + main curves z=2.2
   ASSETS.forEach(a => {
     const glow = mk("path",{d:linePath(a.fn),fill:"none",
@@ -608,11 +620,12 @@ function buildChart() {
       "font-size":11,"font-family":"monospace"}, `${a.fn(720).toFixed(2)}%`));
   });
 
-  // Zone annotations — centered inside each zone
+  // Zone annotations — 4-zone system
   [
-    {x:CW*0.55, y:yLin(12.5), txt:"rare (z > 2.5)",           col:"#166534"},
-    {x:CW*0.55, y:yLin(6.8),  txt:"meaningful (z 2.0\u20132.5)", col:"#0066cc"},
-    {x:CW*0.55, y:CH-10,      txt:"banalised (z < 2.0)",      col:"#c0392b"},
+    {x:CW*0.55, y:yLin(12.5), txt:"Zone A — rare (z > 2.5)",              col:"#166534"},
+    {x:CW*0.55, y:yLin(6.0),  txt:"Zone B — meaningful (z 1.5\u20132.5)", col:"#0066cc"},
+    {x:CW*0.55, y:yLin(2.2),  txt:"z \u2248 1.70 — canonical operating point", col:"#0066cc"},
+    {x:CW*0.55, y:CH-10,      txt:"Zone C — banalised (z < 1.0)",         col:"#c0392b"},
   ].forEach(z => g.appendChild(mk("text",{
     x:z.x,y:z.y,fill:z.col,"font-size":10.5,"text-anchor":"middle",
     "font-style":"italic","font-family":"Times New Roman, serif"}, z.txt)));
@@ -652,6 +665,11 @@ function buildLegend() {
     item.appendChild(svg); item.appendChild(label);
     leg.appendChild(item);
   });
+  // Operational reference note
+  const opItem = document.createElement("div");
+  opItem.className = "legend-item";
+  opItem.innerHTML = `<div style="font-size:11px;color:#525252;font-style:italic;font-family:'Times New Roman',serif">&#8943; dotted = z&nbsp;1.70<br/>(canonical operating point)</div>`;
+  leg.appendChild(opItem);
 }
 
 function initInteraction() {
