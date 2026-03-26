@@ -24,7 +24,7 @@
   <div style="background:#f7f7f7;border-bottom:1px solid #e5e5e5;padding:12px 20px;text-align:center;">
     <p style="font-size:13px;color:#404040;margin:0;">
       <strong style="color:#0066cc;">Direct founder access:</strong>
-      First integrations are supervised directly by Andrea (Founder &amp; Product Lead).
+      Early integrations are handled directly by the founding team. No account managers.
       <a href="about.html" style="color:#0066cc;text-decoration:none;margin-left:12px;font-weight:600;">→ About CRL Technologies</a>
     </p>
   </div>
@@ -593,7 +593,7 @@
       Wilmington, DE 19801<br>
       EIN: 61-2277123<br>
       United States<br>
-      <a href="/cdn-cgi/l/email-protection#7d14131b123d1e0f115009181e15131211121a14180e531e1210"><span class="__cf_email__" data-cfemail="4a23242c250a293826673e2f2922242526252d232f3964292527">[email&#160;protected]</span></a>
+      <a href="mailto:info@crl-technologies.com">info@crl-technologies.com</a>
     </div>
   </footer>
 
@@ -643,100 +643,20 @@
     </div>
   </section>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.js"></script>
+  <script src="js/main.js"></script>
 
-  <!-- Demo Booking Modal -->
-<div class="backdrop" id="demoModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="demo-title">
-  <div class="modal">
-    <h3 id="demo-title">Schedule Technical Demonstration</h3>
-    <p class="modal-subtitle">30-minute session to walk through the payoff, technical integration and risk model. Live calculation engine demonstration included.</p>
-    <form id="demoForm" action="https://formspree.io/f/mwpzyldd" method="POST">
-      <div><label for="demo-name">Full Name</label><input type="text" id="demo-name" name="name" required></div>
-      <div><label for="demo-title-field">Title</label><input type="text" id="demo-title-field" name="title" placeholder="e.g., Head of Trading" required></div>
-      <div><label for="demo-company">Institution</label><input type="text" id="demo-company" name="company" required></div>
-      <div><label for="demo-email">Work Email</label><input type="email" id="demo-email" name="email" required></div>
-      <div>
-        <label for="demo-volume">Monthly Derivatives Volume</label>
-        <select id="demo-volume" name="volume" required>
-          <option value="">Select range...</option>
-          <option>€10-50M</option>
-          <option>€50-200M</option>
-          <option>€200-500M</option>
-          <option>€500M+</option>
-        </select>
-      </div>
-      <div>
-        <label for="demo-interest">Primary Interest</label>
-        <select id="demo-interest" name="interest" required>
-          <option value="">Select focus...</option>
-          <option>Integration timeline &amp; requirements</option>
-          <option>Hedging and risk management</option>
-          <option>Commercial terms &amp; pricing</option>
-          <option>Regulatory considerations</option>
-          <option>Technical architecture</option>
-        </select>
-      </div>
-      <input type="hidden" name="_next" value="https://crl-technologies.com/thank-you.html">
-      <input type="hidden" name="_subject" value="New CRL Demo Request — Technology page">
-      <input type="hidden" name="_gotcha" style="display:none">
-      <div class="actions">
-        <button type="button" class="btn secondary" data-close-demo>Cancel</button>
-        <button type="submit" class="btn primary">Book Demo</button>
-      </div>
-    </form>
-    <p class="small">We’ll send a calendar invite within 24 hours. Demos are conducted via secure video conference.</p>
-    <p class="privacy-notice">We process your data solely to verify professional status and schedule a demo. See our <a href="/privacy.html">Privacy Policy</a>. We do not sell personal data.</p>
-  </div>
-</div>
-
-<script src="js/main.js"></script>
-<script>
-(function () {
-  var modal = document.getElementById('demoModal');
-  if (!modal) return;
-
-  var openers = document.querySelectorAll('[data-open-demo]');
-  var closers = document.querySelectorAll('[data-close-demo]');
-  var lastOpener = null;
-
-  function open(trigger) {
-    lastOpener = trigger;
-    modal.style.display = 'flex';
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-    var first = modal.querySelector('button, input, select');
-    if (first) first.focus();
+  <script>
+  // Mobile Menu
+  const hamb = document.querySelector('.hamb');
+  const navLinks = document.querySelector('.nav-links');
+  if (hamb && navLinks) {
+    hamb.addEventListener('click', () => {
+      const expanded = hamb.getAttribute('aria-expanded') === 'true';
+      hamb.setAttribute('aria-expanded', !expanded);
+      navLinks.classList.toggle('is-open');
+    });
   }
-
-  function close() {
-    modal.style.display = 'none';
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    if (lastOpener) { lastOpener.focus(); lastOpener = null; }
-  }
-
-  openers.forEach(function (el) {
-    el.addEventListener('click', function (e) { e.preventDefault(); open(el); });
-  });
-  closers.forEach(function (el) { el.addEventListener('click', close); });
-  modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.style.display === 'flex') close(); });
-
-  document.getElementById('demoForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var fd = new FormData(e.target);
-    var domain = ((fd.get('email') || '').split('@')[1] || '').toLowerCase();
-    var free = ['gmail.com','yahoo.com','outlook.com','hotmail.com','icloud.com','proton.me','aol.com','gmx.com'];
-    if (free.indexOf(domain) !== -1) { alert('Please use your corporate email address.'); return; }
-    fetch('https://formspree.io/f/mwpzyldd', {
-      method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
-    }).then(function (r) {
-      if (r.ok) { close(); alert('Demo request received. We will contact you within 24 hours.'); e.target.reset(); }
-      else { alert('Error submitting form. Please try again.'); }
-    }).catch(function () { alert('Error submitting form. Please try again.'); });
-  });
-}());
-</script>
+  </script>
 
 </body>
 </html>
