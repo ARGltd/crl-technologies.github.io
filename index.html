@@ -946,7 +946,7 @@
      <p class="modal-subtitle">
        Access to technical documentation and detailed research is reserved for licensed institutions and professional or eligible counterparties. If you are a retail client, this material is not intended for you.
      </p>
-     <form id="gateForm" novalidate>
+     <form id="gateForm">
        <div>
          <label for="jurisdiction">Regulatory Jurisdiction</label>
          <select id="jurisdiction" name="jurisdiction" required>
@@ -1064,11 +1064,18 @@
    document.getElementById('gateForm').addEventListener('submit', e => {
       e.preventDefault();
       const formData = new FormData(e.target);
-      const email = formData.get('email') || '';
-      const freeProviders = ['gmail.com','yahoo.com','outlook.com','hotmail.com','icloud.com','proton.me','aol.com','gmx.com'];
-      const domain = (email.split('@')[1] || '').toLowerCase();
-      if (freeProviders.includes(domain)) { alert('Please use your corporate email address.'); return; }
-      
+            const email = (formData.get('email') || '').trim();
+            const company = (formData.get('company') || '').trim();
+            const jurisdiction = (formData.get('jurisdiction') || '').trim();
+            const attestation = formData.get('attestation');
+            if (!jurisdiction) { alert('Please select your regulatory jurisdiction.'); return; }
+            if (!email) { alert('Please enter your corporate email address.'); return; }
+            if (!company) { alert('Please enter your institution name.'); return; }
+            if (!attestation) { alert('Please confirm your professional status.'); return; }
+            const freeProviders = ['gmail.com','yahoo.com','outlook.com','hotmail.com','icloud.com','proton.me','aol.com','gmx.com'];
+            const domain = (email.split('@')[1] || '').toLowerCase();
+            if (freeProviders.includes(domain)) { alert('Please use your corporate email address.'); return; }
+            
       fetch('https://formspree.io/f/xpwevykk', {
         method: 'POST',
         body: formData,
@@ -1155,11 +1162,22 @@
    document.getElementById('demoForm').addEventListener('submit', e => {
       e.preventDefault();
       const formData = new FormData(e.target);
-      const email = formData.get('email') || '';
-      const freeProviders = ['gmail.com','yahoo.com','outlook.com','hotmail.com','icloud.com','proton.me','aol.com','gmx.com'];
-      const domain = (email.split('@')[1] || '').toLowerCase();
-      if (freeProviders.includes(domain)) { alert('Please use your corporate email address.'); return; }
-      
+            const name = (formData.get('name') || '').trim();
+            const title = (formData.get('title') || '').trim();
+            const company = (formData.get('company') || '').trim();
+            const email = (formData.get('email') || '').trim();
+            const volume = (formData.get('volume') || '').trim();
+            const interest = (formData.get('interest') || '').trim();
+            if (!name) { alert('Please enter your full name.'); return; }
+            if (!title) { alert('Please enter your title.'); return; }
+            if (!company) { alert('Please enter your institution name.'); return; }
+            if (!email) { alert('Please enter your work email address.'); return; }
+            if (!volume) { alert('Please select your monthly derivatives volume.'); return; }
+            if (!interest) { alert('Please select your primary interest.'); return; }
+            const freeProviders = ['gmail.com','yahoo.com','outlook.com','hotmail.com','icloud.com','proton.me','aol.com','gmx.com'];
+            const domain = (email.split('@')[1] || '').toLowerCase();
+            if (freeProviders.includes(domain)) { alert('Please use your corporate email address.'); return; }
+            
       fetch('https://formspree.io/f/mwpzyldd', {
         method: 'POST',
         body: formData,
