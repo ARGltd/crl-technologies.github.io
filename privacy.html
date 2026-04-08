@@ -160,6 +160,276 @@
     </div>
   </section>
 
+  <!-- Professional Gate Modal -->
+  <div class="backdrop" id="gate" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="gate-title">
+    <div class="modal">
+      <h3 id="gate-title">Professional Qualification Required</h3>
+      <p class="modal-subtitle">
+        Access to technical documentation and detailed research is reserved for licensed institutions and professional or eligible counterparties. If you are a retail client, this material is not intended for you.
+      </p>
+      <form id="gateForm">
+        <input type="hidden" id="requestedDoc" name="requested_doc" value="">
+        <div>
+          <label for="jurisdiction">Regulatory Jurisdiction</label>
+          <select id="jurisdiction" name="jurisdiction" required>
+            <option value="">Select jurisdiction...</option>
+            <option>EU (MiFID II)</option>
+            <option>UK (FCA)</option>
+            <option>Switzerland (FinSA)</option>
+            <option>US (QIB/Accredited)</option>
+            <option>Hong Kong (SFO)</option>
+            <option>Singapore (SFA)</option>
+            <option>Australia (Corporations Act)</option>
+            <option>Other Professional</option>
+          </select>
+        </div>
+        <div>
+          <label for="email">Corporate Email</label>
+          <input type="email" id="email" name="email" placeholder="your.name@institution.com" required>
+        </div>
+        <div>
+          <label for="company">Institution Name</label>
+          <input type="text" id="company" name="company" placeholder="Your licensed institution" required>
+        </div>
+        <div class="checks">
+          <input type="checkbox" id="attestation" name="attestation" required>
+          <label for="attestation">
+            <span>I confirm that I am a Professional Client or Eligible Counterparty under applicable regulations and understand this is not investment advice.</span>
+          </label>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn secondary" data-close-gate>Cancel</button>
+          <button type="submit" class="btn primary">Access Materials</button>
+        </div>
+      </form>
+      <p class="small">
+        Your information may be used to confirm eligibility and prevent unauthorized access to professional-only materials. Please do not submit this form if you are not acting on behalf of a licensed institution.
+      </p>
+      <p class="privacy-notice">
+        We process your data solely to verify professional status. See our <a href="/privacy.html">Privacy Policy</a>. We do not sell personal data.
+      </p>
+    </div>
+  </div>
+
+  <!-- Demo Booking Modal -->
+  <div class="backdrop" id="demoModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="demo-title">
+    <div class="modal">
+      <h3 id="demo-title">Schedule Technical Demonstration</h3>
+      <p class="modal-subtitle">
+        30-minute session to walk through the payoff, technical integration and risk model. Live calculation engine demonstration included.
+      </p>
+      <form id="demoForm">
+        <div>
+          <label for="demo-name">Full Name</label>
+          <input type="text" id="demo-name" name="name" required>
+        </div>
+        <div>
+          <label for="demo-title-field">Title</label>
+          <input type="text" id="demo-title-field" name="title" placeholder="e.g., Head of Trading" required>
+        </div>
+        <div>
+          <label for="demo-company">Institution</label>
+          <input type="text" id="demo-company" name="company" required>
+        </div>
+        <div>
+          <label for="demo-email">Work Email</label>
+          <input type="email" id="demo-email" name="email" required>
+        </div>
+        <div>
+          <label for="demo-volume">Monthly Derivatives Volume</label>
+          <select id="demo-volume" name="volume" required>
+            <option value="">Select range...</option>
+            <option>€10-50M</option>
+            <option>€50-200M</option>
+            <option>€200-500M</option>
+            <option>€500M+</option>
+          </select>
+        </div>
+        <div>
+          <label for="demo-interest">Primary Interest</label>
+          <select id="demo-interest" name="interest" required>
+            <option value="">Select focus...</option>
+            <option>Integration timeline & requirements</option>
+            <option>Hedging and risk management</option>
+            <option>Commercial terms & pricing</option>
+            <option>Regulatory considerations</option>
+            <option>Technical architecture</option>
+          </select>
+        </div>
+
+        <input type="hidden" name="_next" value="https://crl-technologies.com/thank-you.html">
+        <input type="hidden" name="_subject" value="New CRL Demo Request">
+        <input type="hidden" name="_gotcha" style="display:none">
+
+        <div class="actions">
+          <button type="button" class="btn secondary" data-close-demo>Cancel</button>
+          <button type="submit" class="btn primary">Book Demo</button>
+        </div>
+      </form>
+      <p class="small">We'll send a calendar invite within 24 hours. Demos are conducted via secure video conference.</p>
+      <p class="privacy-notice">
+        We process your data solely to verify professional status and schedule a demo.
+        See our <a href="/privacy.html">Privacy Policy</a>. We do not sell personal data.
+      </p>
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
+
+  <script>
+    function trapFocus(modal) {
+      const focusables = modal.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])');
+      const first = focusables[0], last = focusables[focusables.length - 1];
+      modal.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+          if (modal.closest('#gate')) closeGate();
+          else if (modal.closest('#demoModal')) closeDemo();
+        }
+        if (e.key !== 'Tab') return;
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      });
+      if (first) first.focus();
+    }
+
+    const gate = document.getElementById('gate');
+    const gateOpeners = document.querySelectorAll('[data-open-gate]');
+    const gateClosers = document.querySelectorAll('[data-close-gate]');
+    let gateOpenerElement = null;
+
+    function openGate(opener) {
+      gateOpenerElement = opener;
+      gate.style.display = 'flex';
+      gate.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      trapFocus(gate.querySelector('.modal'));
+    }
+
+    function closeGate() {
+      gate.style.display = 'none';
+      gate.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (gateOpenerElement) {
+        gateOpenerElement.focus();
+        gateOpenerElement = null;
+      }
+    }
+
+    gateOpeners.forEach(el => el.addEventListener('click', e => {
+      e.preventDefault();
+      const doc = el.getAttribute('data-doc') || 'General Request';
+      const field = document.getElementById('requestedDoc');
+      if (field) field.value = doc;
+      openGate(el);
+    }));
+
+    gateClosers.forEach(el => el.addEventListener('click', closeGate));
+    gate.addEventListener('click', e => { if (e.target === gate) closeGate(); });
+
+    const demoModal = document.getElementById('demoModal');
+    const demoOpeners = document.querySelectorAll('[data-open-demo]');
+    const demoClosers = document.querySelectorAll('[data-close-demo]');
+    let demoOpenerElement = null;
+
+    function openDemo(opener) {
+      demoOpenerElement = opener;
+      demoModal.style.display = 'flex';
+      demoModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      trapFocus(demoModal.querySelector('.modal'));
+    }
+
+    function closeDemo() {
+      demoModal.style.display = 'none';
+      demoModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (demoOpenerElement) {
+        demoOpenerElement.focus();
+        demoOpenerElement = null;
+      }
+    }
+
+    demoOpeners.forEach(el => el.addEventListener('click', e => {
+      e.preventDefault();
+      openDemo(el);
+    }));
+
+    demoClosers.forEach(el => el.addEventListener('click', closeDemo));
+    demoModal.addEventListener('click', e => { if (e.target === demoModal) closeDemo(); });
+
+    document.getElementById('gateForm').addEventListener('submit', e => {
+      e.preventDefault();
+
+      const formData = new FormData(e.target);
+      const email = (formData.get('email') || '').trim();
+      const company = (formData.get('company') || '').trim();
+      const jurisdiction = (formData.get('jurisdiction') || '').trim();
+      const attestation = formData.get('attestation');
+      const emailField = document.getElementById('email');
+
+      if (!jurisdiction) { alert('Please select your regulatory jurisdiction.'); return; }
+      if (!email) { alert('Please enter your corporate email address.'); return; }
+      if (!emailField.checkValidity()) { alert('Please enter a valid corporate email address.'); return; }
+      if (!company) { alert('Please enter your institution name.'); return; }
+      if (!attestation) { alert('Please confirm your professional status.'); return; }
+
+      const freeProviders = ['gmail.com','yahoo.com','outlook.com','hotmail.com','icloud.com','proton.me','aol.com','gmx.com'];
+      const domain = (email.split('@')[1] || '').toLowerCase();
+      if (!domain || freeProviders.includes(domain)) { alert('Please use your corporate email address.'); return; }
+
+      fetch('https://formspree.io/f/xpwevykk', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          closeGate();
+          alert('Access granted. We will contact you shortly.');
+          e.target.reset();
+        } else {
+          alert('Error submitting form. Please try again.');
+        }
+      }).catch(() => alert('Error submitting form. Please try again.'));
+    });
+
+    document.getElementById('demoForm').addEventListener('submit', e => {
+      e.preventDefault();
+
+      const formData = new FormData(e.target);
+      const name = (formData.get('name') || '').trim();
+      const title = (formData.get('title') || '').trim();
+      const company = (formData.get('company') || '').trim();
+      const email = (formData.get('email') || '').trim();
+      const volume = (formData.get('volume') || '').trim();
+      const interest = (formData.get('interest') || '').trim();
+      const emailField = document.getElementById('demo-email');
+
+      if (!name) { alert('Please enter your full name.'); return; }
+      if (!title) { alert('Please enter your title.'); return; }
+      if (!company) { alert('Please enter your institution name.'); return; }
+      if (!email) { alert('Please enter your work email address.'); return; }
+      if (!emailField.checkValidity()) { alert('Please enter a valid work email address.'); return; }
+      if (!volume) { alert('Please select your monthly derivatives volume.'); return; }
+      if (!interest) { alert('Please select your primary interest.'); return; }
+
+      const freeProviders = ['gmail.com','yahoo.com','outlook.com','hotmail.com','icloud.com','proton.me','aol.com','gmx.com'];
+      const domain = (email.split('@')[1] || '').toLowerCase();
+      if (!domain || freeProviders.includes(domain)) { alert('Please use your corporate email address.'); return; }
+
+      fetch('https://formspree.io/f/mwpzyldd', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          closeDemo();
+          alert('Demo request received. We will contact you within 24 hours.');
+          e.target.reset();
+        } else {
+          alert('Error submitting form. Please try again.');
+        }
+      }).catch(() => alert('Error submitting form. Please try again.'));
+    });
+  </script>
 </body>
 </html>

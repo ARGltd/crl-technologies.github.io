@@ -996,7 +996,7 @@
      <p class="modal-subtitle">
        30-minute session to walk through the payoff, technical integration and risk model. Live calculation engine demonstration included.
      </p>
-     <form id="demoForm" action="https://formspree.io/f/mwpzyldd" method="POST">
+     <form id="demoForm">
        <div>
          <label for="demo-name">Full Name</label>
          <input type="text" id="demo-name" name="name" required>
@@ -1065,16 +1065,20 @@
       e.preventDefault();
       const formData = new FormData(e.target);
             const email = (formData.get('email') || '').trim();
-            const company = (formData.get('company') || '').trim();
-            const jurisdiction = (formData.get('jurisdiction') || '').trim();
-            const attestation = formData.get('attestation');
-            if (!jurisdiction) { alert('Please select your regulatory jurisdiction.'); return; }
-            if (!email) { alert('Please enter your corporate email address.'); return; }
-            if (!company) { alert('Please enter your institution name.'); return; }
-            if (!attestation) { alert('Please confirm your professional status.'); return; }
-            const freeProviders = ['gmail.com','yahoo.com','outlook.com','hotmail.com','icloud.com','proton.me','aol.com','gmx.com'];
-            const domain = (email.split('@')[1] || '').toLowerCase();
-            if (freeProviders.includes(domain)) { alert('Please use your corporate email address.'); return; }
+const company = (formData.get('company') || '').trim();
+const jurisdiction = (formData.get('jurisdiction') || '').trim();
+const attestation = formData.get('attestation');
+const emailField = document.getElementById('email');
+
+if (!jurisdiction) { alert('Please select your regulatory jurisdiction.'); return; }
+if (!email) { alert('Please enter your corporate email address.'); return; }
+if (!emailField.checkValidity()) { alert('Please enter a valid corporate email address.'); return; }
+if (!company) { alert('Please enter your institution name.'); return; }
+if (!attestation) { alert('Please confirm your professional status.'); return; }
+
+const freeProviders = ['gmail.com','yahoo.com','outlook.com','hotmail.com','icloud.com','proton.me','aol.com','gmx.com'];
+const domain = (email.split('@')[1] || '').toLowerCase();
+if (!domain || freeProviders.includes(domain)) { alert('Please use your corporate email address.'); return; }
             
       fetch('https://formspree.io/f/xpwevykk', {
         method: 'POST',
@@ -1090,18 +1094,7 @@
         }
       }).catch(() => alert('Error submitting form. Please try again.'));
     });
-   
-   // Checkbox visual feedback
-   document.querySelectorAll('.checkbox-label input[type="checkbox"]').forEach(checkbox => {
-     checkbox.addEventListener('change', function() {
-       if (this.checked) {
-         this.parentElement.classList.add('checked');
-       } else {
-         this.parentElement.classList.remove('checked');
-       }
-     });
-   });
-
+ 
    // Rest of original JavaScript remains the same
    // [Include all original JavaScript code here]
 
@@ -1168,15 +1161,19 @@
             const email = (formData.get('email') || '').trim();
             const volume = (formData.get('volume') || '').trim();
             const interest = (formData.get('interest') || '').trim();
+            const emailField = document.getElementById('demo-email');
+
             if (!name) { alert('Please enter your full name.'); return; }
             if (!title) { alert('Please enter your title.'); return; }
             if (!company) { alert('Please enter your institution name.'); return; }
             if (!email) { alert('Please enter your work email address.'); return; }
+            if (!emailField.checkValidity()) { alert('Please enter a valid work email address.'); return; }
             if (!volume) { alert('Please select your monthly derivatives volume.'); return; }
             if (!interest) { alert('Please select your primary interest.'); return; }
+
             const freeProviders = ['gmail.com','yahoo.com','outlook.com','hotmail.com','icloud.com','proton.me','aol.com','gmx.com'];
             const domain = (email.split('@')[1] || '').toLowerCase();
-            if (freeProviders.includes(domain)) { alert('Please use your corporate email address.'); return; }
+            if (!domain || freeProviders.includes(domain)) { alert('Please use your corporate email address.'); return; }
             
       fetch('https://formspree.io/f/mwpzyldd', {
         method: 'POST',
@@ -1192,21 +1189,6 @@
         }
       }).catch(() => alert('Error submitting form. Please try again.'));
     });
-
-   // Gate & Demo form validation (light)
-   document.getElementById('gateForm').addEventListener('submit', e => {
-     e.preventDefault();
-     const formData = new FormData(e.target);
-     const email = formData.get('email') || '';
-     const freeProviders = ['gmail.com','yahoo.com','outlook.com','hotmail.com','icloud.com','proton.me','aol.com','gmx.com'];
-     const domain = (email.split('@')[1] || '').toLowerCase();
-     if (freeProviders.includes(domain)) { alert('Please use your corporate email address.'); return; }
-     setTimeout(() => {
-       closeGate();
-       alert('Access granted. Gated content is now available.');
-     }, 500);
-   });
-   // Form now handled by Formspree
 
    // Mobile Menu
    const hamb = document.querySelector('.hamb');
