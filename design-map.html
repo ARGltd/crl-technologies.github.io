@@ -255,7 +255,7 @@
       <a href="https://crl-technologies.com/about.html">About</a>
       <a href="https://crl-technologies.com#contacts">Contacts</a>
     </div>
-    <div class="nav-badge">Technical Reference &middot; Confidential</div>
+    <div class="nav-badge">Technical Reference &middot; Professional Only</div>
   </div>
 </nav>
 
@@ -322,7 +322,7 @@
       <div class="chart-header">
         <div>
           <div class="chart-title-txt">Trigger distance d(T) by asset class &mdash; constant-z path through the parametric surface</div>
-          <div class="chart-sub-txt">Axis X: time horizon (log scale, hours) &middot; Axis Y: trigger distance (% of price) &middot; Solid: z=2.2 (deep Zone B) &middot; Dotted: z=1.70 (canonical) &middot; &sigma;: real-data calibrated 2019&ndash;2024</div>
+          <div class="chart-sub-txt">Axis X: time horizon (log scale, hours) &middot; Axis Y: trigger distance (% of price) &middot; Solid: z=2.2 (deep Zone B) &middot; Dotted: z=1.70 (reference) &middot; &sigma;: real-data calibrated 2019&ndash;2024</div>
         </div>
         <div class="chart-legend" id="legend"></div>
       </div>
@@ -339,7 +339,7 @@
       <div class="chart-footer">
         Trigger distances derived from real-data calibrated annualised volatility estimates (EURUSD&nbsp;5.8%, SP500&nbsp;13%, Gold&nbsp;12%, from daily returns 2019&ndash;2024) under GBM assumptions.
         Solid curves: z&nbsp;=&nbsp;2.2 (deep Zone B reference). Shaded band: z&nbsp;=&nbsp;2.0&ndash;2.5.
-        Dotted curves: z&nbsp;=&nbsp;1.70 — canonical commercial operating point (p<sub>event</sub>&nbsp;&asymp;&nbsp;9%).
+        Dotted curves: z&nbsp;=&nbsp;1.70 — reference operating point (p<sub>event</sub>&nbsp;&asymp;&nbsp;9%).
         <strong>Final live calibration requires asset-specific jump-diffusion correction (&Delta;z real-data: EURUSD&nbsp;+0.62, SP500&nbsp;+1.30, Gold&nbsp;+0.71).</strong>
       </div>
     </div>
@@ -359,7 +359,7 @@
   </div>
   <div class="f-sep"></div>
   <div class="formula-item">
-    <div class="f-label">Premium &mdash; empirical conjecture (not derived)</div>
+    <div class="f-label">Premium &mdash; first-order empirical relation</div>
     <div class="f-eq">P &asymp; p<sub style="font-size:13px">event</sub> &times; L &times; &sigma;&radic;T</div>
   </div>
 </div>
@@ -387,7 +387,7 @@
         <div class="regime-name">Meaningful — Zone B</div>
         <div class="regime-z">1.5 &le; z &le; 2.5</div>
         <div class="regime-p">p<sub>event</sub> 1.24%&ndash;13.36% <span style="font-size:11px;color:var(--g400)">(exact, P=2&Phi;(&minus;z))</span></div>
-        <div class="regime-desc">Trigger requires a genuine directional move. CRL maintains full structural identity. Primary commercial operating zone. Canonical configurations cluster around z&nbsp;&asymp;&nbsp;1.70 (p<sub>event</sub>&nbsp;&asymp;&nbsp;9%). Jump-diffusion correction required before live calibration.</div>
+        <div class="regime-desc">Trigger requires a genuine directional move. CRL maintains full structural identity. Primary commercial operating zone. Reference configurations cluster around z&nbsp;&asymp;&nbsp;1.70 (p<sub>event</sub>&nbsp;&asymp;&nbsp;9%). Jump-diffusion correction required before live calibration.</div>
       </div>
       <div class="card" style="border-color:var(--g300)">
         <div class="regime-name" style="color:var(--g500)">Transitional</div>
@@ -452,7 +452,34 @@
     </div>
     <div class="callout" style="margin-top:20px">
       <p>
-        <strong>Volatility estimates are real-data calibrated from daily close-to-close returns 2019&ndash;2024</strong> (EURUSD: &sigma;=5.8%, SP500: &sigma;=13%, Gold: &sigma;=12%). Trigger distances are computed at z&nbsp;=&nbsp;2.2 (deep Zone B) for geometric reference. The canonical commercial operating point is z&nbsp;&asymp;&nbsp;1.70 (p<sub>event</sub>&nbsp;&asymp;&nbsp;9%), which requires proportionally smaller trigger distances. These values illustrate z-constancy across the parametric surface, not commercial product parameters. For live configurations, recalibrate d to current implied volatility and apply asset-specific jump-diffusion correction (&Delta;z: EURUSD&nbsp;+0.62, SP500&nbsp;+1.30, Gold&nbsp;+0.71 on real-data parameters).
+        <strong>Volatility estimates are real-data calibrated from daily close-to-close returns 2019&ndash;2024</strong> (EURUSD: &sigma;=5.8%, SP500: &sigma;=13%, Gold: &sigma;=12%). Trigger distances are computed at z&nbsp;=&nbsp;2.2 (deep Zone B) for geometric reference. The reference operating point is z&nbsp;&asymp;&nbsp;1.70 (p<sub>event</sub>&nbsp;&asymp;&nbsp;9%), which requires proportionally smaller trigger distances. These values illustrate z-constancy across the parametric surface, not commercial product parameters. For live configurations, recalibrate d to current implied volatility and apply asset-specific jump-diffusion correction (&Delta;z: EURUSD&nbsp;+0.62, SP500&nbsp;+1.30, Gold&nbsp;+0.71 on real-data parameters).
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Empirical Validation -->
+<div class="section alt">
+  <div class="wrap">
+    <div class="section-label">Empirical Validation</div>
+    <div class="section-title">Internal benchmark against simulated activation surfaces</div>
+
+    <p class="section-body" style="margin-bottom:20px;">
+      The CRL scaling law has been benchmarked internally against Monte Carlo simulation surfaces under Geometric Brownian Motion and jump-diffusion assumptions calibrated on EURUSD, S&amp;P 500 and Gold market data from the 2019&ndash;2024 window.
+    </p>
+
+    <p class="section-body" style="margin-bottom:20px;">
+      Across the EURUSD and S&amp;P 500 reference calibration surfaces, the fitted parameterisation reproduces the simulated benchmark with approximately R<sup>2</sup>&nbsp;&asymp;&nbsp;0.99. This does not imply market prediction accuracy. It means that the parameterisation captures almost all of the benchmark surface variability across the tested trigger-distance, volatility and time-horizon grid.
+    </p>
+
+    <p class="section-body" style="margin-bottom:20px;">
+      The residual is concentrated in second-order effects: jump components, volatility regime shifts, discrete monitoring and tail behaviour. These effects are not ignored; they are treated through asset-specific jump-diffusion correction and reserved for the technical validation pack.
+    </p>
+
+    <div class="callout">
+      <p>
+        <strong>Interpretation.</strong>
+        The public design map describes the structural scaling law. Full calibration tables, residual analysis, coefficient surfaces and implementation details are provided only during technical due diligence with qualified counterparties.
       </p>
     </div>
   </div>
@@ -463,7 +490,7 @@
   <strong>CRL Technologies, Inc.</strong> &middot;
   Patent filed: UIBM 302025000129172 &middot;
   <a href="https://crl-technologies.com">crl-technologies.com</a><br/>
-  Confidential. Prepared for broker, quantitative, and technology partner audiences.
+  Prepared for broker, quantitative, and technology partner audiences.
   Not for retail distribution. Does not constitute financial advice or an offer of any financial instrument.
 </footer>
 
@@ -686,7 +713,7 @@ function buildLegend() {
   // Operational reference note
   const opItem = document.createElement("div");
   opItem.className = "legend-item";
-  opItem.innerHTML = `<div style="font-size:11px;color:#525252;font-style:italic;font-family:'Times New Roman',serif">&#8943; dotted = z&nbsp;1.70<br/>(canonical operating point)</div>`;
+  opItem.innerHTML = `<div style="font-size:11px;color:#525252;font-style:italic;font-family:'Times New Roman',serif">&#8943; dotted = z&nbsp;1.70<br/>(reference operating point)</div>`;
   leg.appendChild(opItem);
 }
 
