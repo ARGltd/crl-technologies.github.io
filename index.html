@@ -6,7 +6,7 @@
 
   <title>CRL Technologies — White-label leverage engine for professional brokers</title>
 
-  <meta name="description" content="CRL is not a bridge, not a risk tool, not a higher leverage ratio. It's a white-label payoff engine that activates leverage only after market confirmation and applies profit multiplication retroactively. API-first, for professional brokers only."/>
+  <meta name="description" content="CRL is not a bridge, not a risk tool, not a higher leverage ratio. It is a white-label payoff engine that activates leverage only after market confirmation and applies retroactive exposure redetermination. API-first, for professional brokers only."/>
   <meta name="keywords" content="conditional retroactive leverage, CRL, payoff engine, retroactive leverage, white-label API, professional brokers, not a bridge, not a risk tool, leverage after confirmation"/>
 
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png"/>
@@ -14,7 +14,7 @@
   <link rel="canonical" href="https://crl-technologies.com/"/>
 
   <meta property="og:title" content="CRL Technologies — White-label leverage engine for professional brokers"/>
-  <meta property="og:description" content="CRL is not a bridge, not a risk tool, not a plugin. A white-label payoff engine that activates leverage only after market confirmation. Retroactive profit multiplication, API-first, for professional brokers only."/>  <meta property="og:type" content="website"/>
+  <meta property="og:description" content="CRL is not a bridge, not a risk tool, not a plugin. A white-label payoff engine that activates leverage only after market confirmation. Retroactive exposure redetermination, API-first, for professional brokers only."/>  <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://crl-technologies.com/"/>
   <meta property="og:image" content="https://crl-technologies.com/og-penrose.jpg"/>
 
@@ -28,7 +28,7 @@
     "@type": "SoftwareApplication",
     "name": "CRL - Conditional Retroactive Leverage",
     "applicationCategory": "FinanceApplication",
-    "description": "Payoff engine that activates leverage only after market confirmation. Not a bridge, not a risk tool, not a plugin. Retroactive profit multiplication via API for professional brokers.",
+    "description": "Payoff engine that activates leverage only after market confirmation. Not a bridge, not a risk tool, not a plugin. Retroactive exposure redetermination via API for professional brokers.",
     "operatingSystem": "API",
     "offers": {
       "@type": "Offer",
@@ -153,7 +153,7 @@
       <p class="body-lg">
         A white-label calculation engine for professional brokers.<br/>
         Base exposure before confirmation. Leverage applied retroactively after trigger.<br/>
-        <strong>Discontinuous payoff jump — capped, auditable, policy-controlled.</strong>
+        <strong>Discontinuous payoff jump — auditable, policy-controlled.</strong>
       </p>
       
       <p style="font-size:19px;color:var(--g800);margin-top:16px;">
@@ -274,7 +274,7 @@
           </p>
 
           <p style="margin:0;font-size:19px;color:white;">
-            Same stop price. <strong>Different risk path.</strong> Bounded loss amplification before confirmation.
+            Same stop price. <strong>Different risk path.</strong> No leverage amplification before confirmation.
           </p>
         </div>
 
@@ -314,8 +314,8 @@
                   <span style="font-size:13px;font-weight:400;color:var(--g500);">Higher liquidation risk under many margin policies</span>
                 </td>
                 <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--accent);">
-                  −Premium (per ticket terms)<br/>
-                  <span style="font-size:13px;font-weight:400;color:var(--g500);">Pre-confirmation not leverage-amplified</span>
+                  Not leverage-amplified before confirmation<br/>
+                  <span style="font-size:13px;font-weight:400;color:var(--g500);">Base exposure until confirmation</span>
                 </td>
               </tr>
 
@@ -342,8 +342,8 @@
                   Depends on exit and margin policy
                 </td>
                 <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--accent);">
-                  −Premium (per ticket terms)<br/>
-                  <span style="font-size:13px;font-weight:400;color:var(--g500);">Max loss bounded per ticket terms</span>
+                  Outcome depends on ticket terms<br/>
+                  <span style="font-size:13px;font-weight:400;color:var(--g500);">Leverage never activates without confirmation</span>
                 </td>
               </tr>
             </tbody>
@@ -385,7 +385,7 @@
               <div style="font-size:48px;font-weight:700;color:var(--accent);margin-bottom:12px;font-style:italic;">2</div>
               <h3 style="font-size:19px;font-weight:600;margin-bottom:8px;">Premium upfront</h3>
               <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
-                Issuer-defined premium to access the kicker. Ticket terms can bound max loss to that premium.
+                Issuer-defined premium to access the retroactive leverage feature. Depending on the product wrapper, ticket terms may include optional limited-loss protections.
               </p>
             </div>
             
@@ -655,7 +655,7 @@
               with a clear payoff and a clear hedge.
             </p>
             <p>
-              The result is more margin over time on the same flow, with fewer accounts going to zero in a single move.
+              The result is more margin over time on the same flow, with fewer accounts exposed to immediate leverage-amplified drawdowns.
             </p>
           </article>
 
@@ -667,8 +667,7 @@
               intelligent leverage path without asking them to stop trading and without forcing you to give up revenue.
             </p>
             <p>
-              The client sees a product that protects them from the usual margin call spiral. You see a book where more of your
-              at risk clients survive and keep trading.
+              The client sees a product that changes the timing of leverage activation. You see a book where more of your at risk clients survive and keep trading.
             </p>
           </article>
         </div>
@@ -699,7 +698,7 @@
       <div class="diff-wrap">
         <h2 class="headline" style="text-align:center">Superior to Traditional Leverage</h2>
         <p>CRL is not a turbo, a barrier or a CFD with nicer marketing. It is a different payoff family.</p>
-        <p>The table below shows, in one glance, what changes structurally: retroactive profit multiplication, loss bounded to premium (per ticket terms), no client margin calls at product level (per issuer terms), and patent protection on the core mechanics.</p>
+        <p>The table below shows, in one glance, what changes structurally: retroactive exposure redetermination, pre-trigger losses not amplified by leverage, product-level margin treatment subject to issuer terms, and patent protection on the core mechanics.</p>        
         
         <p style="margin:12px 0 14px;opacity:.85;line-height:1.5;text-align:left;">
           Note: “ticket-level” characteristics apply when CRL-enabled structures are issued under the broker’s product terms.
@@ -718,8 +717,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr><td>Retroactive Profit Multiplication</td><td class="crl-col"><span class="pill yes">Yes</span></td><td><span class="pill no">No</span></td><td><span class="pill no">No</span></td><td><span class="pill no">No</span></td></tr>
-              <tr><td>Loss Bounded to Premium (ticket terms)</td><td class="crl-col"><span class="pill yes">Per ticket</span></td><td><span class="pill yes">Yes</span></td><td><span class="pill yes">Yes</span></td><td><span class="pill no">No</span></td></tr>
+              <tr><td>Retroactive Exposure Redetermination</td><td class="crl-col"><span class="pill yes">Yes</span></td><td><span class="pill no">No</span></td><td><span class="pill no">No</span></td><td><span class="pill no">No</span></td></tr>              
+              <tr><td>Pre-trigger loss not leverage-amplified</td><td class="crl-col"><span class="pill yes">Yes</span></td><td><span class="pill no">No</span></td><td><span class="pill no">N/A</span></td><td><span class="pill no">No</span></td></tr>              
               <tr><td>Zero Margin Requirements (product level)</td><td class="crl-col"><span class="pill yes">Per terms</span></td><td><span class="pill yes">Yes</span></td><td><span class="pill yes">Yes</span></td><td><span class="pill no">No</span></td></tr>
               <tr><td>Client Margin Calls</td><td class="crl-col"><span class="pill yes">Per terms*</span></td><td><span class="pill yes">None</span></td><td><span class="pill yes">None</span></td><td><span class="pill no">Possible</span></td></tr>
               <tr><td>Discontinuous Payoff Jump</td><td class="crl-col"><span class="pill yes">Yes</span></td><td><span class="pill no">No</span></td><td><span class="pill no">No</span></td><td><span class="pill no">No</span></td></tr>
