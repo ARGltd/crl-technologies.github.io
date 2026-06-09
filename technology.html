@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CRL Technology — How Conditional Retroactive Leverage Works</title>
+  <title>CRL Technology: How Conditional Retroactive Leverage Works</title>
   <meta name="description" content="Technical overview of CRL: how the retroactive leverage engine works, how it uses your own prices and platforms, and how it integrates as an authenticated API layer for professional institutions."/>
   <link rel="canonical" href="https://crl-technologies.com/technology.html"/>
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png"/>
@@ -341,7 +341,7 @@
             <span class="badge">Churn reduction</span>
             <h3 class="title" style="margin-top:10px">Path for at-risk clients</h3>
             <p>
-              Move clients statistically close to blow-up into a smarter leverage path — without asking them to stop trading.
+              Move clients statistically close to blow-up into a smarter leverage path, without asking them to stop trading.
             </p>
           </article>
         </div>
@@ -534,25 +534,28 @@
 
     <!-- Live System Status -->
     <section class="section" id="live-status">
-      <div class="wrap" style="max-width:1200px;margin:0 auto;">
-        <h2 class="headline" style="text-align:center;">Live System Status</h2>
+      <div class="wrap" style="max-width:1100px;margin:0 auto;">
+        <h2 class="headline" style="text-align:center;">System status and audit integrity</h2>
         <p style="text-align:center;max-width:780px;margin:12px auto 32px;">
-          Real-time operational metrics from our production infrastructure. 
-          Full transparency on uptime, latency, audit integrity and compliance systems.
+          A summary of our production monitoring and audit integrity. Detailed live operational
+          metrics are reviewed with qualified institutions during technical due diligence.
         </p>
-        <div style="background:#f8f9fa;border-radius:12px;padding:20px;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
-          <iframe 
-            src="https://grafana.crl-api.crl-technologies.com/d/crl-public-status/crl-api-public-status?orgId=1&kiosk&theme=light&refresh=30s"
-            width="100%" 
-            height="1400" 
-            frameborder="0"
-            style="border-radius:8px;"
-            title="CRL API Live Status Dashboard">
-          </iframe>
+        <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;">
+          <div style="flex:1 1 240px;max-width:340px;background:#f8f9fa;border-radius:12px;padding:20px 22px;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+            <h3 style="margin:0 0 6px;font-size:16px;">Audit integrity</h3>
+            <p style="margin:0;font-size:14px;color:var(--g700);">Cryptographically signed and tamper-evident: prev-hash chaining with daily Merkle roots signed via AWS KMS. Zero signature failures in latest integrity checks.</p>
+          </div>
+          <div style="flex:1 1 240px;max-width:340px;background:#f8f9fa;border-radius:12px;padding:20px 22px;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+            <h3 style="margin:0 0 6px;font-size:16px;">Compliance storage</h3>
+            <p style="margin:0;font-size:14px;color:var(--g700);">Signed audit roots stored in S3 WORM, COMPLIANCE mode, with 7-year retention, aligned with MiFID II Article 16.</p>
+          </div>
+          <div style="flex:1 1 240px;max-width:340px;background:#f8f9fa;border-radius:12px;padding:20px 22px;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+            <h3 style="margin:0 0 6px;font-size:16px;">Operational monitoring</h3>
+            <p style="margin:0;font-size:14px;color:var(--g700);">Continuous Prometheus-based monitoring of latency, error rates and upstream health. All monitoring targets operational.</p>
+          </div>
         </div>
         <p class="caption" style="text-align:center;margin-top:16px;color:var(--g500);">
-          Dashboard refreshes automatically every 30 seconds. 
-          <a href="https://grafana.crl-api.crl-technologies.com/d/crl-public-status/crl-api-public-status?orgId=1&kiosk&theme=light" target="_blank" rel="noopener" style="color:var(--accent);">Open full screen →</a>
+          Operational snapshot. Live dashboards are demonstrated during technical due diligence with qualified institutions.
         </p>
       </div>
     </section>
