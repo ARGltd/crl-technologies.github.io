@@ -10,15 +10,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png"/>
   <link rel="stylesheet" href="css/styles.css">
 
-  <!-- MathJax + Journey enhanced styles -->
-  <script>
-    window.MathJax = {
-      tex: { inlineMath: [['\\(','\\)'],['$','$']], displayMath: [['\\[','\\]']] },
-      svg: { fontCache: 'global' },
-      startup: { typeset: true }
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <!-- Journey enhanced styles -->
   <style>
     /* ── Journey enhanced ── */
     .journey-mono { font-family: 'IBM Plex Mono','SF Mono','Fira Code',monospace; }
@@ -181,7 +173,7 @@
                 <h5>Scope of Responsibility</h5>
                 <ul>
                     <li>Definition of the CRL payoff structure and trigger architecture.</li>
-                    <li>Alignment of product behaviour with dealer hedging and risk language.</li>
+                    <li>Design of CRL's interaction with dealer hedging and institutional risk frameworks.</li>
                     <li>Supervision of integration runbooks and operational states.</li>
                     <li>Coordination of external legal and technical advisors during diligence.</li>
                 </ul>
@@ -271,7 +263,7 @@
                   </div>
                 </div>
                 <p style="font-size:15px;color:var(--g700);line-height:1.6;margin:0 0 12px;">
-                  The programme spans large-scale Monte Carlo across GBM, mean-reverting, regime-switching and jump-diffusion dynamics, a five-year historical backtest, and parameter-sensitivity studies. The activation regime is governed to first order by the normalized trigger parameter z = d / (σ√T), with asset-specific corrections under jumps. Sensitivity testing identifies both viable and non-viable operating regions, including configurations in which CRL is commercially inactive or unattractive.
+                  The programme spans large-scale Monte Carlo across multiple stochastic regimes, a five-year historical backtest, and parameter-sensitivity studies. Trigger distance is calibrated on a consistent basis across assets and market conditions, with asset-specific corrections established through the testing. Sensitivity testing identifies both viable and non-viable operating regions, including configurations in which CRL is commercially inactive or unattractive.
                 </p>
                 <p style="font-size:14px;color:var(--g500);line-height:1.6;margin:0;">
                   The evidence supports technical due diligence, sandbox review and controlled pilot deployment. It does not replace tick-level replay, execution-cost and slippage modelling, portfolio-level stress testing or independent third-party model validation, which are the next validation stage. The full Quantitative Validation Dossier is available to qualified counterparties under NDA.
@@ -377,7 +369,7 @@
                   <p>
                     Cross-domain validation combining quantitative modelling with production-grade systems
                     engineering. The mechanism was tested across a large-scale Monte Carlo programme, spanning
-                    GBM, mean-reverting, regime-switching and jump-diffusion dynamics, and against a five-year
+                    multiple stochastic regimes, and against a five-year
                     historical backtest of 1,976 mechanically generated trade windows on eight liquid US assets.
                     Both measured stop-out frequency, the realised P&amp;L distribution and tail-risk exposure.
                     Latency profiling, the state-machine architecture and the audit-trail design were finalised in
