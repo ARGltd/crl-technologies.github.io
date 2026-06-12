@@ -247,6 +247,37 @@
                 CRL Technologies is a specialized fintech company. Core development is internal; validation and compliance leverage independent experts in derivatives law, quantitative finance, and institutional infrastructure.
               </p>
               
+              <div style="background:white;padding:28px;border-radius:12px;border:1px solid var(--g200);margin-bottom:20px;">
+                <h4 style="font-size:14px;color:var(--accent);margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em;">Validation programme</h4>
+                <p style="font-size:15px;color:var(--g700);line-height:1.6;margin:0 0 16px;">
+                  Validation confirms the core structural property of CRL: adverse or non-confirmed moves are not amplified by leverage before activation, while confirmed moves can receive retroactive leveraged exposure from entry. CRL is not treated as a universally limited-loss product.
+                </p>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));gap:16px;margin:0 0 16px;">
+                  <div style="text-align:center;padding:14px 8px;background:var(--g100);border-radius:8px;">
+                    <div style="font-size:26px;font-weight:700;color:var(--g900);">8.6M+</div>
+                    <div style="font-size:12px;color:var(--g600);line-height:1.4;">documented Monte Carlo paths, multiple regimes</div>
+                  </div>
+                  <div style="text-align:center;padding:14px 8px;background:var(--g100);border-radius:8px;">
+                    <div style="font-size:26px;font-weight:700;color:var(--g900);">1,976</div>
+                    <div style="font-size:12px;color:var(--g600);line-height:1.4;">historical backtest trades, 5 years, 8 US assets</div>
+                  </div>
+                  <div style="text-align:center;padding:14px 8px;background:var(--g100);border-radius:8px;">
+                    <div style="font-size:26px;font-weight:700;color:var(--g900);">324</div>
+                    <div style="font-size:12px;color:var(--g600);line-height:1.4;">screening configurations, explicit rejection zones</div>
+                  </div>
+                  <div style="text-align:center;padding:14px 8px;background:var(--g100);border-radius:8px;">
+                    <div style="font-size:26px;font-weight:700;color:var(--g900);">0</div>
+                    <div style="font-size:12px;color:var(--g600);line-height:1.4;">mismatches in deterministic engine verification</div>
+                  </div>
+                </div>
+                <p style="font-size:15px;color:var(--g700);line-height:1.6;margin:0 0 12px;">
+                  The programme spans large-scale Monte Carlo across GBM, mean-reverting, regime-switching and jump-diffusion dynamics, a five-year historical backtest, and parameter-sensitivity studies. The activation regime is governed to first order by the normalized trigger parameter z = d / (σ√T), with asset-specific corrections under jumps. Sensitivity testing identifies both viable and non-viable operating regions, including configurations in which CRL is commercially inactive or unattractive.
+                </p>
+                <p style="font-size:14px;color:var(--g500);line-height:1.6;margin:0;">
+                  The evidence supports technical due diligence, sandbox review and controlled pilot deployment. It does not replace tick-level replay, execution-cost and slippage modelling, portfolio-level stress testing or independent third-party model validation, which are the next validation stage. The full Quantitative Validation Dossier is available to qualified counterparties under NDA.
+                </p>
+              </div>
+              
               <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:20px;">
                 
                 <div style="background:white;padding:24px;border-radius:12px;border:1px solid var(--g200);">
@@ -260,9 +291,9 @@
                 <div style="background:white;padding:24px;border-radius:12px;border:1px solid var(--g200);">
                   <h4 style="font-size:14px;color:var(--accent);margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em;">Quantitative Validation</h4>
                   <p style="font-size:15px;color:var(--g700);line-height:1.6;margin:0;">
-                    Validation on two fronts: 1,000,000 Monte Carlo scenarios across 5 market regimes, and
-                    replay tests on real historical market data. Methodology, assumptions and the formal payoff
-                    definition are documented with a full reproducibility pack, available under NDA.
+                    Methodology, assumptions and seeds are documented with a reproducibility pack. The formal
+                    payoff definition and the full Quantitative Validation Dossier are provided to qualified
+                    counterparties under NDA.
                   </p>
                 </div>
                 
@@ -345,12 +376,12 @@
                   <h4>Validation &amp; Integration</h4>
                   <p>
                     Cross-domain validation combining quantitative modelling with production-grade systems
-                    engineering. The engine was tested on two independent fronts: across one million Monte Carlo
-                    paths under geometric Brownian motion and jump-diffusion regimes, and through replay tests
-                    against real historical market data. Both measured stop-out frequency, the realised P&amp;L
-                    distribution and tail-risk exposure, under simulated and actual market conditions. Latency
-                    profiling, the state-machine architecture and the audit-trail design were finalised in this
-                    phase.
+                    engineering. The mechanism was tested across a large-scale Monte Carlo programme, spanning
+                    GBM, mean-reverting, regime-switching and jump-diffusion dynamics, and against a five-year
+                    historical backtest of 1,976 mechanically generated trade windows on eight liquid US assets.
+                    Both measured stop-out frequency, the realised P&amp;L distribution and tail-risk exposure.
+                    Latency profiling, the state-machine architecture and the audit-trail design were finalised in
+                    this phase.
                   </p>
                   <div class="j-grid g3" style="margin-top:20px">
                     <div class="j-stat-chip ac">
@@ -358,8 +389,8 @@
                       <span class="jsl">smaller 1-in-20 downside vs constant leverage<br>(simulation, under stated assumptions)</span>
                     </div>
                     <div class="j-stat-chip">
-                      <span class="jsv">1M</span>
-                      <span class="jsl">simulation paths per validation run<br>GBM and jump-diffusion regimes</span>
+                      <span class="jsv">8.6M+</span>
+                      <span class="jsl">documented Monte Carlo paths<br>multiple stochastic regimes</span>
                     </div>
                     <div class="j-stat-chip">
                       <span class="jsv">&lt;10ms</span>
