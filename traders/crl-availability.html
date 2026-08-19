@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CRL · Availability</title>
+<meta name="description" content="CRL is calculation infrastructure licensed to authorised financial institutions, not a retail product. The institution sets the terms, owns the client relationship and sets the premium." />
+<link rel="canonical" href="https://crl-technologies.com/crl-availability.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="CRL Technologies" />
+<meta property="og:title" content="CRL · Availability" />
+<meta property="og:description" content="CRL is calculation infrastructure licensed to authorised financial institutions, not a retail product. The institution sets the terms, owns the client relationship and sets the premium." />
+<meta property="og:url" content="https://crl-technologies.com/crl-availability.html" />
+<meta property="og:image" content="https://crl-technologies.com/images/logo-crl-serpent.png" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="CRL · Availability" />
+<meta name="twitter:description" content="CRL is licensed to authorised financial institutions, not sold directly. The institution sets the terms, owns the client relationship and sets the premium." />
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+<link rel="icon" href="images/favicon.ico" sizes="any" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/crl.css">
+</head>
+<body data-page="crl-availability">
+
+<main id="top">
+
+  <!-- Intestazione sobria (nessun hero cinematografico) -->
+  <section class="page-head wrap">
+    <div class="reveal">
+      <div class="sec-index">Availability</div>
+      <h1>How CRL is made available</h1>
+    </div>
+    <div class="text-col reveal" style="margin-top:24px">
+      <p>CRL is calculation infrastructure, not a retail product. It reaches the market through the institutions licensed to operate it.</p>
+    </div>
+  </section>
+
+  <!-- I quattro punti del perimetro -->
+  <section class="section wrap">
+    <div class="feature-grid cols-2 reveal">
+      <div class="feature">
+        <span class="badge">Licensing</span>
+        <h4>Not sold directly</h4>
+        <p>CRL is not bought by end clients. It is licensed to authorised financial institutions that integrate it into their own regulated offering.</p>
+      </div>
+      <div class="feature">
+        <span class="badge">Economics</span>
+        <h4>Terms set by the institution</h4>
+        <p>The economic terms, including the premium, are set by the licensing institution. The premium is the cost of accessing the conditional leverage structure. CRL Technologies does not set, quote or receive the premium.</p>
+      </div>
+      <div class="feature">
+        <span class="badge">Perimeter</span>
+        <h4>Infrastructure only</h4>
+        <p>CRL Technologies does not open accounts, execute orders, hold client funds or provide investment advice. Compliance, product approval and client suitability remain with the operating institution.</p>
+      </div>
+      <div class="feature">
+        <span class="badge">Eligibility</span>
+        <h4>Professional scope</h4>
+        <p>CRL is intended for professional clients, eligible counterparties or equivalent categories, depending on jurisdiction. It is not intended for retail clients.</p>
+      </div>
+    </div>
+    <p class="inline-claim reveal" style="margin-top:36px">CRL is licensed, not sold. The institution owns the client relationship, the product terms and the premium.</p>
+  </section>
+
+  <!-- Come un professionista puo' chiederlo al proprio broker -->
+  <section class="section wrap" id="ask-your-broker">
+    <div class="reveal" style="max-width:64ch">
+      <div class="sec-index">For professional clients</div>
+      <h2>Ask whether your provider offers CRL</h2>
+      <p style="margin-top:22px">Because CRL is licensed and not sold directly, the way to reach it as a professional client is through an institution that operates it. You can ask your broker or desk whether CRL is available, or on their roadmap. Here is a template you can adapt.</p>
+    </div>
+    <div class="reveal" style="margin-top:26px;max-width:64ch">
+      <pre id="askEmail" style="white-space:pre-wrap;font-family:var(--mono);font-size:13px;line-height:1.65;background:#f4f2ec;border:1px solid #e4dfd2;border-radius:4px;padding:20px 22px;color:#14161a;overflow-x:auto;margin:0">Subject: CRL-enabled leverage - availability
+
+Hello,
+
+As a professional client I would like to know whether you offer, or plan to offer, CRL (Conditional Retroactive Leverage): a position that stays linear at 1x until a defined confirmation level, with leverage applying from the original entry reference if that level is reached, and no leverage applied if it is not.
+
+Could you tell me whether CRL is available through your desk, or route this to your product or risk team?
+
+Thank you.</pre>
+      <div style="margin-top:14px">
+        <button class="btn ghost" type="button" id="copyEmail">Copy the template <span>&darr;</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chiusura + cross-link -->
+  <section class="section wrap final">
+    <div class="cta-row reveal" style="display:flex;gap:20px;flex-wrap:wrap;align-items:center">
+      <a class="btn" href="crl-technical-reference.html">Read the Technical Reference <span>&rarr;</span></a>
+      <button class="btn ghost" type="button" data-open-gate>Institutional licensing <span>&rarr;</span></button>
+    </div>
+    <div class="reveal" style="margin-top:36px;display:flex;flex-direction:column;gap:11px">
+      <a class="text-link" href="crl.html">The CRL definition &rarr;</a>
+      <a class="text-link" href="crl-risk.html">Risk and pricing characteristics &rarr;</a>
+      <a class="text-link" href="crl.html#mechanics">Mechanics and attestation &rarr;</a>
+    </div>
+  </section>
+
+</main>
+
+<script>
+(function(){
+  var b=document.getElementById('copyEmail'), t=document.getElementById('askEmail');
+  if(!b||!t) return;
+  b.addEventListener('click',function(){
+    var txt=t.innerText;
+    function done(){var o=b.innerHTML;b.innerHTML='Copied';setTimeout(function(){b.innerHTML=o;},1600);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,function(){});}
+    else{var r=document.createRange();r.selectNode(t);var s=window.getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');}catch(e){}s.removeAllRanges();done();}
+  });
+})();
+</script>
+<script src="js/crl.js" defer></script>
+</body>
+</html>

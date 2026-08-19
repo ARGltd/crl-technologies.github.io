@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CRL FAQ: Questions Institutions Ask</title>
+<meta name="description" content="Frequently asked questions about CRL for product, risk and engineering teams: what the engine is, who it is for, how it changes risk, and how it integrates into existing broker and bank infrastructures." />
+<link rel="canonical" href="https://crl-technologies.com/faq.html" />
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+<link rel="icon" href="images/favicon.ico" sizes="any" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/crl.css">
+</head>
+<body data-page="faq">
+
+<main id="top">
+  <section class="page-head wrap">
+    <div class="sec-index reveal">FAQ</div>
+    <h1 class="reveal">Questions we hear from institutions</h1>
+    <div class="text-col reveal" style="margin-top:24px">
+      <p>These are the questions institutions tend to raise in early conversations about CRL for their leveraged business. It is not a general help centre.</p>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="reveal" style="max-width:64ch">
+      <div class="sec-index">Product</div>
+      <h2>What CRL is and who it is for</h2>
+    </div>
+    <div class="prose reveal" style="margin-top:24px">
+      <h3>Is CRL a broker or a trading platform?</h3>
+      <p>No. CRL is a leverage engine and payoff layer. It does not hold client funds, does not run execution venues and does not replace your trading platform. It consumes your prices and order instructions and returns the payoffs and states of a conditional leverage structure that you can offer as a product.</p>
+
+      <h3>Who can use CRL?</h3>
+      <p>CRL is offered only to licensed professional institutions such as brokers, banks and similar entities. We do not onboard retail clients and we do not distribute CRL directly to end clients. You remain responsible for client classification and suitability under your local rules.</p>
+
+      <h3>Is CRL a single product or a toolkit?</h3>
+      <p>At its core CRL is an engine that can support multiple structures. In practice, institutions usually start with a narrow, standardised configuration such as CRL Base and only then explore variants. This keeps product governance and risk review focused.</p>
+
+      <h3>What instruments and markets does CRL support?</h3>
+      <p>The engine is instrument-agnostic by design. Current work focuses on the asset classes that dominate professional leveraged flows, such as FX majors, equity indices and selected single-name or crypto underlyings. Extending to other instruments is a matter of configuration and risk approval on your side.</p>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="reveal" style="max-width:64ch">
+      <div class="sec-index">Risk</div>
+      <h2>Risk, leverage and regulation</h2>
+    </div>
+    <div class="prose reveal" style="margin-top:24px">
+      <h3>How does CRL change risk compared to standard leverage?</h3>
+      <p>CRL does not remove risk and does not guarantee positive outcomes. It reshapes when leverage appears and how it is applied over the life of a position. In many use cases this reduces the frequency of early, permanent blow ups for clients, while keeping the exposure transparent for your risk tools. Backtesting and scenario analysis are part of the gated materials pack.</p>
+
+      <h3>How do you think about regulation and product classification?</h3>
+      <p>CRL is a payoff and engine that sits on top of instruments and platforms you already use. Classification is done by each institution within its own frameworks and with its own advisors. We design structures so that they can be mapped to existing categories rather than creating a completely new one, and we provide documentation to support your internal process.</p>
+
+      <h3>Does CRL eliminate margin calls or client losses?</h3>
+      <p>No. Clients can still lose money and capital. The goal is not to make leverage safe in an absolute sense, but to make it less fragile. CRL aims to reduce the number of clients who disappear after a small number of trades and to make the risk path more compatible with a long term relationship.</p>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="reveal" style="max-width:64ch">
+      <div class="sec-index">Integration</div>
+      <h2>Data, pricing and integration</h2>
+    </div>
+    <div class="prose reveal" style="margin-top:24px">
+      <h3>Who owns the price used by CRL?</h3>
+      <p>You do. CRL does not act as a price source. The engine consumes the prices that your systems already use as source of truth and applies the agreed payoff rules to those prices. This keeps P&amp;L, best execution and audit aligned with your existing processes.</p>
+
+      <h3>How complex is integration from an IT perspective?</h3>
+      <p>The public surface is a small set of authenticated API endpoints. Most of the work is not technical difficulty but alignment: deciding where CRL sits in your architecture, how you map positions and accounts, and how you want to monitor states and payoffs. We provide an OpenAPI specification, a Postman collection and example client code to accelerate this step.</p>
+
+      <h3>What about latency, availability and monitoring?</h3>
+      <p>The engine is engineered not to become the bottleneck in your flow, with latency targets aligned to professional leveraged trading environments. It exposes metrics and logs that can be integrated into your monitoring stack. Concrete performance figures and operational targets are part of the technical materials shared under NDA.</p>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="reveal" style="max-width:64ch">
+      <div class="sec-index">Security</div>
+      <h2>Security, testing and audit</h2>
+    </div>
+    <div class="prose reveal" style="margin-top:24px">
+      <h3>What authentication and security measures are in place?</h3>
+      <p>Requests to the engine are signed with HMAC keys dedicated to each institution, and traffic is encrypted in transit. Additional controls such as mutual TLS, IP allowlists and stricter credential handling can be added to align with your security policies. Full security notes are available in the technical pack under NDA.</p>
+
+      <h3>What happens if the CRL engine is unavailable?</h3>
+      <p>CRL does not replace your core trading or custody systems, so an outage does not stop your platform. In practice we design deployments with high availability and clear failure modes: how requests are retried, how states are reconciled, and how you want to treat new CRL orders during a disruption. Target availability and recovery objectives are agreed as part of a pilot.</p>
+
+      <h3>Can we test with synthetic data before production?</h3>
+      <p>Yes. Standard onboarding includes access to a sandbox environment and test credentials, so your teams can validate integration and behaviour with synthetic or historical data before any live positions are created. The API Validation Kit is designed exactly for this step.</p>
+
+      <h3>How does CRL support audit and regulatory reporting?</h3>
+      <p>Every request and state change in the engine can be logged with enough detail to reconstruct the lifecycle of a position. Logs and events can be exported for your own audit and reporting tools. For institutions that require it, we can provide additional guidance on how to align CRL records with existing regulatory reporting frameworks.</p>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="reveal" style="max-width:64ch">
+      <div class="sec-index">Commercial</div>
+      <h2>Intellectual property, commercial model and next steps</h2>
+    </div>
+    <div class="prose reveal" style="margin-top:24px">
+      <h3>Is CRL protected as intellectual property?</h3>
+      <p>CRL is being protected through a combination of trademark and copyright protection, contractual controls and gated documentation. We do not publish full structural details publicly. Institutions that enter diligence see the necessary materials under NDA.</p>
+
+      <h3>Why use CRL instead of building a similar engine in-house?</h3>
+      <p>The core idea of conditional, retroactive leverage looks simple at a distance, but the details of state management, edge cases and client-facing behaviour are not. CRL comes with an engine, operational practices and documentation that have already been shaped and tested. Most institutions find that the time and attention saved compared to a full in-house build is a material part of the value.</p>
+
+      <h3>What does the commercial model typically look like?</h3>
+      <p>We usually combine a clear, time-bound engagement for integration and support with a usage-based component linked to CRL-enhanced activity. Specific terms depend on scale, geography and scope of deployment and are discussed directly rather than published as a generic tariff.</p>
+
+      <h3>What is the typical timeline from first call to pilot?</h3>
+      <p>A realistic range is four to eight weeks. A first call and eligibility check usually happen in week one, followed by NDA and documentation review in weeks one and two. Weeks two to four are used for technical design, and weeks four to six for sandbox testing. A small, controlled pilot can then start, subject to your internal approvals.</p>
+    </div>
+    <div class="text-col reveal" style="margin-top:32px">
+      <p>If you have questions that are not covered here, the fastest route is to share them ahead of a call. We can then prepare specific answers and, where appropriate, involve external advisors during your internal process.</p>
+    </div>
+  </section>
+
+  <section class="section final dark-band" id="access">
+    <div class="wrap final-box reveal">
+      <div><div class="sec-index">Next steps</div><h2>Questions before a call?</h2><p>This FAQ reflects what institutions usually ask in first conversations. Share your own questions ahead of time and we can prepare specific answers.</p></div>
+      <div class="final-cta" style="gap:16px;flex-wrap:wrap"><button class="btn" type="button" data-open-gate>Request access <span>&#8594;</span></button><button class="btn ghost" type="button" data-open-demo>Book a demo <span>&#8594;</span></button></div>
+    </div>
+  </section>
+</main>
+
+<script src="js/crl.js" defer></script>
+</body>
+</html>

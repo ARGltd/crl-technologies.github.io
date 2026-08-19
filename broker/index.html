@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CRL · Conditional Leverage Infrastructure</title>
+<meta name="description" content="A white-label engine to structure, price and settle a new category of leveraged instrument. Before confirmation the position is linear; on confirmation, leverage applies from entry. For professional clients and eligible counterparties." />
+<link rel="canonical" href="https://crl-technologies.com/" />
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+<link rel="icon" href="images/favicon.ico" sizes="any" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/crl.css">
+<style>
+/* ---- Platform (spostata da traders): registro scuro, pannello istituzionale ---- */
+.dark{background:#080a0d;color:#9aa1ad}
+.dark .eyebrow{color:#8fb0e8}
+.dark h2{color:#f3f5f8}
+.dark .lede{color:#aab0ba;font-size:clamp(16px,1.35vw,19px);line-height:1.62;font-weight:300;max-width:56ch}
+.plat-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(34px,4vw,64px);align-items:center}
+.plat-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:end}
+.arch-wrap{display:grid;grid-template-columns:minmax(0,1fr) 268px;gap:clamp(24px,3vw,44px);align-items:start;margin-top:clamp(40px,5vw,64px)}
+.arch-plate{position:relative;width:100%;aspect-ratio:1020/760;border:1px solid #1b2029;background:#080a0d}
+.arch-plate canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.arch-key{font-family:var(--mono);padding-top:6px}
+.arch-key .kh{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#6a7079;padding-bottom:11px;border-bottom:1px solid #252b34}
+.arch-key ul{list-style:none;margin:0;padding:0}
+.arch-key li{display:grid;grid-template-columns:26px minmax(0,1fr) auto;align-items:baseline;gap:8px;padding:9px 0;border-bottom:1px solid #14181f;font-size:12.5px;color:#8a9099;transition:color .35s ease}
+.arch-key li:last-child{border-bottom:0}
+.arch-key .n{font-weight:500;color:#6a7079;transition:color .35s ease}
+.arch-key .nm{line-height:1.35}
+.arch-key .c{font-size:11px;color:#5a626e;transition:color .35s ease}
+.arch-key li.on{color:#dfe6f2}
+.arch-key li.on .n,.arch-key li.on .c{color:#8fb0e8}
+.plat-copy .btn.ghost{color:#eef1f5;border-color:#252b34}
+.plat-copy .btn.ghost:hover{background:#eef1f5;color:#080a0d;border-color:#eef1f5}
+.plat-points{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:clamp(36px,4vw,52px)}
+.plat-point .pt{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8fb0e8;margin-bottom:9px}
+.plat-point p{font-size:13.5px;line-height:1.55;color:#9aa1ad}
+.panel{background:#151920;border:1px solid #252b34;font-family:var(--mono)}
+.panel-bar{display:flex;align-items:center;gap:12px;padding:13px 18px;border-bottom:1px solid #252b34}
+.panel-bar .dot{width:9px;height:9px;border-radius:50%;background:#8fb0e8}
+.panel-bar .title{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#cfd4db}
+.panel-bar .x{margin-left:auto;color:#6a7079}
+.panel-tabs{display:flex;border-bottom:1px solid #252b34;overflow-x:auto}
+.panel-tabs span{padding:12px 18px;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:#6a7079;white-space:nowrap;border-right:1px solid #252b34}
+.panel-tabs span.on{color:#8fb0e8;background:rgba(143,176,232,.08)}
+.panel-body{display:grid;grid-template-columns:1.15fr .85fr}
+.panel-diagram{padding:22px;border-right:1px solid #252b34}
+.panel-diagram .dh{display:flex;justify-content:space-between;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#6a7079;margin-bottom:14px}
+.panel-diagram .dh .lv{color:#8fb0e8}
+.pd-grid{stroke:#20252e;stroke-width:1}.pd-axis{stroke:#333a45;stroke-width:1}
+.pd-lin{stroke:#6d7681;stroke-width:2;fill:none}.pd-lev{stroke:#8fb0e8;stroke-width:2.4;fill:none}
+.pd-k{stroke:#3b4552;stroke-width:1;stroke-dasharray:3 4}
+.pd-t{font-family:var(--mono);font-size:10px;fill:#6a7079}
+.panel-params{padding:20px 22px}
+.panel-params .prow{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid #1d222b;font-size:11.5px}
+.panel-params .prow:last-child{border-bottom:0}
+.panel-params .k{color:#6a7079}.panel-params .v{color:#dfe3e9}
+.panel-params .v.lime{color:#8fb0e8}.panel-params .v.blue{color:#8fb0e8}
+.panel-foot{display:flex;gap:10px;flex-wrap:wrap;padding:14px 22px;border-top:1px solid #252b34;align-items:center}
+.chip{font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border:1px solid #252b34;color:#6a7079}
+.chip.ok{color:#8fb0e8;border-color:rgba(143,176,232,.4)}
+.panel-note{margin-top:12px;font-family:var(--mono);font-size:10px;color:#6a7079}
+@media(max-width:1080px){.plat-grid{grid-template-columns:1fr}.plat-grid .panel{order:2}.plat-head{grid-template-columns:1fr;align-items:start}}
+@media(max-width:820px){.panel-body{grid-template-columns:1fr}.panel-diagram{border-right:0;border-bottom:1px solid #252b34}.plat-points{grid-template-columns:1fr}}
+@media(max-width:1000px){.arch-wrap{grid-template-columns:1fr}.arch-plate{aspect-ratio:860/720}.arch-key ul{display:grid;grid-template-columns:1fr 1fr;gap:0 26px}}
+@media(max-width:560px){.arch-key ul{grid-template-columns:1fr}}
+/* ---- Quantitative evidence block (ratified, PO-authorized 2026-08-13) ---- */
+.qevidence .qtitle{font-family:var(--serif,'Cormorant Garamond',Georgia,serif);font-weight:500;font-size:clamp(30px,3.4vw,46px);line-height:1.04;letter-spacing:-.02em;margin:14px 0 0;color:#0f1113}
+.qevidence .qlede{font-size:clamp(15px,1.3vw,17px);color:#4a4e56;margin-top:18px;max-width:60ch}
+.qscore{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:34px}
+.qcard{border:1px solid #e2ddd1;background:#fbfaf6;padding:22px 22px 20px;display:flex;flex-direction:column}
+.qcard .qk{font-family:var(--mono,'IBM Plex Mono',monospace);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#1b4fa6;margin-bottom:14px}
+.qcard .qv{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:8px 0;border-top:1px solid #ece7db}
+.qcard .qv:first-of-type{border-top:0;padding-top:0}
+.qcard .qv .qa{font-family:var(--mono,'IBM Plex Mono',monospace);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#6a7079}
+.qcard .qv b{font-family:var(--mono,'IBM Plex Mono',monospace);font-weight:500;font-size:clamp(28px,2.8vw,40px);color:#0f1113;line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}
+.qcard .qc{font-size:12px;line-height:1.5;color:#6a7079;margin-top:14px}
+.qevidence .qnote{font-size:clamp(14px,1.2vw,15.5px);line-height:1.62;color:#3a3e46;max-width:72ch;margin-top:22px}
+.qdisclosure{margin-top:30px;border:1px solid #d9d3c4;border-left:3px solid #1b4fa6;background:#f6f3ec;padding:18px 22px}
+.qdisclosure .qd-label{font-family:var(--mono,'IBM Plex Mono',monospace);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#1b4fa6;margin-bottom:9px}
+.qdisclosure p{font-size:13.5px;line-height:1.62;color:#484c54;margin:0}
+@media(max-width:900px){.qscore{grid-template-columns:1fr}}
+.qmethod{margin-top:26px;border-top:1px solid #e2ddd1;border-bottom:1px solid #e2ddd1}
+.qmethod>summary{cursor:pointer;list-style:none;padding:16px 2px;font-family:var(--mono,'IBM Plex Mono',monospace);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#1b4fa6;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.qmethod>summary::-webkit-details-marker{display:none}
+.qmethod>summary::after{content:'+';font-size:17px;color:#6a7079;line-height:1}
+.qmethod[open]>summary::after{content:'\2212'}
+.qmethod-body{padding:2px 0 22px}
+.qmethod-body p{font-size:13.5px;line-height:1.62;color:#484c54;max-width:80ch;margin:0 0 13px}
+.qmethod-body p:last-child{margin-bottom:0}
+.qmethod-body strong{color:#0f1113;font-weight:500}
+.qd-ratified{border-left:3px solid #1b4fa6;background:#f6f3ec;padding:14px 18px}
+.qrisk{margin-top:22px;font-size:13px;line-height:1.6;color:#4a4e56;display:flex;flex-wrap:wrap;align-items:center;gap:14px;max-width:80ch}
+.qrisk-btn{font-family:var(--mono,'IBM Plex Mono',monospace);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#1b4fa6;background:none;border:1px solid #cbd4e4;border-radius:2px;padding:9px 14px;cursor:pointer;transition:background .2s,color .2s}
+.qrisk-btn:hover{background:#1b4fa6;color:#fff;border-color:#1b4fa6}
+</style>
+</head>
+<body data-page="home">
+
+<main id="top">
+  <section class="hero" aria-label="CRL hero">
+    <div class="wrap">
+      <div class="hero-main">
+        <div class="hero-title reveal">
+          <h1>Conditional Leverage Infrastructure</h1>
+          <div class="rule"></div>
+          <p class="sub">White-label infrastructure for brokers and venues that serve professional clients.</p>
+          <p class="lead">A white-label engine to structure, price and settle a new category of leveraged instrument.</p>
+          <p class="claim">Before confirmation the position is linear. On confirmation, leverage applies from entry.</p>
+          <div class="hero-cta">
+            <button class="btn" type="button" data-open-gate>Request access <span>→</span></button>
+            <button class="btn ghost" type="button" data-open-demo>Book a demo <span>→</span></button>
+          </div>
+        </div>
+
+        <div class="hero-surface reveal" aria-hidden="true">
+          <canvas id="surfaceCanvas"></canvas>
+          <div class="surface-label payoff">Payoff surface<br>P(S<sub>τ</sub>, T)</div>
+          <div class="surface-label cond">Conditional<br>retroactive<br>leverage</div>
+          <div class="surface-label eq">
+            <span class="eq-head">ℒ =</span>
+            <span class="eq-brace">{</span>
+            <span class="eq-cases">
+              <span class="eq-expr">L·(S − S₀)</span><span class="eq-cond">if C<sub>τ</sub> = 1</span>
+              <span class="eq-expr">(S − S₀)</span><span class="eq-cond">if C<sub>τ</sub> = 0</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section wrap" id="problem">
+    <div class="two-col">
+      <div class="reveal">
+        <div class="sec-index">The problem</div>
+        <h2>Standard leverage burns valuable clients too early.</h2>
+      </div>
+      <div class="reveal">
+        <p class="body-large">A broker does not lose money because a leveraged client takes a loss. The loss comes when that client stops trading altogether.</p>
+        <p class="body-small" style="margin-top:22px">When full amplification applies from the first tick, the position runs at full leverage from the outset. Drawdowns come earlier and go deeper, so an account you paid to acquire can be gone before you have monetized its lifetime value.</p>
+        <div class="inline-claim">The most expensive account is not the one that loses. It is the one that <em>stops trading.</em></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="broker">
+    <div class="two-col">
+      <div class="reveal"><div class="sec-index">For the broker</div><h2>Keep accounts trading longer. Earn more from each one.</h2></div>
+      <div class="reveal">
+        <p class="body-large">CRL delays full leverage until the trade is confirmed, so valuable accounts are not burned in the first days. For brokers, an account that lasts longer keeps generating volume and spread, raises its lifetime value, and can carry a priced product line on top. The engine is white-label and stateless: pricing and the client relationship stay entirely with you.</p>
+        <p class="claim-note">CRL does not remove market exposure; it defers amplification. Before confirmation the position stays exposed, but full amplification stays off. On confirmation, leverage applies from entry.</p>
+      </div>
+    </div>
+    <div class="qevidence reveal" style="margin-top:clamp(48px,6vw,72px)">
+      <div class="sec-index">Model evidence</div>
+      <h3 class="qtitle">Tested across 540,000 paired simulated accounts</h3>
+      <p class="qlede">Real EUR/USD and SPY price history, 2015 to 2026. Each pair trades the same market, the same operations and the same closing rule; the only difference is the leverage structure. These are internal paired simulations with synthetic accounts: model evidence, not observed client outcomes.</p>
+
+      <div class="qscore">
+        <div class="qcard">
+          <div class="qk">Simulated account survival, 24 months</div>
+          <div class="qv"><span class="qa">Configurations</span><b>90 / 90</b></div>
+          <div class="qv"><span class="qa">Median</span><b>+31 pp</b></div>
+          <p class="qc">Higher under CRL in all 90 configurations tested, with a minimum improvement of 10.6 percentage points and a median of around 31 points. Simulated account survival, not client retention.</p>
+        </div>
+        <div class="qcard">
+          <div class="qk">Smaller maximum drawdown</div>
+          <div class="qv"><span class="qa">EUR/USD</span><b>86-98%</b></div>
+          <div class="qv"><span class="qa">SPY</span><b>69-97%</b></div>
+          <p class="qc">Share of pairs with a smaller drawdown than their standard twin. Average maximum drawdown 35-70% lower on EUR/USD, 16-62% on SPY.</p>
+        </div>
+        <div class="qcard">
+          <div class="qk">How often the trigger is reached</div>
+          <div class="qv"><span class="qa">EUR/USD</span><b>9.5-52.9%</b></div>
+          <div class="qv"><span class="qa">SPY</span><b>5.8-42.8%</b></div>
+          <p class="qc">Of trades on the tested daily paths, by trigger distance, at immediate confirmation. Before activation, CRL stays at 1&times; while the matched standard position runs at L&times; (one fifth of the market exposure at L=5).</p>
+        </div>
+      </div>
+
+      <p class="qnote">Before activation, a CRL position stays at 1&times; while the matched standard position runs at L&times;. At L=5, the pre-activation market P&amp;L sensitivity is one fifth of the matched 5&times; standard position. This is a property of the payoff formula, not a statistical result. After confirmation, exposure equals standard leverage: adverse moves are amplified as much as favourable ones.</p>
+
+      <details class="qmethod">
+        <summary>How we tested it, and what the model also shows</summary>
+        <div class="qmethod-body">
+          <p><strong>Scope.</strong> 90 configurations across two assets, three leverage settings and five trigger distances, at three economic levels; 6,000 paired accounts per cell, 540,000 pairs in total. Starting capital EUR 50,000, 24-month horizon, real historical daily EUR/USD and SPY paths from 2015 to 2026. Each account is compared with itself. In sample; synthetic account behaviour is a provisional assumption; no live client validation.</p>
+          <p><strong>Economic level.</strong> The published drawdown ranges are the G2 level, which includes account churn and a modelled access charge of 11.69 basis points per position. That charge is a diagnostic input, not a price.</p>
+          <p><strong>More capital than the twin.</strong> The CRL account finished with more capital than its own standard twin in 81 to 96 percent of pairs on EUR/USD and 65 to 93 percent on SPY. This is the most premium-sensitive result: it holds for positions carried to the trigger or the stop, and it weakens if positions are closed for profit below the trigger.</p>
+          <p><strong>Pricing matters.</strong> Separate sensitivity testing shows that the survival advantage remains positive across all tested configurations through 100 basis points per position and reverses at the highest tested level, 266. Commercial pricing is set by the broker and must be evaluated together with product economics and survivorship.</p>
+          <p><strong>Confirmation.</strong> The current product keeps the position at 1&times; until the activation condition is confirmed: a threshold touch moves it to pending, and leverage activates when the configured confirmation condition is met. The 540,000-pair campaign used immediate confirmation at the threshold crossing; the hold-based confirmation window was not quantified in that campaign.</p>
+          <p class="qd-ratified"><strong>Disclosure.</strong> Internal modelling on real historical price paths with synthetic paired accounts. In sample, not validated out of sample, not real client results, not investment returns and not a forecast. Ranges cover every G2 configuration tested, including the least favourable G2 result. The current 1,000 ms trigger-confirmation window was not quantified in this campaign. The 10th percentile of the paired terminal-equity difference was negative in 6 of 15 EUR/USD G2 configurations and 13 of 15 SPY G2 configurations. In the least favourable SPY configuration, that percentile was approximately EUR 36,900 below the standard twin. This does not identify the weakest accounts by capital. The negative tail was driven primarily by favourable market moves that did not reach the trigger: CRL maintained lower exposure and did not amplify those gains, while the standard twin did.</p>
+        </div>
+      </details>
+
+      <p class="qrisk">For Risk teams, the full campaign, the per-figure defence and the reproducibility scripts are available under NDA. <button class="qrisk-btn" type="button" data-open-gate data-doc="Quantitative evidence pack">Request the evidence pack <span>&rarr;</span></button></p>
+    </div>
+    <div class="rows" style="margin-top:56px">
+      <div class="row reveal"><div class="idx">01</div><h3>New revenue line</h3><p>A line of revenue you price and control, on top of the spread and commissions you already earn. It is billed on the notional opened under the product, whether or not the trigger activates. The engine reports it; you own it.</p></div>
+      <div class="row reveal"><div class="idx">02</div><h3>A product that's genuinely new</h3><p>This is a new category of instrument, not a sharper quote on the same one. Most venues compete on identical underlyings, platforms and spreads. CRL is something the rest of the market does not yet list, and you would be first to carry it.</p></div>
+      <div class="row reveal"><div class="idx">03</div><h3>Accounts with more time to keep trading</h3><p>CRL reduces exposure before confirmation. In the paired model, that translated into more surviving account-months and more trading activity occurring after the point where the standard twin had already stopped. A longer surviving account creates more opportunities for retained volume, spread, commissions, financing and product revenue. The exact value of those additional months is broker-specific.</p></div>
+    </div>
+    <div class="turbo reveal" style="margin-top:clamp(48px,6vw,76px);max-width:74ch">
+      <div class="k">Who this is for</div>
+      <p>CRL is built for brokers whose economics improve when clients stay funded, stay active and keep trading for longer. The clients, the trades and the market do not need to change. CRL changes the path of leverage exposure, and that can change how much productive account life survives.</p>
+    </div>
+
+    <div class="reveal" style="margin-top:clamp(48px,6vw,72px)">
+      <div class="sec-index">Survivorship</div>
+      <h2 style="max-width:22ch">More surviving account life.</h2>
+      <p class="body-small" style="margin-top:22px;max-width:66ch">In the G2 model, CRL added a median 5.3 surviving account-months per account over 24 months, with a range of about 1.3 to 8.8 across the tested configurations. A median of about 38 percent of CRL trades in the model occurred in that additional account life.</p>
+      <div class="metrics" style="margin-top:36px">
+        <div class="metric"><div class="v">+5.3</div><div class="c">Median surviving account-months added, per account, 24 months</div></div>
+        <div class="metric"><div class="v">1.3-8.8</div><div class="c">Range of additional account-months across configurations</div></div>
+        <div class="metric"><div class="v">~38%</div><div class="c">Median share of CRL trades in the additional life (7.5-66%)</div></div>
+      </div>
+      <p class="body-small" style="margin-top:28px;max-width:66ch">Those additional months create more time in which clients can remain funded, trade and generate broker economics. Their actual monetary value depends on the broker&rsquo;s own activity, volume and contribution per account-month.</p>
+      <p class="claim-note" style="margin-top:12px">Model evidence from the same 540,000-pair campaign, G2 level. Additional account-months and extension activity are modelled outcomes, not observed retention, realised lifetime value or realised revenue.</p>
+    </div>
+
+    <div class="turbo reveal" style="margin-top:clamp(40px,5vw,56px);max-width:74ch">
+      <div class="k">What are those extra months worth on your book?</div>
+      <p>That depends on your own volume, spread, commissions, financing, hedge cost, capital usage and net contribution per account-month. Our broker economics framework replaces the model assumptions with your own data.</p>
+      <div style="margin-top:20px"><button class="btn" type="button" data-open-gate data-doc="Broker economics review">Model CRL on your book <span>&rarr;</span></button></div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="mechanism">
+    <div class="reveal" style="max-width:60ch;margin-bottom:clamp(48px,7vw,80px)">
+      <div class="sec-index">The property</div>
+      <h2>Leverage does not amplify the unconfirmed move.</h2>
+      <p class="body-small" style="margin-top:24px">The property comes first; the mechanism follows. Until the market confirms the direction, exposure stays linear. Amplification is subordinate to confirmation: a move that is never confirmed is never multiplied.</p>
+    </div>
+    <div class="two-col">
+      <div class="reveal">
+        <div class="sec-index">The mechanism</div>
+        <h3>A CRL position moves through three states.</h3>
+        <div class="state-line"><span class="on"><span class="dot"></span>Initial</span><span class="arrow">→</span><span class="on"><span class="dot"></span>Leveraged</span><span class="arrow">→</span><span>Closed</span></div>
+        <p class="body-small" style="margin-top:28px">In INITIAL the position is linear. When the underlying reaches barrier K, the system transitions to LEVERAGED: the multiplier applies retroactively to the P&amp;L already accrued, computed from entry S₀. The leverage is conditional, not continuous. It applies only once the market confirms the move.</p>
+        <div class="turbo">
+          <div class="k">In plain terms</div>
+          <p><strong>Leverage that waits.</strong> The position begins at 1&times;. Once the activation condition is confirmed, leverage applies from the original entry reference.</p>
+        </div>
+      </div>
+      <div class="diagram-card reveal">
+        <div class="diagram-head"><span>Two paths · same entry, same move</span><span class="blue">S<sub>τ</sub> ≥ K</span></div>
+        <svg class="payoff-chart two-paths" viewBox="0 0 620 330" role="img" aria-label="From the same entry and the same market move: standard leverage is amplified and stopped out early; CRL stays linear and re-levers at the trigger from the original entry">
+          <line class="axis" x1="60" y1="275" x2="590" y2="275"></line>
+          <line class="axis" x1="60" y1="45" x2="60" y2="275"></line>
+          <line class="stop" x1="60" y1="245" x2="590" y2="245"></line>
+          <line class="grid" x1="350" y1="60" x2="350" y2="275" stroke-dasharray="3 5"></line>
+          <!-- standard leverage: amplified, dives into the stop -->
+          <path class="std draw" pathLength="1" d="M60 180 L250 245"></path>
+          <g class="xmark pop"><line x1="243" y1="238" x2="257" y2="252"></line><line x1="257" y1="238" x2="243" y2="252"></line></g>
+          <!-- CRL: linear dip, holds at 1x, jumps at K, re-levers from entry -->
+          <path class="crl2 draw" pathLength="1" d="M60 180 L250 205 L350 190 L350 120 L590 60"></path>
+          <circle class="trig pop" cx="350" cy="120" r="5.5"></circle>
+          <g class="labs">
+            <text class="clabel" x="60" y="293" text-anchor="middle">S₀</text>
+            <text class="clabel" x="350" y="293" text-anchor="middle">K</text>
+            <text class="clabel" x="590" y="293" text-anchor="end">Sτ</text>
+            <text class="clabel" x="52" y="58" text-anchor="end">P&amp;L</text>
+            <text class="clabel red" x="250" y="266" text-anchor="middle">stopped out</text>
+          </g>
+        </svg>
+        <div class="chart-legend">
+          <span class="lg"><i class="sw sw-red"></i>Standard leverage · amplified, stopped out early</span>
+          <span class="lg"><i class="sw sw-blue"></i>CRL · stays linear, then re-levers from entry</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="compare">
+    <div class="reveal" style="max-width:60ch">
+      <div class="sec-index">Differentiation</div>
+      <h2>A different payoff architecture.</h2>
+      <p class="body-small" style="margin-top:22px">Standard leverage applies amplification from inception. CRL does not. It keeps the position at 1&times; until activation is confirmed and then redetermines the leveraged P&amp;L from the original entry reference. That conditional retroactive exposure is the structural distinction.</p>
+    </div>
+    <p class="claim-note" style="max-width:none;margin-top:16px">Conditional Retroactive Leverage™ is a trademark of CRL Technologies, Inc.; the engine and its documentation are protected by copyright. Ticket-level characteristics apply when CRL structures are issued under the broker's product terms; client protection, margining and eligibility remain subject to the authorized intermediary's policies and jurisdiction.</p>
+  </section>
+
+  <!-- Technical characteristics are shown as non-numeric wording. Latency and throughput benchmarks are withheld pending a separate technical authority check; do not add numeric benchmarks here. -->
+  <section class="wrap" aria-label="Technical characteristics" style="padding-block:48px">
+    <div class="metrics reveal">
+      <div class="metric"><div class="v" style="font-size:clamp(20px,2.3vw,30px);letter-spacing:.01em">Low latency</div><div class="c">Deterministic calculation engine</div></div>
+      <div class="metric"><div class="v" style="font-size:clamp(20px,2.3vw,30px);letter-spacing:.01em">Colocated</div><div class="c">Runs next to your systems</div></div>
+      <div class="metric"><div class="v" style="font-size:clamp(20px,2.3vw,30px);letter-spacing:.01em">Golden-tested</div><div class="c">Reproducible payoff</div></div>
+      <div class="metric"><div class="v">SHA-256</div><div class="c">Append-only audit ledger</div></div>
+    </div>
+  </section>
+
+  <section class="engine section" id="engine">
+    <div class="wrap engine-grid">
+      <div class="reveal"><div class="sec-index">Four engines</div><h2>Core engine architecture.</h2></div>
+      <div class="engines">
+        <div class="engine-item reveal"><div class="idx">Engine 01</div><h3>Trigger Detection Engine</h3><p>A finite state machine monitoring barrier K under continuous evaluation, emitting an event on every transition.</p></div>
+        <div class="engine-item reveal"><div class="idx">Engine 02</div><h3>Retro-Calculation Module</h3><p>Retroactive application of the multiplier L across all P&amp;L accrued from entry, on a low-latency hot path.</p></div>
+        <div class="engine-item reveal"><div class="idx">Engine 03</div><h3>Risk-Margin Engine</h3><p>Position limits and margin computed in real time, over concurrent data structures.</p></div>
+        <div class="engine-item reveal"><div class="idx">Engine 04</div><h3>Audit Logger</h3><p>An immutable append-only ledger with SHA-256 hash-chain and microsecond timestamps.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PLATFORM (dark) - spostata da traders 18/07 ===================== -->
+  <section class="dark" id="platform">
+    <div class="section wrap" style="border-top:0">
+      <div class="plat-head">
+        <div>
+          <span class="eyebrow reveal">Platform</span>
+          <h2 class="reveal d1" style="margin:22px 0 0">A financial category,<br>built as infrastructure.</h2>
+        </div>
+        <div class="reveal d2">
+          <p class="lede">CRL is a calculation and attestation layer designed to integrate with the institution&rsquo;s existing OMS, risk, pricing and reporting systems. Twelve subsystems, engineered and documented as one.</p>
+        </div>
+      </div>
+
+      <div class="arch-wrap reveal d1">
+        <div class="arch-plate">
+          <canvas id="archPlate" role="img" aria-label="A slowly rotating axonometric drawing of the CRL system as a single building: a flat cantilevered roof over a portico of twelve arches, one per subsystem, with a suspended glazed volume and a reflecting pool. Each arch bay is numbered and carries one point per component."></canvas>
+        </div>
+        <div class="arch-key">
+          <div class="kh">Key &middot; Subsystems</div>
+          <ul>
+            <li><span class="n">01</span><span class="nm">Instrument</span><span class="c">3</span></li>
+            <li><span class="n">02</span><span class="nm">Calculation engine</span><span class="c">9</span></li>
+            <li><span class="n">03</span><span class="nm">Pricing &amp; market data</span><span class="c">6</span></li>
+            <li><span class="n">04</span><span class="nm">Operational controls</span><span class="c">6</span></li>
+            <li><span class="n">05</span><span class="nm">Multi-tenancy &amp; security</span><span class="c">6</span></li>
+            <li><span class="n">06</span><span class="nm">Audit &amp; attestation</span><span class="c">7</span></li>
+            <li><span class="n">07</span><span class="nm">API</span><span class="c">8</span></li>
+            <li><span class="n">08</span><span class="nm">SDK &amp; integration</span><span class="c">9</span></li>
+            <li><span class="n">09</span><span class="nm">Deployment</span><span class="c">4</span></li>
+            <li><span class="n">10</span><span class="nm">Observability</span><span class="c">5</span></li>
+            <li><span class="n">11</span><span class="nm">Institutional documentation</span><span class="c">11</span></li>
+            <li><span class="n">12</span><span class="nm">Quantitative research</span><span class="c">6</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="panel-note">Structural diagram. Component counts describe the system as designed and documented; some subsystems include elements on the roadmap.</p>
+
+      <div class="plat-points reveal d2">
+        <div class="plat-point"><div class="pt">API-first integration</div><p>Connect through existing institutional systems.</p></div>
+        <div class="plat-point"><div class="pt">Institutional control</div><p>The institution defines parameters, limits and product terms.</p></div>
+        <div class="plat-point"><div class="pt">Auditable state change</div><p>The leverage activation event is recorded and verifiable.</p></div>
+        <div class="plat-point"><div class="pt">Deployment flexibility</div><p>Sidecar, back-office ledger or native integration.</p></div>
+      </div>
+      <div class="reveal d3" style="margin-top:40px"><a class="btn ghost" href="../traders/crl.html#mechanics">Explore mechanics and attestation <span class="arw">&rarr;</span></a></div>
+    </div>
+  </section>
+
+
+  <section class="section wrap">
+    <div class="two-col">
+      <div class="reveal">
+        <div class="sec-index">Compliance</div>
+        <h2>Designed for institution-led deployment across major regulatory regimes.</h2>
+      </div>
+      <div class="reveal">
+        <p class="body-large">CRL is white-label calculation technology for qualified professional counterparties, deployed through the licensed institution and subject to local law, product approval and intermediary governance.</p>
+        <p class="claim-note">Regulatory classification, product approval and client suitability remain with the authorized intermediary. The engine adapts to the local frame; it does not replace it.</p>
+      </div>
+    </div>
+    <div class="compliance-grid reveal" style="margin-top:clamp(48px,6vw,64px)">
+      <div class="comp"><h4>Major regimes</h4><p>EU · UK · CH · US · APAC, where permitted</p></div>
+      <div class="comp"><h4>Regulatory mapping</h4><p>Aligned to the local regime</p></div>
+      <div class="comp"><h4>Audit timestamps</h4><p>Recorded per event, append-only</p></div>
+      <div class="comp"><h4>Audit retention</h4><p>5–7 yrs, jurisdiction dependent</p></div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="evidence">
+    <div class="two-col">
+      <div class="reveal"><div class="sec-index">Evidence</div><h2>Tested, not asserted.</h2></div>
+      <div class="reveal">
+        <p class="body-large">Claims are simulation-based, under stated assumptions. No performance or return promises. The methodology is open to review under NDA.</p>
+        <p class="claim-note">Full Quantitative Validation Dossier available to qualified counterparties under NDA.</p>
+        <div style="margin-top:24px"><button class="btn" type="button" data-open-gate>Request the dossier <span>→</span></button></div>
+      </div>
+    </div>
+    <div class="metrics reveal" style="margin-top:clamp(40px,5vw,60px)">
+      <div class="metric"><div class="v">540,000</div><div class="c">Paired simulated accounts</div></div>
+      <div class="metric"><div class="v">90</div><div class="c">Tested configurations</div></div>
+      <div class="metric"><div class="v">1,890</div><div class="c">Independent KPI comparisons</div></div>
+      <div class="metric"><div class="v">0</div><div class="c">Pairing mismatches</div></div>
+    </div>
+  </section>
+
+  <section class="section final" id="access">
+    <div class="wrap final-box reveal">
+      <div><div class="sec-index">Access</div><h2>Access is reserved to licensed institutions.</h2><p>CRL is white-label infrastructure for brokers and venues that serve professional clients. Documentation and the API are available to licensed institutions, subject to an eligibility assessment. Submit a request from an institutional address.</p></div>
+      <div class="final-cta" style="gap:16px;flex-wrap:wrap"><button class="btn" type="button" data-open-gate>Request access <span>→</span></button><button class="btn ghost" type="button" data-open-demo>Book a demo <span>→</span></button></div>
+    </div>
+  </section>
+</main>
+
+<script src="js/crl.js" defer></script>
+<script src="js/arch.js" defer></script>
+</body>
+</html>

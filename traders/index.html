@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CRL · Conditional Retroactive Leverage</title>
+<meta name="description" content="A CRL position begins with linear 1x exposure. If the market reaches a predefined confirmation level, leverage activates and the payoff is measured from the original entry reference. Licensed to authorised financial institutions." />
+<link rel="canonical" href="https://crl-technologies.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="CRL Technologies" />
+<meta property="og:title" content="CRL · Conditional Retroactive Leverage" />
+<meta property="og:description" content="Enter now. Leverage after confirmation. From the original entry reference. CRL is infrastructure for conditional financial products, licensed to authorised financial institutions." />
+<meta property="og:url" content="https://crl-technologies.com/" />
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+<link rel="icon" href="images/favicon.ico" sizes="any" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/home-v2.css">
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="CRL home"><img class="brand-logo" src="images/logo-crl-serpent.png" alt="" width="30" height="30" decoding="async">CRL</a>
+    <nav class="nav-menu" id="navmenu" aria-label="Primary">
+      <a href="crl.html">How it works</a>
+      <a href="crl-risk.html">Risk &amp; pricing</a>
+      <a href="crl-availability.html">Availability</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navmenu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ===================== 1 · HERO ===================== -->
+  <section class="hero wrap" aria-labelledby="hero-h">
+    <span class="eyebrow reveal">Conditional Retroactive Leverage</span>
+    <h1 class="display reveal d1" id="hero-h">I want to be wrong at 1&times;.<br><em>And right with leverage.</em></h1>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="lede hero-body reveal d2">CRL keeps the position at 1&times; until price reaches the trigger level. If it gets there, leverage applies from the original entry. If it does not, the position stays at 1&times;.</p>
+        <div class="hero-cta reveal d3">
+          <a class="btn" href="crl.html">See how CRL works <span class="arw">&rarr;</span></a>
+          <a class="textlink" href="crl-availability.html">For financial institutions <span class="arw">&rarr;</span></a>
+        </div>
+      </div>
+
+      <div class="hero-vis reveal d2" role="img" aria-label="An engraved plate of an ensemble of possible futures fanning out in time from a single pinned origin S0 that never moves. Hundreds of faint grey candidate paths spread from S0, none privileged. A threshold K sits above. Most paths never reach K and stay grey at one times. The minority that touch K are realised: they turn blue and are re-measured from S0 at L times. Most continue upward; a few reverse and plunge back through the origin, still blue and still amplified. Behind them a faint ghost cone shows standard leverage, already wide from the first instant. Then the ensemble dissolves and re-seeds from S0, beginning again in ignorance.">
+        <canvas id="heroFan"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RACCORDO ===================== -->
+  <section class="bridge">
+    <div class="wrap">
+      <p class="bridge-line reveal">Leverage is set at the moment you know the least. <em>CRL activates it only after the market has reached the level.</em></p>
+    </div>
+  </section>
+
+  <!-- ===================== THREE CLAIMS ===================== -->
+  <section class="section wrap" style="border-top:0">
+    <div class="claims">
+      <div class="claim reveal">
+        <div class="ck">If the trade fails early</div>
+        <p class="cv">It stays at 1&times;.</p>
+      </div>
+      <div class="claim reveal d1">
+        <div class="ck">If price reaches the trigger</div>
+        <p class="cv">Leverage applies from the original entry.</p>
+      </div>
+      <div class="claim reveal d2">
+        <div class="ck">After leverage activates</div>
+        <p class="cv">Both gains and losses are amplified.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHAT THE PREMIUM BUYS ===================== -->
+  <section class="section wrap">
+    <div class="premium">
+      <div class="sec-head reveal">
+        <h2>What the premium buys</h2>
+        <p class="lede reveal d1" style="margin-top:26px">The premium buys a different sequence of exposure: linear participation before confirmation, with leveraged exposure from the original entry reference if confirmation occurs.</p>
+      </div>
+      <div class="reveal d1">
+        <p class="big-statement">It does not buy protection. It buys <em>conditional access to leverage.</em></p>
+        <p class="fine">The premium is set by the operating institution. CRL Technologies does not set, quote or receive it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 2 · THE CURRENT CHOICE ===================== -->
+  <section class="section wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The fixed-leverage problem</span>
+      <h2>Traders currently face a blunt choice.</h2>
+    </div>
+    <div class="choice">
+      <div class="choice-col reveal">
+        <div class="tag">Standard leverage</div>
+        <p class="big">Enter at the desired price. Accept leverage immediately.</p>
+        <p>The original entry is preserved, but every movement is amplified before the market has confirmed the trade.</p>
+      </div>
+      <div class="choice-col reveal d1">
+        <div class="tag">Leveraged stop-entry</div>
+        <p class="big">Wait for confirmation. Accept a new entry.</p>
+        <p>Leverage begins after confirmation, but the position is opened at the available fill, which can move beyond the confirmation level.</p>
+      </div>
+    </div>
+    <div class="choice-concl reveal">
+      <p class="big-statement">CRL creates a <em>third architecture.</em></p>
+      <p class="sub">Keep the original entry. Make leverage conditional.</p>
+    </div>
+  </section>
+
+  <!-- ===================== 3 · THE NEW SEQUENCE ===================== -->
+  <section class="section wrap">
+    <div class="seq-head reveal">
+      <div>
+        <span class="eyebrow">A new sequence</span>
+        <h2>Entry.<br>Confirmation.<br>Leverage.</h2>
+      </div>
+      <p class="note">CRL separates three decisions that today are fused into one.</p>
+    </div>
+
+    <div class="seq">
+      <div class="seq-conn" aria-hidden="true"></div>
+      <div class="step reveal">
+        <div class="circle">
+          <svg viewBox="0 0 100 100" role="img" aria-label="Linear exposure">
+            <line class="sc-grid" x1="14" y1="50" x2="86" y2="50"></line>
+            <path class="sc-visual sc-lin" d="M18 66 L40 58 L62 48 L84 40"></path>
+            <circle class="sc-dot" cx="40" cy="58" r="3.2"></circle><circle class="sc-dot" cx="62" cy="48" r="3.2"></circle>
+          </svg>
+        </div>
+        <div class="n">01</div><h3>Entry</h3>
+        <p>Establish the original entry reference.</p>
+      </div>
+      <div class="step reveal d1">
+        <div class="circle">
+          <svg viewBox="0 0 100 100" role="img" aria-label="Market confirmation event">
+            <circle cx="50" cy="50" r="20" fill="none" class="sc-ev" stroke-dasharray="3 4" stroke-width="1.6"></circle>
+            <circle cx="50" cy="50" r="6.5" class="sc-node"></circle>
+          </svg>
+        </div>
+        <div class="n">02</div><h3>Confirmation</h3>
+        <p>Define the market event that confirms the move.</p>
+      </div>
+      <div class="step reveal d2">
+        <div class="circle">
+          <svg viewBox="0 0 100 100" role="img" aria-label="Leveraged exposure">
+            <line class="sc-grid" x1="14" y1="50" x2="86" y2="50"></line>
+            <path class="sc-visual sc-lev" d="M18 68 L44 56 L60 40 L84 22"></path>
+            <circle class="sc-node" cx="44" cy="56" r="4"></circle>
+          </svg>
+        </div>
+        <div class="n">03</div><h3>Leverage</h3>
+        <p>If confirmation occurs, activate leverage from the original entry reference.</p>
+      </div>
+    </div>
+
+    <div class="seq-close reveal">
+      <p class="seq-triad">Leverage is conditional.<br>The reference is preserved.<br>The activation is objective.</p>
+      <p class="seq-statement">CRL separates three decisions that conventional products combine. <em>That separation is the product.</em></p>
+    </div>
+  </section>
+
+  <!-- ===================== 4 · WHAT CRL MAKES POSSIBLE ===================== -->
+  <section class="section wrap">
+    <div class="mk-top">
+      <div class="sec-head reveal"><h2>What CRL makes possible</h2></div>
+      <p class="lede reveal d1">CRL is designed for strategies that have a clear confirmation level but do not want standard leverage active before that level is reached.</p>
+    </div>
+    <div class="props reveal">
+      <div class="prop"><div class="pn">01</div><h3>Linear participation</h3><p>Maintain linear 1x market exposure before confirmation.</p></div>
+      <div class="prop"><div class="pn">02</div><h3>Original reference</h3><p>Preserve the original entry reference if confirmation occurs.</p></div>
+      <div class="prop"><div class="pn">03</div><h3>No new payoff entry</h3><p>The trigger is an event. It does not become a new fill or payoff reference.</p></div>
+      <div class="prop"><div class="pn">04</div><h3>Objective activation</h3><p>Define in advance the market event that activates leverage.</p></div>
+    </div>
+    <p class="mk-statement reveal">Same entry.<br>Leverage only if the market <em>gets there.</em></p>
+  </section>
+
+  <!-- ===================== 5 · THREE POSSIBLE PATHS ===================== -->
+  <section class="section wrap">
+    <div class="sec-head reveal"><h2>One structure.<br>Three possible paths.</h2></div>
+    <div class="paths">
+      <div class="pathc reveal">
+        <div class="pn">Path 1 · No confirmation</div>
+        <svg viewBox="0 0 240 150" role="img" aria-label="The trigger is never reached; the position remains linear.">
+          <line class="pp-grid" x1="16" y1="88" x2="224" y2="88"></line>
+          <line class="pp-k" x1="16" y1="50" x2="224" y2="50"></line>
+          <polyline class="pp-lin" points="20,88 70,80 120,104 175,96 220,98"></polyline>
+        </svg>
+        <h3>No confirmation</h3>
+        <p>The trigger is never reached. The position remains linear.</p>
+      </div>
+      <div class="pathc reveal d1">
+        <div class="pn">Path 2 · Confirmation and continuation</div>
+        <svg viewBox="0 0 240 150" role="img" aria-label="The trigger is reached and the position enters the leveraged regime from the original entry.">
+          <line class="pp-grid" x1="16" y1="88" x2="224" y2="88"></line>
+          <line class="pp-k" x1="16" y1="50" x2="224" y2="50"></line>
+          <polyline class="pp-lin" points="20,88 72,70 120,50"></polyline>
+          <polyline class="pp-lev" points="120,50 172,32 220,14"></polyline>
+          <circle class="pp-node" cx="120" cy="50" r="4.4"></circle>
+        </svg>
+        <h3>Confirmation and continuation</h3>
+        <p>The trigger is reached. The position enters the leveraged regime from the original entry reference.</p>
+      </div>
+      <div class="pathc reveal d2">
+        <div class="pn">Path 3 · Confirmation and reversal</div>
+        <svg viewBox="0 0 240 150" role="img" aria-label="The trigger is reached, then the market reverses; the position is already leveraged.">
+          <line class="pp-grid" x1="16" y1="88" x2="224" y2="88"></line>
+          <line class="pp-k" x1="16" y1="50" x2="224" y2="50"></line>
+          <polyline class="pp-lin" points="20,88 72,70 120,50"></polyline>
+          <polyline class="pp-rev" points="120,50 172,90 220,122"></polyline>
+          <circle class="pp-node" cx="120" cy="50" r="4.4"></circle>
+        </svg>
+        <h3>Confirmation and reversal</h3>
+        <p>The trigger is reached, then the market reverses. The position is already leveraged, so the adverse move is amplified.</p>
+      </div>
+    </div>
+    <div class="paths-link reveal"><a class="textlink" href="crl-risk.html">Explore risk and pricing characteristics <span class="arw">&rarr;</span></a></div>
+  </section>
+
+  <!-- ===================== VISION bridge ===================== -->
+  <section class="vision">
+    <div class="wrap in-wrap">
+      <h2 class="reveal">Capital should react to conditions, the way <em>software already does.</em></h2>
+      <p class="reveal d1">Exposure should react to conditions and events you set in advance, instead of sitting fixed from the second you enter.</p>
+      <p class="last reveal d2">CRL is the first product built that way.</p>
+    </div>
+  </section>
+
+  <!-- ===================== 8 · RESEARCH (dark) ===================== -->
+  <section class="dark" id="research">
+    <div class="section wrap" style="border-top:1px solid var(--dline)">
+      <div class="res-grid">
+        <div>
+          <span class="eyebrow reveal">Research</span>
+          <h2 class="reveal d1" style="margin:22px 0 26px">A product defined by mathematics,<br>not metaphor.</h2>
+          <p class="lede reveal d2">CRL rests on a deterministic payoff, state transitions you can trace, and documentation an outside party can review.</p>
+          <div class="res-items reveal d2">
+            <div class="res-item"><span class="ri">01</span><div><div class="rt">Mathematical payoff definition</div><div class="rd">Deterministic, path-dependent, referenced to S0</div></div></div>
+            <div class="res-item"><span class="ri">02</span><div><div class="rt">Pricing and calibration research</div><div class="rd">Premium as the cost of conditional sequencing</div></div></div>
+            <div class="res-item"><span class="ri">03</span><div><div class="rt">Engine validation and deterministic test vectors</div><div class="rd">Reproducible golden test vectors</div></div></div>
+            <div class="res-item"><span class="ri">04</span><div><div class="rt">State architecture and attestation</div><div class="rd">Recorded, timestamped state transitions</div></div></div>
+          </div>
+          <div class="reveal d3" style="margin-top:34px"><a class="textlink" href="crl-technical-reference.html">Read the Technical Reference <span class="arw">&rarr;</span></a></div>
+        </div>
+        <div class="res-vis reveal d1">
+          <canvas id="resCanvas" aria-hidden="true"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 9 · PRECISION (ivory) ===================== -->
+  <section class="section wrap precision">
+    <div class="precision-grid">
+      <div class="sec-head reveal"><h2>Precise by design.</h2></div>
+      <div class="reveal d1">
+        <p class="lede">CRL does not predict direction and does not guarantee an outcome. It contains no loss floor. Once confirmation occurs, favourable and adverse movements from the original entry reference are both amplified.</p>
+        <div style="margin-top:28px"><a class="textlink" href="crl-risk.html">Read Risk and Pricing <span class="arw">&rarr;</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 10 · INSTITUTIONAL DELIVERY ===================== -->
+  <section class="section wrap" id="institutions">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Built for institutions</span>
+      <h2>Designed to enter institutional systems.</h2>
+    </div>
+    <p class="lede reveal d1" style="margin-top:26px">CRL is licensed to authorised financial institutions. The institution controls eligibility, pricing, limits, market-data sources, execution, settlement and client documentation.</p>
+    <div class="pillars reveal">
+      <div class="pillar"><div class="pi">API-first integration</div><p>Connect through existing institutional systems.</p></div>
+      <div class="pillar"><div class="pi">Institutional control</div><p>Parameters, limits and product terms defined by the institution.</p></div>
+      <div class="pillar"><div class="pi">Auditable by design</div><p>Every state change is recorded and verifiable.</p></div>
+      <div class="pillar"><div class="pi">Deployment flexibility</div><p>Sidecar, back-office ledger or native integration.</p></div>
+    </div>
+    <div class="inst-cta reveal">
+      <button class="btn" type="button" data-open-gate>Institutional licensing <span class="arw">&rarr;</span></button>
+      <a class="textlink" href="crl-availability.html">Availability <span class="arw">&rarr;</span></a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== Regulatory notice + footer ===================== -->
+<section class="reg">
+  <div class="wrap reg-in">
+    <h3>Regulatory &amp; eligibility notice</h3>
+    <p>CRL is calculation and attestation technology licensed to authorised financial institutions and is intended for professional clients, eligible counterparties or equivalent categories, depending on jurisdiction. CRL Technologies, Inc. does not open accounts, execute orders, hold client funds or provide investment advice. Compliance, product approval and client suitability remain the responsibility of the operating institution. This material is for information only and is not an offer, a solicitation or investment advice.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="brand" style="margin-bottom:12px">CRL</div>
+        <nav class="footer-links" aria-label="Legal">
+          <a href="regulatory.html">Regulatory</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="cookies.html">Cookies</a>
+        </nav>
+      </div>
+      <div class="footer-contact">
+        <div>&copy; 2026 CRL Technologies, Inc.</div>
+        <div>Conditional Retroactive Leverage&trade;</div>
+        <div style="margin-top:8px"><a href="mailto:info@crl-technologies.com">info@crl-technologies.com</a></div>
+      </div>
+    </div>
+    <p class="footer-legal">Conditional Retroactive Leverage&trade; is a trademark of CRL Technologies, Inc.; the engine and its documentation are protected by copyright. CRL is not capital protection and contains no loss floor. Leveraged instruments carry significant risk, including the possible total loss of capital. Directed at professional clients and eligible counterparties within the meaning of MiFID II and equivalent regimes.</p>
+  </div>
+</footer>
+
+<!-- ===================== Institutional enquiry modal ===================== -->
+<div class="backdrop" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title" aria-hidden="true">
+  <div class="modal">
+    <h3 id="gate-title">Institutional licensing</h3>
+    <p class="msub">CRL is licensed to authorised financial institutions and is reserved for professional clients or eligible counterparties. If you are a retail client, this material is not intended for you.</p>
+    <div class="err" id="gate-err"></div>
+    <form id="gate-form" novalidate>
+      <div><label for="g-jur">Regulatory jurisdiction</label>
+        <select id="g-jur" name="jurisdiction" required>
+          <option value="">Select&hellip;</option><option>EU (MiFID II)</option><option>UK (FCA)</option><option>Switzerland (FinSA)</option>
+          <option>US (QIB/Accredited)</option><option>Hong Kong (SFO)</option><option>Singapore (SFA)</option>
+          <option>Australia (Corporations Act)</option><option>Other professional</option>
+        </select></div>
+      <div><label for="g-email">Corporate email</label><input type="email" id="g-email" name="email" placeholder="name@institution.com" required></div>
+      <div><label for="g-inst">Institution</label><input type="text" id="g-inst" name="company" placeholder="Your licensed institution" required></div>
+      <div class="checks"><input type="checkbox" id="g-att" name="attestation" required>
+        <label for="g-att" style="text-transform:none;letter-spacing:0;font-weight:300"><span>I confirm I am a Professional Client or Eligible Counterparty under applicable regulations and understand this is not investment advice.</span></label></div>
+      <div class="actions"><button type="button" class="btn ghost" data-close>Cancel</button><button type="submit" class="btn">Request access <span class="arw">&rarr;</span></button></div>
+    </form>
+    <p class="fine">We process your data solely to verify professional status. See our <a href="privacy.html">Privacy Policy</a>. We do not sell personal data.</p>
+  </div>
+</div>
+
+<script src="js/home-v2.js" defer></script>
+</body>
+</html>

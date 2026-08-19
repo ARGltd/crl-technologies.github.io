@@ -1,1274 +1,219 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CRL Technologies</title>
+<meta name="description" content="CRL, conditional retroactive leverage licensed to financial institutions. Choose your entry: institutions or professional traders." />
+<link rel="canonical" href="https://crl-technologies.com/" />
+<link rel="icon" href="broker/images/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="broker/images/favicon-32x32.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="CRL Technologies" />
+<meta property="og:title" content="CRL Technologies" />
+<meta property="og:description" content="CRL, conditional retroactive leverage licensed to financial institutions. Choose your entry." />
+<meta property="og:url" content="https://crl-technologies.com/" />
+<meta property="og:image" content="broker/images/logo-crl-serpent.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--paper:#fbfaf6;--ink:#0f1012;--muted:#5c5f67;--blue:#173e78;--blue-light:#8fb0e8;
+    --serif:'Cormorant Garamond',Georgia,serif;--sans:'IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',monospace}
+  html,body{height:100%}
+  body{font-family:var(--sans);background:#0b0c0f;overflow:hidden;-webkit-font-smoothing:antialiased}
+  a{text-decoration:none;color:inherit}
 
-  <title>CRL Technologies: White-label leverage engine for professional brokers</title>
+  /* ---- brand badge (our mark) ---- */
+  .brand{position:fixed;top:22px;left:50%;transform:translateX(-50%);z-index:8;
+    display:flex;align-items:center;gap:12px;
+    background:rgba(9,11,15,.62);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);
+    padding:9px 20px 9px 14px;border:1px solid rgba(255,255,255,.16);border-radius:40px}
+  .brand img{width:30px;height:30px;display:block;filter:invert(1) drop-shadow(0 0 1.2px rgba(255,255,255,.6));opacity:1}
+  .brand .wm{font-family:var(--mono);font-size:12px;letter-spacing:.28em;font-weight:500;color:#fff;padding-top:1px}
 
-  <meta name="description" content="CRL is not a bridge, not a risk tool, not a higher leverage ratio. It is a white-label payoff engine that activates leverage only after market confirmation and applies retroactive exposure redetermination. API-first, for professional brokers only."/>
-  <meta name="keywords" content="conditional retroactive leverage, CRL, payoff engine, retroactive leverage, white-label API, professional brokers, not a bridge, not a risk tool, leverage after confirmation"/>
+  /* ---- explicit instruction ---- */
+  .kicker{position:fixed;top:84px;left:50%;transform:translateX(-50%);z-index:8;
+    font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+    color:rgba(255,255,255,.82);white-space:nowrap;
+    background:rgba(9,11,15,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    padding:6px 15px;border:1px solid rgba(255,255,255,.1);border-radius:20px}
 
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png"/>
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png"/>
-  <link rel="canonical" href="https://crl-technologies.com/"/>
+  .gate{display:flex;height:100svh;width:100%}
+  .panel{position:relative;flex:1 1 50%;display:flex;flex-direction:column;justify-content:center;
+    padding:clamp(34px,5vw,84px);overflow:hidden;transition:flex-grow .6s cubic-bezier(.2,.8,.2,1)}
+  .panel canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0;pointer-events:none}
+  .panel .inner{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;height:100%;max-width:600px}
 
-  <meta property="og:title" content="CRL Technologies: White-label leverage engine for professional brokers"/>
-  <meta property="og:description" content="CRL is not a bridge, not a risk tool, not a plugin. A white-label payoff engine that activates leverage only after market confirmation. Retroactive exposure redetermination, API-first, for professional brokers only."/>  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://crl-technologies.com/"/>
-  <meta property="og:image" content="https://crl-technologies.com/og-penrose.jpg"/>
+  .panel .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:22px}
+  .panel h2{font-family:var(--serif);font-weight:500;font-size:clamp(34px,3.7vw,54px);line-height:1.02;letter-spacing:-.025em;
+    font-variant-numeric:lining-nums;font-feature-settings:'lnum' 1;margin-bottom:24px;min-height:2.04em}
+  .panel p{font-size:clamp(15px,1.35vw,17px);line-height:1.62;font-weight:300;max-width:34ch;min-height:6.4em;margin-bottom:36px}
+  .panel .cta{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+    display:inline-flex;align-items:center;gap:12px;align-self:flex-start;
+    padding:14px 22px;border:1px solid currentColor;border-radius:2px;transition:gap .3s,background .3s,color .3s}
+  .panel .cta .arw{transition:transform .3s}
+  .panel:hover .cta .arw{transform:translateX(6px)}
 
-  <meta name="twitter:card" content="summary_large_image"/>
+  .left{background:var(--paper);color:var(--ink);border-right:1px solid rgba(0,0,0,.08)}
+  .left .eyebrow{color:var(--blue)}
+  .left p{color:var(--muted)}
+  .left .cta{color:var(--blue)}
+  .left .cta:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
 
-  <link rel="stylesheet" href="css/styles.css">
-  
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "CRL - Conditional Retroactive Leverage",
-    "applicationCategory": "FinanceApplication",
-    "description": "Payoff engine that activates leverage only after market confirmation. Not a bridge, not a risk tool, not a plugin. Retroactive exposure redetermination via API for professional brokers.",
-    "operatingSystem": "API",
-    "offers": {
-      "@type": "Offer",
-      "category": "B2B",
-      "eligibleCustomerType": "Professional counterparties only"
-    },
-    "provider": {
-      "@type": "Organization",
-      "name": "CRL Technologies, Inc.",
-      "url": "https://crl-technologies.com"
-    }
+  .right{color:#f4f2ec;background:linear-gradient(135deg,#0c1626 0%,#0b0e14 52%,#0a0b0e 100%)}
+  .right .eyebrow{color:var(--blue-light)}
+  .right h2{color:#fff}
+  .right p{color:#c6cad2}
+  .right .cta{color:var(--blue-light);border-color:rgba(143,176,232,.5)}
+  .right .cta:hover{background:var(--blue-light);color:#0a0b0e;border-color:var(--blue-light)}
+
+  @media(min-width:821px){
+    .gate:hover .panel{flex-grow:.88}
+    .gate .panel:hover{flex-grow:1.24}
   }
-  </script>
-  
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "CRL Technologies, Inc.",
-    "url": "https://crl-technologies.com",
-    "description": "Fintech company building conditional retroactive leverage technology. Not a bridge, not a broker, not a risk tool. Payoff engine for professional counterparties.",
-    "foundingDate": "2025",
-    "founder": {
-      "@type": "Person",
-      "name": "Andrea Riccardo Galié"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "1313 N Market Street, Suite 5100",
-      "addressLocality": "Wilmington",
-      "addressRegion": "DE",
-      "postalCode": "19801",
-      "addressCountry": "US"
-    }
+
+  /* ---- readable legal bar ---- */
+  .footnote{position:fixed;bottom:0;left:0;right:0;z-index:7;text-align:center;padding:13px 24px;
+    background:rgba(9,11,15,.72);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);
+    border-top:1px solid rgba(255,255,255,.08);
+    font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:#c3c6cd;line-height:1.5}
+
+  @media(max-width:820px){
+    body{overflow:auto}
+    .gate{flex-direction:column;height:auto}
+    .panel{flex:none;min-height:64svh}
+    .panel .inner{max-width:none}
+    .left{border-right:0;border-bottom:1px solid rgba(0,0,0,.08)}
+    .kicker{display:none}
+    .footnote{position:static;background:#0b0c0f;font-size:10.5px}
   }
-  </script>
-  
-  <style>
-    /* Animated dots */
-    .dots::after {
-      content: '';
-      animation: dots 1.5s infinite;
-    }
-    @keyframes dots {
-      0%, 20% { content: ''; }
-      40% { content: '.'; }
-      60% { content: '..'; }
-      80%, 100% { content: '...'; }
-    }
-  </style>
+  @media(prefers-reduced-motion:reduce){.panel .cta .arw{transition:none}}
+</style>
 </head>
-
 <body>
-  <a class="visually-hidden" href="#main">Skip to content</a>
 
-  <!-- Professional Notice -->
-  <div class="notice">
-    <strong>Professional Counterparties Only.</strong>
-    Available to qualified entities in EU (MiFID II), UK (FCA), CH (FinSA), US (QIB/Accredited), HK (SFO), SG (SFA), AU (Corporations Act).
-    Retail distribution prohibited.
-  </div>
+<a class="brand" href="#" aria-label="CRL Technologies">
+  <img src="broker/images/logo-crl-serpent.png" alt="" width="26" height="26" decoding="async">
+  <span class="wm">CRL TECHNOLOGIES</span>
+</a>
+<div class="kicker" aria-hidden="true">Select your entry</div>
 
-<!-- FOUNDER ACCESS BAR -->
-<div style="background:#f7f7f7;border-bottom:1px solid #e5e5e5;padding:12px 20px;text-align:center;">
-  <p style="font-size:13px;color:#404040;margin:0;">
-    <strong style="color:#0066cc;">Dedicated integration:</strong> 
-    Institutional onboarding handled directly by the founding team.
-    <a href="about.html" style="color:#0066cc;text-decoration:none;margin-left:12px;font-weight:600;">→ About</a>
-  </p>
+<div class="gate">
+
+  <a class="panel left" href="broker/index.html" aria-label="Enter the institutional site">
+    <canvas id="bgL" aria-hidden="true"></canvas>
+    <div class="inner">
+      <div class="eyebrow">For institutions</div>
+      <h2>Licensed<br>infrastructure</h2>
+      <p>White-label conditional leverage, licensed to financial institutions. The product and how it works, the risk, and the reference behind it.</p>
+      <span class="cta">Enter the institutional site <span class="arw">&rarr;</span></span>
+    </div>
+  </a>
+
+  <a class="panel right" href="traders/index.html" aria-label="Enter the professional traders view">
+    <canvas id="bgR" aria-hidden="true"></canvas>
+    <div class="inner">
+      <div class="eyebrow">For professional traders</div>
+      <h2>Be wrong at 1&times;.<br>Be right with leverage.</h2>
+      <p>Open the position at 1&times;. If price reaches your level, leverage applies from your original entry, not from today&rsquo;s price. If it doesn&rsquo;t, you stay at 1&times;.</p>
+      <span class="cta">Enter the traders site <span class="arw">&rarr;</span></span>
+    </div>
+  </a>
+
 </div>
 
-  <!-- Navigation -->
-  <nav aria-label="Main navigation">
-    <div class="nav-wrap">
-      <a href="#main" class="brand" aria-label="CRL Technologies Home">
-        <img class="logo-img" src="images/logo-crl-serpent.png"
-             alt="CRL Technologies" width="32" height="32"
-             loading="eager" decoding="async"/>
-
-        <div class="logo-text">CRL Technologies</div>
-      </a>
-      <div class="nav-links" aria-label="Primary">
-        <a href="technology.html">Technology</a>
-        <a href="materials.html">Materials</a>
-        <a href="for-traders.html">For Institutions</a>   
-        <a href="faq.html">FAQ</a>
-        <a href="about.html">About</a>
-        <a href="#contacts">Contacts</a>
-      </div>
-      <div class="nav-cta-wrapper">
-        <button class="nav-cta secondary" data-open-gate type="button">Term Sheet</button>
-        <button class="nav-cta secondary" data-open-demo type="button">Demo</button>
-        <a href="downloads/CRL_LOI_Lite_Template_v1.pdf" download class="nav-cta secondary">LOI</a>
-      </div>
-      <button class="hamb" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </nav>
-
-  <section style="padding:0;margin:0;">
-    <img src="images/semyon-borisov-EmL4sxke4PY-unsplash.jpg" alt="" style="width:100%;height:auto;display:block;">
-  </section>
-
-    <main id="main">
-    <!-- Hero -->
-    <section class="hero fade-in" aria-labelledby="hero-title">
-      <span class="patent">
-        <span class="patent-icon">™</span>
-        Provisional filed July 2025 • PCT filing planned
-      </span>
-
-      <h1 id="hero-title" class="display">
-        <span class="hero-headline">Leverage that waits</span><span class="dots"></span><br/>
-        <span class="highlight">
-          Same stop price. Less front-loaded exposure before confirmation.
-        </span>
-      </h1>
-
-      <p style="font-size:15px;color:var(--g600);margin-bottom:8px;">
-        Built for brokers and venues. Not a retail product.
-      </p>
-
-      <p class="body-lg">
-        A white-label calculation engine for professional brokers.<br/>
-        Base exposure before confirmation. Leverage applied retroactively after trigger.<br/>
-        <strong>Discontinuous payoff jump: auditable, policy-controlled.</strong>
-      </p>
-      
-      <p style="font-size:19px;color:var(--g800);margin-top:16px;">
-        Not a bridge. Not a risk tool. Not a plugin. Not a higher leverage ratio.<br/>
-        <strong>A new payoff structure with a calibrated activation framework.</strong>
-      </p>
-
-      <p class="caption hero-sub-metrics">
-        <a href="materials.html#public-downloads" style="color:var(--accent);font-weight:600;text-decoration:none;">
-          → Developer integration kit (HMAC SDK)
-        </a>
-        &nbsp;·&nbsp;
-        <button type="button" data-open-gate style="background:none;border:none;color:var(--accent);font-weight:600;cursor:pointer;font-size:inherit;font-family:inherit;padding:0;">
-          → View technical spec
-        </button>
-      </p>
-
-      <div class="hero-ctas">
-        <button class="hero-cta" type="button" data-open-gate>
-          Request Evidence Pack <span class="arrow">→</span>
-        </button>
-        <button class="hero-cta secondary" type="button" data-open-demo>
-          Request Institutional Demo <span class="arrow">→</span>
-        </button>
-      </div>
-
-      <div class="hero-metrics">
-        <div class="hero-metric">
-          <div class="hero-metric-value">Engine</div>
-          <div class="hero-metric-label">White-label API, not a broker</div>
-        </div>
-        <div class="hero-metric">
-          <div class="hero-metric-value">Retention</div>
-          <div class="hero-metric-label">Fewer liquidations, longer LTV</div>
-        </div>
-        <div class="hero-metric">
-          <div class="hero-metric-value">Audit</div>
-          <div class="hero-metric-label">Signed records, exportable for compliance</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Production Status -->
-    <section class="section" id="production-status" style="background:var(--g100);padding:60px 20px;">
-      <div class="wrap" style="text-align:center;">
-        <h2 class="headline" style="margin-bottom:8px;">Engine validation</h2>
-        <p style="margin:0 auto 32px;max-width:640px;font-size:15px;color:var(--g600);">
-          Results from internal validation and load testing of the production-grade engine.
-        </p>
-        <div style="display:flex;justify-content:center;gap:48px;flex-wrap:wrap;">
-          <div>
-            <div style="font-size:36px;font-weight:700;color:var(--g900);" data-counter="2.3M+">0</div>
-            <div style="font-size:15px;color:var(--g600);">Position updates in testing</div>
-          </div>
-          <div>
-            <div style="font-size:36px;font-weight:700;color:var(--g900);" data-counter="300+">0</div>
-            <div style="font-size:15px;color:var(--g600);">Test positions processed</div>
-          </div>
-          <div>
-            <div style="font-size:36px;font-weight:700;color:var(--g900);" data-counter="0">0</div>
-            <div style="font-size:15px;color:var(--g600);">Data-loss events</div>
-          </div>
-        </div>
-        <p style="margin-top:24px;font-size:15px;color:var(--g600);">
-          Multi-tenant engine, isolated per institution · Cryptographic audit chain (AWS KMS + S3 WORM) · Full lifecycle validation
-        </p>
-      </div>
-    </section>
-
-    <!-- The Problem -->
-    <section class="section" id="the-problem" style="background:var(--g900);color:white;padding:80px 20px;">
-      <div class="wrap" style="text-align:center;">
-
-        <p style="font-size:19px;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:16px;font-weight:600;">
-          The leverage paradox
-        </p>
-
-        <h2 class="headline" style="color:white;margin-bottom:48px;font-size:40px;">
-          Standard leverage punishes accounts instantly.<br/>
-          <span style="color:var(--accent);">Whether they're early or wrong.</span>
-        </h2>
-
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-bottom:48px;text-align:center;">
-          <div style="padding:32px 24px;background:rgba(255,255,255,0.08);border-radius:8px;">
-            <div style="font-size:48px;font-weight:700;color:white;margin-bottom:8px;">5×</div>
-            <div style="font-size:15px;color:rgba(255,255,255,0.85);">leverage on entry</div>
-          </div>
-          <div style="padding:32px 24px;background:rgba(255,255,255,0.08);border-radius:8px;">
-            <div style="font-size:48px;font-weight:700;color:white;margin-bottom:8px;">−10%</div>
-            <div style="font-size:15px;color:rgba(255,255,255,0.85);">routine adverse move</div>
-          </div>
-          <div style="padding:32px 24px;background:rgba(255,255,255,0.08);border-radius:8px;">
-            <div style="font-size:48px;font-weight:700;color:white;margin-bottom:8px;">−50%</div>
-            <div style="font-size:15px;color:rgba(255,255,255,0.85);">leveraged P&amp;L shock → margin pressure</div>
-          </div>
-        </div>
-
-        <p style="font-size:19px;line-height:1.75;color:white;margin:0 auto 36px;">
-          That's front-loaded churn: leverage amplifies losses immediately, so accounts get forced out early
-          <strong>before</strong> the market confirms anything, including accounts that <strong>cost money to acquire.</strong>
-        </p>
-
-        <div style="background:rgba(255,255,255,0.06);border-left:5px solid var(--accent);padding:40px 48px;text-align:left;margin:48px auto 0;border-radius:0 10px 10px 0;">
-          <p style="margin:0 0 20px;font-size:19px;line-height:1.75;color:white;">
-            Standard leverage is a <strong style="color:var(--accent);">bomb that's armed at entry</strong>.
-            The account is exposed to full amplification immediately, long before the market has confirmed direction.
-          </p>
-
-          <p style="margin:0 0 20px;font-size:19px;line-height:1.75;color:white;">
-            CRL changes the paradigm: leverage stays <strong style="color:var(--accent);">disarmed</strong> until a confirmation trigger.
-            Before confirmation, losses are not leverage-amplified. After confirmation, leverage can apply retroactively from entry.
-          </p>
-
-          <p style="margin:0 0 16px;font-size:15px;line-height:1.7;color:white;">
-            <strong>Pre-confirmation:</strong> base exposure only.<br/>
-            <strong>Post-confirmation:</strong> leverage applied retroactively from entry.
-          </p>
-
-          <p style="margin:0;font-size:19px;color:white;">
-            Same stop price. <strong>Different risk path.</strong> No leverage amplification before confirmation.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- The Solution -->
-    <section class="section" id="the-solution" style="background:var(--g100);padding:80px 20px;">
-      <div class="wrap">
-        
-        <h2 class="headline" style="margin-bottom:24px;">The payoff difference</h2>
-        
-        <p style="font-size:19px;line-height:1.75;margin:0 0 32px;color:var(--g800);">
-          Both structures offer leverage. The difference shows up <strong>before confirmation</strong>,
-          when price moves against the position (early) or never confirms at all (wrong).
-        </p>
-
-        <!-- Example table (illustrative) -->
-        <div style="background:white;border:1px solid var(--g300);border-radius:8px;overflow:hidden;margin:32px 0;">
-          <table style="width:100%;border-collapse:collapse;font-size:15px;">
-            <thead>
-              <tr style="background:var(--g900);color:white;">
-                <th style="padding:16px 20px;text-align:left;font-weight:600;">Scenario</th>
-                <th style="padding:16px 20px;text-align:right;font-weight:600;">Traditional 5× (illustrative)</th>
-                <th style="padding:16px 20px;text-align:right;font-weight:600;">CRL (illustrative)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom:1px solid var(--g200);">
-                <td style="padding:16px 20px;color:var(--g700);">
-                  Price drops 10%, then recovers<br/>
-                  <span style="font-size:13px;color:var(--g500);">(client is right, but early)</span>
-                </td>
-                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--g800);">
-                  −50% P&amp;L move on leveraged exposure<br/>
-                  <span style="font-size:13px;font-weight:400;color:var(--g500);">Higher liquidation risk under many margin policies</span>
-                </td>
-                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--accent);">
-                  Not leverage-amplified before confirmation<br/>
-                  <span style="font-size:13px;font-weight:400;color:var(--g500);">Base exposure until confirmation</span>
-                </td>
-              </tr>
-
-              <tr style="border-bottom:1px solid var(--g200);">
-                <td style="padding:16px 20px;color:var(--g700);">
-                  Price rises 10%, trigger hit<br/>
-                  <span style="font-size:13px;color:var(--g500);">(client is right, confirmed)</span>
-                </td>
-                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--g800);">
-                  +50% P&amp;L move on leveraged exposure
-                </td>
-                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--accent);">
-                  +Kicker from entry (per ticket terms)<br/>
-                  <span style="font-size:13px;font-weight:400;color:var(--g500);">Retroactive leverage after confirmation</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td style="padding:16px 20px;color:var(--g700);">
-                  Price never reaches trigger, expires<br/>
-                  <span style="font-size:13px;color:var(--g500);">(no confirmation)</span>
-                </td>
-                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--g600);">
-                  Depends on exit and margin policy
-                </td>
-                <td style="padding:16px 20px;text-align:right;font-weight:700;color:var(--accent);">
-                  Outcome depends on ticket terms<br/>
-                  <span style="font-size:13px;font-weight:400;color:var(--g500);">Leverage never activates without confirmation</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p style="font-size:15px;line-height:1.7;margin:0 0 16px;color:var(--g700);">
-          <strong>Interpretation:</strong> traditional leverage amplifies P&amp;L immediately. CRL is intended to keep downside closer to base exposure
-          until confirmation, and only then apply leverage from entry, subject to the issuer's ticket terms.
-        </p>
-
-        <p style="font-size:13px;line-height:1.5;color:var(--g500);margin:0;">
-          Illustrative framing only. Outcomes depend on the intermediary's product terms, margining and liquidation policy, execution conditions, and jurisdiction.
-        </p>
-
-      </div>
-    </section>
-
-    <!-- How It Works -->
-    <section class="section" id="how-it-works" style="background-image:url('images/precious-madubuike-6VvhrA5t4nM-unsplash.jpg');background-size:cover;background-position:center;">
-      <div class="wrap">
-         <div style="background:rgba(255,255,255,0.95);padding:48px 40px;border-radius:12px;">
-          <h2 class="headline" style="text-align:center;">How it works</h2>
-          <p style="text-align:center;font-size:15px;color:var(--g600);margin:12px auto 48px;">
-            Four steps from entry to leveraged payoff. No changes to your execution or risk infrastructure.
-          </p>
-          
-          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:24px;">
-            
-            <div style="text-align:center;padding:24px;background:white;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-              <div style="font-size:48px;font-weight:700;color:var(--accent);margin-bottom:12px;font-style:italic;">1</div>
-              <h3 style="font-size:19px;font-weight:600;margin-bottom:8px;">Define the trigger</h3>
-              <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
-                Trigger derived from a defined calibration framework, not set arbitrarily. The activation regime is measurable before deployment.
-              </p>
-            </div>
-            
-            <div style="text-align:center;padding:24px;background:white;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-              <div style="font-size:48px;font-weight:700;color:var(--accent);margin-bottom:12px;font-style:italic;">2</div>
-              <h3 style="font-size:19px;font-weight:600;margin-bottom:8px;">Premium upfront</h3>
-              <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
-                Issuer-defined premium to access the retroactive leverage feature. Depending on the product wrapper, ticket terms may include optional limited-loss protections.
-              </p>
-            </div>
-            
-            <div style="text-align:center;padding:24px;background:white;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-              <div style="font-size:48px;font-weight:700;color:var(--accent);margin-bottom:12px;font-style:italic;">3</div>
-              <h3 style="font-size:19px;font-weight:600;margin-bottom:8px;">Trigger hit</h3>
-              <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
-                When the trigger is hit, leverage activates. Not from now, from entry.
-              </p>
-            </div>
-            
-            <div style="text-align:center;padding:24px;background:white;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-              <div style="font-size:48px;font-weight:700;color:var(--accent);margin-bottom:12px;font-style:italic;">4</div>
-              <h3 style="font-size:19px;font-weight:600;margin-bottom:8px;">Retroactive payoff</h3>
-              <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
-                Leverage (policy-defined, e.g. 5×) applied from original entry. Discontinuous payoff jump.
-              </p>
-            </div>
-            
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Why Brokers Choose CRL -->
-    <section class="section" id="why-brokers">
-      <div class="wrap">
-        <h2 class="headline" style="text-align:center;">Why brokers choose CRL</h2>
-        <p style="text-align:center;max-width:700px;margin:12px auto 48px;">
-          Built for your economics, not just your clients' experience.
-        </p>
-        
-        <div class="p-grid">
-          
-          <article class="card">
-              <h3 class="title">Longer client lifetime</h3>
-              <p>
-                Reduce early wipe-outs structurally and extend account longevity. Evidence is simulation-based and provided for internal review.
-              </p>
-
-              <p style="font-size:15px;color:var(--accent);font-weight:600;margin-top:12px;margin-bottom:4px;">
-                +5–6 months median survival
-              </p>
-              <p style="font-size:12px;line-height:1.35;color:var(--g600);margin:0;">
-                Simulation-based estimate. Methodology available in the Evidence Pack (NDA).
-              </p>
-            </article>
-          
-          <article class="card">
-            <h3 class="title">Differentiation you can explain</h3>
-            <p>
-              CRL is not "better leverage." It is leverage that activates on confirmation, simple to communicate, hard to copy.
-            </p>
-            <p style="font-size:15px;color:var(--accent);font-weight:600;margin-top:12px;">
-              Patent pending (US/EU)
-            </p>
-          </article>
-          
-          <article class="card">
-            <h3 class="title">Additive revenue line</h3>
-            <p>
-              New margin stream sized to your rollout scope. Commercial model and pilot economics included in the Evidence Pack.
-            </p>
-            <p style="font-size:15px;color:var(--accent);font-weight:600;margin-top:12px;">
-              Structure in Evidence Pack
-            </p>
-          </article>
-          
-          <article class="card">
-            <h3 class="title">Low integration friction</h3>
-            <p>
-              API-first integration designed to fit inside existing broker workflows. No changes to your execution stack.
-            </p>
-            <p style="font-size:15px;color:var(--accent);font-weight:600;margin-top:12px;">
-              &lt;2 weeks typical timeline
-            </p>
-          </article>
-
-          <article class="card">
-            <h3 class="title">Built for churn economics</h3>
-            <p>
-              Most losses concentrate in the first months. Clients who survive 12+ months generate multiple times the LTV. CRL targets that gap structurally.
-            </p>
-            <p style="font-size:15px;color:var(--accent);font-weight:600;margin-top:12px;">
-              Same clients, longer lifetime
-            </p>
-          </article>
-
-          <article class="card">
-            <h3 class="title">Works with what you have</h3>
-            <p>
-              If you already invest in retention, education and governance, CRL gives your product stack a leverage profile that finally matches that strategy.
-            </p>
-            <p style="font-size:15px;color:var(--accent);font-weight:600;margin-top:12px;">
-              No platform rebuild required
-            </p>
-          </article>
-          
-        </div>
-      </div>
-    </section>
-
-    <!-- Numbers -->
-    <section class="section alt" id="numbers">
-      <div class="wrap">
-        <h2 class="headline" style="text-align:center;">Measured claims. Reviewable evidence.</h2>
-        <p style="text-align:center;max-width:600px;margin:12px auto 48px;color:var(--g600);">
-          Simulation-based, under stated assumptions; methodology in the Evidence Pack (NDA). No performance or return promises.
-        </p>
-        
-        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:48px;">
-          
-          <!-- Business Impact -->
-          <div style="text-align:center;">
-            <h3 style="font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--g500);margin-bottom:24px;">Business impact</h3>
-            <div style="margin-bottom:24px;">
-              <div style="font-size:36px;font-weight:700;color:var(--g900);">3-12&times;</div>
-              <div style="font-size:15px;color:var(--g600);">Smaller 1-in-20 downside vs constant leverage, same flow (simulation)</div>
-            </div>
-            <div style="margin-bottom:24px;">
-              <div style="font-size:36px;font-weight:700;color:var(--g900);">1:1</div>
-              <div style="font-size:15px;color:var(--g600);">Linear exposure until the market confirms; unconfirmed moves are not amplified by leverage</div>
-            </div>
-            <div>
-              <div style="font-size:36px;font-weight:700;color:var(--g900);">Additive ARPU</div>
-              <div style="font-size:15px;color:var(--g600);">Model in Evidence Pack</div>
-            </div>
-          </div>
-          
-          <!-- Technical Profile -->
-          <div style="text-align:center;">
-            <h3 style="font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--g500);margin-bottom:24px;">Technical profile</h3>
-            <div style="margin-bottom:24px;">
-              <div style="font-size:36px;font-weight:700;color:var(--g900);" data-counter="100">0</div>
-              <div style="font-size:15px;color:var(--g600);">p99 latency (µs, core path)</div>
-            </div>
-            <div style="margin-bottom:24px;">
-              <div style="font-size:36px;font-weight:700;color:var(--g900);" data-counter="2">0</div>
-              <div style="font-size:15px;color:var(--g600);">Weeks typical API integration</div>
-            </div>
-            <div>
-              <div style="font-size:36px;font-weight:700;color:var(--g900);" data-counter="8.6M+">0</div>
-              <div style="font-size:15px;color:var(--g600);">Monte Carlo paths documented</div>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </section>
-
-    <!-- Integration -->
-    <section class="section" id="integration-preview">
-      <div class="wrap" style="text-align:center;">
-        <h2 class="headline">API-first. Built for procurement.</h2>
-        
-        <p style="font-size:19px;line-height:1.7;margin:24px auto 32px;max-width:650px;">
-          CRL is delivered as a white-label calculation engine with integration tooling designed for fast evaluation: SDKs, request signing patterns, sandbox access, and a clear day-by-day rollout plan.
-        </p>
-        
-        <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:32px;">
-          <a href="technology.html#for-cto" class="hero-cta secondary" style="text-decoration:none;">
-            View Integration Requirements <span class="arrow">→</span>
-          </a>
-          <button class="hero-cta secondary" type="button" data-open-gate style="font-family:inherit;">
-            Request Sandbox Access <span class="arrow">→</span>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Security & Compliance -->
-    <section class="section alt" id="security-compliance-preview" style="background-image:url('images/kevin-bessat-pAvCsFr13pU-unsplash.jpg');background-size:cover;background-position:center;position:relative;">
-     <div style="position:absolute;inset:0;background:rgba(248,248,248,0.92);"></div>
-     <div style="position:relative;z-index:1;">
-      <div class="wrap" style="max-width:900px;margin:0 auto;">
-        <h2 class="headline" style="text-align:center;">Clear perimeter. Defensible audit.</h2>
-        
-        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:24px;margin-top:40px;">
-          
-          <div style="padding:24px;background:white;border-radius:8px;border:1px solid var(--g200);">
-            <h4 style="font-size:15px;font-weight:600;margin-bottom:8px;">Professional only</h4>
-            <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
-              MiFID II professional counterparties. Not a retail product.
-            </p>
-          </div>
-          
-          <div style="padding:24px;background:white;border-radius:8px;border:1px solid var(--g200);">
-            <h4 style="font-size:15px;font-weight:600;margin-bottom:8px;">Perimeter clarity</h4>
-            <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
-              CRL is not a broker, not an execution venue, not custody.
-            </p>
-          </div>
-          
-          <div style="padding:24px;background:white;border-radius:8px;border:1px solid var(--g200);">
-            <h4 style="font-size:15px;font-weight:600;margin-bottom:8px;">Secure integration</h4>
-            <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
-              mTLS where required, HMAC-style request integrity.
-            </p>
-          </div>
-          
-          <div style="padding:24px;background:white;border-radius:8px;border:1px solid var(--g200);">
-            <h4 style="font-size:15px;font-weight:600;margin-bottom:8px;">Signed audit trail</h4>
-            <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
-              Every request generates a signed record (timestamp, input hash, output hash).
-            </p>
-          </div>
-          
-        </div>
-        
-        <p style="text-align:center;margin-top:32px;">
-          <a href="technology.html#monitoring-audit" style="color:var(--accent);font-weight:600;text-decoration:none;">
-            View full Security & Compliance details →
-          </a>
-        </p>
-      </div>
-    </div>
-    </section>
-
-    <!-- Outcomes -->
-    <section class="section" id="outcomes">
-      <div class="wrap">
-        <h2 class="headline">What changes in your numbers</h2>
-        
-        <p style="font-size:19px;line-height:1.8;margin:24px 0 32px;">
-          CRL is not a new asset class. It is a leverage engine that reshapes 
-          how risk and payoff are distributed across time.
-        </p>
-        
-        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:24px;margin:32px 0;">
-          <div style="padding:24px;background:var(--g100);border-radius:8px;">
-            <h4 style="font-size:15px;font-weight:600;margin-bottom:8px;">Fewer stop-outs</h4>
-            <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
-              Fewer accounts hitting liquidation in the critical early period.
-            </p>
-          </div>
-          <div style="padding:24px;background:var(--g100);border-radius:8px;">
-            <h4 style="font-size:15px;font-weight:600;margin-bottom:8px;">Longer relationships</h4>
-            <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
-              Same clients, extended lifetime, higher cumulative value.
-            </p>
-          </div>
-          <div style="padding:24px;background:var(--g100);border-radius:8px;">
-            <h4 style="font-size:15px;font-weight:600;margin-bottom:8px;">Defendable P&L</h4>
-            <p style="font-size:15px;color:var(--g600);line-height:1.5;margin:0;">
-              Smoother payoff path, easier to explain to risk and compliance.
-            </p>
-          </div>
-        </div>
-        
-        <p style="font-size:15px;color:var(--g500);margin-top:24px;">
-          Evidence: 8.6M+ documented Monte Carlo paths across multiple regimes, a five-year historical backtest of 1,976 trade windows on eight US assets, a 324-configuration screening matrix with explicit rejection zones, and deterministic verification of the core engine. Tick-level replay, portfolio stress and independent third-party validation are the next stage. Full Quantitative Validation Dossier under NDA.
-        </p>
-      </div>
-    </section>
-
-    <!-- Use cases -->
-    <section class="section alt" id="use-cases">
-      <div class="wrap">
-        <h2 class="headline">Two concrete ways to use CRL from day one</h2>
-        <div class="p-grid">
-          <article class="card">
-            <span class="badge">Leverage upgrade</span>
-            <h3 class="title" style="margin-top:10px">Leverage upgrade on existing products</h3>
-            <p>
-              We take the leverage you already offer and turn it into conditional leverage. Until the market confirms a move, your
-              client is effectively linear. When the trigger is hit, the whole move from entry is multiplied by a leverage factor
-              with a clear payoff and a clear hedge.
-            </p>
-            <p>
-              The result is more margin over time on the same flow, with fewer accounts exposed to immediate leverage-amplified drawdowns.
-            </p>
-          </article>
-
-          <article class="card">
-            <span class="badge">Churn reduction</span>
-            <h3 class="title" style="margin-top:10px">Intensive path for at risk leveraged clients</h3>
-            <p>
-              You already know which clients are statistically close to a blow up. CRL lets you move these clients into a more
-              intelligent leverage path without asking them to stop trading and without forcing you to give up revenue.
-            </p>
-            <p>
-              The client sees a product that changes the timing of leverage activation. You see a book where more of your at risk clients survive and keep trading.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Dealer integration teaser -->
-    <section class="section">
-      <div class="wrap" style="text-align:center;">
-        <h2 class="headline">How brokers actually integrate CRL</h2>
-        <p style="margin-top:12px;max-width:780px;margin-left:auto;margin-right:auto;">
-          CRL does not ask you to rebuild your stack or change how you book trades. It plugs into your
-          existing data, risk and dealing flows and can be rolled out in four concrete steps: from read-only
-          inventory visibility, to a small hedged pilot, to portfolio-level automation and capital integration.
-        </p>
-        <p style="margin-top:12px;max-width:780px;margin-left:auto;margin-right:auto;">
-          On the Technology page we show the full dealer roadmap, including how premiums, spreads and disciplined
-          hedging combine to produce a stable, risk-controlled margin at portfolio level.
-          <a href="technology.html#dealer-roadmap" style="color:var(--accent);text-decoration:none;font-weight:600;">
-            → See the 4-step dealer roadmap
-          </a>
-        </p>
-      </div>
-    </section>
-
-    <!-- Technical Comparison -->
-    <section class="diff">
-      <div class="diff-wrap">
-        <h2 class="headline" style="text-align:center">Superior to Traditional Leverage</h2>
-        <p>CRL is not a turbo, a barrier or a CFD with nicer marketing. It is a different payoff family.</p>
-        <p>The table below shows, in one glance, what changes structurally: retroactive exposure redetermination, pre-trigger losses not amplified by leverage, product-level margin treatment subject to issuer terms, and a pending patent application on the core mechanics.</p>        
-        
-        <p style="margin:12px 0 14px;opacity:.85;line-height:1.5;text-align:left;">
-          Note: “ticket-level” characteristics apply when CRL-enabled structures are issued under the broker’s product terms.
-          Client protection, margining and eligibility remain subject to the authorized intermediary’s policies and jurisdiction.
-        </p>
-
-        <div class="table-scroll">
-          <table>
-            <thead>
-              <tr>
-                <th style="width:35%">Characteristic</th>
-                <th class="crl-col">CRL™</th>
-                <th>Turbo Cert</th>
-                <th>Barrier Option</th>
-                <th>CFD</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Retroactive Exposure Redetermination</td><td class="crl-col"><span class="pill yes">Yes</span></td><td><span class="pill no">No</span></td><td><span class="pill no">No</span></td><td><span class="pill no">No</span></td></tr>              
-              <tr><td>Pre-trigger loss not leverage-amplified</td><td class="crl-col"><span class="pill yes">Yes</span></td><td><span class="pill no">No</span></td><td><span class="pill no">N/A</span></td><td><span class="pill no">No</span></td></tr>              
-              <tr><td>Zero Margin Requirements (product level)</td><td class="crl-col"><span class="pill yes">Per terms</span></td><td><span class="pill yes">Yes</span></td><td><span class="pill yes">Yes</span></td><td><span class="pill no">No</span></td></tr>
-              <tr><td>Client Margin Calls</td><td class="crl-col"><span class="pill yes">Per terms*</span></td><td><span class="pill yes">None</span></td><td><span class="pill yes">None</span></td><td><span class="pill no">Possible</span></td></tr>
-              <tr><td>Discontinuous Payoff Jump</td><td class="crl-col"><span class="pill yes">Yes</span></td><td><span class="pill no">No</span></td><td><span class="pill no">No</span></td><td><span class="pill no">No</span></td></tr>
-              <tr><td>Path-Dependency</td><td class="crl-col"><span class="pill yes">Yes</span></td><td><span class="pill no">No</span></td><td><span class="pill no">No</span></td><td><span class="pill no">No</span></td></tr>
-              <tr><td>Patent Protection</td><td class="crl-col"><span class="pill pending">Filed</span></td><td><span class="pill no">No</span></td><td><span class="pill no">No</span></td><td><span class="pill no">No</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="table-disclaimer" style="text-align:left;">
-          <p style="margin-bottom:12px;"><strong>Note:</strong> Ticket-level characteristics apply when CRL structures are issued under the broker's product terms. Client protection, margining and eligibility remain subject to the authorized intermediary's policies and jurisdiction.</p>
-          <p style="margin-bottom:12px;"><strong>Patent/Trademark Notice:</strong> Conditional Retroactive Leverage™ is a trademark of CRL Technologies, Inc. Technology covered by a US provisional patent application filed July 31, 2025. PCT filing planned.
-          Independent replication with standard instruments has not reproduced the retroactive jump; details in gated whitepaper.
-          Features vary by issuer/jurisdiction. *Subject to broker collateral policies and ticket terms.</p>
-          <p>In practice: you keep the familiarity of listed-style tickets, but with a payoff your competitors cannot replicate one-to-one.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pilot -->
-    <section class="section" id="pilot">
-      <div class="wrap">
-        <h2 class="headline" style="text-align:center;">How a CRL pilot actually works</h2>
-        <p>
-          We do not start with theory, we start with your book. A CRL pilot is a short, controlled
-          experiment on a clearly delimited segment of your clients and products.
-        </p>
-        <div class="p-grid" style="margin-top:24px;">
-          <article class="card">
-            <span class="badge">Step 1</span>
-            <h3 class="title" style="margin-top:8px;">Diagnosis on your numbers</h3>
-            <p style="margin-top:8px;">
-              Under a light NDA we work with a small team from product, risk and IT. You share
-              anonymised aggregates on churn, margin usage and loss distribution on your leveraged
-              clients. We map where CRL-style structures would have made a meaningful difference
-              without increasing your gross risk.
-            </p>
-          </article>
-          <article class="card">
-            <span class="badge">Step 2</span>
-            <h3 class="title" style="margin-top:8px;">Controlled pilot on a clear segment</h3>
-            <p style="margin-top:8px;">
-              We configure one or two CRL structures on a limited segment of your book
-              (for example: a subset of FX/indices, a specific region, or a bucket of clients
-              at higher risk of churn). Integration is via the CRL API, with your existing price
-              feed and order flow. We monitor behaviour, risk and P&amp;L jointly.
-            </p>
-          </article>
-          <article class="card">
-            <span class="badge">Step 3</span>
-            <h3 class="title" style="margin-top:8px;">Decision and scaling</h3>
-            <p style="margin-top:8px;">
-              At the end of the pilot you receive a compact impact report on churn, behaviour and
-              P&amp;L for the tested segment. You can then either decommission the pilot or scale
-              CRL to a broader scope under your own governance framework.
-            </p>
-          </article>
-        </div>
-        <p class="caption" style="margin-top:16px;">
-          Licensing terms are tailored to each institution based on scope and volume.
-        </p>
-      </div>
-    </section>
-
-     <!-- Snake -->
-    <section class="snake-strip">
-  
-      <!-- Immagine FUORI dal contenitore, così può uscire dai margini -->
-      <div class="snake-strip-image" aria-hidden="true"></div>
-
-      <div class="snake-strip-inner">
-        <div class="snake-strip-text">
-          <p class="snake-strip-kicker">Retention-aware leverage</p>
-          <h2 class="headline snake-strip-title">Time to shed.</h2>
-          <p class="snake-strip-copy">
-            If your leveraged business still runs on linear products and churn economics,
-            CRL gives you a way to change skin without rebuilding your platform.
-          </p>
-        </div>
-      </div>
-
-    </section>
-
-        <!-- Institutional Contacts -->
-    <section id="contacts" class="contacts-section">
-      <div class="contacts-wrap">
-        <h2 class="headline" style="text-align:center;margin-bottom:32px">Institutional Contacts</h2>
-        <p class="intro body-lg" style="text-align:center;margin-bottom:32px">
-          Direct contacts for professional counterparties and licensed institutions only.
-        </p>
-        <div class="contacts-grid">
-                    <div class="contact-card">
-            <h4>Partnership Inquiries</h4>
-            <a href="mailto:partners@crl-technologies.com">partners@crl-technologies.com</a>
-            <p>Integration & licensing</p>
-          </div>
-          <div class="contact-card">
-            <h4>Technical Support</h4>
-            <a href="mailto:support@crl-technologies.com">support@crl-technologies.com</a>
-            <p>API documentation & integration</p>
-          </div>
-          <div class="contact-card">
-            <h4>General Information</h4>
-            <a href="mailto:info@crl-technologies.com">info@crl-technologies.com</a>
-            <p>Institutional inquiries only</p>
-          </div>
-        </div>
-
-        <!-- Separatore visivo -->
-        <div style="border-top:2px solid #e5e5e5;margin:48px 0 32px 0;"></div>
-
-        <div class="contact-card">
-            <h4>FOUNDER & CEO</h4>
-            <a href="mailto:andrea@crl-technologies.com">andrea@crl-technologies.com</a>
-            <p>Andrea Riccardo Galié</p>
-            <p>Direct contact for qualified institutions following initial review</p>
-          </div>
-
-          <!-- Separatore visivo -->
-          <div style="border-top:2px solid #e5e5e5;margin:48px 0 32px 0;"></div>
-
-        <p style="text-align:center;margin-top:24px;color:var(--g600);font-size:12px">
-          For security reasons, physical addresses are not published. Meetings arranged by invitation with domain verification.
-          References available under NDA upon request.
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <!-- CTA -->
-  <section class="cta">
-    <h2 class="headline">Start with evidence, not a pitch.</h2>
-    <p>If you're evaluating differentiation with low operational risk, request the Evidence Pack.</p>
-
-    <div class="cta-btns">
-      <button class="btn primary" data-open-gate type="button">
-        Request Evidence Pack <span>→</span>
-      </button>
-
-      <button class="btn secondary" data-open-demo type="button">
-        Request Institutional Demo
-      </button>
-    </div>
-
-    <div class="requirements">
-      Professional Counterparties Only · No retail offering · No investment advice · No guarantee of returns
-    </div>
-  </section>
-
- <!-- Footer (stile identico alla home) -->
-  <footer>
-    <div style="text-align:center;margin-top:20px;margin-bottom:15px;">
-          <img src="images/logo-crl-serpent.png" alt="CRL Technologies" width="60" height="60"/>
-        </div>
-      <div class="footer-address">
-      <strong>CRL Technologies, Inc.</strong><br>
-      1313 N Market Street, Suite 5100<br>
-      Wilmington, DE 19801<br>
-      EIN: 61-2277123<br>
-      United States<br>
-      <a href="mailto:info@crl-technologies.com">info@crl-technologies.com</a>
-    </div>
-  </footer>
-
- <!-- Unified Regulatory Disclaimer -->
-<section class="regulatory-disclaimer" aria-labelledby="reg-disclaimer-title">
-  <div class="regulatory-content" style="text-align: left;">
-    <h3 id="reg-disclaimer-title" style="text-align: center; margin-bottom: 20px;">Regulatory & Eligibility Notice</h3>
-    <p style="margin:0 0 8px">
-      CRL Technologies, Inc. provides calculation technology exclusively to authorized financial institutions.
-      CRL products/services are intended <strong>only</strong> for qualified professional counterparties; retail distribution is prohibited.
-      Availability is subject to jurisdiction and approval by the authorized intermediary.
-    </p>
-    <ul style="margin: 16px 0; padding-left: 20px;">
-      <li><strong>EU</strong>: Professional Clients and Eligible Counterparties (MiFID II, Dir. 2014/65/EU)</li>
-      <li><strong>United Kingdom</strong>: Professional Clients and Eligible Counterparties (FCA COBS)</li>
-      <li><strong>Switzerland</strong>: Professional clients per FinSA</li>
-      <li><strong>United States</strong>: Qualified entities (Accredited Investors, QIBs) where applicable; CRL is not a broker-dealer or investment advisor</li>
-      <li><strong>Hong Kong</strong>: Professional Investors (SFO)</li>
-      <li><strong>Singapore</strong>: Accredited/Institutional Investors (SFA/FAA)</li>
-      <li><strong>Australia</strong>: Wholesale Clients (Corporations Act)</li>
-      <li><strong>APAC/Other</strong>: Equivalent qualified entities where permitted by local law</li>
-    </ul>
-    <p style="margin:8px 0">
-      CRL does not offer financial advice or execution/placement services. Consistent with a technology-only approach:
-      <strong>compliance, product approval and risk management remain the responsibility of the authorized intermediary</strong>.
-      Historical data and backtests are for illustrative purposes only and do not guarantee future results.
-    </p>
-    <div class="legal" style="margin-top: 24px; padding-top: 20px; border-top: 1px solid #ddd;">
-      <img src="images/logo-crl-serpent.png"
-           alt="CRL Technologies"
-           width="40" height="40"
-           style="margin-bottom:8px;vertical-align:middle"/>
-      <p style="margin: 12px 0; font-size: 0.9em; line-height: 1.6;">
-        © 2026 CRL Technologies, Inc. All rights reserved.
-        Conditional Retroactive Leverage™ is a trademark of CRL Technologies, Inc.
-        Patent filed July 31, 2025 (US provisional). PCT filing planned.
-        CRL provides calculation technology only; no investment advice or execution services.
-        Derivatives trading involves substantial risk of loss. Past performance is not indicative of future results.
-      </p>
-      <div class="legal-links" style="margin-top: 16px; display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
-        <a href="/privacy.html">Privacy Policy</a>
-        <a href="/terms.html">Terms of Service</a>
-        <a href="/cookies.html">Cookie Policy</a>
-        <a href="/regulatory.html">Regulatory Disclosures</a>
-      </div>
-    </div>
-  </div>
-</section>
-
- <!-- Sticky CTA Bar (mobile) -->
-  <div class="sticky-cta" aria-hidden="true">
-    <div class="row">
-      <button class="btn secondary" data-open-demo type="button">Demo</button>
-      <button class="btn secondary" data-open-gate type="button">Term Sheet</button>
-      <a href="downloads/CRL_LOI_Lite_Template_v1.pdf" download class="btn primary">LOI</a>
-    </div>
-  </div>
-
- <!-- Modals remain the same as original -->
- <!-- Professional Gate Modal -->
- <div class="backdrop" id="gate" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="gate-title">
-   <div class="modal">
-     <h3 id="gate-title">Professional Qualification Required</h3>
-     <p class="modal-subtitle">
-       Access to technical documentation and detailed research is reserved for licensed institutions and professional or eligible counterparties. If you are a retail client, this material is not intended for you.
-     </p>
-     <form id="gateForm">
-       <div>
-         <label for="jurisdiction">Regulatory Jurisdiction</label>
-         <select id="jurisdiction" name="jurisdiction" required>
-           <option value="">Select jurisdiction...</option>
-           <option>EU (MiFID II)</option>
-           <option>UK (FCA)</option>
-           <option>Switzerland (FinSA)</option>
-           <option>US (QIB/Accredited)</option>
-           <option>Hong Kong (SFO)</option>
-           <option>Singapore (SFA)</option>
-           <option>Australia (Corporations Act)</option>
-           <option>Other Professional</option>
-         </select>
-       </div>
-       <div>
-         <label for="email">Corporate Email</label>
-         <input type="email" id="email" name="email" placeholder="your.name@institution.com" required>
-       </div>
-       <div>
-         <label for="company">Institution Name</label>
-         <input type="text" id="company" name="company" placeholder="Your licensed institution" required>
-       </div>
-       <div class="checks">
-         <input type="checkbox" id="attestation" name="attestation" required>
-         <label for="attestation">
-           <span>I confirm that I am a Professional Client or Eligible Counterparty under applicable regulations and understand this is not investment advice.</span>
-         </label>
-       </div>
-       <div class="actions">
-         <button type="button" class="btn secondary" data-close-gate>Cancel</button>
-         <button type="submit" class="btn primary">Access Materials</button>
-       </div>
-     </form>
-     <p class="small">
-       Your information may be used to confirm eligibility and prevent unauthorized access to professional-only materials. Please do not submit this form if you are not acting on behalf of a licensed institution.
-     </p>
-     <p class="privacy-notice">
-       We process your data solely to verify professional status. See our <a href="/privacy.html">Privacy Policy</a>. We do not sell personal data.
-     </p>
-   </div>
- </div>
-
- <!-- Demo Booking Modal -->
- <div class="backdrop" id="demoModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="demo-title">
-   <div class="modal">
-     <h3 id="demo-title">Schedule Technical Demonstration</h3>
-     <p class="modal-subtitle">
-       30-minute session to walk through the payoff, technical integration and risk model. Live calculation engine demonstration included.
-     </p>
-     <form id="demoForm">
-       <div>
-         <label for="demo-name">Full Name</label>
-         <input type="text" id="demo-name" name="name" required>
-       </div>
-       <div>
-         <label for="demo-title-field">Title</label>
-         <input type="text" id="demo-title-field" name="title" placeholder="e.g., Head of Trading" required>
-       </div>
-       <div>
-         <label for="demo-company">Institution</label>
-         <input type="text" id="demo-company" name="company" required>
-       </div>
-       <div>
-         <label for="demo-email">Work Email</label>
-         <input type="email" id="demo-email" name="email" required>
-       </div>
-       <div>
-         <label for="demo-volume">Monthly Derivatives Volume</label>
-         <select id="demo-volume" name="volume" required>
-           <option value="">Select range...</option>
-           <option>€10-50M</option>
-           <option>€50-200M</option>
-           <option>€200-500M</option>
-           <option>€500M+</option>
-         </select>
-       </div>
-       <div>
-         <label for="demo-interest">Primary Interest</label>
-         <select id="demo-interest" name="interest" required>
-           <option value="">Select focus...</option>
-           <option>Integration timeline & requirements</option>
-           <option>Hedging and risk management</option>
-           <option>Commercial terms & pricing</option>
-           <option>Regulatory considerations</option>
-           <option>Technical architecture</option>
-         </select>
-
-         </div>
-      
-         <!-- Formspree Hidden Fields -->
-         <input type="hidden" name="_next" value="https://crl-technologies.com/thank-you.html">
-         <input type="hidden" name="_subject" value="New CRL Demo Request">
-         <input type="hidden" name="_gotcha" style="display:none">
-          
-       <div class="actions">
-         <button type="button" class="btn secondary" data-close-demo>Cancel</button>
-         <button type="submit" class="btn primary">Book Demo</button>
-       </div>
-     </form>
-     <p class="small">We'll send a calendar invite within 24 hours. Demos are conducted via secure video conference.</p>
-     <p class="privacy-notice">
-       We process your data solely to verify professional status and schedule a demo.
-       See our <a href="/privacy.html">Privacy Policy</a>. We do not sell personal data.
-     </p>
-   </div>
- </div>
-
- <!-- LOI modals remain the same as original -->
- <!-- [Rest of LOI modals code unchanged] -->
-
- <!-- JS -->
- <script>
-   
-   // Quick Qualification Form
-   document.getElementById('gateForm').addEventListener('submit', e => {
-      e.preventDefault();
-      const formData = new FormData(e.target);
-            const email = (formData.get('email') || '').trim();
-const company = (formData.get('company') || '').trim();
-const jurisdiction = (formData.get('jurisdiction') || '').trim();
-const attestation = formData.get('attestation');
-const emailField = document.getElementById('email');
-
-if (!jurisdiction) { alert('Please select your regulatory jurisdiction.'); return; }
-if (!email) { alert('Please enter your corporate email address.'); return; }
-if (!emailField.checkValidity()) { alert('Please enter a valid corporate email address.'); return; }
-if (!company) { alert('Please enter your institution name.'); return; }
-if (!attestation) { alert('Please confirm your professional status.'); return; }
-
-const freeProviders = ['gmail.com','yahoo.com','outlook.com','hotmail.com','icloud.com','proton.me','aol.com','gmx.com'];
-const domain = (email.split('@')[1] || '').toLowerCase();
-if (!domain || freeProviders.includes(domain)) { alert('Please use your corporate email address.'); return; }
-            
-      fetch('https://formspree.io/f/xpwevykk', {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          closeGate();
-          alert('Access granted. We will contact you shortly.');
-          e.target.reset();
-        } else {
-          alert('Error submitting form. Please try again.');
+<div class="footnote">CRL Technologies, Inc. &middot; Licensed to authorised financial institutions &middot; Intended for professional clients, eligible counterparties or equivalent categories, depending on jurisdiction. Not intended for retail clients.</div>
+
+<script>
+(function () {
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var tScale = reduced ? 0.32 : 1;
+
+  function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+
+  function fit(cv){
+    if(!cv) return null;
+    var dpr=Math.min(window.devicePixelRatio||1,2);
+    var w=cv.clientWidth, h=cv.clientHeight;
+    if(!w||!h) return null;
+    if(cv.width!==Math.round(w*dpr)||cv.height!==Math.round(h*dpr)){cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);}
+    var ctx=cv.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0);
+    return {ctx:ctx,w:w,h:h};
+  }
+
+  var L=document.getElementById('bgL'), R=document.getElementById('bgR');
+
+  /* RIGHT - ensemble of futures fanning from one moment zero */
+  var rnd=mulberry32(20260812), paths=[];
+  for(var i=0;i<46;i++){
+    paths.push({dir:(rnd()*2-1), sp:0.5+rnd()*1.1, ph:rnd()*6.283, amp:0.18+rnd()*0.82, hit:rnd()<0.14});
+  }
+
+  function draw(now){
+    var t=now/1000*tScale;
+
+    /* LEFT - drifting light on paper (institutional, no grid) */
+    var l=fit(L);
+    if(l){
+      var c=l.ctx, w=l.w, h=l.h, mx=Math.max(w,h);
+      c.clearRect(0,0,w,h);
+      function bloom(px,py,rad,col){
+        var g=c.createRadialGradient(px,py,0,px,py,rad);
+        g.addColorStop(0,col); g.addColorStop(1,'rgba(23,62,120,0)');
+        c.fillStyle=g; c.fillRect(0,0,w,h);
+      }
+      bloom(w*(0.32+0.09*Math.sin(t*0.05)),      h*(0.34+0.11*Math.cos(t*0.043)), mx*0.60, 'rgba(23,62,120,0.06)');
+      bloom(w*(0.72+0.10*Math.cos(t*0.037)),     h*(0.66+0.09*Math.sin(t*0.061)), mx*0.50, 'rgba(46,58,82,0.05)');
+      bloom(w*(0.52+0.14*Math.sin(t*0.028+1.7)), h*(0.20+0.10*Math.cos(t*0.05)),  mx*0.42, 'rgba(23,62,120,0.04)');
+      /* un solo arco ampio, rotazione lenta (eco dell'ouroboros) */
+      var cxA=w*0.46, cyA=h*1.22, RA=mx*1.08, st=-2.05+t*0.015;
+      c.lineWidth=1; c.strokeStyle='rgba(15,16,18,0.05)';
+      c.beginPath(); c.arc(cxA,cyA,RA,st,st+1.35); c.stroke();
+      c.strokeStyle='rgba(15,16,18,0.03)';
+      c.beginPath(); c.arc(cxA,cyA,RA-30,st+0.05,st+1.28); c.stroke();
+      /* passaggio di luce lento sulla superficie */
+      var sx=((t*0.045)%1)*(w+240)-120;
+      var gs=c.createLinearGradient(sx-100,0,sx+100,0);
+      gs.addColorStop(0,'rgba(255,255,255,0)'); gs.addColorStop(0.5,'rgba(255,255,255,0.26)'); gs.addColorStop(1,'rgba(255,255,255,0)');
+      c.fillStyle=gs; c.fillRect(sx-100,0,200,h);
+    }
+
+    /* RIGHT - fan of candidate paths */
+    var rr=fit(R);
+    if(rr){
+      var x2=rr.ctx, w2=rr.w, h2=rr.h;
+      x2.clearRect(0,0,w2,h2);
+      var ox=w2*0.15, oy=h2*0.52, N=56, p, s;
+      x2.lineWidth=1;
+      for(p=0;p<paths.length;p++){
+        var P=paths[p];
+        x2.beginPath();
+        for(s=0;s<=N;s++){
+          var u=s/N;
+          var x=ox+u*(w2*0.96);
+          var spread=u*u*h2*0.40*P.amp;
+          var wob=Math.sin(t*0.38*P.sp+P.ph+u*3.1)*spread*0.28;
+          var y=oy+P.dir*spread+wob;
+          if(s===0)x2.moveTo(x,y); else x2.lineTo(x,y);
         }
-      }).catch(() => alert('Error submitting form. Please try again.'));
-    });
- 
-   // Rest of original JavaScript remains the same
-   // [Include all original JavaScript code here]
+        var al = P.hit
+          ? 0.10+0.09*(0.5+0.5*Math.sin(t*0.6*P.sp+P.ph))
+          : 0.045+0.05*(0.5+0.5*Math.sin(t*0.5*P.sp+P.ph));
+        x2.strokeStyle = P.hit ? 'rgba(143,176,232,'+al.toFixed(3)+')' : 'rgba(150,160,176,'+al.toFixed(3)+')';
+        x2.stroke();
+      }
+      var gg=x2.createRadialGradient(ox,oy,0,ox,oy,64);
+      gg.addColorStop(0,'rgba(143,176,232,0.20)'); gg.addColorStop(1,'rgba(143,176,232,0)');
+      x2.fillStyle=gg; x2.beginPath(); x2.arc(ox,oy,64,0,6.283); x2.fill();
+    }
 
-   // Focus trap helper (Gate & Demo)
-   function trapFocus(modal) {
-     const focusables = modal.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])');
-     const first = focusables[0], last = focusables[focusables.length - 1];
-     modal.addEventListener('keydown', e => {
-       if (e.key === 'Escape') {
-         if (modal.closest('#gate')) closeGate();
-         else if (modal.closest('#demoModal')) closeDemo();
-         else if (modal.closest('#loiQual')) hideAllLOI();
-         else if (modal.closest('#loiTerms')) navigateLOI(1);
-         else if (modal.closest('#loiReview')) navigateLOI(2);
-       }
-       if (e.key !== 'Tab') return;
-       if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-     });
-     if (first) first.focus();
-   }
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+</script>
 
-   // Professional Gate
-   const gate = document.getElementById('gate');
-   const gateOpeners = document.querySelectorAll('[data-open-gate]');
-   const gateClosers = document.querySelectorAll('[data-close-gate]');
-   let gateOpenerElement = null;
-   function openGate(opener) {
-     gateOpenerElement = opener;
-     gate.style.display = 'flex'; gate.setAttribute('aria-hidden', 'false');
-     document.body.style.overflow = 'hidden'; trapFocus(gate.querySelector('.modal'));
-   }
-   function closeGate() {
-     gate.style.display = 'none'; gate.setAttribute('aria-hidden', 'true');
-     document.body.style.overflow = ''; if (gateOpenerElement){ gateOpenerElement.focus(); gateOpenerElement=null; }
-   }
-   gateOpeners.forEach(el => el.addEventListener('click', e => { e.preventDefault(); openGate(el); }));
-   gateClosers.forEach(el => el.addEventListener('click', closeGate));
-   gate.addEventListener('click', e => { if (e.target === gate) closeGate(); });
-
-   // Demo Modal
-   const demoModal = document.getElementById('demoModal');
-   const demoOpeners = document.querySelectorAll('[data-open-demo]');
-   const demoClosers = document.querySelectorAll('[data-close-demo]');
-   let demoOpenerElement = null;
-   function openDemo(opener) {
-     demoOpenerElement = opener; demoModal.style.display = 'flex'; demoModal.setAttribute('aria-hidden','false');
-     document.body.style.overflow='hidden'; trapFocus(demoModal.querySelector('.modal'));
-   }
-   function closeDemo() {
-     demoModal.style.display = 'none'; demoModal.setAttribute('aria-hidden','true');
-     document.body.style.overflow=''; if (demoOpenerElement){ demoOpenerElement.focus(); demoOpenerElement=null; }
-   }
-   demoOpeners.forEach(el => el.addEventListener('click', e => { e.preventDefault(); openDemo(el); }));
-   demoClosers.forEach(el => el.addEventListener('click', closeDemo));
-   demoModal.addEventListener('click', e => { if (e.target === demoModal) closeDemo(); });
-
-   document.getElementById('demoForm').addEventListener('submit', e => {
-      e.preventDefault();
-      const formData = new FormData(e.target);
-            const name = (formData.get('name') || '').trim();
-            const title = (formData.get('title') || '').trim();
-            const company = (formData.get('company') || '').trim();
-            const email = (formData.get('email') || '').trim();
-            const volume = (formData.get('volume') || '').trim();
-            const interest = (formData.get('interest') || '').trim();
-            const emailField = document.getElementById('demo-email');
-
-            if (!name) { alert('Please enter your full name.'); return; }
-            if (!title) { alert('Please enter your title.'); return; }
-            if (!company) { alert('Please enter your institution name.'); return; }
-            if (!email) { alert('Please enter your work email address.'); return; }
-            if (!emailField.checkValidity()) { alert('Please enter a valid work email address.'); return; }
-            if (!volume) { alert('Please select your monthly derivatives volume.'); return; }
-            if (!interest) { alert('Please select your primary interest.'); return; }
-
-            const freeProviders = ['gmail.com','yahoo.com','outlook.com','hotmail.com','icloud.com','proton.me','aol.com','gmx.com'];
-            const domain = (email.split('@')[1] || '').toLowerCase();
-            if (!domain || freeProviders.includes(domain)) { alert('Please use your corporate email address.'); return; }
-            
-      fetch('https://formspree.io/f/mwpzyldd', {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          closeDemo();
-          alert('Demo request received. We will contact you within 24 hours.');
-          e.target.reset();
-        } else {
-          alert('Error submitting form. Please try again.');
-        }
-      }).catch(() => alert('Error submitting form. Please try again.'));
-    });
-
-   // Mobile Menu
-   const hamb = document.querySelector('.hamb');
-   const navLinks = document.querySelector('.nav-links');
-   if (hamb && navLinks) {
-     hamb.addEventListener('click', () => {
-       const expanded = hamb.getAttribute('aria-expanded') === 'true';
-       hamb.setAttribute('aria-expanded', !expanded);
-       navLinks.classList.toggle('is-open');
-     });
-   }
-
-   // Smooth Scroll
-   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-     anchor.addEventListener('click', function(e) {
-       const href = this.getAttribute('href');
-       if (href && href !== '#') {
-         const target = document.querySelector(href);
-         if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-       }
-     });
-   });
-
-   // Intersection animations
-   const observer = new IntersectionObserver(entries => {
-     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('fade-in'); });
-   }, { threshold: 0.1 });
-   document.querySelectorAll('.card, .benefit').forEach(el => observer.observe(el));
-
-   // Sticky CTA: show/hide based on scroll (mobile only)
-   const sticky = document.querySelector('.sticky-cta');
-   window.addEventListener('scroll', () => {
-     const y = window.scrollY;
-     if (!sticky) return;
-     if (y > 300 && window.innerWidth <= 980){ sticky.setAttribute('aria-hidden','false'); }
-     else { sticky.setAttribute('aria-hidden','true'); }
-   });
- 
-  // Counter Animation on Scroll
-   const counters = document.querySelectorAll('[data-counter]');
-
-   const animateCounter = (el) => {
-     const target = el.getAttribute('data-counter');
-     const duration = 2000;
-     const start = 0;
-     const startTime = performance.now();
-     
-     const prefix = target.match(/^[^0-9]*/)[0];
-     const suffix = target.match(/[^0-9]*$/)[0];
-     const numberPart = target.replace(prefix, '').replace(suffix, '');
-     const end = parseFloat(numberPart);
-     const decimals = numberPart.includes('.') ? numberPart.split('.')[1].length : 0;
-     
-     const animate = (currentTime) => {
-       const elapsed = currentTime - startTime;
-       const progress = Math.min(elapsed / duration, 1);
-       const easeOut = 1 - Math.pow(1 - progress, 3);
-       const current = start + (end - start) * easeOut;
-       
-       el.textContent = prefix + current.toFixed(decimals) + suffix;
-       
-       if (progress < 1) {
-         requestAnimationFrame(animate);
-       } else {
-         el.textContent = target;
-       }
-     };
-     
-     requestAnimationFrame(animate);
-   };
-
-   const counterObserver = new IntersectionObserver((entries) => {
-     entries.forEach(entry => {
-       if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-         entry.target.classList.add('counted');
-         animateCounter(entry.target);
-       }
-     });
-   }, { threshold: 0.5 });
-
-   counters.forEach(counter => counterObserver.observe(counter));
-
- </script>
 </body>
-</html> 
+</html>

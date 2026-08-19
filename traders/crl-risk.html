@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CRL · Risk and pricing characteristics</title>
+<meta name="description" content="How a CRL position behaves under confirmation and reversal, how the premium is treated, and when CRL is not the appropriate structure. CRL contains no loss floor and is not capital protection." />
+<link rel="canonical" href="https://crl-technologies.com/crl-risk.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="CRL Technologies" />
+<meta property="og:title" content="CRL · Risk and pricing characteristics" />
+<meta property="og:description" content="How a CRL position behaves under confirmation and reversal, how the premium is treated, and when CRL is not the appropriate structure. CRL contains no loss floor and is not capital protection." />
+<meta property="og:url" content="https://crl-technologies.com/crl-risk.html" />
+<meta property="og:image" content="https://crl-technologies.com/images/logo-crl-serpent.png" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="CRL · Risk and pricing characteristics" />
+<meta name="twitter:description" content="How a CRL position behaves under confirmation and reversal, how the premium is treated, and when CRL is not appropriate. No loss floor; not capital protection." />
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+<link rel="icon" href="images/favicon.ico" sizes="any" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/crl.css">
+<style>
+.ex-result{margin-top:20px;border-left:2px solid var(--blue);padding:16px 22px;background:var(--blue-soft);font-family:var(--mono);font-size:13px;line-height:1.7;color:var(--ink)}
+.ex-result b{color:var(--blue);font-weight:500}
+.compare-tight{min-width:1040px}
+</style>
+</head>
+<body data-page="crl-risk">
+
+<main id="top">
+
+  <section class="page-head wrap">
+    <div class="sec-index reveal">Risk and pricing</div>
+    <h1 class="reveal">Risk and pricing characteristics</h1>
+    <p class="body-large reveal" style="margin-top:22px">What CRL removes, what it adds in exchange, and how the premium is treated. The page is blunt about one case in particular: a confirmed position that reverses.</p>
+  </section>
+
+  <!-- WORKED EXAMPLE -->
+  <section class="section wrap">
+    <div class="reveal">
+      <div class="sec-index">A worked example</div>
+      <h2>Confirmation, then reversal</h2>
+    </div>
+    <div class="text-col reveal" style="margin-top:24px">
+      <p>Consider a position opened at 100, with a confirmation level at 105 and leverage of 5. In the notation of the mechanics: <strong>S0 = 100, K = 105, L = 5</strong>.</p>
+      <p>Before 105 is reached, the position is linear. A move from 100 to 104 and back is a 1&times; move. No leverage is applied.</p>
+      <p>If the market reaches 105 within the monitoring window, the position enters the leveraged regime. From that point leverage applies to the move from the original entry reference of 100, not from 105.</p>
+      <p>If the position then closes at 98, the reversal happens inside the leveraged regime.</p>
+    </div>
+
+    <div class="diagram-card reveal" style="margin-top:34px">
+      <div class="diagram-head"><span>Price path · S0 = 100 · K = 105 · L = 5</span><span class="blue">Confirmation then reversal</span></div>
+      <svg class="payoff-chart" viewBox="0 0 680 340" role="img" aria-label="Price rises from the entry reference of 100 to the confirmation level of 105, entering the leveraged regime, then reverses to close at 98 inside that regime">
+        <line class="axis" x1="70" y1="212" x2="645" y2="212"></line>
+        <line class="grid" x1="70" y1="102" x2="645" y2="102" style="stroke-dasharray:4 5"></line>
+        <line x1="360" y1="58" x2="360" y2="300" style="stroke:#c7c2b6;stroke-width:1;stroke-dasharray:3 6"></line>
+        <path class="pre" d="M90,212 C210,150 300,118 360,102"></path>
+        <path class="post" d="M360,102 C440,152 520,214 600,256"></path>
+        <circle cx="90" cy="212" r="4" style="fill:#fff;stroke:#777;stroke-width:2"></circle>
+        <circle cx="360" cy="102" r="5.4" style="fill:#fff;stroke:var(--blue);stroke-width:2.4"></circle>
+        <circle cx="600" cy="256" r="4.6" style="fill:#fff;stroke:var(--blue);stroke-width:2.4"></circle>
+        <text class="clabel" x="76" y="205">S0 = 100</text>
+        <text class="clabel blue" x="76" y="95">K = 105</text>
+        <text class="clabel" x="150" y="238">linear regime</text>
+        <text class="clabel blue" x="470" y="150">leveraged regime</text>
+        <text class="clabel blue" x="360" y="50" text-anchor="middle">confirmation</text>
+        <text class="clabel" x="600" y="278" text-anchor="middle">close 98</text>
+      </svg>
+      <div class="ex-result">At close, the result is measured leveraged from the entry reference: <b>5 &times; (98 &minus; 100) = &minus;10%</b> of the reference notional. Leverage applies from 100, not from 105.</div>
+    </div>
+  </section>
+
+  <!-- THE WHIPSAW -->
+  <section class="section wrap">
+    <div class="reveal">
+      <div class="sec-index">The whipsaw</div>
+      <h2>The honest cost of the structure</h2>
+    </div>
+    <div class="text-col reveal" style="margin-top:24px">
+      <p>Confirmation is not a prediction. A position can reach its confirmation level and then reverse. When it does, the reversal is amplified, because the position is already in the leveraged regime.</p>
+      <p>This is the whipsaw case. That is the cost of the structure, stated plainly. CRL removes leverage before confirmation, it does not remove risk after confirmation.</p>
+    </div>
+    <p class="inline-claim reveal" style="margin-top:32px">CRL changes <em>when</em> leverage is assumed, not whether the trade is right.</p>
+  </section>
+
+  <!-- ABSOLUTE VS RELATIVE PAYOFF -->
+  <section class="section wrap">
+    <div class="reveal">
+      <div class="sec-index">Payoff, read two ways</div>
+      <h2>Absolute and relative payoff</h2>
+    </div>
+    <div class="text-col reveal" style="margin-top:24px">
+      <p>The <strong>absolute payoff</strong> of a CRL position after confirmation is the leveraged move from the entry reference. Read on its own, it looks like an ordinary leveraged position.</p>
+      <p>The <strong>relative payoff</strong> is what CRL actually changes. Compared with leverage applied from entry throughout, CRL removes amplification over the interval before confirmation. The difference is not in the final slope. It is in what was amplified on the way there.</p>
+      <p>This is why CRL should be read as a change of sequence, not as a different payoff line. The slope after confirmation is the same leverage; the position simply did not carry it earlier.</p>
+    </div>
+  </section>
+
+  <!-- PREMIUM (dark moment) -->
+  <section class="section wrap dark-band">
+    <div class="reveal">
+      <div class="sec-index">Premium</div>
+      <h2>The cost of the structure</h2>
+    </div>
+    <div class="text-col reveal" style="margin-top:24px">
+      <p>CRL carries a premium. The premium is set by the operating institution and is the cost of accessing the conditional leverage structure. CRL Technologies does not set, quote or receive the premium.</p>
+      <p>At a fair premium, CRL does not improve expected value. It changes when leverage is assumed, not whether a position is expected to be profitable. The premium is what the deferral of leverage costs.</p>
+    </div>
+    <p class="claim-note reveal" style="margin-top:22px"><strong>Read CRL as a change of sequence with a price, not as a free option.</strong> Without the premium in view, the structure can look almost mechanical or costless. It is neither.</p>
+  </section>
+
+  <!-- WHEN NOT APPROPRIATE -->
+  <section class="section wrap">
+    <div class="reveal">
+      <div class="sec-index">Boundaries of use</div>
+      <h2>When CRL is not appropriate</h2>
+    </div>
+    <div class="feature-grid cols-3 reveal">
+      <div class="feature">
+        <span class="badge">Leverage from the open</span>
+        <h4>When leverage is wanted immediately</h4>
+        <p>If leverage is required from opening regardless of confirmation, a standard leveraged position is the right tool. CRL is defined by not being leveraged before confirmation.</p>
+      </div>
+      <div class="feature">
+        <span class="badge">Capped or floored payoff</span>
+        <h4>When a floor is the objective</h4>
+        <p>CRL contains no loss floor and is not capital protection. If a capped or protected payoff is the objective, an option based structure is appropriate, not CRL. The conditional component is a forward, not an option.</p>
+      </div>
+      <div class="feature">
+        <span class="badge">Guaranteed outcome</span>
+        <h4>When certainty is required</h4>
+        <p>CRL does not predict direction and does not guarantee any outcome. At a fair premium it does not improve expected value. It is a sequencing tool, not an edge.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section class="section wrap">
+    <div class="reveal">
+      <div class="sec-index">How CRL compares</div>
+      <h2>Against the alternatives</h2>
+      <p class="body-small" style="margin-top:20px">A structural comparison, no marketing and no equations. It sets out how each instrument behaves before confirmation, what it costs, and where its floor sits, if it has one.</p>
+    </div>
+    <div class="compare-wrap reveal">
+      <table class="compare compare-tight">
+        <thead>
+          <tr>
+            <th>Instrument</th>
+            <th>Exposure before confirmation</th>
+            <th>Upfront cost</th>
+            <th>Entry reference after confirmation</th>
+            <th>Slippage at confirmation</th>
+            <th>Loss floor</th>
+            <th>Main risk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1&times; position</td>
+            <td>Linear, 1&times;</td>
+            <td>None</td>
+            <td>Not applicable</td>
+            <td>Not applicable</td>
+            <td>None</td>
+            <td>Unleveraged market exposure</td>
+          </tr>
+          <tr>
+            <td>Standard leverage from entry</td>
+            <td>Leveraged, L&times;, throughout</td>
+            <td>Financing / margin</td>
+            <td>Entry, but leveraged the whole time</td>
+            <td>Not applicable</td>
+            <td>None</td>
+            <td>Noise before confirmation is amplified</td>
+          </tr>
+          <tr>
+            <td>Leveraged stop-entry</td>
+            <td>None until the fill</td>
+            <td>Financing / margin after fill</td>
+            <td>The fill price, which can move</td>
+            <td>Yes, the fill can move from the level</td>
+            <td>None</td>
+            <td>Entry reference shifts with the fill</td>
+          </tr>
+          <tr>
+            <td>Knock-in option</td>
+            <td>None, optionality only</td>
+            <td>Option premium</td>
+            <td>Strike</td>
+            <td>No, the barrier is a level</td>
+            <td>Yes, premium at risk</td>
+            <td>Premium decay and barrier terms</td>
+          </tr>
+          <tr>
+            <td class="crlc">CRL</td>
+            <td class="crlc">Linear, 1&times;</td>
+            <td class="crlc">Premium, set by the institution</td>
+            <td class="crlc">Original entry reference, S0</td>
+            <td class="crlc">No, confirmation is an event, not a fill</td>
+            <td class="crlc">None, not capital protection</td>
+            <td class="crlc">Whipsaw: confirmation then reversal is leveraged</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="claim-note reveal" style="margin-top:20px">CRL sits closest to a leveraged stop-entry, with one difference: the entry reference does not move to the confirmation price. It stays at S0. Unlike a knock-in option, CRL has no loss floor, because the conditional component is a forward, not an option.</p>
+  </section>
+
+  <!-- CROSS LINKS -->
+  <section class="section wrap final">
+    <div class="reveal">
+      <div class="sec-index">Continue</div>
+      <h2>The rest of the reference</h2>
+    </div>
+    <div class="cta-row reveal" style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-top:32px">
+      <a class="btn" href="crl-technical-reference.html">Read the Technical Reference <span>&rarr;</span></a>
+      <button class="btn ghost" type="button" data-open-gate>Institutional licensing <span>&rarr;</span></button>
+    </div>
+    <div class="reveal" style="margin-top:34px;display:flex;flex-direction:column;gap:11px">
+      <a class="text-link" href="crl.html">The CRL definition &rarr;</a>
+      <a class="text-link" href="crl.html#mechanics">Mechanics and attestation &rarr;</a>
+      <a class="text-link" href="crl-availability.html">Availability &rarr;</a>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/crl.js" defer></script>
+</body>
+</html>
