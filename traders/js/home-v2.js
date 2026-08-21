@@ -39,19 +39,23 @@
 
   /* ---------- REVEAL ---------- */
   var els = document.querySelectorAll('.reveal');
-  // Content is visible by default (CSS); only hide-then-animate below-fold
-  // elements so above-the-fold paints immediately, independent of JS.
+  // Content is visible by default (CSS). Above-the-fold gets .in immediately
+  // (so .in-keyed animations play, nothing waits on JS); below-the-fold is
+  // hidden (.pre) and reveals on scroll.
   if ('IntersectionObserver' in window && !reduce) {
     var revVh = window.innerHeight || 800, toObs = [];
     els.forEach(function (el) {
       if (el.getBoundingClientRect().top > revVh * 0.9) { el.classList.add('pre'); toObs.push(el); }
+      else { el.classList.add('in'); }
     });
     if (toObs.length) {
       var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.remove('pre'); io.unobserve(e.target); } });
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.remove('pre'); e.target.classList.add('in'); io.unobserve(e.target); } });
       }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
       toObs.forEach(function (el) { io.observe(el); });
     }
+  } else {
+    els.forEach(function (el) { el.classList.add('in'); });
   }
 
   /* ---------- RESEARCH particle form (organic mathematical loop) ---------- */
@@ -289,9 +293,10 @@
       ctx.beginPath(); ctx.moveTo(pcx - 2.2 * S, pcy - pr + 3 * S); ctx.lineTo(pcx, pcy - pr); ctx.lineTo(pcx + 2.2 * S, pcy - pr + 3 * S); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(pcx - 2.2 * S, pcy + pr - 3 * S); ctx.lineTo(pcx, pcy + pr); ctx.lineTo(pcx + 2.2 * S, pcy + pr - 3 * S); ctx.stroke();
     }
-    var acc = 13, last = null;
+    // Start the sweep from the beginning (near S0) each time the page opens.
+    var acc = 0.2, last = null;
     function step(now) { if (last === null) last = now; var dt = (now - last) / 1000; last = now; if (dt > 0.1) dt = 0.016; acc += dt; draw(acc); }
-    draw(13);
+    draw(0.2);
     if (window.ResizeObserver) new ResizeObserver(function () { draw(acc); }).observe(cv.parentNode);
     gatedLoop(cv, step);
   })();

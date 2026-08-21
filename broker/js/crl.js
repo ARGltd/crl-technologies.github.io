@@ -285,17 +285,18 @@
      ============================================================ */
   function wireReveal() {
     var els = document.querySelectorAll('.reveal');
-    // Progressive enhancement: content is visible by default (CSS). We only
-    // hide-then-animate elements that are BELOW the fold, so above-the-fold
-    // content paints immediately and never waits on JS.
-    if (!('IntersectionObserver' in window)) return;
+    // Content is visible by default (CSS). Above-the-fold elements get .in
+    // immediately (so .in-keyed animations play and nothing waits on JS);
+    // below-the-fold elements are hidden (.pre) and reveal on scroll.
+    if (!('IntersectionObserver' in window)) { els.forEach(function (el) { el.classList.add('in'); }); return; }
     var vh = window.innerHeight || 800, toObs = [];
     els.forEach(function (el) {
       if (el.getBoundingClientRect().top > vh * 0.9) { el.classList.add('pre'); toObs.push(el); }
+      else { el.classList.add('in'); }
     });
     if (!toObs.length) return;
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.remove('pre'); io.unobserve(e.target); } });
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.remove('pre'); e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
     toObs.forEach(function (el) { io.observe(el); });
   }
