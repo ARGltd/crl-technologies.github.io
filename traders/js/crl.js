@@ -27,6 +27,19 @@
   var FREE_EMAIL = ['gmail.com','yahoo.com','outlook.com','hotmail.com','icloud.com','proton.me','protonmail.com','aol.com','gmx.com','live.com','me.com'];
   var currentPage = document.body.getAttribute('data-page') || '';
 
+  /* Pause a rAF loop when its canvas is offscreen or the tab is hidden. */
+  function gatedLoop(cv, step) {
+    var running = false, onscreen = true, visible = !document.hidden, raf = 0;
+    function tick(now) { if (!running) return; step(now); raf = requestAnimationFrame(tick); }
+    function start() { if (running || !onscreen || !visible) return; running = true; raf = requestAnimationFrame(tick); }
+    function stop() { running = false; if (raf) { cancelAnimationFrame(raf); raf = 0; } }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) { onscreen = es[0].isIntersecting; onscreen ? start() : stop(); }, { threshold: 0 }).observe(cv);
+    }
+    document.addEventListener('visibilitychange', function () { visible = !document.hidden; visible ? start() : stop(); });
+    start();
+  }
+
   /* ============================================================
      1. NAV
      ============================================================ */
@@ -269,14 +282,19 @@
      ============================================================ */
   function wireReveal() {
     var els = document.querySelectorAll('.reveal');
-    if (!('IntersectionObserver' in window)) {
-      els.forEach(function (el) { el.classList.add('in'); });
-      return;
-    }
+    // Progressive enhancement: content is visible by default (CSS). We only
+    // hide-then-animate elements that are BELOW the fold, so above-the-fold
+    // content paints immediately and never waits on JS.
+    if (!('IntersectionObserver' in window)) return;
+    var vh = window.innerHeight || 800, toObs = [];
+    els.forEach(function (el) {
+      if (el.getBoundingClientRect().top > vh * 0.9) { el.classList.add('pre'); toObs.push(el); }
+    });
+    if (!toObs.length) return;
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.remove('pre'); io.unobserve(e.target); } });
     }, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
-    els.forEach(function (el) { io.observe(el); });
+    toObs.forEach(function (el) { io.observe(el); });
   }
 
   /* ============================================================
@@ -382,15 +400,14 @@
     }
 
     var phase = 0, last = null;
-    function loop(now) {
+    function step(now) {
       if (last === null) last = now;
       var dt = now - last; last = now;
       if (dt > 100) dt = 16; // dopo un cambio scheda: niente salti, movimento sempre seamless
       phase += dt * 0.0013;
       render(phase);
-      requestAnimationFrame(loop);
     }
-    requestAnimationFrame(loop);
+    gatedLoop(cv, step);
   }
 
   /* ============================================================
@@ -453,15 +470,14 @@
       ctx.globalAlpha = 1;
     }
     var phase = 0, last = null;
-    function loop(now) {
+    function step(now) {
       if (last === null) last = now;
       var dt = now - last; last = now;
       if (dt > 100) dt = 16;
       phase += dt / 1000;
       render(phase);
-      requestAnimationFrame(loop);
     }
-    requestAnimationFrame(loop);
+    gatedLoop(cv, step);
   }
 
   /* ============================================================

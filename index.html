@@ -235,9 +235,13 @@
       x2.fillStyle=gg; x2.beginPath(); x2.arc(ox,oy,64,0,6.283); x2.fill();
     }
 
-    requestAnimationFrame(draw);
+    if (!document.hidden) requestAnimationFrame(draw); else _sched = false;
   }
+  var _sched = true;
   requestAnimationFrame(draw);
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden && !_sched) { _sched = true; requestAnimationFrame(draw); }
+  });
 })();
 </script>
 

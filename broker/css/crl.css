@@ -465,7 +465,8 @@ body[data-page="for-traders"].scrolled .nav-toggle span{background:var(--ink)}
 .modal .err.show{display:block}
 
 /* ---------- Animazioni reveal ---------- */
-.reveal{opacity:0;transform:translateY(14px);transition:opacity .75s ease,transform .75s ease}
+.reveal{opacity:1;transform:none;transition:opacity .75s ease,transform .75s ease}
+.reveal.pre{opacity:0;transform:translateY(14px)}
 .reveal.in{opacity:1;transform:none}
 
 /* ---------- Animazione grafico "due percorsi" ---------- */
@@ -525,7 +526,7 @@ body[data-page="for-traders"].scrolled .nav-toggle span{background:var(--ink)}
 }
 @media(prefers-reduced-motion:reduce){
   *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
-  .reveal{opacity:1;transform:none}
+  .reveal,.reveal.pre{opacity:1;transform:none}
   /* eccezione: il logo deve ruotare sempre, come nel vecchio sito */
   .logo-img{transition:transform .6s cubic-bezier(.2,.8,.2,1)!important}
   .logo:hover .logo-img{transform:rotate(360deg)!important}

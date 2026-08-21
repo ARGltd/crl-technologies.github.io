@@ -7,6 +7,19 @@
   'use strict';
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
+  /* Pause a rAF loop when its canvas is offscreen or the tab is hidden. */
+  function gatedLoop(cv, step) {
+    var running = false, onscreen = true, visible = !document.hidden, raf = 0;
+    function tick(now) { if (!running) return; step(now); raf = requestAnimationFrame(tick); }
+    function start() { if (running || !onscreen || !visible) return; running = true; raf = requestAnimationFrame(tick); }
+    function stop() { running = false; if (raf) { cancelAnimationFrame(raf); raf = 0; } }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) { onscreen = es[0].isIntersecting; onscreen ? start() : stop(); }, { threshold: 0 }).observe(cv);
+    }
+    document.addEventListener('visibilitychange', function () { visible = !document.hidden; visible ? start() : stop(); });
+    start();
+  }
+
   /* ---------- NAV ---------- */
   var nav = document.getElementById('nav'),
       menu = document.getElementById('navmenu'),
@@ -26,13 +39,19 @@
 
   /* ---------- REVEAL ---------- */
   var els = document.querySelectorAll('.reveal');
+  // Content is visible by default (CSS); only hide-then-animate below-fold
+  // elements so above-the-fold paints immediately, independent of JS.
   if ('IntersectionObserver' in window && !reduce) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
-    els.forEach(function (el) { io.observe(el); });
-  } else {
-    els.forEach(function (el) { el.classList.add('in'); });
+    var revVh = window.innerHeight || 800, toObs = [];
+    els.forEach(function (el) {
+      if (el.getBoundingClientRect().top > revVh * 0.9) { el.classList.add('pre'); toObs.push(el); }
+    });
+    if (toObs.length) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.remove('pre'); io.unobserve(e.target); } });
+      }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+      toObs.forEach(function (el) { io.observe(el); });
+    }
   }
 
   /* ---------- RESEARCH particle form (organic mathematical loop) ---------- */
@@ -78,9 +97,9 @@
       }
     }
     var phase = 0, last = null;
-    function loop(now) { if (last === null) last = now; var dt = now - last; last = now; if (dt > 100) dt = 16; phase += dt * (reduce ? 0.0004 : 0.001); frame(phase); requestAnimationFrame(loop); }
+    function step(now) { if (last === null) last = now; var dt = now - last; last = now; if (dt > 100) dt = 16; phase += dt * (reduce ? 0.0004 : 0.001); frame(phase); }
     resize(); frame(0.2); window.addEventListener('resize', resize);
-    requestAnimationFrame(loop);
+    gatedLoop(cv, step);
   })();
 
   /* ---------- HERO: ensemble of possible futures (Time Fan) ----------
@@ -270,11 +289,11 @@
       ctx.beginPath(); ctx.moveTo(pcx - 2.2 * S, pcy - pr + 3 * S); ctx.lineTo(pcx, pcy - pr); ctx.lineTo(pcx + 2.2 * S, pcy - pr + 3 * S); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(pcx - 2.2 * S, pcy + pr - 3 * S); ctx.lineTo(pcx, pcy + pr); ctx.lineTo(pcx + 2.2 * S, pcy + pr - 3 * S); ctx.stroke();
     }
-    var t0 = null;
-    function loop(now) { if (t0 === null) t0 = now; draw((now - t0) / 1000); requestAnimationFrame(loop); }
+    var acc = 13, last = null;
+    function step(now) { if (last === null) last = now; var dt = (now - last) / 1000; last = now; if (dt > 0.1) dt = 0.016; acc += dt; draw(acc); }
     draw(13);
-    if (window.ResizeObserver) new ResizeObserver(function () { draw(13); }).observe(cv.parentNode);
-    requestAnimationFrame(loop);
+    if (window.ResizeObserver) new ResizeObserver(function () { draw(acc); }).observe(cv.parentNode);
+    gatedLoop(cv, step);
   })();
 
   /* ---------- ENQUIRY GATE MODAL (reused from crl.js) ---------- */
