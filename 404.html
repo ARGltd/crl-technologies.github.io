@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Page not found · CRL Technologies</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" href="/broker/images/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/broker/images/favicon-32x32.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  /* GitHub Pages serves this file for any missing path, at any depth: every link and asset is root-absolute. */
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--ink:#0f1012;--blue-light:#8fb0e8;
+    --serif:'Cormorant Garamond',Georgia,serif;--sans:'IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace}
+  html,body{min-height:100%}
+  body{font-family:var(--sans);color:#f4f2ec;-webkit-font-smoothing:antialiased;
+    background:radial-gradient(120% 90% at 18% 40%,#0f1b30 0%,#0b0e14 55%,#0a0b0e 100%) fixed,#0b0c0f;
+    display:flex;flex-direction:column;min-height:100svh}
+  a{color:inherit;text-decoration:none}
+  a:focus-visible{outline:2px solid var(--blue-light);outline-offset:3px}
+
+  .masthead{display:flex;justify-content:center;padding:22px 20px 0}
+  .plate{display:flex;flex-direction:column;align-items:center;gap:9px;text-align:center;
+    background:#fff;border:1px solid rgba(0,0,0,.14);border-radius:18px;
+    padding:15px 30px 14px;box-shadow:0 12px 32px rgba(0,0,0,.24)}
+  .plate .mark{width:40px;height:40px;display:block}
+  .plate .wm{font-family:var(--mono);font-size:13px;letter-spacing:.34em;font-weight:500;color:#0f1012;padding-left:.34em}
+  .plate .kick{font-family:var(--mono);font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:#767a83;padding-left:.26em}
+
+  main{flex:1;width:100%;max-width:880px;margin:0 auto;padding:clamp(40px,8vh,96px) clamp(20px,5vw,48px) 56px;
+    display:flex;flex-direction:column;gap:28px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue-light)}
+  h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,5.4vw,64px);line-height:1.02;letter-spacing:-.025em;color:#fff;text-wrap:balance}
+  .lede{font-size:clamp(16px,1.4vw,18px);line-height:1.62;font-weight:300;color:#c6cad2;max-width:52ch}
+  .path{font-family:var(--mono);font-size:12.5px;color:#8d939e;overflow-wrap:anywhere}
+  .path span{color:#c6cad2}
+
+  .hint{display:none;font-size:15px;line-height:1.55;color:#f4f2ec;border:1px solid rgba(143,176,232,.45);
+    background:rgba(143,176,232,.08);padding:14px 18px;border-radius:2px;max-width:60ch}
+  .hint a{color:var(--blue-light);border-bottom:1px solid rgba(143,176,232,.5)}
+  .hint.on{display:block}
+
+  .choices{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .choice{display:flex;flex-direction:column;gap:10px;padding:24px 26px;border-radius:2px;transition:transform .3s,box-shadow .3s}
+  .choice .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase}
+  .choice .t{font-family:var(--serif);font-size:28px;line-height:1.08;font-weight:500;letter-spacing:-.015em}
+  .choice .cta{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-top:6px;display:inline-flex;gap:10px}
+  .choice .arw{transition:transform .3s}
+  .choice:hover .arw{transform:translateX(6px)}
+  .inst{color:var(--ink);background:radial-gradient(125% 105% at 30% 22%,#f5f5f4 0%,#e8e8e6 58%,#dadad7 100%)}
+  .inst .k{color:#2b2e34}
+  .trad{background:linear-gradient(135deg,#0c1626 0%,#0b0e14 70%);border:1px solid rgba(143,176,232,.35)}
+  .trad .k,.trad .cta{color:var(--blue-light)}
+  .choice.first{box-shadow:0 0 0 2px var(--blue-light)}
+
+  .more{display:flex;flex-wrap:wrap;gap:10px 26px;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#c6cad2}
+  .more a,.more button{color:#c6cad2;border-bottom:1px solid rgba(198,202,210,.35);padding-bottom:2px}
+  .more a:hover,.more button:hover{color:#fff;border-bottom-color:#fff}
+  .more button{background:none;border-top:0;border-left:0;border-right:0;font:inherit;letter-spacing:inherit;text-transform:inherit;cursor:pointer}
+
+  .footnote{text-align:center;padding:13px 24px;border-top:1px solid rgba(255,255,255,.08);
+    font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:#c3c6cd;line-height:1.5;background:rgba(9,11,15,.72)}
+
+  @media(max-width:700px){
+    .choices{grid-template-columns:1fr}
+    .plate{padding:14px 26px 12px}
+    .plate .wm{font-size:12px}
+    .footnote{font-size:10.5px}
+  }
+  @media(prefers-reduced-motion:reduce){.choice,.choice .arw{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <a class="plate" href="/" aria-label="CRL Technologies home">
+    <img class="mark" src="/broker/images/logo-crl-serpent.png" alt="" width="40" height="40" decoding="async">
+    <span class="wm">CRL TECHNOLOGIES</span>
+    <span class="kick">Error 404</span>
+  </a>
+</div>
+
+<main>
+  <div class="eyebrow">Page not found</div>
+  <h1>This page never reached its trigger.</h1>
+  <p class="lede">The address may be wrong, or the page has moved. Choose where to go next.</p>
+  <p class="path" id="path" hidden>Requested address: <span></span></p>
+
+  <p class="hint" id="hint-research">Looking for the quantitative research? It is here: <a href="/broker/research/">CRL 5× · Clients, brokers and business models</a> (<a href="/broker/research/it/">versione italiana</a>).</p>
+
+  <div class="choices">
+    <a class="choice inst" id="go-inst" href="/broker/index.html">
+      <span class="k">For institutions</span>
+      <span class="t">Licensed infrastructure</span>
+      <span class="cta">Institutional site <span class="arw">&rarr;</span></span>
+    </a>
+    <a class="choice trad" id="go-trad" href="/traders/index.html">
+      <span class="k">For professional traders</span>
+      <span class="t">Be wrong at 1&times;. Be right with leverage.</span>
+      <span class="cta">Traders site <span class="arw">&rarr;</span></span>
+    </a>
+  </div>
+
+  <nav class="more" aria-label="Other pages">
+    <a href="/">Home</a>
+    <a href="/broker/research/">Quantitative research</a>
+    <a href="/broker/faq.html">FAQ</a>
+    <button type="button" id="back">Previous page</button>
+  </nav>
+</main>
+
+<div class="footnote">CRL Technologies, Inc. &middot; Licensed to authorised financial institutions &middot; Intended for professional clients, eligible counterparties or equivalent categories, depending on jurisdiction. Not intended for retail clients.</div>
+
+<script>
+(function () {
+  var p = location.pathname || '/';
+  if (p !== '/' && p !== '/404.html') {
+    var el = document.getElementById('path');
+    var shown = p;
+    try { shown = decodeURIComponent(p); } catch (e) {}
+    el.querySelector('span').textContent = shown;
+    el.hidden = false;
+  }
+  var low = p.toLowerCase();
+  if (/research|ricerca|presentation|presentazione/.test(low)) document.getElementById('hint-research').classList.add('on');
+  if (low.indexOf('/traders') === 0) document.getElementById('go-trad').classList.add('first');
+  else if (low.indexOf('/broker') === 0) document.getElementById('go-inst').classList.add('first');
+  var back = document.getElementById('back');
+  if (history.length > 1) back.addEventListener('click', function () { history.back(); });
+  else back.hidden = true;
+})();
+</script>
+</body>
+</html>
