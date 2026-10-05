@@ -1,0 +1,4201 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Quantitative research on CRL 5×: simulated client capital and broker economics under A-book, B-book and hybrid models. 24 months, EUR/USD, 1,000 clients per cohort." name="description"/>
+<meta content="website" property="og:type"/>
+<meta content="Quantitative research on CRL 5×: simulated client capital and broker economics under A-book, B-book and hybrid models. 24 months, EUR/USD, 1,000 clients per cohort." property="og:description"/>
+<title>
+   CRL 5× · Clients, brokers and business models
+  </title>
+<link href="assets/crl-logo.png" rel="icon" type="image/png"/>
+<style data-source="style.css">
+   :root{--ink:#173238;--muted:#566c70;--paper:#f3f5f1;--line:#d5dfd9;--std:#526f87;--crl:#008477;--red:#b4433c;--gold:#a56b21}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 'Segoe UI',Arial,sans-serif}main{max-width:1480px;margin:auto;padding:40px 32px 70px}h1{font-size:clamp(32px,4vw,53px);line-height:1.08;letter-spacing:-1.7px;font-weight:650;margin:14px 0 20px}h2{font-size:24px;line-height:1.2;margin:0 0 16px}h3{font-size:16px;margin:18px 0 8px}.eyebrow{color:var(--crl);font-weight:700;font-size:12px;letter-spacing:.13em}.intro{font-size:18px;max-width:850px;color:var(--muted)}.tags{display:flex;gap:8px;flex-wrap:wrap}.tags span{border:1px solid var(--line);border-radius:20px;padding:5px 13px;font-size:13px}nav{display:flex;gap:22px;flex-wrap:wrap;margin:26px 0 0;border-block:1px solid var(--line);padding:14px 0}a{color:#126b78;text-underline-offset:4px}nav a{text-decoration:none;font-weight:600;font-size:14px}.note{background:#fff5df;border-left:4px solid var(--gold);padding:15px 20px;margin:24px 0;border-radius:4px}.panel{background:#fff;border:1px solid var(--line);border-radius:12px;padding:25px;margin-top:24px;scroll-margin-top:18px}.controls,.split{display:flex;gap:16px;flex-wrap:wrap;align-items:end}.split{justify-content:space-between;align-items:center}.controls label,label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600}select,input,button{font:inherit;color:var(--ink);border:1px solid #aebfb9;border-radius:6px;padding:9px 11px;background:white;min-height:39px}select{max-width:100%}button{cursor:pointer}button:hover{background:#edf4ef}button:disabled{opacity:.4;cursor:default}:focus-visible{outline:3px solid #2b8e98;outline-offset:2px}input[type=range]{accent-color:var(--crl);width:260px;padding:0}.small,footer{font-size:13px;color:var(--muted)}.cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:14px}.card{background:#f5f8fa;border-radius:8px;padding:20px;border-top:4px solid var(--std)}.card.crl{background:#f0f8f5;border-color:var(--crl)}.value{font-size:37px;font-weight:650;letter-spacing:-1px;font-variant-numeric:tabular-nums}.card h3{margin:0 0 8px}.card .sub{color:var(--muted);font-size:13px}.card .row{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:9px;margin-top:10px}.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.kpi{padding:14px;background:#f6f8f5;border:1px solid var(--line);border-radius:7px}.kpi b{display:block;font-size:23px;font-variant-numeric:tabular-nums}.kpi span{font-size:12px;color:var(--muted)}.good{color:#067c66}.bad{color:var(--red)}.verdict{padding:15px;background:#edf5f3;border-radius:6px}.chartgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.chartgrid article{min-width:0}.chart{display:block;width:100%;height:auto}.legend{display:flex;gap:25px;flex-wrap:wrap;font-size:13px}.legend i{display:inline-block;width:24px;height:3px;background:var(--std);vertical-align:middle;margin-right:7px}.legend i.crl{background:var(--crl)}.scroll{overflow:auto;max-height:520px;border:1px solid var(--line);border-radius:7px;margin:16px 0}table{width:100%;border-collapse:collapse;font-size:13px;white-space:nowrap}td,th{padding:10px 12px;text-align:right;border-bottom:1px solid #e4ebe6;font-variant-numeric:tabular-nums}td:first-child,th:first-child{text-align:left}th{background:#edf2ee;position:sticky;top:0;z-index:1}tbody tr:hover{background:#f1f8f5}.selected{background:#e2f3ec}table button{padding:0;min-height:24px;border:0;background:transparent;text-decoration:underline;color:#126b78}.bridgeRow{display:grid;grid-template-columns:1.4fr 1fr auto;gap:10px;align-items:center;margin:12px 0;font-size:13px}.bridgeRow .bar{height:15px;background:#dce7e3;position:relative}.bridgeRow .bar i{display:block;height:15px;background:var(--crl)}details{margin:18px 0}summary{cursor:pointer;font-weight:600}li{margin:10px 0}.links{display:flex;gap:20px;flex-wrap:wrap;margin-top:20px;font-size:13px}canvas{width:100%;height:440px;image-rendering:pixelated}footer{margin-top:28px}.chartnote{min-height:38px;font-size:12px;color:var(--muted)}@media(max-width:800px){main{padding:24px 14px 45px}.panel{padding:17px}.chartgrid,.cards{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.controls>label{width:100%}h1{letter-spacing:-1px}.value{font-size:30px}input[type=range]{width:220px}}@media print{nav,.controls,button,input,select{display:none}.panel{break-inside:avoid}.scroll{max-height:none}.chartgrid{grid-template-columns:1fr 1fr}body{background:white}}
+#kpis{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:800px){#kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  </style>
+<style data-source="brand.css">
+   :root{--paper:#fbfaf6;--ink:#0f1012;--muted:#6d7078;--line:#e4e1d9;--std:#7c7c78;--crl:#173e78;--red:#8e3730;--gold:#89652f;--serif:'Cormorant Garamond',Georgia,serif;--sans:'IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace}
+html{scroll-behavior:auto;-webkit-font-smoothing:antialiased}body{font-family:var(--sans);background:var(--paper)}main{max-width:1440px;padding:22px clamp(22px,4.8vw,72px) 70px}.brand-bar{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:0 0 22px}.brand-sign{display:flex;gap:13px;align-items:center;font:500 20px var(--mono);letter-spacing:.28em}.brand-sign img{width:42px;height:42px;object-fit:contain}.brand-context{font:10px var(--mono);letter-spacing:.12em;text-align:right;color:var(--muted)}header{padding:62px 0 44px;display:grid;grid-template-columns:1.5fr 1fr;column-gap:45px}header .eyebrow,header .tags{grid-column:1/-1}header h1{font:500 clamp(44px,5.8vw,78px)/.98 var(--serif);letter-spacing:-.038em;margin:24px 0 26px}header .intro{font-size:17px;font-weight:300;align-self:center;max-width:400px;margin:24px 0;line-height:1.7}header .tags{gap:14px}header .tags span{font:10px var(--mono);letter-spacing:.05em;border:0;border-left:1px solid #c9c7bf;border-radius:0;padding:3px 12px}
+h2{font:500 clamp(30px,3.7vw,49px)/1.04 var(--serif);letter-spacing:-.025em;margin-bottom:20px}h3{font-family:var(--sans);font-weight:500}.eyebrow{font:500 10px var(--mono);letter-spacing:.17em;color:var(--crl)}nav{gap:20px;border-block:1px solid var(--line);padding:17px 0;margin:0 0 28px}nav a{font:10px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--ink)}nav a:hover{color:var(--crl)}a{color:var(--crl)}.panel{border:0;border-top:1px solid #cbc8bf;border-radius:0;padding:35px 0;background:transparent;margin-top:35px;scroll-margin-top:95px}.panel.controls{background:#f4f2ec;padding:22px;border:1px solid var(--line);margin:24px 0}.controls label,label{font-size:12px;font-weight:500}select,input,button{border-radius:0;border-color:#c4c2ba;background:#fbfaf6}select{font-family:var(--sans);font-size:13px}button{font-family:var(--mono);font-size:10px;letter-spacing:.035em;padding:11px 14px;border-color:#a09f98;transition:background .15s}button:hover{background:#e9edf3;color:#173e78}.cards{gap:24px}.card{background:#f3f1eb;border-radius:0;border-top:2px solid var(--std);padding:24px}.card.crl{background:#edf0f4;border-color:var(--crl)}.value{font:500 clamp(34px,3.3vw,47px)/1.1 var(--serif);letter-spacing:-.02em;margin:12px 0}.card h3{font:500 11px var(--mono);letter-spacing:.04em;text-transform:uppercase}.kpi{background:transparent;border:0;border-top:1px solid #c8c6be;border-radius:0;padding:15px 0}.kpi b{font:500 28px/1.25 var(--serif);margin:6px 0;color:var(--ink)}.kpi span{font-size:12px}.verdict{border-radius:0;background:#eef1f5;border-left:2px solid var(--crl);padding:17px 20px}.note{background:#f2eee3;border-left:2px solid #957d54;border-radius:0;font-size:13px}.small{line-height:1.65}.chartgrid{gap:28px}.chartgrid article h3{font-size:15px}.legend{font-size:12px}.scroll{border-radius:0;border-color:var(--line)}table{font-size:12px}th{font-weight:500;background:#eeece5}td,th{padding:11px 13px;border-color:#e6e3db}tbody tr:hover{background:#f2f2ed}td button{font-family:var(--mono);font-size:11px}.good{color:#24634f}.bad{color:var(--red)}
+.research-status{background:#101114;border-radius:0;box-shadow:none;font-family:var(--mono);font-size:10px;letter-spacing:.015em}.research-status a{color:#e5d8b7}.research-notice{background:transparent;border:1px solid #d6c9ae;border-top:2px solid #967643;border-radius:0;padding:27px;margin:22px 0 0}.research-notice h2{font:500 clamp(30px,3.3vw,43px)/1.08 var(--serif);letter-spacing:-.02em}.notice-lead{font-size:14px;color:#34383e}.notice-grid{gap:24px}.notice-number{font-family:var(--mono);font-size:10px}.notice-grid h3{font-size:14px}.notice-grid p{color:#626770;font-size:12px}.notice-close{font-size:12px}.research-notice .eyebrow{color:#89652f}
+.evidence-intro{max-width:780px;font-size:16px;color:var(--muted);font-weight:300}.evidence-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px}.evidence-card{border:1px solid #d9d6cc;padding:26px;background:#f7f5ef;min-width:0}.evidence-top{display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;font:9px var(--mono);letter-spacing:.08em;color:var(--muted)}.evidence-status{color:#89652f}.evidence-status.verified{color:#24634f}.evidence-card h3{font:500 35px/1.05 var(--serif);letter-spacing:-.02em;margin:25px 0 17px}.evidence-card p{font-size:13px;color:#61656d;line-height:1.7}.evidence-facts{display:grid;gap:15px;margin:22px 0}.evidence-facts>div{border-top:1px solid #d9d6cc;padding-top:12px}.evidence-facts strong{display:block;font:500 26px/1.15 var(--serif);color:var(--ink);margin-bottom:5px}.evidence-facts span{font-size:11px;line-height:1.6;color:var(--muted);display:block}.evidence-card .evidence-scope{font-size:11px}.evidence-card .evidence-limit{border-left:2px solid #173e78;padding-left:13px}.evidence-card details{border-top:1px solid #d9d6cc;padding-top:15px;margin:20px 0 0}.evidence-card summary{font:10px var(--mono);letter-spacing:.02em;line-height:1.6}.evidence-card details a{display:block;font-size:12px;margin:14px 0}.evidence-wide{grid-column:1/-1}.evidence-wide .evidence-facts{grid-template-columns:1fr 1fr;gap:30px}.links{font-family:var(--mono);font-size:11px}.brand-footer{border-top:1px solid #cbc8bf;padding-top:25px;font-family:var(--mono);font-size:10px;color:var(--muted)}
+@media(max-width:800px){main{padding:18px 20px 45px}.brand-context{font-size:8px;max-width:150px}.brand-sign{font-size:17px}.brand-sign img{width:35px;height:35px}header{grid-template-columns:1fr;padding:40px 0 25px;gap:0}header .intro{max-width:none;margin:0 0 25px}header h1{font-size:48px}header .tags{gap:10px}.notice-grid,.evidence-grid{grid-template-columns:1fr}.research-notice{padding:20px}.notice-grid{gap:17px}.notice-grid article{padding-top:10px}.panel{padding:27px 0}.evidence-card{padding:21px}.evidence-wide .evidence-facts{grid-template-columns:1fr;gap:15px}.research-status{gap:5px;font-size:9px}.research-status strong{letter-spacing:0}.research-status a{font-size:9px}.evidence-card h3{font-size:32px}.card{padding:18px}nav{gap:16px}nav a{font-size:9px}}
+.method-proof{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin:26px 0 12px;border-block:1px solid #d9d1bf;padding:18px 0}.method-proof strong{display:block;font:500 36px/1.1 var(--serif);color:var(--ink)}.method-proof span{display:block;font-size:12px;line-height:1.55;color:#626770;margin-top:8px}.method-count-note{font-size:12px;color:#6d7078;line-height:1.65}.notice-grid article>a{display:inline-block;font:10px/1.6 var(--mono);margin-top:13px}.method-links{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:20px;font-size:12px}.notice-grid p{font-size:13px;line-height:1.7}.notice-grid h3{font-size:15px;line-height:1.4}.notice-number{line-height:1.7;display:block}
+@media(max-width:800px){.method-proof{grid-template-columns:1fr 1fr;gap:22px}.method-proof strong{font-size:32px}.notice-grid p{font-size:13px}.method-links{flex-direction:column}}
+@media print{.brand-bar{padding-bottom:15px}.evidence-card{break-inside:avoid}.research-status{background:white;color:black}.research-status a{color:black}header{padding:20px 0}.evidence-card details{display:block}.evidence-card details>*{display:block}.panel{padding:20px 0}}
+
+.benefit-bridge{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;padding:15px 0}.benefit-bridge .kpi:last-child{border-top:2px solid #173e78;background:#eef1f5;padding:15px}#benefitCards{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:800px){.benefit-bridge{grid-template-columns:1fr}#benefitCards{grid-template-columns:1fr}}
+
+/* Keep chart labels legible; SVG remains vector at every display density. */
+:root{--std:#62625e}
+.chart-frame{width:100%;overflow-x:auto;overflow-y:hidden}
+.chart-frame .chart{min-width:520px;max-width:100%;height:auto;shape-rendering:geometricPrecision}
+.chart text{font-family:Arial,sans-serif;font-weight:400;font-variant-numeric:tabular-nums}
+.chart line{vector-effect:non-scaling-stroke;shape-rendering:crispEdges}
+@media(max-width:1150px){#charts,#lossCharts{grid-template-columns:1fr}}
+  </style>
+<style data-source="presentation.css">
+   :root{--std:#7c7c78;--crl:#173e78}.research-note{border:1px solid #d6c9ae;border-top:2px solid #967643;padding:22px;font-size:13px;line-height:1.75}.research-note a{white-space:nowrap}.card p{font-size:14px}.card .headline-number{font:500 42px/1.2 Georgia;margin:15px 0}.card .row{font-size:13px}.card .row b{font-weight:600}.business-note{background:#eef1f5;border-left:2px solid var(--crl);padding:18px 22px;margin:22px 0}.positive{color:#24634f}.negative{color:#8e3730}.neutral{color:#6d7078}svg{display:block;width:100%;height:auto}.bridgeRow{grid-template-columns:minmax(150px,1.5fr) 1fr minmax(75px,auto)}.bridgeRow b{font-variant-numeric:tabular-nums}.heat td{padding:7px;text-align:center}.heat td:first-child{text-align:left}.heat .yes{background:#e6eee8;color:#24583f}.heat .no{background:#f2e8e3;color:#813c35}.scroll{max-height:620px}.kpis{margin-top:22px}.kpi strong{font:500 28px/1.25 Georgia;display:block;margin:7px 0}.kpi small{font-size:12px;color:var(--muted);display:block}#monthLabel{font-family:var(--mono)}#lossCards{grid-template-columns:repeat(3,minmax(0,1fr))}nav{display:flex}.panel{scroll-margin-top:24px}header .intro{max-width:420px}#overview .split label{min-width:220px}#peopleResult{padding:14px 0;border-bottom:1px solid var(--line)}@media(max-width:800px){header{display:block;padding:30px 0}header .intro{max-width:none}.brand-context{font-size:8px}.brand-sign{font-size:16px}.kpis,#lossCards{grid-template-columns:repeat(2,minmax(0,1fr))}.bridgeRow{grid-template-columns:1.5fr .7fr auto;font-size:11px}.headline-number{font-size:34px!important}}@media print{details> *{display:block}.research-note{break-inside:avoid}.panel{break-inside:auto}.chartgrid article{break-inside:avoid}}
+
+.research-scale{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;padding:18px 0;margin:15px 0;border-block:1px solid #d6c9ae}.research-scale b{display:block;font:500 30px/1.2 Georgia,serif;color:#173e78}.research-scale span{display:block;font-size:11px;margin-top:6px;color:#596372}.research-note p{margin:14px 0}.research-note p:last-child{margin-bottom:0}@media(max-width:800px){.research-scale{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.research-scale b{font-size:28px}}
+
+/* Broker sensitivity, separate from the verified customer baseline. */
+.broker-inputs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:24px 0}.broker-inputs label{display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:600}.broker-inputs input,.broker-inputs select{font:inherit;min-width:0;width:100%;box-sizing:border-box;padding:11px;border:1px solid #aeb8c5;border-radius:6px;background:#fff;color:#18334f}.broker-inputs small{font-size:12px;font-weight:400;line-height:1.5;color:#536171}.broker-inputs input:disabled{opacity:.45}.broker-inputs [aria-invalid=true]{border:2px solid #983e36}.broker-actions{display:flex;gap:12px;flex-wrap:wrap}.broker-actions button{padding:12px 18px;border:1px solid #163f79;border-radius:5px;background:#163f79;color:white;cursor:pointer;font:inherit}.broker-actions button+button{background:white;color:#163f79}.baseline-note{background:#edf2f7;border-left:3px solid #163f79;padding:14px 18px;font-size:14px;line-height:1.6}#bValidation{color:#983e36}#broker-model table{font-variant-numeric:tabular-nums}#bResults[hidden]{display:none}@media(max-width:900px){.broker-inputs{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.broker-inputs{grid-template-columns:1fr}.broker-actions button{width:100%}}
+  </style>
+<style data-source="correction.css">
+   .audit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.audit-grid article{padding:20px;background:#f5f7fa;border:1px solid #d9e0e7;border-radius:8px}.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.05em;color:#18543d}.badge.warn{color:#875812}.prose-table{white-space:normal;min-width:760px}.prose-table td,.prose-table th{text-align:left;vertical-align:top}.prose-table td:first-child{width:15%;font-weight:600}.prose-table td{width:42.5%}.chartgrid svg{display:block;width:100%;height:auto}.kpi strong{display:block;font-size:23px}.note p:last-child{margin-bottom:0}.chartgrid{margin-top:24px}.chartgrid text{fill:#42566b}.audit-grid a{line-height:2}#kpis{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:800px){.audit-grid{grid-template-columns:1fr}#kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}@media print{.audit-grid{grid-template-columns:1fr}.note{display:block!important}}
+  </style>
+<style data-source="external.css">
+   :root{--crl:#1264ff;--std:#858b96}.legend i{background:var(--std);height:2px;background:repeating-linear-gradient(to right,var(--std) 0 6px,transparent 6px 10px)}.legend i.crl{background:var(--crl);height:4px}.audit-grid article{border-radius:0;background:#f6f5f0}.audit-grid .value{font-size:38px}.book-comparison{border-top:1px solid #d9dce2;border-bottom:1px solid #d9dce2;padding:6px 0;margin:18px 0}.evidence-card h3{font:500 23px/1.2 Georgia,serif}.downloads{padding:28px;background:#eef2f9;margin-top:24px}.download-primary{display:inline-block;background:#1264ff;color:white;padding:15px 22px;text-decoration:none}.book-type{font:12px monospace;text-transform:uppercase;letter-spacing:.1em;color:#1264ff}.book-negative{border-top:3px solid #8e3730!important}.book-positive{border-top:3px solid #1264ff!important}#broker-model .kpis{grid-template-columns:repeat(4,minmax(0,1fr))}#broker-model .small{max-width:100%}#bMonthLabel{display:inline}.chartgrid svg{shape-rendering:geometricPrecision}#activityNote{padding:14px;border-left:3px solid #1264ff;background:#edf2f9}#regole details{margin-bottom:0}@media(max-width:800px){#broker-model .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  </style>
+<style data-source="broker_reading.css">
+   .read-lead{font-size:21px;line-height:1.6;max-width:950px}.read-scope{font-size:13px;color:#586374;padding:15px 18px;background:#f0f3f7}.read-step{display:flex;align-items:center;gap:15px;margin:36px 0 18px}.read-step span{background:#1264ff;color:white;min-width:34px;height:34px;display:grid;place-items:center;border-radius:50%;font:18px Georgia}.read-step h3{margin:0;font-size:20px}.read-charts{display:grid;grid-template-columns:1fr 1fr;gap:30px}.read-chart{padding:24px;border:1px solid #d9dce2}.read-chart h3{margin:0 0 10px;font-size:18px;line-height:1.45}.read-bar-label{display:flex;justify-content:space-between;gap:15px;margin:20px 0 8px;font-size:14px}.read-bar-label strong{font-size:19px;white-space:nowrap}.read-track{height:20px;background:#eef0f3}.read-track>div{height:100%;min-width:2px}.read-std{background:#858b96}.read-crl{background:#1264ff}.read-message{font-size:18px}.read-caveat{padding:16px 18px;border-left:3px solid #8c7959;background:#f6f1e8;font-size:14px}.read-table{max-height:none}.read-table th,.read-table td{white-space:normal!important;vertical-align:top;padding:18px 14px!important}.read-table td:nth-child(2),.read-table td:nth-child(3){white-space:nowrap!important;font-size:19px}.read-blue{color:#1264ff;font-weight:700}.read-quote{font:26px/1.5 Georgia,serif;margin:24px 0;padding:26px;border-left:4px solid #1264ff;background:#edf3ff}.read-warning{padding:20px;background:#f0f3f7;font-size:15px;line-height:1.65}.read-links{display:flex;gap:24px;flex-wrap:wrap;margin-top:25px}.read-details{border-block-start:1px solid #c9ced6;padding:24px 0;margin:0!important}.read-details>summary{font:23px/1.4 Georgia,serif;cursor:pointer;color:#18212e}.read-details-note{color:#586374;font-size:14px}.read-details>.panel{margin-top:20px}#esito .read-table table{min-width:650px}#esito{scroll-margin-top:20px}@media(max-width:800px){.read-charts{grid-template-columns:1fr}.read-quote{font-size:22px}.read-lead{font-size:18px}.read-chart{padding:18px}.read-step h3{font-size:18px}}@media print{.read-details{display:block}.read-quote,.read-chart{break-inside:avoid}}
+header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bottom:22px}header .hero-benefit{font:400 clamp(26px,2.5vw,34px)/1.15 var(--serif);letter-spacing:-.015em;color:var(--ink);margin:0 0 30px}header .hero-benefit span{display:block}header .hero-benefit span:last-child{color:#1264ff}header .intro{grid-column:2}@media(max-width:800px){header .intro{grid-column:1}header .hero-heading h1{margin-bottom:18px}header .hero-benefit{font-size:27px;margin-bottom:26px}}
+.book-paths,.book-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:22px 0}.book-paths>a{display:flex;flex-direction:column;gap:12px;border:1px solid #d9dce2;padding:22px;text-decoration:none;color:#18212e}.book-paths>a:hover{border-color:#1264ff;background:#edf3ff}.book-paths strong{font:25px Georgia,serif}.book-paths span{font-size:15px;line-height:1.5}.book-kpis article{padding:20px;background:#f0f3f7}.book-kpis span{display:block;font-size:13px;margin-bottom:12px}.book-kpis strong{font-size:27px}.book-columns{display:grid;grid-template-columns:1fr 1fr;gap:26px}.book-curve svg{width:100%;height:auto;display:block}.book-curve text{font:12px Arial,sans-serif;fill:#586374}.book-detail{scroll-margin-top:20px}.book-detail .panel{padding-bottom:20px}.book-detail details{margin:20px 0}.book-detail .read-details{margin-top:28px!important}@media(max-width:800px){.book-paths,.book-kpis,.book-columns{grid-template-columns:1fr}.book-kpis{gap:8px}.book-kpis article{padding:14px 18px}}
+  </style>
+<style data-source="site.css">
+.brand-bar{flex-wrap:wrap}
+.brand-bar .brand-context{margin-left:auto}
+.lang-switch{display:flex;gap:12px;align-items:center;font:500 11px var(--mono);letter-spacing:.12em}
+.lang-switch a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent;padding:2px 0}
+.lang-switch a:hover,.lang-switch a:focus-visible{color:var(--crl);border-bottom-color:currentColor}
+.lang-switch [aria-current]{color:var(--ink);border-bottom:1px solid var(--ink);padding:2px 0}
+.legal-notice{margin-top:44px;padding:26px 28px;border:1px solid var(--line);background:#fff;max-width:980px}
+.legal-notice h2{font:500 24px/1.2 var(--serif);letter-spacing:-.01em;margin:0 0 12px}
+.legal-notice p{font-size:13px;line-height:1.6;color:var(--muted);margin:0 0 10px}
+.legal-notice p:last-child{margin-bottom:0}
+.legal-notice .publisher{color:var(--ink)}
+@media(max-width:800px){.legal-notice{padding:20px 18px}.lang-switch{width:100%;justify-content:flex-end}}
+@media print{.lang-switch{display:none}}
+</style>
+</head>
+<body>
+<main>
+<div class="brand-bar">
+<div class="brand-sign">
+<img alt="CRL" src="assets/crl-logo.png"/>
+     C.R.L.
+    </div>
+<div class="brand-context">
+     QUANTITATIVE RESEARCH · CLIENTS AND BROKERS · OCTOBER 2026
+    </div>
+<div aria-label="Language" class="lang-switch"><span aria-current="page">EN</span><a href="it/index.html" hreflang="it" lang="it">IT</a></div>
+</div>
+<header>
+<div class="eyebrow">
+     CRL 5× · CLIENT CAPITAL AND BROKER ECONOMICS
+    </div>
+<div class="hero-heading">
+<h1>
+      The power of leverage.
+      <br/>
+      The value of capital.
+     </h1>
+<p class="hero-benefit">
+<span>
+       Fewer severe losses.
+      </span>
+<span>
+       More capital preserved.
+      </span>
+</p>
+</div>
+<p class="intro">
+     Complement traditional leverage with an offering that preserves more client capital in the simulated comparison. CRL maintains 1× exposure before the trigger and amplifies the result to 5× at the trigger. Fewer severe losses are the measured outcome; translating that into longer client relationships is the opportunity still to be tested. Margins and risks are analysed separately for A-book, B-book and hybrid models.
+    </p>
+<div class="tags">
+<span>
+      Maximum leverage 5×
+     </span>
+<span>
+      1,000 clients per cohort
+     </span>
+<span>
+      24 months · EUR/USD
+     </span>
+<span>
+      Explicit costs and counterparty cash flows
+     </span>
+</div>
+</header>
+<nav>
+<a href="#esito">
+     Overview
+    </a>
+<a href="#read-client">
+     Client KPIs
+    </a>
+<a href="#a-book-detail">
+     A-book
+    </a>
+<a href="#b-book-detail">
+     B-book
+    </a>
+<a href="#hybrid-detail">
+     Hybrid
+    </a>
+<a href="#read-broker">
+     Calculators
+    </a>
+<a href="#read-method">
+     Method and sources
+    </a>
+<a href="#verifiche">
+     Documents
+    </a>
+</nav>
+<section class="panel" id="esito">
+<div class="eyebrow">
+     ESSENTIAL READING · BASELINE PRICING
+    </div>
+<h2>
+     What CRL offers.
+     <br/>
+     What works for the broker.
+    </h2>
+<p class="read-lead">
+     The clearest benefit in the model is the
+     <strong>
+      reduction in severe losses
+     </strong>
+     . At baseline pricing, CRL also leaves clients with more capital on average. The broker's economic case depends on its book model.
+    </p>
+<p class="read-scope">
+     All figures in this overview: 24 months, $50,000 initial capital, averages across 18 correlated historical variants. No increase in the client premium and no voluntary exits have been added. These are simulated results, not commercial promises.
+    </p>
+<div class="read-step">
+<span>
+      1
+     </span>
+<h3>
+      The client: less capital lost in severe losses
+     </h3>
+</div>
+<div class="read-charts">
+<article class="read-chart">
+<h3>
+       Clients crossing the 50% loss threshold
+      </h3>
+<p class="small">
+       Per 1,000 initial clients · lower is better
+      </p>
+<div class="read-bar-label">
+       Traditional 5×
+       <strong>
+        371.3
+       </strong>
+</div>
+<div class="read-track">
+<div class="read-std" style="width:37.12778%">
+</div>
+</div>
+<div class="read-bar-label">
+       CRL · baseline pricing
+       <strong>
+        2.4
+       </strong>
+</div>
+<div class="read-track">
+<div class="read-crl" style="width:0.23889%">
+</div>
+</div>
+</article>
+<article class="read-chart">
+<h3>
+       Average capital remaining after 24 months
+      </h3>
+<p class="small">
+       Dollars per initial client · higher is better · starting capital $50,000
+      </p>
+<div class="read-bar-label">
+       Traditional 5×
+       <strong>
+        37,914
+       </strong>
+</div>
+<div class="read-track">
+<div class="read-std" style="width:75.82884%">
+</div>
+</div>
+<div class="read-bar-label">
+       CRL · baseline pricing
+       <strong>
+        42,096
+       </strong>
+</div>
+<div class="read-track">
+<div class="read-crl" style="width:84.19121%">
+</div>
+</div>
+</article>
+</div>
+<p class="read-message">
+     In the model, CRL leaves
+     <strong>
+      an additional $4,181
+     </strong>
+     per initial client. Both products have a negative average return relative to the initial $50,000.
+    </p>
+<p class="read-caveat">
+<strong>
+      Less severe losses do not mean fewer clients making a loss.
+     </strong>
+     At month 24, 837.3 CRL clients versus 798.5 traditional clients per 1,000 are below their initial capital. Improved commercial retention has not yet been demonstrated.
+    </p>
+<div class="read-step">
+<span>
+      2
+     </span>
+<h3>
+      The broker: three different answers
+     </h3>
+</div>
+<p class="small">
+     Cumulative margin per initially acquired client, after costs included in the model and before acquisition costs, taxes and the cost of capital. Filters in the detailed sections do not change this overview.
+    </p>
+<div class="scroll read-table">
+<table>
+<thead>
+<tr>
+<th>
+         Book
+        </th>
+<th>
+         Traditional
+        </th>
+<th>
+         CRL
+        </th>
+<th>
+         How to interpret it
+        </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<strong>
+          A-book
+         </strong>
+</td>
+<td>
+         1,555 $
+        </td>
+<td class="read-blue">
+         2,127 $
+        </td>
+<td>
+<strong>
+          Higher margin in the model
+         </strong>
+<br/>
+         An increase of $572; favourable in 18/18 variants. The executable hedging price still needs to be verified.
+        </td>
+</tr>
+<tr>
+<td>
+<strong>
+          Pure B-book
+         </strong>
+</td>
+<td>
+         11,434 $
+        </td>
+<td class="read-blue">
+         6,542 $
+        </td>
+<td>
+<strong>
+          Profitable on average, but below traditional
+         </strong>
+<br/>
+         CRL produces a positive margin in 15/18 variants; $4,892 less on average. An overall economic advantage over the client relationship has not been demonstrated.
+        </td>
+</tr>
+<tr>
+<td>
+<strong>
+          Hybrid · 10% B-book
+         </strong>
+</td>
+<td>
+         2,543 $
+        </td>
+<td class="read-blue">
+         2,569 $
+        </td>
+<td>
+<strong>
+          Small average advantage
+         </strong>
+<br/>
+         Only $26 more; favourable in 7/18 variants. The 10% share is an illustrative scenario, identical for both products.
+        </td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="small">
+     Conditions: provider priced at the theoretical premium Q, disclosed costs, A-book execution stress of 5 seconds + 0.5 pip. The B-book retains all risk; no cost of capital is included. No revenue from retention has been added.
+    </p>
+<div class="read-step">
+<span>
+      3
+     </span>
+<h3>
+      The conclusion to present
+     </h3>
+</div>
+<blockquote class="read-quote">
+     “In the simulated comparison, CRL substantially reduces severe client losses. Brokers must assess its economic value against their own risk management model and costs.”
+    </blockquote>
+<p>
+<strong>
+      The B-book analysis remains a separate assessment.
+     </strong>
+     The replacement analysis, including replacement-client margins and acquisition costs, did not identify a configuration benefiting both client and broker under the conditions tested. A higher premium can increase broker margin, but reduces client wealth. Exit scenarios show when a relationship could last longer: they do not yet demonstrate actual commercial lifetime.
+    </p>
+<div class="read-warning">
+<strong>
+      How to read “Average client wealth”.
+     </strong>
+     The chart above uses the baseline premium. In tests with a higher premium, the CRL curve can fall below traditional: this is the cost of that pricing variant, not the baseline-pricing result. The two configurations are kept separate in the detailed analysis.
+    </div>
+<p class="small">
+     The strength of the work lies in comparing the same cohorts and reconciling cash flows. The cohort is a controlled 5× leverage scenario, not an empirically calibrated retail population. Rules, costs, sources and limitations are integral to the assessment.
+    </p>
+<div class="read-links">
+<a href="#risultati">
+      View all client KPIs →
+     </a>
+<a href="#broker-capacity">
+      Examine broker margin, costs and risk →
+     </a>
+<a href="#bbook-relation">
+      Examine the value of the B-book relationship →
+     </a>
+</div>
+<h3>
+     Choose your broker model
+    </h3>
+<div class="book-paths" id="book-paths">
+<a href="#a-book-detail">
+<strong>
+       A-book
+      </strong>
+<span>
+       More service margin, subject to verification of the hedge.
+      </span>
+<span class="read-blue">
+       Open the detailed analysis →
+      </span>
+</a>
+<a href="#b-book-detail">
+<strong>
+       Pure B-book
+      </strong>
+<span>
+       Positive average margin. Counterparty risk to manage.
+      </span>
+<span class="read-blue">
+       Open the detailed analysis →
+      </span>
+</a>
+<a href="#hybrid-detail">
+<strong>
+       Hybrid · 10% B-book
+      </strong>
+<span>
+       A balance sensitive to costs and the internalised share.
+      </span>
+<span class="read-blue">
+       Open the detailed analysis →
+      </span>
+</a>
+</div>
+<p class="read-message">
+<strong>
+      The quantitative phase is complete within its stated scope.
+     </strong>
+     The research is ready for discussion with a broker; full profitability and operational feasibility require its costs and contracts.
+     <a href="#stato-analisi">
+      Conclusions and next steps for field validation →
+     </a>
+</p>
+</section>
+<details class="read-details" id="read-client">
+<summary>
+     Client KPIs and monthly comparison
+    </summary>
+<p class="read-details-note">
+     Charts, distributions and all 18 variants at baseline pricing.
+    </p>
+<section class="panel" id="risultati">
+<div class="eyebrow">
+      MODEL RESULTS · DISCLOSED CONDITIONS
+     </div>
+<h2>
+      The monthly comparison,
+      <br/>
+      with its limitations in view.
+     </h2>
+<p>
+      18 correlated pairs, 36 distinct client scenarios, 36,000 simulated 24-month paths and 864,000 client-month observations. Three historical windows; one random seed. These are simulations, not independently observed clients.
+     </p>
+<div class="controls">
+<label>
+       Cohorts
+       <select id="cohort">
+<option value="all">
+         Average across all 18 variants
+        </option>
+</select>
+</label>
+<label>
+       Broker execution
+       <select id="execution">
+<option value="latency5_slip05">
+         5 seconds + 0.5 pip
+        </option>
+<option value="base">
+         Immediate
+        </option>
+<option value="latency1">
+         1 second
+        </option>
+<option value="latency1_slip01">
+         1 second + 0.1 pip
+        </option>
+</select>
+</label>
+</div>
+<p class="baseline-note">
+      Client pricing: commission of $20 per million per side, CRL service fee of 2.75 bp, annual funding of 3% of notional, no additional spread. Provider priced at theoretical Q. Voluntary churn disabled: trading activity and commercial retention are separate measures.
+     </p>
+<p class="small" id="scope">
+</p>
+<div class="kpis" id="kpis">
+</div>
+<p class="verdict" id="outcome">
+</p>
+<div class="legend">
+<span>
+<i>
+</i>
+       Traditional 5×
+      </span>
+<span>
+<i class="crl">
+</i>
+       CRL
+      </span>
+</div>
+<div class="chartgrid">
+<article>
+<h3>
+        Average wealth · $ per initial client
+       </h3>
+<div id="wealth">
+</div>
+</article>
+<article>
+<h3>
+        Cumulative broker margin · $ per initial client
+       </h3>
+<div id="broker">
+</div>
+</article>
+<article>
+<h3>
+        Clients making a loss in the month
+       </h3>
+<div id="monthLoss">
+</div>
+</article>
+<article>
+<h3>
+        Clients below initial capital
+       </h3>
+<div id="loss">
+</div>
+</article>
+<article>
+<h3>
+        Clients who have crossed −50%
+       </h3>
+<div id="burn">
+</div>
+</article>
+<article>
+<h3>
+        Clients opening trades in the month · two overlapping series
+       </h3>
+<div id="activity">
+</div>
+<p class="small" id="activityNote">
+</p>
+</article>
+</div>
+<p class="small">
+      Counts per 1,000 initial clients; averages across variants may be fractional. −50% is relative to the initial $50,000, not a drawdown from the peak. In-position capital depletion is assigned to the closing month; balances reflect closed trades, not mark-to-market. Monthly anniversaries run from 2 January at 08:00 UTC.
+     </p>
+</section>
+<section class="panel" id="mesi">
+<h2>
+      Every month, including adverse outcomes.
+     </h2>
+<p>
+      STD / CRL columns always follow the same order. Monthly results are distinct from cumulative results.
+     </p>
+<div class="scroll">
+<table id="monthly">
+</table>
+</div>
+<h3>
+      Distribution, activity and loss severity
+     </h3>
+<div class="scroll">
+<table id="detail">
+</table>
+</div>
+<h3>
+      All 18 variants at month 24
+     </h3>
+<div class="scroll">
+<table id="variants">
+</table>
+</div>
+<p class="small">
+      The table of 18 variants remains complete even when a single cohort is selected in the charts. Averages of medians and percentiles describe the cohorts, not the percentile of an independent pooled sample.
+     </p>
+</section>
+</details>
+<details class="read-details book-detail" id="a-book-detail">
+<summary>
+     A-book · detailed analysis
+    </summary>
+<section class="panel">
+<div class="eyebrow">
+      SAME CRL PRODUCT · DIFFERENT RISK MANAGEMENT
+     </div>
+<h2>
+      More service margin, subject to verification of the hedge.
+     </h2>
+<p class="read-lead">
+      Payoff risk is transferred under the modelled contract. The broker earns service revenue and bears operating, licence and execution costs; the hedge is valued at the theoretical premium Q.
+     </p>
+<p class="read-scope">
+      24 months · 1,000 clients per cohort · average of 18 correlated variants · 5× leverage and baseline pricing. External share: provider at theoretical Q and execution of 5 seconds + 0.5 pip. Unquoted costs, taxes and cost of capital excluded. Calculator selections do not change this section.
+     </p>
+<div class="book-kpis">
+<article>
+<span>
+        Traditional / client
+       </span>
+<strong>
+        1,555 $
+       </strong>
+</article>
+<article>
+<span>
+        CRL / client
+       </span>
+<strong class="read-blue">
+        2,127 $
+       </strong>
+</article>
+<article>
+<span>
+        Difference: CRL − traditional
+       </span>
+<strong>
+        +572 $
+       </strong>
+</article>
+</div>
+<p>
+      Positive CRL margin in
+      <strong>
+       18/18
+      </strong>
+      variants; above traditional in
+      <strong>
+       18/18
+      </strong>
+      . CRL margin range: $1,725 / $2,449 per client. These are not confidence intervals.
+     </p>
+<div class="book-columns">
+<article>
+<h3>
+        What it offers the broker
+       </h3>
+<p>
+        In the simulated comparison, the client-capital benefit comes with a broker margin above traditional in all 18 variants. This is the most favourable of the three book models for the economic comparison between the products.
+       </p>
+</article>
+<article>
+<h3>
+        When it makes economic sense
+       </h3>
+<p>
+        The advantage remains subject to the executable hedge price, additional costs and required capital. The difference versus traditional is the additional budget available, not guaranteed net profit.
+       </p>
+</article>
+</div>
+<h3>
+      The client benefit is unchanged
+     </h3>
+<p>
+      The book model changes the broker's accounting, not the product or the client paths. Average capital at 24 months: CRL
+      <strong>
+       42,096 $
+      </strong>
+      , traditional $37,914, from an initial $50,000. Fewer severe losses do not mean fewer people making a loss; commercial retention still needs to be verified.
+      <a href="#risultati">
+       Full client KPIs →
+      </a>
+</p>
+<h3>
+      Cumulative broker margin · month by month
+     </h3>
+<p class="small">
+      Dollars per initial client, after only the included costs. Same scale across all three sections. Solid blue: CRL; dashed grey: traditional.
+     </p>
+<div class="book-curve">
+<svg aria-label="A-book: average cumulative margin per client, traditional and CRL, from zero to 24 months" role="img" viewbox="0 0 720 255">
+<line stroke="#d9dce2" x1="65" x2="685" y1="212.0" y2="212.0">
+</line>
+<text text-anchor="end" x="55" y="216.0">
+        0
+       </text>
+<line stroke="#d9dce2" x1="65" x2="685" y1="122.0" y2="122.0">
+</line>
+<text text-anchor="end" x="55" y="126.0">
+        6,174
+       </text>
+<line stroke="#d9dce2" x1="65" x2="685" y1="32.0" y2="32.0">
+</line>
+<text text-anchor="end" x="55" y="36.0">
+        12,349
+       </text>
+<text text-anchor="middle" x="65.0" y="237">
+        M0
+       </text>
+<text text-anchor="middle" x="220.0" y="237">
+        M6
+       </text>
+<text text-anchor="middle" x="375.0" y="237">
+        M12
+       </text>
+<text text-anchor="middle" x="530.0" y="237">
+        M18
+       </text>
+<text text-anchor="middle" x="685.0" y="237">
+        M24
+       </text>
+<polyline fill="none" points="65.00,212.00 90.83,210.85 116.67,209.94 142.50,208.97 168.33,208.15 194.17,207.30 220.00,206.38 245.83,205.49 271.67,204.47 297.50,203.55 323.33,202.83 349.17,202.01 375.00,201.46 400.83,200.53 426.67,199.55 452.50,198.19 478.33,197.14 504.17,195.99 530.00,194.93 555.83,193.88 581.67,192.89 607.50,191.82 633.33,190.87 659.17,189.92 685.00,189.33" stroke="#858b96" stroke-dasharray="7 5" stroke-width="2.5">
+</polyline>
+<polyline fill="none" points="65.00,212.00 90.83,210.43 116.67,209.21 142.50,207.50 168.33,206.47 194.17,204.59 220.00,203.06 245.83,201.58 271.67,199.86 297.50,198.87 323.33,197.97 349.17,196.98 375.00,196.04 400.83,194.49 426.67,193.51 452.50,192.08 478.33,191.05 504.17,189.58 530.00,187.85 555.83,186.71 581.67,185.10 607.50,184.11 633.33,183.16 659.17,182.17 685.00,180.99" stroke="#1264ff" stroke-dasharray="none" stroke-width="4">
+</polyline>
+</svg>
+</div>
+<details>
+<summary>
+       Open all 24 months: monthly and cumulative margin
+      </summary>
+<div class="scroll">
+<table>
+<thead>
+<tr>
+<th>
+           Month
+          </th>
+<th>
+           Traditional monthly $
+          </th>
+<th>
+           CRL monthly $
+          </th>
+<th>
+           Traditional cumulative $
+          </th>
+<th>
+           CRL cumulative $
+          </th>
+<th>
+           Cumulative difference $
+          </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+           1
+          </td>
+<td>
+           79
+          </td>
+<td>
+           108
+          </td>
+<td>
+           79
+          </td>
+<td>
+           108
+          </td>
+<td>
+           29
+          </td>
+</tr>
+<tr>
+<td>
+           2
+          </td>
+<td>
+           62
+          </td>
+<td>
+           84
+          </td>
+<td>
+           141
+          </td>
+<td>
+           191
+          </td>
+<td>
+           50
+          </td>
+</tr>
+<tr>
+<td>
+           3
+          </td>
+<td>
+           67
+          </td>
+<td>
+           117
+          </td>
+<td>
+           208
+          </td>
+<td>
+           308
+          </td>
+<td>
+           101
+          </td>
+</tr>
+<tr>
+<td>
+           4
+          </td>
+<td>
+           56
+          </td>
+<td>
+           71
+          </td>
+<td>
+           264
+          </td>
+<td>
+           379
+          </td>
+<td>
+           115
+          </td>
+</tr>
+<tr>
+<td>
+           5
+          </td>
+<td>
+           58
+          </td>
+<td>
+           129
+          </td>
+<td>
+           322
+          </td>
+<td>
+           508
+          </td>
+<td>
+           186
+          </td>
+</tr>
+<tr>
+<td>
+           6
+          </td>
+<td>
+           63
+          </td>
+<td>
+           105
+          </td>
+<td>
+           385
+          </td>
+<td>
+           613
+          </td>
+<td>
+           228
+          </td>
+</tr>
+<tr>
+<td>
+           7
+          </td>
+<td>
+           61
+          </td>
+<td>
+           101
+          </td>
+<td>
+           447
+          </td>
+<td>
+           715
+          </td>
+<td>
+           268
+          </td>
+</tr>
+<tr>
+<td>
+           8
+          </td>
+<td>
+           70
+          </td>
+<td>
+           118
+          </td>
+<td>
+           516
+          </td>
+<td>
+           833
+          </td>
+<td>
+           317
+          </td>
+</tr>
+<tr>
+<td>
+           9
+          </td>
+<td>
+           63
+          </td>
+<td>
+           67
+          </td>
+<td>
+           580
+          </td>
+<td>
+           901
+          </td>
+<td>
+           321
+          </td>
+</tr>
+<tr>
+<td>
+           10
+          </td>
+<td>
+           50
+          </td>
+<td>
+           62
+          </td>
+<td>
+           629
+          </td>
+<td>
+           963
+          </td>
+<td>
+           333
+          </td>
+</tr>
+<tr>
+<td>
+           11
+          </td>
+<td>
+           56
+          </td>
+<td>
+           68
+          </td>
+<td>
+           686
+          </td>
+<td>
+           1,031
+          </td>
+<td>
+           345
+          </td>
+</tr>
+<tr>
+<td>
+           12
+          </td>
+<td>
+           38
+          </td>
+<td>
+           64
+          </td>
+<td>
+           723
+          </td>
+<td>
+           1,095
+          </td>
+<td>
+           372
+          </td>
+</tr>
+<tr>
+<td>
+           13
+          </td>
+<td>
+           64
+          </td>
+<td>
+           106
+          </td>
+<td>
+           787
+          </td>
+<td>
+           1,201
+          </td>
+<td>
+           414
+          </td>
+</tr>
+<tr>
+<td>
+           14
+          </td>
+<td>
+           67
+          </td>
+<td>
+           68
+          </td>
+<td>
+           854
+          </td>
+<td>
+           1,269
+          </td>
+<td>
+           415
+          </td>
+</tr>
+<tr>
+<td>
+           15
+          </td>
+<td>
+           93
+          </td>
+<td>
+           98
+          </td>
+<td>
+           948
+          </td>
+<td>
+           1,366
+          </td>
+<td>
+           419
+          </td>
+</tr>
+<tr>
+<td>
+           16
+          </td>
+<td>
+           72
+          </td>
+<td>
+           71
+          </td>
+<td>
+           1,020
+          </td>
+<td>
+           1,437
+          </td>
+<td>
+           418
+          </td>
+</tr>
+<tr>
+<td>
+           17
+          </td>
+<td>
+           79
+          </td>
+<td>
+           101
+          </td>
+<td>
+           1,098
+          </td>
+<td>
+           1,538
+          </td>
+<td>
+           440
+          </td>
+</tr>
+<tr>
+<td>
+           18
+          </td>
+<td>
+           73
+          </td>
+<td>
+           118
+          </td>
+<td>
+           1,171
+          </td>
+<td>
+           1,657
+          </td>
+<td>
+           486
+          </td>
+</tr>
+<tr>
+<td>
+           19
+          </td>
+<td>
+           72
+          </td>
+<td>
+           79
+          </td>
+<td>
+           1,243
+          </td>
+<td>
+           1,735
+          </td>
+<td>
+           492
+          </td>
+</tr>
+<tr>
+<td>
+           20
+          </td>
+<td>
+           68
+          </td>
+<td>
+           110
+          </td>
+<td>
+           1,311
+          </td>
+<td>
+           1,846
+          </td>
+<td>
+           535
+          </td>
+</tr>
+<tr>
+<td>
+           21
+          </td>
+<td>
+           73
+          </td>
+<td>
+           68
+          </td>
+<td>
+           1,384
+          </td>
+<td>
+           1,913
+          </td>
+<td>
+           529
+          </td>
+</tr>
+<tr>
+<td>
+           22
+          </td>
+<td>
+           66
+          </td>
+<td>
+           65
+          </td>
+<td>
+           1,450
+          </td>
+<td>
+           1,979
+          </td>
+<td>
+           529
+          </td>
+</tr>
+<tr>
+<td>
+           23
+          </td>
+<td>
+           65
+          </td>
+<td>
+           68
+          </td>
+<td>
+           1,515
+          </td>
+<td>
+           2,046
+          </td>
+<td>
+           531
+          </td>
+</tr>
+<tr>
+<td>
+           24
+          </td>
+<td>
+           40
+          </td>
+<td>
+           81
+          </td>
+<td>
+           1,555
+          </td>
+<td>
+           2,127
+          </td>
+<td>
+           572
+          </td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+<h3>
+      Portfolio risk · 1,000 clients
+     </h3>
+<p>
+      Transferring the payoff does not eliminate execution and liquidity risks. In the sample, both the worst daily loss and the maximum cumulative decline are higher with CRL. Provider reimbursement delays may require cash advances.
+     </p>
+<div class="scroll">
+<table>
+<thead>
+<tr>
+<th>
+          Measure based on realised cash flows
+         </th>
+<th>
+          Traditional $
+         </th>
+<th>
+          CRL $
+         </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+          Worst loss over a complete day
+         </td>
+<td>
+          4,167
+         </td>
+<td>
+          91,236
+         </td>
+</tr>
+<tr>
+<td>
+          Maximum cumulative decline from peak
+         </td>
+<td>
+          4,167
+         </td>
+<td>
+          102,212
+         </td>
+</tr>
+<tr>
+<td>
+          Maximum initial cash deficit
+         </td>
+<td>
+          0
+         </td>
+<td>
+          10,927
+         </td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="small">
+      Extremes across the 18 variants, not quantiles or capital requirements. Cash flows recognised at closes and modelled due dates: open exposures are not continuously revalued. Maxima may occur on different dates and in different variants and must not be added together.
+      <a href="#broker-capacity">
+       Definitions, trigger concentration and stress →
+      </a>
+</p>
+<h3>
+      What to verify with the broker
+     </h3>
+<p>
+      Hedge quotation, slippage, reimbursement timing, collateral, acquisition costs and support. Select A-book in the shared calculator.
+     </p>
+<div class="read-links">
+<a href="#capacity-costs">
+       Enter costs and the share of migrated clients →
+      </a>
+<a href="#broker-model">
+       Explore pricing and the internalised share →
+      </a>
+</div>
+</section>
+</details>
+<details class="read-details book-detail" id="b-book-detail">
+<summary>
+     Pure B-book · detailed analysis
+    </summary>
+<section class="panel">
+<div class="eyebrow">
+      SAME CRL PRODUCT · DIFFERENT RISK MANAGEMENT
+     </div>
+<h2>
+      Positive average margin. Counterparty risk to manage.
+     </h2>
+<p class="read-lead">
+      The broker retains the full counterparty result. Premium, funding and payoff are reconciled with client wealth without double counting; no external hedge is purchased.
+     </p>
+<p class="read-scope">
+      24 months · 1,000 clients per cohort · average of 18 correlated variants · 5× leverage and baseline pricing. No external hedge or hedge execution cost is charged to the pure B-book. Unquoted costs, taxes and cost of capital excluded. Calculator selections do not change this section.
+     </p>
+<div class="book-kpis">
+<article>
+<span>
+        Traditional / client
+       </span>
+<strong>
+        11,434 $
+       </strong>
+</article>
+<article>
+<span>
+        CRL / client
+       </span>
+<strong class="read-blue">
+        6,542 $
+       </strong>
+</article>
+<article>
+<span>
+        Difference: CRL − traditional
+       </span>
+<strong>
+        −4,892 $
+       </strong>
+</article>
+</div>
+<p>
+      Positive CRL margin in
+      <strong>
+       15/18
+      </strong>
+      variants; above traditional in
+      <strong>
+       0/18
+      </strong>
+      . CRL margin range: -$283 / $12,467 per client. These are not confidence intervals.
+     </p>
+<div class="book-columns">
+<article>
+<h3>
+        What it offers the broker
+       </h3>
+<p>
+        CRL generates a positive margin in 15 of the 18 variants, but less than traditional in all 18. As a complementary offering it can contribute margin; for migrated clients, the traditional margin forgone must also be accounted for.
+       </p>
+</article>
+<article>
+<h3>
+        When it makes economic sense
+       </h3>
+<p>
+        A positive margin does not demonstrate an advantage over traditional. The premium, exit and replacement tests did not identify a joint average advantage in client wealth and broker margin under the conditions examined.
+       </p>
+</article>
+</div>
+<h3>
+      The client benefit is unchanged
+     </h3>
+<p>
+      The book model changes the broker's accounting, not the product or the client paths. Average capital at 24 months: CRL
+      <strong>
+       42,096 $
+      </strong>
+      , traditional $37,914, from an initial $50,000. Fewer severe losses do not mean fewer people making a loss; commercial retention still needs to be verified.
+      <a href="#risultati">
+       Full client KPIs →
+      </a>
+</p>
+<h3>
+      Cumulative broker margin · month by month
+     </h3>
+<p class="small">
+      Dollars per initial client, after only the included costs. Same scale across all three sections. Solid blue: CRL; dashed grey: traditional.
+     </p>
+<div class="book-curve">
+<svg aria-label="Pure B-book: average cumulative margin per client, traditional and CRL, from zero to 24 months" role="img" viewbox="0 0 720 255">
+<line stroke="#d9dce2" x1="65" x2="685" y1="212.0" y2="212.0">
+</line>
+<text text-anchor="end" x="55" y="216.0">
+        0
+       </text>
+<line stroke="#d9dce2" x1="65" x2="685" y1="122.0" y2="122.0">
+</line>
+<text text-anchor="end" x="55" y="126.0">
+        6,174
+       </text>
+<line stroke="#d9dce2" x1="65" x2="685" y1="32.0" y2="32.0">
+</line>
+<text text-anchor="end" x="55" y="36.0">
+        12,349
+       </text>
+<text text-anchor="middle" x="65.0" y="237">
+        M0
+       </text>
+<text text-anchor="middle" x="220.0" y="237">
+        M6
+       </text>
+<text text-anchor="middle" x="375.0" y="237">
+        M12
+       </text>
+<text text-anchor="middle" x="530.0" y="237">
+        M18
+       </text>
+<text text-anchor="middle" x="685.0" y="237">
+        M24
+       </text>
+<polyline fill="none" points="65.00,212.00 90.83,195.14 116.67,180.84 142.50,188.58 168.33,173.54 194.17,164.62 220.00,165.06 245.83,164.40 271.67,143.83 297.50,125.86 323.33,117.29 349.17,116.56 375.00,102.74 400.83,103.44 426.67,95.00 452.50,97.65 478.33,83.68 504.17,81.99 530.00,81.60 555.83,72.31 581.67,70.72 607.50,66.50 633.33,59.16 659.17,58.56 685.00,45.33" stroke="#858b96" stroke-dasharray="7 5" stroke-width="2.5">
+</polyline>
+<polyline fill="none" points="65.00,212.00 90.83,215.87 116.67,217.58 142.50,216.02 168.33,202.54 194.17,198.44 220.00,191.24 245.83,187.99 271.67,182.22 297.50,177.99 323.33,177.55 349.17,173.20 375.00,173.38 400.83,173.09 426.67,162.00 452.50,143.46 478.33,126.07 504.17,118.09 530.00,130.41 555.83,123.02 581.67,131.21 607.50,126.27 633.33,126.80 659.17,126.50 685.00,116.65" stroke="#1264ff" stroke-dasharray="none" stroke-width="4">
+</polyline>
+</svg>
+</div>
+<details>
+<summary>
+       Open all 24 months: monthly and cumulative margin
+      </summary>
+<div class="scroll">
+<table>
+<thead>
+<tr>
+<th>
+           Month
+          </th>
+<th>
+           Traditional monthly $
+          </th>
+<th>
+           CRL monthly $
+          </th>
+<th>
+           Traditional cumulative $
+          </th>
+<th>
+           CRL cumulative $
+          </th>
+<th>
+           Cumulative difference $
+          </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+           1
+          </td>
+<td>
+           1,157
+          </td>
+<td>
+           -265
+          </td>
+<td>
+           1,157
+          </td>
+<td>
+           -265
+          </td>
+<td>
+           -1,422
+          </td>
+</tr>
+<tr>
+<td>
+           2
+          </td>
+<td>
+           981
+          </td>
+<td>
+           -117
+          </td>
+<td>
+           2,138
+          </td>
+<td>
+           -382
+          </td>
+<td>
+           -2,520
+          </td>
+</tr>
+<tr>
+<td>
+           3
+          </td>
+<td>
+           -531
+          </td>
+<td>
+           107
+          </td>
+<td>
+           1,607
+          </td>
+<td>
+           -276
+          </td>
+<td>
+           -1,883
+          </td>
+</tr>
+<tr>
+<td>
+           4
+          </td>
+<td>
+           1,032
+          </td>
+<td>
+           924
+          </td>
+<td>
+           2,639
+          </td>
+<td>
+           649
+          </td>
+<td>
+           -1,990
+          </td>
+</tr>
+<tr>
+<td>
+           5
+          </td>
+<td>
+           612
+          </td>
+<td>
+           281
+          </td>
+<td>
+           3,250
+          </td>
+<td>
+           930
+          </td>
+<td>
+           -2,320
+          </td>
+</tr>
+<tr>
+<td>
+           6
+          </td>
+<td>
+           -30
+          </td>
+<td>
+           494
+          </td>
+<td>
+           3,220
+          </td>
+<td>
+           1,424
+          </td>
+<td>
+           -1,796
+          </td>
+</tr>
+<tr>
+<td>
+           7
+          </td>
+<td>
+           46
+          </td>
+<td>
+           223
+          </td>
+<td>
+           3,266
+          </td>
+<td>
+           1,647
+          </td>
+<td>
+           -1,619
+          </td>
+</tr>
+<tr>
+<td>
+           8
+          </td>
+<td>
+           1,411
+          </td>
+<td>
+           396
+          </td>
+<td>
+           4,677
+          </td>
+<td>
+           2,043
+          </td>
+<td>
+           -2,634
+          </td>
+</tr>
+<tr>
+<td>
+           9
+          </td>
+<td>
+           1,232
+          </td>
+<td>
+           290
+          </td>
+<td>
+           5,909
+          </td>
+<td>
+           2,333
+          </td>
+<td>
+           -3,576
+          </td>
+</tr>
+<tr>
+<td>
+           10
+          </td>
+<td>
+           588
+          </td>
+<td>
+           30
+          </td>
+<td>
+           6,498
+          </td>
+<td>
+           2,363
+          </td>
+<td>
+           -4,135
+          </td>
+</tr>
+<tr>
+<td>
+           11
+          </td>
+<td>
+           50
+          </td>
+<td>
+           299
+          </td>
+<td>
+           6,547
+          </td>
+<td>
+           2,662
+          </td>
+<td>
+           -3,886
+          </td>
+</tr>
+<tr>
+<td>
+           12
+          </td>
+<td>
+           948
+          </td>
+<td>
+           -12
+          </td>
+<td>
+           7,495
+          </td>
+<td>
+           2,650
+          </td>
+<td>
+           -4,846
+          </td>
+</tr>
+<tr>
+<td>
+           13
+          </td>
+<td>
+           -48
+          </td>
+<td>
+           20
+          </td>
+<td>
+           7,448
+          </td>
+<td>
+           2,669
+          </td>
+<td>
+           -4,778
+          </td>
+</tr>
+<tr>
+<td>
+           14
+          </td>
+<td>
+           579
+          </td>
+<td>
+           761
+          </td>
+<td>
+           8,027
+          </td>
+<td>
+           3,430
+          </td>
+<td>
+           -4,597
+          </td>
+</tr>
+<tr>
+<td>
+           15
+          </td>
+<td>
+           -182
+          </td>
+<td>
+           1,272
+          </td>
+<td>
+           7,845
+          </td>
+<td>
+           4,702
+          </td>
+<td>
+           -3,143
+          </td>
+</tr>
+<tr>
+<td>
+           16
+          </td>
+<td>
+           958
+          </td>
+<td>
+           1,193
+          </td>
+<td>
+           8,803
+          </td>
+<td>
+           5,895
+          </td>
+<td>
+           -2,908
+          </td>
+</tr>
+<tr>
+<td>
+           17
+          </td>
+<td>
+           116
+          </td>
+<td>
+           548
+          </td>
+<td>
+           8,919
+          </td>
+<td>
+           6,442
+          </td>
+<td>
+           -2,477
+          </td>
+</tr>
+<tr>
+<td>
+           18
+          </td>
+<td>
+           27
+          </td>
+<td>
+           -845
+          </td>
+<td>
+           8,946
+          </td>
+<td>
+           5,597
+          </td>
+<td>
+           -3,349
+          </td>
+</tr>
+<tr>
+<td>
+           19
+          </td>
+<td>
+           637
+          </td>
+<td>
+           507
+          </td>
+<td>
+           9,583
+          </td>
+<td>
+           6,104
+          </td>
+<td>
+           -3,479
+          </td>
+</tr>
+<tr>
+<td>
+           20
+          </td>
+<td>
+           109
+          </td>
+<td>
+           -562
+          </td>
+<td>
+           9,692
+          </td>
+<td>
+           5,542
+          </td>
+<td>
+           -4,150
+          </td>
+</tr>
+<tr>
+<td>
+           21
+          </td>
+<td>
+           290
+          </td>
+<td>
+           339
+          </td>
+<td>
+           9,982
+          </td>
+<td>
+           5,881
+          </td>
+<td>
+           -4,101
+          </td>
+</tr>
+<tr>
+<td>
+           22
+          </td>
+<td>
+           504
+          </td>
+<td>
+           -36
+          </td>
+<td>
+           10,486
+          </td>
+<td>
+           5,845
+          </td>
+<td>
+           -4,641
+          </td>
+</tr>
+<tr>
+<td>
+           23
+          </td>
+<td>
+           41
+          </td>
+<td>
+           21
+          </td>
+<td>
+           10,526
+          </td>
+<td>
+           5,865
+          </td>
+<td>
+           -4,661
+          </td>
+</tr>
+<tr>
+<td>
+           24
+          </td>
+<td>
+           908
+          </td>
+<td>
+           676
+          </td>
+<td>
+           11,434
+          </td>
+<td>
+           6,542
+          </td>
+<td>
+           -4,892
+          </td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+<h3>
+      Portfolio risk · 1,000 clients
+     </h3>
+<p>
+      CRL reduces the worst simulated daily loss, but increases the maximum cumulative decline from peak and the initial cash deficit. Preserving client capital does not automatically reduce every aspect of counterparty risk.
+     </p>
+<div class="scroll">
+<table>
+<thead>
+<tr>
+<th>
+          Measure based on realised cash flows
+         </th>
+<th>
+          Traditional $
+         </th>
+<th>
+          CRL $
+         </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+          Worst loss over a complete day
+         </td>
+<td>
+          1,411,410
+         </td>
+<td>
+          621,961
+         </td>
+</tr>
+<tr>
+<td>
+          Maximum cumulative decline from peak
+         </td>
+<td>
+          4,333,381
+         </td>
+<td>
+          5,513,276
+         </td>
+</tr>
+<tr>
+<td>
+          Maximum initial cash deficit
+         </td>
+<td>
+          794,816
+         </td>
+<td>
+          3,675,386
+         </td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="small">
+      Extremes across the 18 variants, not quantiles or capital requirements. Cash flows recognised at closes and modelled due dates: open exposures are not continuously revalued. Maxima may occur on different dates and in different variants and must not be added together.
+      <a href="#broker-capacity">
+       Definitions, trigger concentration and stress →
+      </a>
+</p>
+<h3>
+      What to verify with the broker
+     </h3>
+<p>
+      Risk capital, exposure limits, liquidity, commercial costs and the share of new versus migrated clients. Select pure B-book in the shared calculator.
+     </p>
+<div class="read-links">
+<a href="#capacity-costs">
+       Enter costs and the share of migrated clients →
+      </a>
+<a href="#broker-model">
+       Explore pricing and the internalised share →
+      </a>
+</div>
+<details class="read-details" id="read-tests">
+<summary>
+       B-book-specific tests · premium, lifetime and replacement
+      </summary>
+<p class="read-details-note">
+       Additional assumptions. These results do not replace those in the overview.
+      </p>
+<section class="panel" id="bbook-relation">
+<div class="eyebrow">
+        B-BOOK ANALYSIS · ECONOMICS INCLUDING CLIENT REPLACEMENT
+       </div>
+<h2>
+        Can a longer relationship offset
+        <br/>
+        lower margin from client losses?
+       </h2>
+<p class="read-lead">
+        No configuration simultaneously improves average client wealth, relationship duration and positive B-book margin relative to traditional under the conditions examined. Replacement creates acquisition costs, but also new margins: both are included. The original premium remains the baseline. This result does not establish impossibility for every product or broker model.
+       </p>
+<p>
+        With the original premium, exit after a realised loss of 50% and replacement from the following month, CAC would have to exceed $16,771 for CRL margin to exceed traditional. However, CRL margin becomes negative above $6,534: there is no viable interval. The initial client retains $3,561 more on average. Exit thresholds are scenarios, not observed churn.
+       </p>
+<p>
+<strong>
+         The same product, two income statements compared.
+        </strong>
+        The selector starts at the original premium: client and broker always use the same configuration. Other pricing levels are explicit sensitivities and do not replace the A-book / B-book / hybrid baseline.
+       </p>
+<div class="controls">
+<label>
+         CRL pricing
+         <select id="relCase">
+</select>
+</label>
+<label>
+         Same exit rule
+         <select id="relPolicy">
+</select>
+</label>
+<label>
+         Replacement after exit
+         <select id="relMode">
+</select>
+</label>
+<label>
+         CAC per new client, $
+         <input id="relCac" min="0" step="1" type="number" value="0"/>
+</label>
+</div>
+<p class="small">
+        Initial CAC of 0: a control without paid acquisition, not a commercial estimate. It is identical for both products and also applies to initial clients. The delay is a scenario and does not depend on future results.
+       </p>
+<p class="read-message" id="relVerdict">
+</p>
+<div class="kpis" id="relKpis">
+</div>
+<div class="read-charts">
+<article>
+<h3>
+          Initial client wealth
+         </h3>
+<p class="small">
+          The same people, the same 24 months. Includes withdrawn capital.
+         </p>
+<div id="relAssets">
+</div>
+</article>
+<article>
+<h3>
+          B-book margin after acquisition
+         </h3>
+<p class="small">
+          Initial and replacement clients, per initial client slot, over the full period.
+         </p>
+<div id="relMargin">
+</div>
+</article>
+</div>
+<p class="small">
+<strong style="color:#1264ff">
+         CRL: solid blue
+        </strong>
+        · Traditional: dashed grey.
+       </p>
+<h3>
+        Where the broker difference comes from
+       </h3>
+<div class="scroll">
+<table id="relBridge">
+</table>
+</div>
+<p id="relInterval">
+</p>
+<p class="small" id="relOverhead">
+</p>
+<p>
+<strong>
+         The broker can decline an uneconomic replacement.
+        </strong>
+        A separate check optimises this choice at the original premium. Even with this option, no CAC interval offers all three benefits together. The calculator here shows systematic replacement; the full optional-replacement check is included in the technical dossier.
+       </p>
+<details>
+<summary>
+         All pricing levels, under the selected conditions
+        </summary>
+<div class="scroll">
+<table id="relTariffs">
+</table>
+</div>
+</details>
+<details open="">
+<summary>
+         Month-by-month detail
+        </summary>
+<p class="small">
+         Counts per 1,000 initial client slots; margins in dollars per initial slot. Wealth: average for initial clients only, including withdrawals. Replacement clients are different people making new deposits; these are not top-ups by the same clients.
+        </p>
+<div class="scroll">
+<table id="relMonthly">
+</table>
+</div>
+</details>
+<details>
+<summary>
+         New deposits, withdrawals and costs: reconciliation
+        </summary>
+<p class="small">
+         Totals across all clients, per initial slot. Aggregate wealth is not a return comparison: the number of people and the duration differ.
+        </p>
+<div class="scroll">
+<table id="relCash">
+</table>
+</div>
+</details>
+<h3>
+        What was verified
+       </h3>
+<p>
+        17 pricing levels × 6 exit rules × 5 replacement policies = 510 configurations, each calculated across the 18 correlated historical variants: 9,180 comparisons and 220,320 paired monthly observations. These are economic projections derived from existing ledgers, not new independent market simulations.
+       </p>
+<p>
+<strong>
+         Key assumption:
+        </strong>
+        subsequently acquired clients follow the same average curves for their configuration by relationship age. Results are calculated separately for each variant and then averaged. This is not a backtest with new entries on actual historical dates. No terminal value and no arbitrary retention revenue are included.
+       </p>
+<p>
+        Internal checks: reconstruction without replacement, directly summed cohorts, capacity limit, cash-flow conservation including CAC and source hashes. The independent review of the baseline does not cover this extension. Taxes and the cost of risk capital remain excluded.
+       </p>
+<p class="small">
+        External context, not calibration:
+        <a href="https://cdn.plus500.com/Media/Investors/Reports/Plus500_Preliminary_Results_FY2025.pdf" rel="noopener" target="_blank">
+         Plus500, FY2025 preliminary results, p. 2
+        </a>
+        reports AUAC of $1,267. This is a group average, not the marginal CAC of a CRL client depositing $50,000. It is not used as a central assumption.
+       </p>
+<div class="read-links">
+<a download="CRL_Book_Relationship_EN.pdf" href="downloads/CRL_Book_Relationship_EN.pdf">
+         CRL PDF note: results and method · English version
+        </a>
+<a download="CRL_Book_Relationship_Data_EN.zip" href="downloads/CRL_Book_Relationship_Data_EN.zip">
+         Monthly data, protocol, code and checks · English technical archive
+        </a>
+</div>
+</section>
+<section class="panel" id="premium-test">
+<div class="eyebrow">
+        PURE B-BOOK · PRICING SENSITIVITY
+       </div>
+<h2>
+        Higher premium.
+        <br/>
+        Fixed trigger. 5× leverage.
+       </h2>
+<p>
+<strong>
+         The additional premium increases broker margin, but reduces the client's net result.
+        </strong>
+        CRL B-book is already positive on average at the disclosed pricing; this test measures whether it can approach traditional while preserving the client advantage.
+       </p>
+<p id="premiumConclusion">
+        With a 5% loading on Q, average B-book margin is $10,813: $4,272 more than CRL without a loading. Average client wealth is $37,882, a difference of -$32 versus traditional. The broker remains $620 below traditional. These are average results: the client outperforms traditional in 12/18 variants, the broker in 6/18, and both within the same variant in 0/18.
+       </p>
+<p>
+<strong>
+         Q + 5% means a $100 premium becomes $105.
+        </strong>
+        It does not mean 5% of capital or a 5% stop. The loading is paid at every opening, even when the trigger is not reached, and is retained by the broker.
+       </p>
+<p>
+        The premium transfers value from client to counterparty. In a pure B-book, the identity is: client wealth + broker margin + included costs = initial capital. The benefit in loss severity must be read separately from average capital and the number of clients making a loss.
+       </p>
+<h3>
+        More margin and fewer severe losses: a measurable trade-off
+       </h3>
+<p>
+        At Q + 7.5%, average B-book margin is $12,783 ($1,349 above traditional). Clients crossing a 50% loss threshold number 33.3 per 1,000, versus 371.3 under traditional. The cost of protection remains visible: average wealth of $35,940 versus $37,914; clients below initial capital of 978.2 versus 798.5. Higher broker margin and fewer −50% threshold crossings coexist in 17/18 variants. This combines higher margin with less severe losses, not higher margin with higher average client capital.
+       </p>
+<h3>
+        All admissible pricing levels · results at 24 months
+       </h3>
+<p class="small">
+        USD per initial client; $50,000 initial capital. Average of the same 18 correlated variants, each with 1,000 clients. The table compares each pricing level with unchanged traditional pricing. Filters in other sections do not change this test.
+       </p>
+<div class="scroll">
+<table id="premiumTariffs">
+</table>
+</div>
+<h3>
+        The month-by-month path
+       </h3>
+<label>
+        CRL pricing for this test
+        <select id="premiumCase">
+</select>
+</label>
+<p class="small">
+        Dashed grey: traditional. Dashed light blue: CRL without loading. Solid bright blue: CRL at the selected pricing.
+       </p>
+<div class="chartgrid">
+<article>
+<h3>
+          Average client wealth · $
+         </h3>
+<div id="premiumWealth">
+</div>
+</article>
+<article>
+<h3>
+          Cumulative B-book margin · $
+         </h3>
+<div id="premiumBroker">
+</div>
+</article>
+</div>
+<div class="scroll">
+<table id="premiumMonths">
+</table>
+</div>
+<p class="small">
+        Loss-making clients: clients below initial capital at month-end, per 1,000 initial clients. Monthly loss-makers: clients whose net result on trades closed during the month is negative. 50% burn: cumulative threshold crossing, not churn. Averages across variants may be fractional. Cash flows are recognised at closure, under the comparison's accounting convention.
+       </p>
+<details>
+<summary>
+         Protocol, excluded pricing levels and test limitations
+        </summary>
+<p>
+         Original trigger z = 0.35, 5× leverage, market histories, profiles, random draws, directions, commissions and traditional rules unchanged. Capital, daily results and re-entry decisions recalculated for each pricing level. Contract exits are reused after verification of the duration rule.
+        </p>
+<p>
+         17 admissible pricing levels × 18 variants = 306 cohort paths, 306,000 client paths and 7,344,000 client-months. These are correlated replays of three historical windows, not observed clients or 306 independent experiments. The grid and pricing-range extension were fixed before the new economic results.
+        </p>
+<p id="premiumRejected">
+</p>
+<p>
+         All potential triggered contracts were checked, including those not selected by clients. Admitted pricing levels retain a positive net result in the sample. Near the limit, the residual is very small: historical positivity is not a future guarantee. Demand, price elasticity, commercial churn, risk capital, taxes and undisclosed costs are not estimated. No pricing level is a commercial recommendation.
+        </p>
+<p>
+         The zero-loading replay was reconciled to the original independent ledgers; cash identities, absence of overlapping positions and positive trigger outcomes were checked internally. The new test has not yet undergone independent review.
+        </p>
+</details>
+<div class="downloads">
+<a class="download-primary" download="CRL_Premium_Fixed_Trigger_EN.pdf" href="downloads/CRL_Premium_Fixed_Trigger_EN.pdf">
+         Download the pricing-test PDF · English version
+        </a>
+<a download="CRL_Premium_Data_EN.zip" href="downloads/CRL_Premium_Data_EN.zip">
+         Monthly data, protocol, code and checks · English ZIP
+        </a>
+</div>
+<p class="small">
+        This section extends the dossier with a separate pricing test. KPIs and calculators in the other sections retain the pricing disclosed in the main dossier.
+       </p>
+<p>
+<a href="#bbook-lifetime">
+         B-book: client lifetime and profitability over time →
+        </a>
+</p>
+</section>
+<section class="panel" id="bbook-lifetime">
+<style>
+        #lifeKpis article{padding:18px;background:#f3f5f8;border-top:2px solid #1264ff}#lifeKpis span{display:block;font-size:13px;color:#586374}#lifeKpis strong{display:block;font-size:22px;margin-top:8px}#bbook-lifetime select{width:100%;padding:10px}
+       </style>
+<p class="read-message">
+        The abstract value per avoided exit is complemented by the
+        <a href="#bbook-relation">
+         explicit analysis of replacement clients, their margins and CAC
+        </a>
+        . The two analyses must not be added together.
+       </p>
+<div class="eyebrow">
+        B-BOOK ANALYSIS · LIFETIME AND PROFITABILITY
+       </div>
+<h2>
+        More time for the client.
+        <br/>
+        Under what conditions does it pay?
+       </h2>
+<p>
+<strong>
+         Actual relationship duration is distinct from capital protection.
+        </strong>
+        This analysis extends only the B-book; A-book and hybrid models retain the conditions disclosed in their respective sections.
+       </p>
+<p>
+        At the technical threshold of $500, nobody exits within 24 months: no lifetime extension emerges relative to traditional. In the explicit scenario of exit after a realised loss of 50%, with premium Q +7.5%, restricted mean duration over 24 months is 23.93 months versus 21.55; 970.6 clients per 1,000 remain versus 647.9. B-book margin is $12,762 versus $10,846 per initial client. Longer duration and higher margin coexist in 17/18 variants. This result is conditional on the exit rule, not an estimate of actual churn. Average client wealth, including withdrawals, is $35,963 versus $38,536: longer duration does not imply higher final capital.
+       </p>
+<p>
+        Exits here are loss-tolerance scenarios: the same threshold applies to both products. After the trade that takes the balance below the threshold, the client withdraws the remaining capital and opens no further positions. No new deposits or replacement clients are introduced.
+       </p>
+<div class="filters">
+<label>
+         CRL premium
+         <select id="lifeCase">
+</select>
+</label>
+<label>
+         Exit rule
+         <select id="lifePolicy">
+</select>
+</label>
+</div>
+<p class="verdict" id="lifeVerdict">
+</p>
+<div class="kpis" id="lifeKpis">
+</div>
+<p class="small">
+        Duration is restricted to the 24 observed months; clients who do not exit contribute 24 months. This is neither full average lifetime nor a commercial-retention forecast. Thresholds use the post-close balance, not the minimum during a position.
+       </p>
+<div class="legend">
+<span>
+         Dashed grey: traditional 5×
+        </span>
+<span style="color:#1264ff">
+         Solid blue: CRL
+        </span>
+</div>
+<div class="chartgrid">
+<article>
+<h3>
+          Clients still holding an account · per 1,000 initial clients
+         </h3>
+<div id="lifeActive">
+</div>
+</article>
+<article>
+<h3>
+          Cumulative B-book margin · $ per initial client
+         </h3>
+<div id="lifeMargin">
+</div>
+</article>
+</div>
+<h3>
+        All six rules, without selecting only the favourable one
+       </h3>
+<div class="scroll">
+<table id="lifePolicies">
+</table>
+</div>
+<h3>
+        Monthly results
+       </h3>
+<div class="scroll">
+<table id="lifeMonthly">
+</table>
+</div>
+<p class="small">
+        Client wealth = balance still in the account + capital already withdrawn. Counts and amounts averaged across the 18 correlated variants. Clients trading during the month can outnumber those remaining at month-end. Margin after operating/licence costs and a fixed cost of $100 over 24 months per initial client, retained even after exit; before acquisition, taxes and cost of capital.
+       </p>
+<h3>
+        How much must avoided replacement be worth?
+       </h3>
+<p id="lifeHurdle">
+</p>
+<label>
+        External net value per avoided exit · $
+        <input id="lifeV" max="1000000" min="0" step="100" type="number" value="0"/>
+</label>
+<p id="lifeValueResult">
+</p>
+<p class="small">
+        Initial value zero: no benefit added. V is the average value over the same horizon that is not already included in the ledger. It must subtract the net margin forgone on replacement clients from the replacement cost avoided. CAC alone is not V. This is an economic threshold, not a replacement simulation or an LTV estimate. V does not change charts, balances or exits.
+       </p>
+<details>
+<summary>
+         Method, evidence and checks
+        </summary>
+<p>
+         17 admissible pricing levels × 18 pairs × 6 exit rules. Previously verified ledgers are truncated at the first exit event; before that event, every trade and decision remains identical. No new calibration of leverage, stops, trigger, market or behaviour.
+        </p>
+<p>
+         Sources document relationships between results, activity and cessation, but do not calibrate our exit thresholds or their prevalence among clients. Source CB01 and the documentary audit distinguish relative hazard, cessation, withdrawals and ruin. CB03 concerns another population and is not used to impose a Forex curve. No empirical churn rate has been invented.
+        </p>
+<p>
+         Verified: no-exit replay, return of remaining capital, counts, censored durations and the monthly identity: client wealth + B-book margin + included costs = initial capital. The independent review covers the baseline; this extension has internal checks. The package retains all 18 variants, all pricing levels and every month.
+        </p>
+<p>
+<strong>
+          Outcome:
+         </strong>
+         The economic assessment conditional on exit rules is complete. An extension of actual commercial lifetime has not been demonstrated; exit frequencies and net replacement value for the broker's population are needed to turn the sensitivity into a forecast.
+        </p>
+</details>
+<div class="downloads">
+<a class="download-primary" download="CRL_Book_Lifetime_EN.pdf" href="downloads/CRL_Book_Lifetime_EN.pdf">
+         B-book lifetime and profitability · PDF · English version
+        </a>
+<a download="CRL_Book_Lifetime_Data_EN.zip" href="downloads/CRL_Book_Lifetime_Data_EN.zip">
+         Protocol, all KPIs and checks · English ZIP
+        </a>
+</div>
+</section>
+</details>
+</section>
+</details>
+<details class="read-details book-detail" id="hybrid-detail">
+<summary>
+     Hybrid · 10% B-book · detailed analysis
+    </summary>
+<section class="panel">
+<div class="eyebrow">
+      SAME CRL PRODUCT · DIFFERENT RISK MANAGEMENT
+     </div>
+<h2>
+      A balance sensitive to costs and the internalised share.
+     </h2>
+<p class="read-lead">
+      90% follows A-book accounting and 10% remains internalised. The share is identical for CRL and traditional: there is no selection of better clients, no routing optimisation and no added netting benefit.
+     </p>
+<p class="read-scope">
+      24 months · 1,000 clients per cohort · average of 18 correlated variants · 5× leverage and baseline pricing. External share: provider at theoretical Q and execution of 5 seconds + 0.5 pip. Unquoted costs, taxes and cost of capital excluded. Calculator selections do not change this section.
+     </p>
+<div class="book-kpis">
+<article>
+<span>
+        Traditional / client
+       </span>
+<strong>
+        2,543 $
+       </strong>
+</article>
+<article>
+<span>
+        CRL / client
+       </span>
+<strong class="read-blue">
+        2,569 $
+       </strong>
+</article>
+<article>
+<span>
+        Difference: CRL − traditional
+       </span>
+<strong>
+        +26 $
+       </strong>
+</article>
+</div>
+<p>
+      Positive CRL margin in
+      <strong>
+       18/18
+      </strong>
+      variants; above traditional in
+      <strong>
+       7/18
+      </strong>
+      . CRL margin range: $1,845 / $3,291 per client. These are not confidence intervals.
+     </p>
+<div class="book-columns">
+<article>
+<h3>
+        What it offers the broker
+       </h3>
+<p>
+        Average CRL margin is slightly above traditional. The advantage appears in 7 of 18 variants: a positive average does not imply a consistent advantage.
+       </p>
+</article>
+<article>
+<h3>
+        When it makes economic sense
+       </h3>
+<p>
+        10% is an illustrative scenario, not an estimated optimal share. The small average advantage can be absorbed by additional costs. Other shares can be explored in the economic calculator with fixed trades, without resimulating clients.
+       </p>
+</article>
+</div>
+<h3>
+      The client benefit is unchanged
+     </h3>
+<p>
+      The book model changes the broker's accounting, not the product or the client paths. Average capital at 24 months: CRL
+      <strong>
+       42,096 $
+      </strong>
+      , traditional $37,914, from an initial $50,000. Fewer severe losses do not mean fewer people making a loss; commercial retention still needs to be verified.
+      <a href="#risultati">
+       Full client KPIs →
+      </a>
+</p>
+<h3>
+      Cumulative broker margin · month by month
+     </h3>
+<p class="small">
+      Dollars per initial client, after only the included costs. Same scale across all three sections. Solid blue: CRL; dashed grey: traditional.
+     </p>
+<div class="book-curve">
+<svg aria-label="Hybrid · 10% B-book: average cumulative margin per client, traditional and CRL, from zero to 24 months" role="img" viewbox="0 0 720 255">
+<line stroke="#d9dce2" x1="65" x2="685" y1="212.0" y2="212.0">
+</line>
+<text text-anchor="end" x="55" y="216.0">
+        0
+       </text>
+<line stroke="#d9dce2" x1="65" x2="685" y1="122.0" y2="122.0">
+</line>
+<text text-anchor="end" x="55" y="126.0">
+        6,174
+       </text>
+<line stroke="#d9dce2" x1="65" x2="685" y1="32.0" y2="32.0">
+</line>
+<text text-anchor="end" x="55" y="36.0">
+        12,349
+       </text>
+<text text-anchor="middle" x="65.0" y="237">
+        M0
+       </text>
+<text text-anchor="middle" x="220.0" y="237">
+        M6
+       </text>
+<text text-anchor="middle" x="375.0" y="237">
+        M12
+       </text>
+<text text-anchor="middle" x="530.0" y="237">
+        M18
+       </text>
+<text text-anchor="middle" x="685.0" y="237">
+        M24
+       </text>
+<polyline fill="none" points="65.00,212.00 90.83,209.28 116.67,207.03 142.50,206.93 168.33,204.69 194.17,203.04 220.00,202.25 245.83,201.38 271.67,198.41 297.50,195.78 323.33,194.27 349.17,193.46 375.00,191.59 400.83,190.82 426.67,189.09 452.50,188.13 478.33,185.79 504.17,184.59 530.00,183.60 555.83,181.72 581.67,180.67 607.50,179.29 633.33,177.69 659.17,176.78 685.00,174.93" stroke="#858b96" stroke-dasharray="7 5" stroke-width="2.5">
+</polyline>
+<polyline fill="none" points="65.00,212.00 90.83,210.98 116.67,210.05 142.50,208.36 168.33,206.08 194.17,203.98 220.00,201.88 245.83,200.22 271.67,198.09 297.50,196.79 323.33,195.93 349.17,194.60 375.00,193.78 400.83,192.35 426.67,190.36 452.50,187.22 478.33,184.55 504.17,182.43 530.00,182.11 555.83,180.34 581.67,179.71 607.50,178.33 633.33,177.52 659.17,176.61 685.00,174.56" stroke="#1264ff" stroke-dasharray="none" stroke-width="4">
+</polyline>
+</svg>
+</div>
+<details>
+<summary>
+       Open all 24 months: monthly and cumulative margin
+      </summary>
+<div class="scroll">
+<table>
+<thead>
+<tr>
+<th>
+           Month
+          </th>
+<th>
+           Traditional monthly $
+          </th>
+<th>
+           CRL monthly $
+          </th>
+<th>
+           Traditional cumulative $
+          </th>
+<th>
+           CRL cumulative $
+          </th>
+<th>
+           Cumulative difference $
+          </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+           1
+          </td>
+<td>
+           187
+          </td>
+<td>
+           70
+          </td>
+<td>
+           187
+          </td>
+<td>
+           70
+          </td>
+<td>
+           -116
+          </td>
+</tr>
+<tr>
+<td>
+           2
+          </td>
+<td>
+           154
+          </td>
+<td>
+           64
+          </td>
+<td>
+           341
+          </td>
+<td>
+           134
+          </td>
+<td>
+           -207
+          </td>
+</tr>
+<tr>
+<td>
+           3
+          </td>
+<td>
+           7
+          </td>
+<td>
+           116
+          </td>
+<td>
+           348
+          </td>
+<td>
+           250
+          </td>
+<td>
+           -98
+          </td>
+</tr>
+<tr>
+<td>
+           4
+          </td>
+<td>
+           154
+          </td>
+<td>
+           156
+          </td>
+<td>
+           501
+          </td>
+<td>
+           406
+          </td>
+<td>
+           -95
+          </td>
+</tr>
+<tr>
+<td>
+           5
+          </td>
+<td>
+           113
+          </td>
+<td>
+           144
+          </td>
+<td>
+           615
+          </td>
+<td>
+           551
+          </td>
+<td>
+           -64
+          </td>
+</tr>
+<tr>
+<td>
+           6
+          </td>
+<td>
+           54
+          </td>
+<td>
+           144
+          </td>
+<td>
+           669
+          </td>
+<td>
+           694
+          </td>
+<td>
+           26
+          </td>
+</tr>
+<tr>
+<td>
+           7
+          </td>
+<td>
+           60
+          </td>
+<td>
+           114
+          </td>
+<td>
+           729
+          </td>
+<td>
+           808
+          </td>
+<td>
+           79
+          </td>
+</tr>
+<tr>
+<td>
+           8
+          </td>
+<td>
+           204
+          </td>
+<td>
+           146
+          </td>
+<td>
+           933
+          </td>
+<td>
+           954
+          </td>
+<td>
+           22
+          </td>
+</tr>
+<tr>
+<td>
+           9
+          </td>
+<td>
+           180
+          </td>
+<td>
+           90
+          </td>
+<td>
+           1,113
+          </td>
+<td>
+           1,044
+          </td>
+<td>
+           -69
+          </td>
+</tr>
+<tr>
+<td>
+           10
+          </td>
+<td>
+           103
+          </td>
+<td>
+           59
+          </td>
+<td>
+           1,216
+          </td>
+<td>
+           1,103
+          </td>
+<td>
+           -113
+          </td>
+</tr>
+<tr>
+<td>
+           11
+          </td>
+<td>
+           56
+          </td>
+<td>
+           91
+          </td>
+<td>
+           1,272
+          </td>
+<td>
+           1,194
+          </td>
+<td>
+           -78
+          </td>
+</tr>
+<tr>
+<td>
+           12
+          </td>
+<td>
+           129
+          </td>
+<td>
+           56
+          </td>
+<td>
+           1,400
+          </td>
+<td>
+           1,250
+          </td>
+<td>
+           -150
+          </td>
+</tr>
+<tr>
+<td>
+           13
+          </td>
+<td>
+           53
+          </td>
+<td>
+           98
+          </td>
+<td>
+           1,453
+          </td>
+<td>
+           1,348
+          </td>
+<td>
+           -105
+          </td>
+</tr>
+<tr>
+<td>
+           14
+          </td>
+<td>
+           118
+          </td>
+<td>
+           137
+          </td>
+<td>
+           1,571
+          </td>
+<td>
+           1,485
+          </td>
+<td>
+           -87
+          </td>
+</tr>
+<tr>
+<td>
+           15
+          </td>
+<td>
+           66
+          </td>
+<td>
+           215
+          </td>
+<td>
+           1,637
+          </td>
+<td>
+           1,700
+          </td>
+<td>
+           63
+          </td>
+</tr>
+<tr>
+<td>
+           16
+          </td>
+<td>
+           161
+          </td>
+<td>
+           183
+          </td>
+<td>
+           1,798
+          </td>
+<td>
+           1,883
+          </td>
+<td>
+           85
+          </td>
+</tr>
+<tr>
+<td>
+           17
+          </td>
+<td>
+           82
+          </td>
+<td>
+           146
+          </td>
+<td>
+           1,880
+          </td>
+<td>
+           2,029
+          </td>
+<td>
+           149
+          </td>
+</tr>
+<tr>
+<td>
+           18
+          </td>
+<td>
+           68
+          </td>
+<td>
+           22
+          </td>
+<td>
+           1,948
+          </td>
+<td>
+           2,051
+          </td>
+<td>
+           102
+          </td>
+</tr>
+<tr>
+<td>
+           19
+          </td>
+<td>
+           129
+          </td>
+<td>
+           121
+          </td>
+<td>
+           2,077
+          </td>
+<td>
+           2,172
+          </td>
+<td>
+           95
+          </td>
+</tr>
+<tr>
+<td>
+           20
+          </td>
+<td>
+           72
+          </td>
+<td>
+           43
+          </td>
+<td>
+           2,149
+          </td>
+<td>
+           2,215
+          </td>
+<td>
+           66
+          </td>
+</tr>
+<tr>
+<td>
+           21
+          </td>
+<td>
+           95
+          </td>
+<td>
+           95
+          </td>
+<td>
+           2,244
+          </td>
+<td>
+           2,310
+          </td>
+<td>
+           66
+          </td>
+</tr>
+<tr>
+<td>
+           22
+          </td>
+<td>
+           109
+          </td>
+<td>
+           55
+          </td>
+<td>
+           2,353
+          </td>
+<td>
+           2,365
+          </td>
+<td>
+           12
+          </td>
+</tr>
+<tr>
+<td>
+           23
+          </td>
+<td>
+           63
+          </td>
+<td>
+           63
+          </td>
+<td>
+           2,416
+          </td>
+<td>
+           2,428
+          </td>
+<td>
+           12
+          </td>
+</tr>
+<tr>
+<td>
+           24
+          </td>
+<td>
+           127
+          </td>
+<td>
+           141
+          </td>
+<td>
+           2,543
+          </td>
+<td>
+           2,569
+          </td>
+<td>
+           26
+          </td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+<h3>
+      Portfolio risk · 1,000 clients
+     </h3>
+<p>
+      In the sample, CRL reduces the worst daily loss and maximum decline from peak, but increases the initial cash deficit. Counterparty risk on the internalised share and execution and liquidity risks on the external share remain.
+     </p>
+<div class="scroll">
+<table>
+<thead>
+<tr>
+<th>
+          Measure based on realised cash flows
+         </th>
+<th>
+          Traditional $
+         </th>
+<th>
+          CRL $
+         </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+          Worst loss over a complete day
+         </td>
+<td>
+          132,981
+         </td>
+<td>
+          115,233
+         </td>
+</tr>
+<tr>
+<td>
+          Maximum cumulative decline from peak
+         </td>
+<td>
+          315,338
+         </td>
+<td>
+          199,737
+         </td>
+</tr>
+<tr>
+<td>
+          Maximum initial cash deficit
+         </td>
+<td>
+          51,148
+         </td>
+<td>
+          148,381
+         </td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="small">
+      Extremes across the 18 variants, not quantiles or capital requirements. Cash flows recognised at closes and modelled due dates: open exposures are not continuously revalued. Maxima may occur on different dates and in different variants and must not be added together.
+      <a href="#broker-capacity">
+       Definitions, trigger concentration and stress →
+      </a>
+</p>
+<h3>
+      What to verify with the broker
+     </h3>
+<p>
+      The actual internalised share, provider cost, capital, collateral and settlement timing. The cost calculator uses 10%; the economic calculator allows other shares.
+     </p>
+<div class="read-links">
+<a href="#capacity-costs">
+       Enter costs and the share of migrated clients →
+      </a>
+<a href="#broker-model">
+       Explore pricing and the internalised share →
+      </a>
+</div>
+</section>
+</details>
+<details class="read-details" id="read-broker">
+<summary>
+     Shared calculators · costs, pricing and risk
+    </summary>
+<p class="read-details-note">
+     Margins, cost components and a calculator for the broker's conditions.
+    </p>
+<section class="panel" id="broker-capacity">
+<div class="eyebrow">
+      ORIGINAL PRODUCT · ECONOMICS, RISK AND OPERATIONAL CAPACITY
+     </div>
+<h2>
+      How much margin remains.
+      <br/>
+      What risk the broker must bear.
+     </h2>
+<div class="read-message" id="stato-analisi">
+<h3>
+       Quantitative phase completed within the stated scope
+      </h3>
+<p>
+       The research provides a basis for commercial and technical discussions with a broker: client-capital benefits, margins and risks separately for A-book, B-book and hybrid models. No further simulations under the same assumptions are planned to close this phase. This conclusion is not validation for an operational launch and does not establish universal economic viability.
+      </p>
+<p>
+<strong>
+        The next step is to apply the broker's data.
+       </strong>
+       Actual costs and provider pricing and terms feed into the economic calculator. Capital consumption, collateral and liquidity needs require a specific assessment of exposures and contracts. Premium comprehension, willingness to pay and repeat use must be tested in a pilot with real clients.
+      </p>
+<p>
+<strong>
+        Commercial positioning:
+       </strong>
+       CRL is proposed as a complementary offering to traditional leverage for premium and sophisticated clients. This positioning does not introduce greater client skill, loyalty or willingness to pay into the model.
+      </p>
+</div>
+<p class="read-lead">
+      The original configuration leaves a positive average economic budget in all three book models. That budget must cover acquisition, additional support, the provider's actual price and capital: it is not yet profit after all costs. Aggregate risk measures do not show a uniform reduction in broker risk.
+     </p>
+<p>
+      5× leverage, unchanged premium and trigger. No assumption of greater skill or loyalty among premium clients. Three book models applied to the same product; A-book execution of 5 seconds + 0.5 pip and provider at theoretical premium Q.
+     </p>
+<div class="scroll">
+<table>
+<thead>
+<tr>
+<th>
+          Book
+         </th>
+<th>
+          Average budget / client, 24 months
+         </th>
+<th>
+          Minimum / maximum across variants
+         </th>
+<th>
+          Positive margin
+         </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+          A-book
+         </td>
+<td>
+          2,127 $
+         </td>
+<td>
+          1,725 / 2,449 $
+         </td>
+<td>
+          18/18
+         </td>
+</tr>
+<tr>
+<td>
+          Hybrid 10% B-book
+         </td>
+<td>
+          2,569 $
+         </td>
+<td>
+          1,845 / 3,291 $
+         </td>
+<td>
+          18/18
+         </td>
+</tr>
+<tr>
+<td>
+          Pure B-book
+         </td>
+<td>
+          6,542 $
+         </td>
+<td>
+          -283 / 12,467 $
+         </td>
+<td>
+          15/18
+         </td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="small">
+      After commissions/operating costs, licence, funding and fixed costs under the book's conventions; before the unquoted costs below. Correlated variants, not confidence intervals. “Budget” is a model-generated amount that still needs to cover additional costs.
+     </p>
+<details id="capacity-costs">
+<summary>
+       Enter broker costs and the share of migrated clients
+      </summary>
+<div class="controls">
+<label>
+        Book
+        <select id="capBook">
+<option value="a">
+          A-book
+         </option>
+<option value="hybrid">
+          Hybrid 10% B-book
+         </option>
+<option value="b">
+          Pure B-book
+         </option>
+</select>
+</label>
+<label>
+        CAC per new client $
+        <input id="capCAC" min="0" type="number" value="0"/>
+</label>
+<label>
+        Additional support $ / client / month
+        <input id="capService" min="0" type="number" value="0"/>
+</label>
+<label>
+        Provider loading above Q, %
+        <input id="capLoading" min="0" step="0.1" type="number" value="0"/>
+</label>
+<label>
+        Allocated own capital $ / client
+        <input id="capCapital" min="0" type="number" value="0"/>
+</label>
+<label>
+        Annual cost of capital, %
+        <input id="capRate" min="0" step="0.1" type="number" value="0"/>
+</label>
+<label>
+        Clients migrated from traditional, %
+        <input id="capMigration" max="100" min="0" type="number" value="0"/>
+</label>
+<label>
+        One-off cost per migrated client $
+        <input id="capTransition" min="0" type="number" value="0"/>
+</label>
+</div>
+<p class="small">
+       Zero inputs show the budget before new charges: they do not establish zero costs or fully costed profit. Support is additional to costs already included. Allocated capital is constant and remunerated over 24 months; it is not calculated by the model. Provider loading applies only to the external share. Client pricing is unchanged.
+      </p>
+<p class="read-message" id="capBudget">
+</p>
+<p id="capIncremental">
+</p>
+<div class="scroll">
+<table id="capMonths">
+</table>
+</div>
+<p class="small">
+       Incremental contribution = CRL margin minus traditional margin forgone on the migrated share, minus additional costs. CAC applies only to new clients and transition costs only to migrated clients. A homogeneous client mix is assumed: this is not a commercial forecast. Taxes and other costs not entered remain excluded.
+      </p>
+</details>
+<h3>
+      Aggregate risk: what actually changes
+     </h3>
+<p>
+      In the CRL B-book, margin is positive in 15/18 variants. The worst loss over a complete day is $621,961 versus $1,411,410 for traditional. Maximum cumulative decline from peak, however, is $5,513,276 versus $4,333,381. These are maxima along simulated historical portfolio paths of 1,000 clients, not quantiles or regulatory capital.
+     </p>
+<p>
+<strong>
+       Different units:
+      </strong>
+      the economics table above is per client; the measures below are for a portfolio of 1,000 clients. Client deposits are never treated as the broker's own capital.
+     </p>
+<div class="scroll">
+<table id="capRisk">
+</table>
+</div>
+<p class="small">
+      Initial deficit: maximum cumulative negative balance of modelled cash flows, with zero initial broker capital and retained profits. Decline from peak: maximum drawdown of the same balance. Cash flows are recognised at closes, execution adjustments and monthly fixed-cost dates; this is neither a mark-to-market account nor an actual treasury plan. Incomplete UTC days at the boundaries are excluded from the daily metric. Maxima across 18 variants; maxima may occur on different dates and in different variants and cannot be added together.
+     </p>
+<h3>
+      Trigger concentration and payment advances
+     </h3>
+<div class="scroll">
+<table id="capBridge">
+</table>
+</div>
+<p class="small">
+      Only the positive incremental 4× payout on the externally hedged share, advanced until the provider's assumed reimbursement. Elapsed clock hours; reimbursement guaranteed at the end of the delay. Excludes return of deposits, margin calls, the underlying leg, prefunding and default. Must not automatically be added to the initial deficit. Counts are activations, not unique people.
+     </p>
+<h3>
+      Execution stress at the peak of trigger activity
+     </h3>
+<div class="scroll">
+<table id="capStress">
+</table>
+</div>
+<p class="small">
+      Deterministic additional loss if all closes in the historical 1h window suffer the same adverse move on the 5× exposure. This is not a new price path, has no assigned probability and generates no new triggers. External share only: no hedge execution loss is charged to the pure B-book.
+     </p>
+<details>
+<summary>
+       Verification scope and required data
+      </summary>
+<p>
+       36 trade-by-trade ledgers, 18 pairs, 4 execution stresses and 3 book models. 10,368 monthly reconciliations to previously published results. Clients are aggregated at the same timestamps, preserving observed historical dependence. No independent sampling that removes concentration.
+      </p>
+<p>
+       Still to be measured: economic and regulatory capital, mark-to-market open exposures, provider collateral and contractual liquidity, executable pricing and commercial costs by segment. Comprehension, willingness to pay, repeat use and retention require evidence from real clients. The model does not infer these from the “premium” label.
+      </p>
+<p>
+       Internal checks on the extension; independent review of the baseline does not automatically extend to this module. Cost sensitivities do not change risk charts, which are calculated under the original conditions.
+      </p>
+</details>
+<div class="read-links">
+<a download="CRL_Broker_Capacity_EN.pdf" href="downloads/CRL_Broker_Capacity_EN.pdf">
+       CRL PDF note: margin and risk · English version
+      </a>
+<a download="CRL_Broker_Capacity_Data_EN.zip" href="downloads/CRL_Broker_Capacity_Data_EN.zip">
+       Data, protocol, code and cost-input template · English technical archive
+      </a>
+</div>
+</section>
+<section class="panel" id="economia-riferimento">
+<div class="eyebrow">
+      THE ECONOMIC CASE DEPENDS ON THE BUSINESS MODEL
+     </div>
+<h2>
+      The client's benefit.
+      <br/>
+      The broker's economics.
+     </h2>
+<p>
+      Under the disclosed economic conditions, CRL reduces loss severity relative to traditional 5× leverage. It does not reduce the number of loss-making clients in every cohort. For the broker, the outcome changes with how counterparty risk is managed.
+     </p>
+<div class="audit-grid" id="bookOverview">
+</div>
+<p class="small">
+      24-month comparison: average of 18 correlated variants, original pricing, provider at theoretical premium Q, A-book stress of 5 seconds + 0.5 pip. Illustrative hybrid: 10% internalised, identical for both products. No retention benefit added to margins.
+     </p>
+<p class="verdict">
+<strong>
+       The commercial question:
+      </strong>
+      how much capital protection does CRL offer, at what cost to the client and with what sustainable margin for the specific broker? The calculator also shows the conditions under which CRL produces less margin.
+     </p>
+<p>
+<a href="#premium-test">
+       B-book: higher-premium test with a fixed trigger →
+      </a>
+</p>
+</section>
+<section class="panel" id="broker-model">
+<div class="eyebrow">
+      A-BOOK · B-BOOK · HYBRID
+     </div>
+<h2>
+      The income statement
+      <br/>
+      for your business model.
+     </h2>
+<p>
+      The A-book earns service revenue and transfers risk under the model's assumptions. In a pure B-book, the broker is the counterparty to client outcomes. The hybrid combines both components, with the same internalised share for both products: no client selection.
+     </p>
+<p class="baseline-note">
+      Economic sensitivity at fixed dates and notionals. Changing pricing here does not resimulate the client behaviour or wealth shown above. No cost of capital or retention benefit is automatically included.
+     </p>
+<div class="broker-inputs">
+<label>
+       Business model
+       <select id="bModel">
+<option value="a">
+         A-book
+        </option>
+<option value="b">
+         Pure B-book
+        </option>
+<option value="hybrid">
+         Hybrid
+        </option>
+</select>
+</label>
+<label>
+       Internalised share · %
+       <input id="bInternal" max="100" min="0" step="1" type="number" value="10"/>
+</label>
+<label>
+       Month ·
+       <span id="bMonthLabel">
+        24
+       </span>
+<input id="bMonth" max="24" min="1" type="range" value="24"/>
+</label>
+<label>
+       Commission · $ / million / side
+       <input id="bCommission" max="1000" min="0" step="1" type="number" value="20"/>
+</label>
+<label>
+       Additional spread · pips per side
+       <input id="bSpread" max="10" min="0" step="0.01" type="number" value="0"/>
+</label>
+<label>
+       A-book funding retained · % per year
+       <input id="bFunding" max="3" min="0" step="0.05" type="number" value="0"/>
+<small>
+        Share of the 3% already charged to clients. B-book: funding retained in full.
+       </small>
+</label>
+<label>
+       Provider loading on Q · %
+       <input id="bProvider" max="100" min="0" step="0.1" type="number" value="0"/>
+</label>
+<label>
+       Fee on the incremental payoff · % retained
+       <input id="bExit" max="100" min="0" step="10" type="number" value="100"/>
+<small>
+        100% retains the simulated fee convention; the incremental 4× is a cash payment.
+       </small>
+</label>
+<label>
+       Other CRL costs · $ / initial client / month
+       <input id="bExtra" max="10000" min="0" step="1" type="number" value="0"/>
+</label>
+</div>
+<button id="bReset">
+      Reset to disclosed conditions
+     </button>
+<p id="bValidation" role="alert">
+</p>
+<div id="bResults">
+<p class="small" id="bScopeNote">
+</p>
+<p class="verdict" id="bVerdict">
+</p>
+<div class="kpis" id="bKpis">
+</div>
+<p class="small" id="bConvention">
+</p>
+<div class="legend">
+<span>
+<i>
+</i>
+        Traditional 5×
+       </span>
+<span>
+<i class="crl">
+</i>
+        CRL
+       </span>
+</div>
+<div class="chartgrid">
+<article>
+<h3>
+         Cumulative broker margin
+        </h3>
+<div id="bCumulative">
+</div>
+</article>
+<article>
+<h3>
+         Broker margin in the individual month
+        </h3>
+<div id="bMonthly">
+</div>
+</article>
+</div>
+<h3>
+       Revenue, counterparty result and costs
+      </h3>
+<div class="scroll">
+<table id="bBridge">
+</table>
+</div>
+<h3>
+       Monthly income statement
+      </h3>
+<div class="scroll">
+<table id="bMonths">
+</table>
+</div>
+<h3>
+       Economic headroom before break-even
+      </h3>
+<p class="small">
+       Thresholds for one parameter at a time, all others unchanged; ranges across scenarios, not confidence intervals. Thresholds cannot be added together.
+      </p>
+<div class="scroll">
+<table id="bThresholds">
+</table>
+</div>
+<p class="small">
+       Margin after included costs only, before taxes and undisclosed costs. The pure B-book includes no external hedge, netting or risk capital. Risk remains with the broker even when the historical counterparty result is favourable.
+      </p>
+</div>
+<details>
+<summary>
+       Formulas and KPIs for quants
+      </summary>
+<p>
+       A-book = commissions + service + additional spread + retained funding − operating costs − licence − fixed costs − execution deviation − provider loading − other costs.
+      </p>
+<p>
+       Pure B-book, at disclosed pricing = initial capital − client wealth − operating costs − licence − fixed costs. The counterparty result contains premium, funding and payoff: the table breakdown avoids double counting. Pricing changes are applied to fixed trades.
+      </p>
+<p>
+       Hybrid = (1 − internalised share) × A-book + internalised share × pure B-book. The share is identical for both products.
+      </p>
+<p>
+       Available: monthly and cumulative margins, revenue and cost components, cross-model comparisons, economic thresholds, capital erosion and activity. Not estimated: LTV, CAC, LTV/CAC, acquisition payback, capital consumption and actual retention; the necessary broker data are missing.
+      </p>
+</details>
+</section>
+</details>
+<details class="read-details" id="read-method">
+<summary>
+     Method, discipline and sources
+    </summary>
+<p class="read-details-note">
+     Baseline assumptions, evidence and checks.
+    </p>
+<section class="panel" id="disciplina">
+<div class="eyebrow">
+      A CHOICE OF METHODOLOGICAL DISCIPLINE
+     </div>
+<h2>
+      A disciplined traditional benchmark.
+      <br/>
+      A demanding comparison for CRL.
+     </h2>
+<p>
+      To avoid constructing a CRL advantage by artificially penalising its comparator, the traditional benchmark imposes discipline constraints. The dossiers also describe more aggressive behaviours; these are not combined here into a scenario designed to produce ruin.
+     </p>
+<div class="audit-grid">
+<article>
+<h3>
+        One position at a time
+       </h3>
+<p>
+        No overlapping positions that multiply total account exposure. The effect of simultaneous portfolios is not attributed to the result.
+       </p>
+</article>
+<article>
+<h3>
+        5× leverage, without escalation
+       </h3>
+<p>
+        No increase in leverage after a loss and no doubling down to recover losses. Notional is five times remaining capital: it decreases when the account loses value.
+       </p>
+</article>
+<article>
+<h3>
+        Duration and execution limits
+       </h3>
+<p>
+        Stops and time-based closes are applied by the rules, without discretionary cancellation. Extensions of losing positions are capped; a loss is not left open indefinitely.
+       </p>
+</article>
+</div>
+<p class="business-note">
+<strong>
+       What this approach implies.
+      </strong>
+      These constraints limit the accumulation of exposure and some channels of extreme loss. For the same adverse move, greater exposure would amplify the loss. However, the number of additional accounts that would be depleted has not been measured: trades, costs and favourable outcomes would also change. The disciplined traditional benchmark does not represent the entire population described in the dossiers and is not a guaranteed statistical bound.
+     </p>
+<p class="small">
+      The comparison includes fixed activity and more frequent re-entry after a positive day. This behavioural transfer is disclosed; it is not a full calibration of retail clients.
+      <a href="#fonti">
+       Dossiers CB01, CB02, CB05 and CB06
+      </a>
+      .
+     </p>
+</section>
+<section class="panel" id="regole">
+<h2>
+      The assumptions that determine the result.
+     </h2>
+<div class="scroll">
+<table class="prose-table">
+<thead>
+<tr>
+<th>
+          Item
+         </th>
+<th>
+          Actual model rule
+         </th>
+<th>
+          Implication for interpretation
+         </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+          Exposure
+         </td>
+<td>
+          Traditional: notional of 5× remaining capital. CRL: 1× before the trigger, payoff amplified to 5× at the trigger. One position per client at a time.
+         </td>
+<td>
+          Lower downside exposure is a property of the product comparison; its benefit alone does not establish the added value of the premium and amplification.
+         </td>
+</tr>
+<tr>
+<td>
+          Stops and targets
+         </td>
+<td>
+          STD: stop / target of 5% of capital, equivalent to approximately ±1% in price before costs. CRL: stop of 5% in price and trigger z=0.35.
+         </td>
+<td>
+          Contractual thresholds differ. The comparison does not match stop distances on the underlying; stops are not calibrated to individual volatility.
+         </td>
+</tr>
+<tr>
+<td>
+          Durations
+         </td>
+<td>
+          Declared profiles: 4 / 8 / 16 / 24 / 48 hours. Initial durations applied by index: 1 / 4 / 8 / 16 / 24 hours. Losing positions extended up to 120 hours; close on Friday at 20:00 UTC or earlier at the specified limits.
+         </td>
+<td>
+          The mapping between profile and initial duration is explicit but not empirically calibrated. Time-based closes limit prolonged losses.
+         </td>
+</tr>
+<tr>
+<td>
+          Behaviour
+         </td>
+<td>
+          Fixed activity or increased re-entry probability after a win. The coefficient originally relating to volume is applied to entry probability.
+         </td>
+<td>
+          A transferred mechanism, not a full calibration. No recovery of losses through higher leverage; after a loss, notional decreases with capital.
+         </td>
+</tr>
+<tr>
+<td>
+          Churn
+         </td>
+<td>
+          Voluntary churn disabled; technical remaining-capital threshold of $500 in the engine. No new clients, deposits or withdrawals in the model.
+         </td>
+<td>
+          The 1,000 clients still trading do not constitute an empirical survival curve. Preserved capital is not automatically translated into retention.
+         </td>
+</tr>
+<tr>
+<td>
+          Costs and broker
+         </td>
+<td>
+          Annual funding of 3% of notional; commission of $20 per million per side under the disclosed conventions; CRL service fee of 2.75 bp; provider at theoretical Q. A-book broker with included costs only.
+         </td>
+<td>
+          Funding favours the client comparison when exposure decreases. The broker's funding/spread share, the provider's executable price and cost of capital can reverse the advantage.
+         </td>
+</tr>
+<tr>
+<td>
+          CRL execution
+         </td>
+<td>
+          The client's net result is locked in at the trigger. Subsequent execution deviations fall on the broker. Four stresses applied to the same client paths.
+         </td>
+<td>
+          Execution risk is transferred to the broker; the four stresses are not four independent client samples.
+         </td>
+</tr>
+</tbody>
+</table>
+</div>
+<details>
+<summary>
+       Why the sources do not translate directly into these curves
+      </summary>
+<p>
+       The dossiers document erosion, repeated activity and churn in populations with different instruments, leverage and definitions. They do not provide joint calibration for our 5× EUR/USD profiles. The current model imposes duration, size, sequencing and exit policy: these constraints contribute to the outcome. The gap versus the sources cannot be corrected by choosing a target churn rate or loss.
+      </p>
+<p>
+       For an adverse move d and an invested fraction f of capital, the gross pre-trigger loss is approximately f·d for CRL and 5·f·d for STD, plus their respective costs and the CRL premium. This is a mechanical relationship: it does not identify the distribution of d, chosen stops, trade frequency or survival.
+      </p>
+</details>
+</section>
+<section class="panel" id="fonti">
+<div class="eyebrow">
+      DOSSIERS AND PRIMARY SOURCES
+     </div>
+<h2>
+      The evidence informing
+      <br/>
+      the comparison.
+     </h2>
+<p>
+      The sources support the mechanisms of erosion, leverage, activity and churn. Populations, measures and periods are identified to avoid inappropriate numerical transfers.
+     </p>
+<div class="evidence-grid">
+<article class="evidence-card">
+<div class="eyebrow">
+        CB01 · 2016
+       </div>
+<h3>
+        Hayley and Marsh · What do retail FX traders learn?
+       </h3>
+<p>
+        In retail FX, the relative probability of stopping is associated with recent results; after a positive day, the hazard is 16% lower than after a negative day.
+       </p>
+<p class="small">
+<strong>
+         Use in the comparison:
+        </strong>
+        Supports the link between results and churn. Does not provide an absolute monthly rate to apply to CRL.
+       </p>
+<a href="https://openaccess.city.ac.uk/id/eprint/15691/1/Learning.pdf" rel="noopener" target="_blank">
+        Primary source · pp. 11 and 17
+       </a>
+</article>
+<article class="evidence-card">
+<div class="eyebrow">
+        CB02 · 2019
+       </div>
+<h3>
+        Heimer and Simsek · Should Retail Investors’ Leverage Be Limited?
+       </h3>
+<p>
+        The US leverage restriction is associated with an estimated 23% reduction in volume and an approximately 40% reduction in losses among highly leveraged traders.
+       </p>
+<p class="small">
+<strong>
+         Use in the comparison:
+        </strong>
+        Supports the relevance of leverage and activity. Does not identify a probability of ruin at 5×.
+       </p>
+<a href="https://www.nber.org/papers/w24176" rel="noopener" target="_blank">
+        Primary source · NBER 24176, June 2019 revision, p. 2
+       </a>
+</article>
+<article class="evidence-card">
+<div class="eyebrow">
+        CB03 · 2017
+       </div>
+<h3>
+        Barber, Lee, Liu, Odean and Zhang · Do Day Traders Rationally Learn About Their Ability?
+       </h3>
+<p>
+        In the Taiwan equity day-trader sample, survival is 44% at one year and 24% at two years, under specific entry and cessation criteria.
+       </p>
+<p class="small">
+<strong>
+         Use in the comparison:
+        </strong>
+        Documents persistence and exit. Does not measure capital depletion or a 5× leveraged Forex cohort.
+       </p>
+<a href="https://faculty.haas.berkeley.edu/odean/papers/Day%20Traders/Day%20Trading%20and%20Learning%20110217.pdf" rel="noopener" target="_blank">
+        Primary source · October 2017 manuscript, p. 12
+       </a>
+</article>
+<article class="evidence-card">
+<div class="eyebrow">
+        CB04 · 2022
+       </div>
+<h3>
+        ASIC · Report 724
+       </h3>
+<p>
+        Average quarterly occurrences of negative balances fall from 21,727 to 2,524 following a package of CFD protections.
+       </p>
+<p class="small">
+<strong>
+         Use in the comparison:
+        </strong>
+        Documents extreme losses. These are aggregate occurrences, not ruin probabilities for unique clients; the intervention includes multiple measures.
+       </p>
+<a href="https://download.asic.gov.au/media/34mdfl2k/rep724-published-6-april-2022.pdf" rel="noopener" target="_blank">
+        Primary source · p. 11, para. 31
+       </a>
+</article>
+<article class="evidence-card">
+<div class="eyebrow">
+        CB05 · 2019
+       </div>
+<h3>
+        ASIC · Consultation Paper 322
+       </h3>
+<p>
+        Describes high retail-client turnover and some issuers' reliance on acquiring new clients.
+       </p>
+<p class="small">
+<strong>
+         Use in the comparison:
+        </strong>
+        Supports the analysis of lifetime and acquisition. Does not publish a monthly curve transferable to this simulation.
+       </p>
+<a href="https://download.asic.gov.au/media/5241542/cp322-published-22-august-2019.pdf" rel="noopener" target="_blank">
+        Primary source · p. 17, para. 61
+       </a>
+</article>
+<article class="evidence-card">
+<div class="eyebrow">
+        CB06 · 2022
+       </div>
+<h3>
+        FCA · CFD portfolio letter
+       </h3>
+<p>
+        Highlights conflicts linked to frequency, volume, spreads and charges, and reports churn practices among a subset of firms.
+       </p>
+<p class="small">
+<strong>
+         Use in the comparison:
+        </strong>
+        Supports separating fees from the counterparty result. Does not attribute such conduct to all brokers.
+       </p>
+<a href="https://www.fca.org.uk/publication/correspondence/cfd-portfolio-letter-2022.pdf" rel="noopener" target="_blank">
+        Primary source · pp. 2–4
+       </a>
+</article>
+</div>
+<p class="small">
+      Dossiers containing full texts and hashes are retained in the research file. Individual-level microdata needed to jointly estimate behaviour and churn for our profiles are unavailable.
+     </p>
+</section>
+</details>
+<section class="panel" id="verifiche">
+<div class="eyebrow">
+     RIGOUR, TRACEABILITY AND MATERIALS
+    </div>
+<h2>
+     A complete dossier.
+     <br/>
+     Two levels of reading.
+    </h2>
+<div class="audit-grid">
+<article>
+<h3>
+       Independent verification
+      </h3>
+<p>
+       Engine reconstructed through an independent implementation. 41,472 monthly KPI comparisons against trade ledgers; maximum residual below $0.000001. Hashes of 113 source files verified.
+      </p>
+</article>
+<article>
+<h3>
+       Verification scope
+      </h3>
+<p>
+       Accounting, path and cash-flow consistency verified. Three historical windows, one seed and correlated variants: the scale of the calculations is not out-of-sample validation or empirical calibration of retention.
+      </p>
+</article>
+<article>
+<h3>
+       Conclusion
+      </h3>
+<p>
+       The model quantifies a benefit in loss severity under the disclosed conditions. The broker's economic case depends on its book model and pricing. Both favourable and unfavourable results are part of the assessment.
+      </p>
+</article>
+</div>
+<div class="downloads">
+<a class="download-primary" download="CRL_Client_Broker_EN.pdf" href="downloads/CRL_Client_Broker_EN.pdf">
+      Download the CRL PDF dossier · English version
+     </a>
+<p>
+      Standalone English document: overview, A-book / B-book / hybrid, comparison discipline, charts, monthly KPIs, rules, checks and bibliography. The PDF uses the disclosed conditions and the average of the 18 variants; it does not incorporate temporary calculator changes.
+     </p>
+<details>
+<summary>
+       Technical data for verification · original attachments
+      </summary>
+<div class="links">
+<a download="CRL_Technical_Data_EN.zip" href="downloads/CRL_Technical_Data_EN.zip">
+        Dataset, formulas and checks · English ZIP
+       </a>
+<a download="CRL_Client_KPIs_EN.json" href="downloads/CRL_Client_KPIs_EN.json">
+        Client KPIs · JSON
+       </a>
+<a download="CRL_Broker_Bases_EN.json" href="downloads/CRL_Broker_Bases_EN.json">
+        Broker-accounting inputs · JSON
+       </a>
+</div>
+</details>
+</div>
+</section>
+<section aria-labelledby="legal-notice-title" class="legal-notice" id="legal-notice">
+<h2 id="legal-notice-title">Important information</h2>
+<p>This page presents quantitative research on the CRL model for brokers and other professional counterparties. It describes a product design and its simulated economics; it is not addressed to retail investors.</p>
+<p>All figures are model simulations on historical EUR/USD data (2017–2022 windows) under the assumptions stated on this page. They are not observed client outcomes, forecasts or guarantees of future results.</p>
+<p>Nothing here constitutes investment advice, a personal recommendation, or an offer or solicitation to buy or sell any financial instrument or service.</p>
+<p>Leveraged trading carries a high risk of rapid capital loss. In these simulations most clients end the 24 months below their initial capital, under both traditional 5× leverage and CRL.</p>
+<p>This page sets no cookies and loads no third-party scripts, fonts or analytics. It is hosted on GitHub Pages; GitHub may process technical data such as IP addresses to deliver and protect the service.</p>
+</section>
+<footer>
+    CRL Technologies · Quantitative research · Economic conditions and KPI definitions are integral to the results.
+   </footer>
+</main>
+<script data-source="data.js" src="assets/data.js"></script>
+<script data-source="broker_data.js" src="assets/broker_data.js"></script>
+<script data-source="presentation.js">
+   'use strict';
+const $=id=>document.getElementById(id);
+const fmt=(v,d=0)=>v.toLocaleString('en-GB',{minimumFractionDigits:d,maximumFractionDigits:d});
+const signed=v=>(v>0?'+':'')+fmt(v);
+const key=r=>[r.window,r.activity,r.calendar].join('|');
+const name=r=>r.window.slice(1)+' · '+(r.activity==='fixed'?'fixed activity':'re-entry after a win')+' · '+({original:'original calendar',hourly_normalized:'normalised hourly schedule',hourly_same_probability:'unchanged hourly schedule'}[r.calendar]);
+const mean=a=>a.reduce((a,b)=>a+b,0)/a.length;
+function table(id,heads,rows){$(id).innerHTML='<thead><tr>'+heads.map(s=>'<th scope="col">'+s+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+r.map(s=>'<td>'+s+'</td>').join('')+'</tr>').join('')+'</tbody>';}
+function referenceRows(){
+ const rows=DATA.rows.filter(r=>r.stress===$('execution').value&&($('cohort').value==='all'||key(r)===$('cohort').value));
+ return Array.from({length:24},(_,i)=>{const rr=rows.filter(r=>r.month===i+1);const out={month:i+1};for(const p of ['std','crl'])out[p]=Object.fromEntries(Object.keys(rr[0][p]).map(f=>[f,mean(rr.map(r=>r[p][f]))]));out.client_delta=out.crl.wealth_mean-out.std.wealth_mean;out.broker_delta=out.crl.broker_cumulative-out.std.broker_cumulative;return out;});
+}
+function plot(rows,field,id,count=false,reference=0){
+ const W=570,H=280,L=67,T=18,R=16,B=36;const values=rows.flatMap(r=>[r.std[field],r.crl[field]]);
+ const lo=count?0:Math.min(0,...values),hi=count?(id==='activity'?1100:1000):Math.max(1,reference,...values)*1.06;
+ const x=m=>L+(m-1)*(W-L-R)/23,y=v=>T+(hi-v)/(hi-lo)*(H-T-B);
+ let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${field}: traditional leverage and CRL, 24 months"><title>${field} · STD and CRL · 24 months</title>`;
+ for(let i=0;i<=4;i++){let v=lo+(hi-lo)*i/4;s+=`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#dce2e9"/><text x="${L-8}" y="${y(v)+4}" text-anchor="end" font-size="11">${fmt(v)}</text>`;}
+ for(const m of [1,6,12,18,24])s+=`<text x="${x(m)}" y="${H-10}" text-anchor="middle" font-size="11">${m}</text>`;
+ if(reference)s+=`<line x1="${L}" x2="${W-R}" y1="${y(reference)}" y2="${y(reference)}" stroke="#6d747d" stroke-dasharray="5 4"/>`;
+ for(const [p,color] of (id==='activity'?[['crl','#1264ff'],['std','#858b96']]:[['std','#858b96'],['crl','#1264ff']])){s+=`<path d="${rows.map((r,i)=>(i?'L':'M')+x(r.month)+','+y(r[p][field])).join(' ')}" fill="none" stroke="${color}" stroke-width="${p==='crl'?3.6:2.2}" stroke-dasharray="${p==='std'?'7 5':'none'}"/>`;for(const r of rows)s+=`<circle cx="${x(r.month)}" cy="${y(r[p][field])}" r="${p==='crl'?2.4:3.8}" fill="${id==='activity'&&p==='std'?'none':color}" stroke="${color}" stroke-width="1"><title>Month ${r.month} · ${p.toUpperCase()}: ${fmt(r[p][field],2)}</title></circle>`;}
+ $(id).innerHTML=s+'</svg>';
+}
+function renderCorrection(){
+ const rows=referenceRows(),r=rows[23],all=$('cohort').value==='all';
+ const variants=DATA.rows.filter(r=>r.month===24&&r.stress===$('execution').value);
+ $('scope').textContent=(all?'Equally weighted average of the 18 correlated variants':name(DATA.rows.find(r=>key(r)===$('cohort').value)))+' · amounts per initial client · 1,000 clients per cohort · initial capital $50,000. Average counts, not fractional people.';
+ const cards=[['M24 client wealth · STD → CRL',fmt(r.std.wealth_mean)+' → '+fmt(r.crl.wealth_mean)+' $'],['M24 A-book margin · STD → CRL',fmt(r.std.broker_cumulative)+' → '+fmt(r.crl.broker_cumulative)+' $'],['Below initial capital · STD → CRL',fmt(r.std.losing,1)+' → '+fmt(r.crl.losing,1)],['Crossed −50% · STD → CRL',fmt(r.std.burn50,1)+' → '+fmt(r.crl.burn50,1)],['M24 clients opening trades · simulated activity',fmt(r.std.trading,1)+' → '+fmt(r.crl.trading,1)],['Actual retention','Not estimated']];
+ $('kpis').innerHTML=cards.map(([a,b])=>'<div class="kpi"><span>'+a+'</span><strong>'+b+'</strong></div>').join('');
+ const joint=variants.filter(r=>r.client_delta>0&&r.broker_delta>0).length;
+ $('outcome').textContent=`Under the stated assumptions: Δ client wealth ${signed(r.client_delta)} $, Δ A-book margin ${signed(r.broker_delta)} $. Across the 18 variants, a joint average benefit at month 24 occurs in ${joint}/18 under these assumptions. CRL has more clients below initial capital in ${variants.filter(r=>r.crl.losing>r.std.losing).length}/18. A better average balance does not mean fewer loss-making clients, higher retention or a benefit for every client.`;
+ for(const [field,id,count,ref] of [['wealth_mean','wealth',false,50000],['broker_cumulative','broker',false,0],['losing_this_month','monthLoss',true,0],['losing','loss',true,0],['burn50','burn',true,0],['trading','activity',true,0]])plot(rows,field,id,count,ref);
+ $('activityNote').textContent='STD and CRL both have 1,000 clients opening trades in each of the 24 months: the lines overlap. The grey dashed traditional-leverage line is drawn over the blue CRL line. Voluntary exits are disabled; this chart does not estimate commercial retention.';
+ const pair=(r,f,d=1)=>fmt(r.std[f],d)+' / '+fmt(r.crl[f],d);
+ table('monthly',['Month','STD client wealth $','CRL $','Clients losing in the month STD / CRL','Below initial capital STD / CRL','Burn20 STD / CRL','Burn50 STD / CRL','New burn50 crossings STD / CRL','Monthly margin STD $','CRL $','Cumulative margin STD $','CRL $'],rows.map(r=>[r.month,fmt(r.std.wealth_mean),fmt(r.crl.wealth_mean),pair(r,'losing_this_month'),pair(r,'losing'),pair(r,'burn20'),pair(r,'burn50'),pair(r,'new_burn50'),fmt(r.std.broker_month,2),fmt(r.crl.broker_month,2),fmt(r.std.broker_cumulative),fmt(r.crl.broker_cumulative)]));
+ table('detail',['Month','Median wealth STD / CRL $','P10 wealth STD / CRL $','P90 wealth STD / CRL $','Average loss among losing clients STD / CRL $','Burn80 STD / CRL','Burn90 STD / CRL','Clients opening trades STD / CRL','Trades STD / CRL','Capital-driven exits STD / CRL','Voluntary exits STD / CRL'],rows.map(r=>[r.month,pair(r,'wealth_median',0),pair(r,'wealth_p10',0),pair(r,'wealth_p90',0),pair(r,'loss_per_loser',0),pair(r,'burn80'),pair(r,'burn90'),pair(r,'trading'),pair(r,'trades',0),pair(r,'capital_exit'),pair(r,'voluntary')]));
+ table('variants',['Variant','Δ client wealth $','Δ broker $','Losing clients STD / CRL','Burn50 STD / CRL','Clients better / worse off with CRL'],variants.map(r=>[name(r),signed(r.client_delta),signed(r.broker_delta),pair(r,'losing',0),pair(r,'burn50',0),r.clients_better+' / '+r.clients_worse]));
+}
+
+function brokerBook(v,p,month,isCrl){
+ const commission=p.bCommission/1e6*(v.nominal+v.extra_comm/20e-6*p.bExit/100);
+ const spread=p.bSpread*v.pip_basis;
+ const retainedFunding=p.bFunding/100*v.notional_years;
+ const additional=isCrl?p.bExtra*month:0;
+ const loading=isCrl?v.Q*p.bProvider/100:0;
+ const a={commission,service:v.service,spread,funding:retainedFunding,
+  trading:0,premium:0,payout:0,ops:-v.ops,licence:-v.licence,fixed:-v.fixed,execution:-v.execution,provider:-loading,additional:-additional};
+ // B-book already includes all original customer cash flows. Remove original fees
+ // before inserting new fees to avoid double counting. Decomposition remains explicit.
+ const b={commission,service:v.service,spread,funding:v.fund,
+  trading:-v.net-v.comm-v.service-v.fund-v.Q,premium:v.Q,payout:0,
+  ops:-v.ops,licence:-v.licence,fixed:-v.fixed,execution:0,provider:0,additional:-additional};
+ const out={};for(const k of Object.keys(a))out[k]=(1-p.share)*a[k]+p.share*b[k];
+ out.margin=Object.values(out).reduce((x,y)=>x+y,0);
+ // Revenue here deliberately excludes market counterparty result and Q.
+ out.fee_revenue=out.commission+out.service+out.spread+out.funding;
+ return out;
+}
+
+function brokerEvaluate(r,p){const std=brokerBook(r.std,p,r.month,false),crl=brokerBook(r.crl,p,r.month,true);return {month:r.month,std,crl,delta:crl.margin-std.margin};}
+function brokerAverage(rr,p){
+ const vv=rr.map(r=>brokerEvaluate(r,p)),o={month:rr[0].month,std:{},crl:{}};
+ for(const product of ['std','crl'])for(const k of Object.keys(vv[0][product]))o[product][k]=mean(vv.map(v=>v[product][k]));
+ o.delta=o.crl.margin-o.std.margin;o.positive=vv.filter(v=>v.delta>0).length;o.n=vv.length;o.min=Math.min(...vv.map(v=>v.delta));o.max=Math.max(...vv.map(v=>v.delta));return o;
+}
+function brokerThreshold(rr,p,key,step,unit,cap=null){
+ const roots=[];let noSlope=false;
+ for(const r of rr){
+  const d=brokerEvaluate(r,p).delta,q={...p,[key]:p[key]+step};
+  const slope=(brokerEvaluate(r,q).delta-d)/step;
+  if(Math.abs(slope)<1e-9){noSlope=true;continue;}
+  roots.push(p[key]-d/slope);
+ }
+ if(noSlope||!roots.length)return 'Not applicable';
+ const lo=Math.min(...roots),hi=Math.max(...roots),precision=unit.includes('pip')?3:2;
+ if(hi<0)return 'No positive threshold: benefit already absent';
+ if(cap!==null&&lo>cap)return 'Above the parameter limit ('+fmt(cap)+' '+unit+')';
+ return fmt(lo,precision)+(rr.length>1?' – '+fmt(hi,precision):'')+' '+unit+(lo<0?' · some variants are already unfavourable':'');
+}
+
+function bookDefaults(share=0){return {bCommission:20,bSpread:0,bFunding:0,bProvider:0,bExit:100,bInternal:share*100,bExtra:0,share,valid:true};}
+function presentationBrokerParams(){
+ const p=bookDefaults(),ranges={bCommission:[0,1000],bSpread:[0,10],bFunding:[0,3],bProvider:[0,100],bExit:[0,100],bInternal:[0,100],bExtra:[0,10000]};
+ for(const [id,[lo,hi]] of Object.entries(ranges)){const raw=$(id).value,v=Number(raw),ok=raw.trim()!==''&&Number.isFinite(v)&&v>=lo&&v<=hi;$(id).setAttribute('aria-invalid',String(!ok));p.valid=p.valid&&ok;p[id]=v;}
+ p.share=$('bModel').value==='b'?1:$('bModel').value==='hybrid'?p.bInternal/100:0;return p;
+}
+function selectedBroker(){return BROKER_DATA.rows.filter(r=>r.stress===$('execution').value&&($('cohort').value==='all'||key(r)===$('cohort').value));}
+function bookIntro(){
+ const rr=BROKER_DATA.rows.filter(r=>r.month===24&&r.stress==='latency5_slip05');
+ const types=[['A-book',0,'Fee and service revenue; risk transferred under the modelled contract.'],['Pure B-book',1,'The broker pays client trading gains. Lower client losses can reduce the counterparty result.'],['Hybrid · 10%',.1,'Linear combination: 10% internalised, 90% A-book. The same share applies to both products.']];
+ $('bookOverview').innerHTML=types.map(([label,share,text])=>{const x=brokerAverage(rr,bookDefaults(share));return `<article class="${x.crl.margin>=0?'book-positive':'book-negative'}"><div class="book-type">${label}</div><p><strong>Broker margin with CRL</strong></p><div class="value">${signed(x.crl.margin)} $</div><p><strong>${x.crl.margin>0?'Positive margin':x.crl.margin<0?'Negative margin':'Break-even margin'}</strong>, after the costs included in the model.</p><div class="book-comparison"><p>With traditional leverage: <strong>${signed(x.std.margin)} $</strong></p><p>With CRL the broker ${x.delta>=0?'earns more':'earns less'} by <strong>${fmt(Math.abs(x.delta))} $</strong>.</p>${x.delta<0&&x.crl.margin>0?'<p><strong>This is lower earnings, not a broker loss.</strong></p>':''}</div><p>${text}</p><p class="small">Amounts per initial client over 24 months. CRL margin exceeds traditional-leverage margin in ${x.positive}/18 variants. Risk capital, taxes and unspecified costs are excluded.</p></article>`;}).join('');
+}
+function renderExternalBroker(){
+ const p=presentationBrokerParams();$('bInternal').disabled=$('bModel').value!=='hybrid';$('bFunding').disabled=p.share===1;$('bProvider').disabled=p.share===1;
+ $('bValidation').textContent=p.valid?'':'Enter numbers within the stated limits.';$('bResults').hidden=!p.valid;if(!p.valid)return;
+ const rows=selectedBroker(),m=Number($('bMonth').value);$('bMonthLabel').textContent=m;
+ const all=Array.from({length:24},(_,i)=>brokerAverage(rows.filter(r=>r.month===i+1),p)),v=all[m-1],rr=rows.filter(r=>r.month===m);
+ $('bScopeNote').textContent=`Same cohort and execution filters as the client KPIs · ${rr.length} variants · month ${m} · USD per initial client. Internalised share ${fmt(p.share*100,1)}%.`;
+ $('bVerdict').textContent=`Broker margin with CRL: ${signed(v.crl.margin)} $ (${v.crl.margin>0?'positive':v.crl.margin<0?'negative':'zero'}). With traditional leverage: ${signed(v.std.margin)} $. The CRL minus traditional-leverage difference is ${signed(v.delta)} $. ${v.delta<0&&v.crl.margin>0?'The broker earns less than with traditional leverage, but the CRL margin remains positive. ':''}CRL margin exceeds traditional-leverage margin in ${v.positive}/${v.n} variants; range of differences ${signed(v.min)} / ${signed(v.max)} $. Cumulative amounts after the included costs only.`;
+ const prev=m>1?all[m-2]:{std:{margin:0},crl:{margin:0}};
+ $('bKpis').innerHTML=[['Cumulative margin STD',v.std.margin],['Cumulative margin CRL',v.crl.margin],['Cumulative Δ',v.delta],['Monthly Δ',(v.crl.margin-prev.crl.margin)-(v.std.margin-prev.std.margin)]].map(([l,n])=>`<div class="kpi"><span>${l}</span><strong>${signed(n)} $</strong></div>`).join('');
+ $('bConvention').textContent=(p.share===1?'Pure B-book: Q and funding retained; all client outcomes settled by the broker; no external hedging.':p.share===0?'A-book: Q and payoff transferred to the provider; loading and execution borne by the broker.':'Hybrid: same internalised share for both products; execution and loading apply only to the A-book share.')+' Fee changes affect broker cash flows with trades held fixed; client KPIs do not change and do not demonstrate a new joint benefit.';
+ const fields={commission:'Commissions and payoff fee',service:'CRL service',spread:'Additional spread',funding:'Retained funding',trading:'Counterparty trading result, including amplification',premium:'Retained premium Q',ops:'Operating costs',licence:'Licence',fixed:'Fixed cost',execution:'A-book execution deviation',provider:'A-book provider loading',additional:'Other CRL costs'};
+ table('bBridge',['Cumulative item','STD $','CRL $','Δ $'],[...Object.entries(fields).map(([f,l])=>[l,fmt(v.std[f],2),fmt(v.crl[f],2),signed(v.crl[f]-v.std[f])]),['Margin',fmt(v.std.margin,2),fmt(v.crl.margin,2),signed(v.delta)]]);
+ const curves=all.map(r=>({month:r.month,std:{value:r.std.margin},crl:{value:r.crl.margin}}));
+ const monthly=all.map((r,i)=>({month:r.month,std:{value:r.std.margin-(i?all[i-1].std.margin:0)},crl:{value:r.crl.margin-(i?all[i-1].crl.margin:0)}}));
+ plot(curves,'value','bCumulative');plot(monthly,'value','bMonthly');
+ table('bMonths',['Month','Monthly fees STD $','CRL $','Monthly margin STD $','CRL $','Cumulative margin STD $','CRL $','Cumulative Δ $','Favourable cases'],all.map((r,i)=>[r.month,fmt(r.std.fee_revenue-(i?all[i-1].std.fee_revenue:0)),fmt(r.crl.fee_revenue-(i?all[i-1].crl.fee_revenue:0)),fmt(monthly[i].std.value),fmt(monthly[i].crl.value),fmt(r.std.margin),fmt(r.crl.margin),signed(r.delta),r.positive+'/'+r.n]));
+ table('bThresholds',['Break-even at month '+m,'Range across variants'],[['Additional spread',brokerThreshold(rr,p,'bSpread',1,'pip/side')],['Retained A-book funding',brokerThreshold(rr,p,'bFunding',1,'% per year',3)],['Provider loading',brokerThreshold(rr,p,'bProvider',1,'% of Q')],['Commission',brokerThreshold(rr,p,'bCommission',1,'$/million/side')],['Other CRL costs',brokerThreshold(rr,p,'bExtra',1,'$/month')]]);
+}
+$('cohort').innerHTML+=[...new Map(DATA.rows.map(r=>[key(r),r])).values()].map(r=>`<option value="${key(r)}">${name(r)}</option>`).join('');
+for(const id of ['cohort','execution'])$(id).addEventListener('input',()=>{renderCorrection();renderExternalBroker();});
+for(const id of ['bModel','bInternal','bMonth','bCommission','bSpread','bFunding','bProvider','bExit','bExtra'])$(id).addEventListener('input',renderExternalBroker);
+$('bReset').addEventListener('click',()=>{for(const [id,v] of Object.entries({bModel:'a',bInternal:'10',bMonth:'24',bCommission:'20',bSpread:'0',bFunding:'0',bProvider:'0',bExit:'100',bExtra:'0'}))$(id).value=v;renderExternalBroker();});
+renderCorrection();bookIntro();renderExternalBroker();
+  </script>
+<script data-source="premium_data.js" src="assets/premium_data.js"></script>
+<script data-source="premium.js">
+   (()=>{
+ const D=PREMIUM_DATA, el=id=>document.getElementById(id), f=(v,d=0)=>Number(v).toLocaleString('en-GB',{maximumFractionDigits:d,minimumFractionDigits:d});
+ const label=r=>r.case==='base'?'CRL without surcharge':r.kind==='Q_percent'?'Q + '+f(r.value,3).replace(/0+$/,'').replace(/\.$/,'')+'%':'+ '+f(r.value,2).replace(/0+$/,'').replace(/\.$/,'')+' bp of capital';
+ const table=(id,h,rr)=>el(id).innerHTML='<thead><tr>'+h.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+rr.map(r=>'<tr>'+r.map(x=>'<td>'+x+'</td>').join('')+'</tr>').join('')+'</tbody>';
+ table('premiumTariffs',['Surcharge','Client capital $','B-book margin $','Δ client vs STD $','Δ broker vs STD $','Client better off /18','Broker better off /18','Both /18'],D.cases.map(r=>[label(r),f(r.wealth_mean),f(r.broker_cumulative),f(r.client_delta_std),f(r.broker_delta_std),r.client_better_pairs,r.broker_better_pairs,r.joint_better_pairs]));
+ el('premiumCase').innerHTML=D.cases.map(r=>'<option value="'+r.case+'">'+label(r)+'</option>').join('');el('premiumCase').value='q5';
+ el('premiumRejected').textContent='Fees excluded because net payoff is non-positive at one or more triggers: '+D.rejected.map(r=>r.kind==='Q_percent'?'Q + '+f(r.value)+'%':f(r.value)+' bp of capital').join('; ')+'. These are not simulated as acceptable alternatives.';
+ function chart(id,rows,field,std){
+  const base=D.monthly.filter(r=>r.case==='base'), series=[[rows.map(r=>r[std]),'#858b96','7 5',2],[base.map(r=>r[field]),'#83acf5','3 5',2],[rows.map(r=>r[field]),'#1264ff','none',3.8]],W=640,H=280,L=64,R=15,T=20,B=34;
+  const vals=series.flatMap(s=>s[0]),lo=Math.min(0,...vals),hi=Math.max(1,...vals)*1.06,x=i=>L+i*(W-L-R)/23,y=v=>H-B-(v-lo)*(H-B-T)/(hi-lo);
+  let s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+(field==='wealth_mean'?'Average client wealth':'Cumulative B-book margin')+'" style="width:100%;height:auto">';
+  for(let i=0;i<5;i++){let v=lo+(hi-lo)*i/4,yy=y(v);s+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+yy+'" y2="'+yy+'" stroke="#e1e4e9"/><text x="'+(L-7)+'" y="'+(yy+4)+'" text-anchor="end" font-size="11" fill="#586374">'+f(v)+'</text>';}
+  for(const i of [0,5,11,17,23])s+='<text x="'+x(i)+'" y="'+(H-9)+'" text-anchor="middle" font-size="11" fill="#586374">M'+(i+1)+'</text>';
+  for(const [v,color,dash,width] of series)s+='<polyline fill="none" stroke="'+color+'" stroke-width="'+width+'" stroke-dasharray="'+dash+'" points="'+v.map((z,i)=>x(i)+','+y(z)).join(' ')+'"/>';
+  el(id).innerHTML=s+'</svg>';
+ }
+ function render(){const rows=D.monthly.filter(r=>r.case===el('premiumCase').value);chart('premiumWealth',rows,'wealth_mean','std_wealth');chart('premiumBroker',rows,'broker_cumulative','std_broker');table('premiumMonths',['Month','Capital STD / CRL $','Margin STD / CRL $','Δ broker vs STD $','Losing clients STD / CRL','Clients losing in the month STD / CRL','Burn 50% STD / CRL','Cumulative extra CRL premium $'],rows.map(r=>[r.month,f(r.std_wealth)+' / '+f(r.wealth_mean),f(r.std_broker)+' / '+f(r.broker_cumulative),f(r.broker_delta_std),f(r.std_losing,1)+' / '+f(r.losing,1),f(r.std_losing_month,1)+' / '+f(r.losing_month,1),f(r.std_burn50,1)+' / '+f(r.burn50,1),f(r.premium_extra_cumulative)]));}
+ el('premiumCase').addEventListener('change',render);render();
+})();
+  </script>
+<script data-source="lifetime_data.js" src="assets/lifetime_data.js"></script>
+<script data-source="lifetime.js">
+   (()=>{
+const D=LIFETIME_DATA,E=id=>document.getElementById(id),f=(v,d=0)=>Number(v).toLocaleString('en-GB',{minimumFractionDigits:d,maximumFractionDigits:d});
+const names={none:'No additional exit rule',loss20:'Exit at 20% realised loss',loss50:'Exit at 50% realised loss',loss80:'Exit at 80% realised loss',loss90:'Exit at 90% realised loss',capital500:'Technical threshold: $500 capital'};
+const label=c=>c.case==='base'?'CRL without surcharge':c.kind==='Q_percent'?'Q + '+f(c.value,3).replace(/0+$/,'').replace(/\.$/,'')+'%':'+ '+f(c.value,2).replace(/0+$/,'').replace(/\.$/,'')+' bp of capital';
+E('lifeCase').innerHTML=D.cases.map(c=>'<option value="'+c.case+'">'+label(c)+'</option>').join('');E('lifeCase').value='base';E('lifePolicy').innerHTML=Object.keys(names).map(k=>'<option value="'+k+'">'+names[k]+'</option>').join('');E('lifePolicy').value='capital500';
+const table=(id,h,rows)=>E(id).innerHTML='<thead><tr>'+h.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+r.map(x=>'<td>'+x+'</td>').join('')+'</tr>').join('')+'</tbody>';
+const pair=(r,k,d=0)=>f(r['std_'+k],d)+' / '+f(r[k],d);
+function chart(id,rr,k,count){const W=640,H=260,L=65,R=15,B=30,T=20,values=rr.flatMap(r=>[r[k],r['std_'+k]]),lo=Math.min(0,...values),hi=count?1100:Math.max(1,...values)*1.06,x=i=>L+i*(W-L-R)/23,y=v=>H-B-(v-lo)*(H-B-T)/(hi-lo);let s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+(count?'Clients remaining in the account':'B-book margin')+'" style="width:100%;height:auto">';for(let i=0;i<5;i++){let v=lo+(hi-lo)*i/4;s+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="#d9dce2"/><text x="'+(L-6)+'" y="'+(y(v)+4)+'" font-size="11" fill="#586374" text-anchor="end">'+f(v)+'</text>';}for(const i of [0,5,11,17,23])s+='<text x="'+x(i)+'" y="'+(H-7)+'" font-size="11" text-anchor="middle">M'+(i+1)+'</text>';for(const [prefix,color,width,dash] of [['','#1264ff',3.8,'none'],['std_','#858b96',2,'7 5']])s+='<polyline fill="none" stroke="'+color+'" stroke-width="'+width+'" stroke-dasharray="'+dash+'" points="'+rr.map((r,i)=>x(i)+','+y(r[prefix+k])).join(' ')+'"/>';E(id).innerHTML=s+'</svg>';}
+function render(){let c=E('lifeCase').value,p=E('lifePolicy').value,rr=D.monthly.filter(r=>r.case===c&&r.policy===p),r=rr[23];E('lifeVerdict').textContent=(p==='capital500'||p==='none'?'Control without commercial churn. ':'Conditional scenario: not empirical churn. ')+names[p]+'. Lifetime restricted to 24 months STD / CRL: '+pair(r,'restricted_months',2)+' months. Longer lifetime and higher margin in '+r.joint_lifetime_margin_better_pairs+'/18 variants.';
+E('lifeKpis').innerHTML=[['Clients remaining STD / CRL',pair(r,'remaining',1)],['B-book margin STD / CRL $',pair(r,'broker')],['Wealth, including withdrawals, STD / CRL $',pair(r,'client_assets')],['CRL lifetime delta, months',f(r.delta_lifetime,2)]].map(([a,b])=>'<article><span>'+a+'</span><strong>'+b+'</strong></article>').join('');
+chart('lifeActive',rr,'remaining',true);chart('lifeMargin',rr,'broker',false);
+table('lifePolicies',['Rule at 24 months','Lifetime STD / CRL, months','Remaining STD / CRL','Margin STD / CRL $','Longer lifetime and higher margin /18'],D.final.filter(x=>x.case===c).map(x=>[names[x.policy],pair(x,'restricted_months',2),pair(x,'remaining',1),pair(x,'broker'),x.joint_lifetime_margin_better_pairs]));
+table('lifeMonthly',['Month','Remaining STD / CRL','Cumulative exits STD / CRL','Accumulated lifetime STD / CRL','Wealth STD / CRL $','Monthly margin STD / CRL $','Cumulative margin STD / CRL $','Withdrawn capital STD / CRL $'],rr.map(x=>[x.month,pair(x,'remaining',1),pair(x,'exits',1),pair(x,'restricted_months',2),pair(x,'client_assets'),pair(x,'broker_month'),pair(x,'broker'),pair(x,'withdrawn_cash')]));
+E('lifeHurdle').textContent=r.delta_margin>=0?'CRL margin already matches or exceeds traditional leverage in the average scenario: no replacement value needs to be added to break even.':r.required_net_value_per_avoided_exit===null?'No reduction in exits in this scenario: the value of avoided replacement does not close the gap.':'To close the average gap of '+f(-r.delta_margin)+' $ per initial client requires '+f(r.required_net_value_per_avoided_exit)+' external NET dollars per avoided exit. This is not an estimate of CAC.';
+let v=Number(E('lifeV').value);E('lifeValueResult').textContent=!Number.isFinite(v)||v<0?'Enter a non-negative net value.':'With V = '+f(v)+' $, the conditional difference becomes '+f(r.delta_margin+r.avoided_exit_rate*v)+' $ per initial client. Formula: '+f(r.delta_margin)+' + '+f(r.avoided_exit_rate,4)+' × V. The simulated margin remains '+f(r.broker)+' $.';
+}
+for(const id of ['lifeCase','lifePolicy','lifeV'])E(id).addEventListener('change',render);render();
+if(typeof window!=='undefined')window.addEventListener('load',()=>{if(['#premium-test','#bbook-lifetime'].includes(location.hash))document.querySelector(location.hash)?.scrollIntoView({behavior:'instant'});});
+})();
+  </script>
+<script data-source="relation_data.js" src="assets/relation_data.js"></script>
+<script data-source="relation.js">
+   (()=>{'use strict';
+const D=CRL_RELATION,E=id=>document.getElementById(id),f=(v,d=0)=>Number(v).toLocaleString('en-GB',{maximumFractionDigits:d,minimumFractionDigits:d});
+const englishLabels={"Nessuna uscita aggiuntiva": "No additional exit rule", "Uscita a perdita realizzata 20%": "Exit at 20% realised loss", "Uscita a perdita realizzata 50%": "Exit at 50% realised loss", "Uscita a perdita realizzata 80%": "Exit at 80% realised loss", "Uscita a perdita realizzata 90%": "Exit at 90% realised loss", "Soglia tecnica 500 $": "Technical threshold: $500", "Nessuna sostituzione": "No replacement", "Sostituzione dal mese successivo": "Replacement from the next month", "Un mese intero aggiuntivo di attesa": "One additional full month of waiting", "Tre mesi aggiuntivi di attesa": "Three additional months of waiting", "Sei mesi aggiuntivi di attesa": "Six additional months of waiting"};
+const rows=D.rows.map(a=>Object.assign({case:a[0],policy:a[1],mode:a[2],month:a[3]},Object.fromEntries(D.fields.map((k,i)=>[k,a[i+4]]))));
+const label=c=>c.case==='base'?'Original premium':c.case.startsWith('bp')?'Surcharge '+f(c.value,2)+' bp of capital':'Surcharge '+f(c.value,3)+'% of premium Q';
+E('relCase').innerHTML=D.cases.map(c=>'<option value="'+c.case+'">'+label(c)+'</option>').join('');
+for(const [id,dict] of [['relPolicy',D.policies],['relMode',D.modes]])E(id).innerHTML=Object.entries(dict).map(([k,v])=>'<option value="'+k+'">'+(englishLabels[v]||v)+'</option>').join('');
+E('relPolicy').value='loss50';E('relMode').value='next_month';
+function evaluate(r,C){const s=r.s_margin-C*r.s_acquired,c=r.c_margin-C*r.c_acquired;return {s,c,delta:c-s,client:r.c_original_assets-r.s_original_assets,life:r.c_original_lifetime-r.s_original_lifetime,pass:r.c_original_assets>r.s_original_assets&&r.c_original_lifetime>r.s_original_lifetime&&c>0&&c>s};}
+window.CRL_RELATION_EVALUATE=evaluate;
+function table(id,heads,rr){E(id).innerHTML='<thead><tr>'+heads.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+rr.map(r=>'<tr>'+r.map(x=>'<td>'+x+'</td>').join('')+'</tr>').join('')+'</tbody>';}
+function chart(id,rr,k,C){const W=640,H=260,L=66,R=15,T=20,B=30,vals=rr.flatMap(r=>['s','c'].map(p=>k==='margin'?r[p+'_margin']-C*r[p+'_acquired']:r[p+'_original_assets'])),lo=Math.min(0,...vals),hi=Math.max(1,...vals)*1.06,x=i=>L+i*(W-L-R)/23,y=v=>H-B-(v-lo)*(H-T-B)/(hi-lo);let html='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+(k==='margin'?'B-book margin after CAC':'Wealth of initial clients')+'" style="width:100%;height:auto">';
+for(let i=0;i<5;i++){let v=lo+(hi-lo)*i/4;html+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="#d9dce2"/><text x="'+(L-6)+'" y="'+(y(v)+4)+'" font-size="11" text-anchor="end" fill="#586374">'+f(v)+'</text>';}
+for(const i of [0,5,11,17,23])html+='<text x="'+x(i)+'" y="'+(H-7)+'" font-size="11" text-anchor="middle">M'+(i+1)+'</text>';
+for(const [p,color,width,dash] of [['s','#858b96',2.1,'7 5'],['c','#1264ff',3.8,'none']])html+='<polyline fill="none" stroke="'+color+'" stroke-width="'+width+'" stroke-dasharray="'+dash+'" points="'+rr.map((r,i)=>x(i)+','+y(k==='margin'?r[p+'_margin']-C*r[p+'_acquired']:r[p+'_original_assets'])).join(' ')+'"/>';
+E(id).innerHTML=html+'</svg>';}
+function render(){let C=Number(E('relCac').value);if(!Number.isFinite(C)||C<0){E('relVerdict').textContent='Enter a finite, non-negative CAC.';return;}
+let ca=E('relCase').value,po=E('relPolicy').value,mo=E('relMode').value,rr=rows.filter(r=>r.case===ca&&r.policy===po&&r.mode===mo),r=rr[23],v=evaluate(r,C),end=D.final.find(x=>x.case===ca&&x.policy===po&&x.mode===mo);
+const pair=(x,k,d=0)=>f(x['s_'+k],d)+' / '+f(x['c_'+k],d);
+E('relVerdict').textContent=(v.pass?'Joint conditions are met in the selected average. ':'The joint client–broker benefit is not achieved. ')+'Client wealth: '+f(v.client)+' $ versus traditional leverage; lifetime: '+f(v.life,2)+' months; margin difference after CAC: '+f(v.delta)+' $ per initial client slot.';
+E('relKpis').innerHTML=[['Margin after CAC STD / CRL $',f(v.s)+' / '+f(v.c)],['Total acquisitions STD / CRL per 1,000 slots',f(r.s_acquired*1000,1)+' / '+f(r.c_acquired*1000,1)],['Initial client wealth STD / CRL $',pair(r,'original_assets')],['Initial client lifetime STD / CRL months',pair(r,'original_lifetime',2)]].map(([a,b])=>'<article><span>'+a+'</span><strong>'+b+'</strong></article>').join('');
+chart('relAssets',rr,'assets',C);chart('relMargin',rr,'margin',C);
+table('relBridge',['Component: CRL minus traditional leverage','Dollars per initial client slot'],[['Initial cohort margin, before CAC',f(r.delta_original_margin)],['Additional contribution from replacements, before CAC',f(r.delta_replacement_margin)],['Acquisition cost difference in favour of CRL',f((r.s_acquired-r.c_acquired)*C)],['Final difference after CAC',f(v.delta)]]);
+const iv=end.interval;
+E('relInterval').textContent=iv.feasible?'Conditional CAC interval: from '+f(iv.lower)+' to '+f(iv.upper)+' $ (break-even boundaries excluded).':iv.reason==='no_profitable_CAC_interval'?'No feasible interval: outperforming traditional leverage requires CAC above '+f(iv.lower)+' $, while CRL margin reaches zero at '+f(iv.upper)+' $.':iv.reason==='client_assets'?'This fee does not preserve more average wealth for the initial client: increasing CAC does not change that result.':iv.reason==='lifetime'?'This rule does not produce a longer lifetime. No economic benefit can be attributed to retention.':'The margin remains lower: too few additional acquisitions are avoided to close the gap.';
+E('relOverhead').textContent='Sensitivity with an additional fixed cost for each replacement: STD / CRL margin after CAC '+f(v.s-r.s_extra_fixed)+' / '+f(v.c-r.c_extra_fixed)+' $. In the main calculation, the fixed budget remains $100 per initial slot over 24 months, even when vacant.';
+table('relTariffs',['Fee','Δ client wealth $','Margin STD / CRL after CAC $','Three joint conditions'],rows.filter(x=>x.month===24&&x.policy===po&&x.mode===mo).map(x=>{let q=evaluate(x,C);return[label(D.cases.find(c=>c.case===x.case)),f(q.client),f(q.s)+' / '+f(q.c),q.pass?'Yes, conditional':'No'];}));
+table('relMonthly',['Month','Cumulative acquisitions STD / CRL','Present STD / CRL','Initial client wealth STD / CRL $','Monthly margin STD / CRL $','Cumulative margin STD / CRL $'],rr.map((x,i)=>{let q=evaluate(x,C),prev=i?evaluate(rr[i-1],C):{s:0,c:0};return[x.month,f(x.s_acquired*1000,1)+' / '+f(x.c_acquired*1000,1),f(x.s_active*1000,1)+' / '+f(x.c_active*1000,1),pair(x,'original_assets'),f(q.s-prev.s)+' / '+f(q.c-prev.c),f(q.s)+' / '+f(q.c)];}));
+table('relCash',['Cumulative flow at 24 months, $','Traditional leverage','CRL'],[['Deposits from all clients',f(r.s_deposits),f(r.c_deposits)],['Total wealth, including withdrawals',f(r.s_all_assets),f(r.c_all_assets)],['Of which withdrawn',f(r.s_withdrawals),f(r.c_withdrawals)],['Operating, licence and fixed costs',f(r.s_costs),f(r.c_costs)],['Client acquisition',f(C*r.s_acquired),f(C*r.c_acquired)],['Broker margin after acquisition',f(v.s),f(v.c)]]);
+}
+for(const id of ['relCase','relPolicy','relMode','relCac'])E(id).addEventListener('change',render);
+E('relCac').addEventListener('input',render);render();
+})();
+  </script>
+<script data-source="capacity_data.js" src="assets/capacity_data.js"></script>
+<script data-source="capacity.js">
+   (()=>{'use strict';
+const D=CRL_CAPACITY,E=id=>document.getElementById(id),f=(v,d=0)=>Number(v).toLocaleString('en-GB',{maximumFractionDigits:d,minimumFractionDigits:d}),shares={a:0,hybrid:.1,b:1},names={a:'A-book',hybrid:'Hybrid 10% B-book',b:'Pure B-book'};
+function table(id,heads,rows){E(id).innerHTML='<thead><tr>'+heads.map(h=>'<th>'+h+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+r.map(v=>'<td>'+v+'</td>').join('')+'</tr>').join('')+'</tbody>';}
+const fin=(book,product)=>D.summary.final.find(r=>r.book===book&&r.product===product&&r.stress==='latency5_slip05');
+table('capRisk',['Book / product','Worst day $','Maximum drawdown $','Maximum initial deficit $'],Object.keys(shares).flatMap(b=>['std','crl'].map(p=>{const r=fin(b,p);return[names[b]+' / '+p.toUpperCase(),f(-r.worst_day_min),f(r.drawdown_max),f(r.reserve_max)];})));
+const q=D.summary.concentration;
+table('capBridge',['Assumed provider delay','Peak A-book advance $','Hybrid 10% $'],[['1h','1 hour'],['5h','5 hours'],['24h','24 hours']].map(([k,label])=>[label,f(q['payout_'+k].max),f(.9*q['payout_'+k].max)]));
+table('capStress',['Additional slippage','A-book loss over 1h $','Hybrid 10% $'],[1,5,10,25].map(p=>[p+' pip',f(p*q.pip_loss_basis_1h.max),f(.9*p*q.pip_loss_basis_1h.max)]));
+function calculate(c,s,p){const months=c.month,other=months*p.support+months/12*p.rate*p.capital+(1-shares[c.book])*p.loading*c.Q;
+return {margin:c.margin-p.cac-other,incremental:c.margin-p.migration*s.margin-other-(1-p.migration)*p.cac-p.migration*p.transition,other};}
+window.CRL_CAPACITY_CALCULATE=calculate;
+function render(){const ids=['capCAC','capService','capLoading','capCapital','capRate','capMigration','capTransition'],v=ids.map(id=>Number(E(id).value));if(v.some((x,i)=>!Number.isFinite(x)||x<0||E(ids[i]).value.trim()==='')||v[5]>100){E('capBudget').textContent='Enter non-negative costs and a migrated share between 0 and 100%.';E('capIncremental').textContent='';E('capMonths').innerHTML='';return;}
+const p={cac:v[0],support:v[1],loading:v[2]/100,capital:v[3],rate:v[4]/100,migration:v[5]/100,transition:v[6]},book=E('capBook').value;
+E('capLoading').disabled=book==='b';let outputs=[];
+for(let month=1;month<=24;month++){
+ const rr=D.details.filter(r=>r.book===book&&r.month===month),c=rr.filter(r=>r.product==='crl');
+ const z=c.map(x=>{const s=rr.find(y=>y.product==='std'&&y.window===x.window&&y.activity===x.activity&&y.calendar===x.calendar);return calculate(x,s,p);});
+ const avg=k=>z.reduce((a,x)=>a+x[k],0)/z.length;
+ outputs.push({month,margin:avg('margin'),incremental:avg('incremental'),min:Math.min(...z.map(x=>x.margin)),max:Math.max(...z.map(x=>x.margin)),positive:z.filter(x=>x.margin>0).length,incremental_positive:z.filter(x=>x.incremental>0).length});
+}
+const r=outputs[23];E('capBudget').textContent=names[book]+': average margin per new client after the entered costs '+f(r.margin)+' $ over 24 months; range across variants '+f(r.min)+' / '+f(r.max)+' $; positive in '+r.positive+'/18. This is not fully costed profit if some costs remain unquantified.';
+E('capIncremental').textContent='With '+f(p.migration*100)+'% of clients migrated, average incremental contribution versus their traditional-leverage alternative: '+f(r.incremental)+' $ per CRL client, positive in '+r.incremental_positive+'/18 variants. The comparison also accounts for foregone margin; it does not include retention revenue.';
+table('capMonths',['Month','Average margin per new client $','Min / max across variants $','Positive /18','Average incremental contribution $'],outputs.map(x=>[x.month,f(x.margin),f(x.min)+' / '+f(x.max),x.positive,f(x.incremental)]));
+}
+for(const id of ['capBook','capCAC','capService','capLoading','capCapital','capRate','capMigration','capTransition']){E(id).addEventListener('change',render);if(id!=='capBook')E(id).addEventListener('input',render);}render();
+})();
+  </script>
+<script data-source="broker_reading.js">
+   (()=>{
+ function reveal(hash){if(!hash||hash==='#')return;let node;try{node=document.getElementById(decodeURIComponent(hash.slice(1)));}catch{return;}if(!node)return;let current=node;while(current){if(current.tagName==='DETAILS')current.open=true;current=current.parentElement;}requestAnimationFrame(()=>node.scrollIntoView({behavior:'instant',block:'start'}));}
+ document.addEventListener('click',event=>{const a=event.target.closest('a[href^="#"]');if(a&&!a.hasAttribute('data-embedded-download'))reveal(a.getAttribute('href'));});
+ window.addEventListener('hashchange',()=>reveal(location.hash));window.addEventListener('load',()=>reveal(location.hash));
+})();
+  </script>
+<script data-source="site.js">
+document.querySelectorAll('.lang-switch a').forEach(function(a){
+ a.addEventListener('click',function(){a.href=a.getAttribute('href').split('#')[0]+location.hash;});
+});
+</script>
+</body>
+</html>
