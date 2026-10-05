@@ -38,11 +38,6 @@
   .path{font-family:var(--mono);font-size:12.5px;color:#8d939e;overflow-wrap:anywhere}
   .path span{color:#c6cad2}
 
-  .hint{display:none;font-size:15px;line-height:1.55;color:#f4f2ec;border:1px solid rgba(143,176,232,.45);
-    background:rgba(143,176,232,.08);padding:14px 18px;border-radius:2px;max-width:60ch}
-  .hint a{color:var(--blue-light);border-bottom:1px solid rgba(143,176,232,.5)}
-  .hint.on{display:block}
-
   .choices{display:grid;grid-template-columns:1fr 1fr;gap:16px}
   .choice{display:flex;flex-direction:column;gap:10px;padding:24px 26px;border-radius:2px;transition:transform .3s,box-shadow .3s}
   .choice .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase}
@@ -89,7 +84,6 @@
   <p class="lede">The address may be wrong, or the page has moved. Choose where to go next.</p>
   <p class="path" id="path" hidden>Requested address: <span></span></p>
 
-  <p class="hint" id="hint-research">Looking for the quantitative research? It is here: <a href="/broker/research/">CRL 5× · Clients, brokers and business models</a> (<a href="/broker/research/it/">versione italiana</a>).</p>
 
   <div class="choices">
     <a class="choice inst" id="go-inst" href="/broker/index.html">
@@ -106,7 +100,6 @@
 
   <nav class="more" aria-label="Other pages">
     <a href="/">Home</a>
-    <a href="/broker/research/">Quantitative research</a>
     <a href="/broker/faq.html">FAQ</a>
     <button type="button" id="back">Previous page</button>
   </nav>
@@ -125,7 +118,6 @@
     el.hidden = false;
   }
   var low = p.toLowerCase();
-  if (/research|ricerca|presentation|presentazione/.test(low)) document.getElementById('hint-research').classList.add('on');
   if (low.indexOf('/traders') === 0) document.getElementById('go-trad').classList.add('first');
   else if (low.indexOf('/broker') === 0) document.getElementById('go-inst').classList.add('first');
   var back = document.getElementById('back');
