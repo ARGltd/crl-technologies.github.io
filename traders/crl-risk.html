@@ -127,7 +127,7 @@
       <div class="feature">
         <span class="badge">Capped or floored payoff</span>
         <h4>When a floor is the objective</h4>
-        <p>CRL contains no loss floor and is not capital protection. If a capped or protected payoff is the objective, an option based structure is appropriate, not CRL. The conditional component is a forward, not an option.</p>
+        <p>CRL contains no loss floor and is not capital protection. If a capped or protected payoff is the objective, an option based structure is appropriate, not CRL. Once the trigger is touched, the conditional leg follows the move from S0 in both directions: it adds no floor.</p>
       </div>
       <div class="feature">
         <span class="badge">Guaranteed outcome</span>
@@ -206,7 +206,7 @@
         </tbody>
       </table>
     </div>
-    <p class="claim-note reveal" style="margin-top:20px">CRL sits closest to a leveraged stop-entry, with one difference: the entry reference does not move to the confirmation price. It stays at S0. Unlike a knock-in option, CRL has no loss floor, because the conditional component is a forward, not an option.</p>
+    <p class="claim-note reveal" style="margin-top:20px">CRL sits closest to a leveraged stop-entry, with one difference: the entry reference does not move to the confirmation price. It stays at S0. Unlike a knock-in option, CRL has no loss floor: after the trigger, the leveraged result follows the move from S0 in both directions. It also differs from a knock-in barrier because the multiplier applies to the interval before the trigger, not only from K onwards.</p>
   </section>
 
   <!-- CROSS LINKS -->
