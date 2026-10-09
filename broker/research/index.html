@@ -60,6 +60,9 @@ h2{font:500 clamp(30px,3.7vw,49px)/1.04 var(--serif);letter-spacing:-.025em;marg
    .read-lead{font-size:21px;line-height:1.6;max-width:950px}.read-scope{font-size:13px;color:#586374;padding:15px 18px;background:#f0f3f7}.read-step{display:flex;align-items:center;gap:15px;margin:36px 0 18px}.read-step span{background:#1264ff;color:white;min-width:34px;height:34px;display:grid;place-items:center;border-radius:50%;font:18px Georgia}.read-step h3{margin:0;font-size:20px}.read-charts{display:grid;grid-template-columns:1fr 1fr;gap:30px}.read-chart{padding:24px;border:1px solid #d9dce2}.read-chart h3{margin:0 0 10px;font-size:18px;line-height:1.45}.read-bar-label{display:flex;justify-content:space-between;gap:15px;margin:20px 0 8px;font-size:14px}.read-bar-label strong{font-size:19px;white-space:nowrap}.read-track{height:20px;background:#eef0f3}.read-track>div{height:100%;min-width:2px}.read-std{background:#858b96}.read-crl{background:#1264ff}.read-message{font-size:18px}.read-caveat{padding:16px 18px;border-left:3px solid #8c7959;background:#f6f1e8;font-size:14px}.read-table{max-height:none}.read-table th,.read-table td{white-space:normal!important;vertical-align:top;padding:18px 14px!important}.read-table td:nth-child(2),.read-table td:nth-child(3){white-space:nowrap!important;font-size:19px}.read-blue{color:#1264ff;font-weight:700}.read-quote{font:26px/1.5 Georgia,serif;margin:24px 0;padding:26px;border-left:4px solid #1264ff;background:#edf3ff}.read-warning{padding:20px;background:#f0f3f7;font-size:15px;line-height:1.65}.read-links{display:flex;gap:24px;flex-wrap:wrap;margin-top:25px}.read-details{border-block-start:1px solid #c9ced6;padding:24px 0;margin:0!important}.read-details>summary{font:23px/1.4 Georgia,serif;cursor:pointer;color:#18212e}.read-details-note{color:#586374;font-size:14px}.read-details>.panel{margin-top:20px}#esito .read-table table{min-width:650px}#esito{scroll-margin-top:20px}@media(max-width:800px){.read-charts{grid-template-columns:1fr}.read-quote{font-size:22px}.read-lead{font-size:18px}.read-chart{padding:18px}.read-step h3{font-size:18px}}@media print{.read-details{display:block}.read-quote,.read-chart{break-inside:avoid}}
 header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bottom:22px}header .hero-benefit{font:400 clamp(26px,2.5vw,34px)/1.15 var(--serif);letter-spacing:-.015em;color:var(--ink);margin:0 0 30px}header .hero-benefit span{display:block}header .hero-benefit span:last-child{color:#1264ff}header .intro{grid-column:2}@media(max-width:800px){header .intro{grid-column:1}header .hero-heading h1{margin-bottom:18px}header .hero-benefit{font-size:27px;margin-bottom:26px}}
 .book-paths,.book-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:22px 0}.book-paths>a{display:flex;flex-direction:column;gap:12px;border:1px solid #d9dce2;padding:22px;text-decoration:none;color:#18212e}.book-paths>a:hover{border-color:#1264ff;background:#edf3ff}.book-paths strong{font:25px Georgia,serif}.book-paths span{font-size:15px;line-height:1.5}.book-kpis article{padding:20px;background:#f0f3f7}.book-kpis span{display:block;font-size:13px;margin-bottom:12px}.book-kpis strong{font-size:27px}.book-columns{display:grid;grid-template-columns:1fr 1fr;gap:26px}.book-curve svg{width:100%;height:auto;display:block}.book-curve text{font:12px Arial,sans-serif;fill:#586374}.book-detail{scroll-margin-top:20px}.book-detail .panel{padding-bottom:20px}.book-detail details{margin:20px 0}.book-detail .read-details{margin-top:28px!important}@media(max-width:800px){.book-paths,.book-kpis,.book-columns{grid-template-columns:1fr}.book-kpis{gap:8px}.book-kpis article{padding:14px 18px}}
+
+/* Overview hierarchy: readable notes and a table without mobile overflow. */
+.hero-results{font-size:16px;line-height:1.6;max-width:580px}#overview-notes{scroll-margin-top:24px}#overview-notes p{overflow-wrap:anywhere}@media(max-width:600px){#esito .read-table table{min-width:0;width:100%;table-layout:fixed}#esito .read-table{overflow-x:visible}#esito .read-table thead{display:none}#esito .read-table tr{display:grid;grid-template-columns:1.1fr 1fr 1fr;border-bottom:1px solid #d9dce2}#esito .read-table td{min-width:0;padding:12px 6px!important;font-size:13px!important;white-space:normal!important;overflow-wrap:anywhere}#esito .read-table td:nth-child(2)::before{content:"Tradizionale";display:block;font-size:10px;color:#586374}html[lang=en] #esito .read-table td:nth-child(2)::before{content:"Traditional"}#esito .read-table td:nth-child(3)::before{content:"CRL";display:block;font-size:10px}#esito .read-table td:last-child{grid-column:1/-1}.read-quote{padding:18px;margin-inline:0}.read-warning{padding:16px}}
   </style>
 <style data-source="site.css">
 .brand-bar{flex-wrap:wrap}
@@ -107,6 +110,9 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
        More capital preserved.
       </span>
 </p>
+<p class="hero-results">
+      Both results hold in all 18 variants. At baseline pricing, severe losses fall from an average of 371 to 2 per 1,000 clients. Average final capital rises from $37,914 to $42,096.
+     </p>
 </div>
 <p class="intro">
      Complement traditional leverage with an offering that preserves more client capital in the simulated comparison. CRL maintains 1× exposure before the trigger and amplifies the result to 5× at the trigger. Fewer severe losses are the measured outcome; translating that into longer client relationships is the opportunity still to be tested. Margins and risks are analysed separately for A-book, B-book and hybrid models.
@@ -162,14 +168,7 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
      What works for the broker.
     </h2>
 <p class="read-lead">
-     The clearest benefit in the model is the
-     <strong>
-      reduction in severe losses
-     </strong>
-     . At baseline pricing, CRL also leaves clients with more capital on average. The broker's economic case depends on its book model.
-    </p>
-<p class="read-scope">
-     All figures in this overview: 24 months, $50,000 initial capital, averages across 18 correlated historical variants. No increase in the client premium and no voluntary exits have been added. These are simulated results, not commercial promises.
+     Both results hold in all 18 variants. At baseline pricing, severe losses fall from an average of 371 to 2 per 1,000 clients. Average final capital rises from $37,914 to $42,096.
     </p>
 <div class="read-step">
 <span>
@@ -244,12 +243,11 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
      </strong>
      per initial client. Both products have a negative average return relative to the initial $50,000.
     </p>
-<p class="read-caveat">
-<strong>
-      Less severe losses do not mean fewer clients making a loss.
-     </strong>
-     At month 24, 837.3 CRL clients versus 798.5 traditional clients per 1,000 are below their initial capital. Improved commercial retention has not yet been demonstrated.
-    </p>
+<p class="small">
+<a href="#overview-notes">
+      Comparison conditions and notes →
+     </a>
+</p>
 <div class="read-step">
 <span>
       2
@@ -314,10 +312,10 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
         </td>
 <td>
 <strong>
-          Profitable on average, but below traditional
+          Profitable on average, but below traditional at baseline pricing
          </strong>
 <br/>
-         CRL produces a positive margin in 15/18 variants; $4,892 less on average. An overall economic advantage over the client relationship has not been demonstrated.
+         CRL produces positive margin in 15/18 variants; on average $4,892 less. At Q + 5%: about 95% of traditional margin and an average of 16 versus 371 severe losses per 1,000 clients.
         </td>
 </tr>
 <tr>
@@ -343,9 +341,32 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
 </tbody>
 </table>
 </div>
+<div class="read-message" id="overview-abook">
+<h3>
+      A-book: higher margin in all 18 variants at the model coverage price.
+     </h3>
+<p>
+<a href="#overview-abook-note">
+       Coverage price and real quote →
+      </a>
+</p>
+</div>
+<div class="read-message" id="overview-bbook">
+<h3>
+      B-book: pricing changes the economics.
+     </h3>
+<p>
+      At Q + 5%, clients finish with almost the same average capital as under traditional leverage ($37,882 vs $37,914). The broker keeps about 95% of the traditional margin, while severe losses fall from an average of 371 to 16 per 1,000.
+     </p>
+<p>
+      At Q + 7.5%, higher margin and fewer severe losses coexist in 17/18 variants (an average of 33 per 1,000); the higher premium reduces average client capital ($35,940 vs $37,914).
+     </p>
 <p class="small">
-     Conditions: provider priced at the theoretical premium Q, disclosed costs, A-book execution stress of 5 seconds + 0.5 pip. The B-book retains all risk; no cost of capital is included. No revenue from retention has been added.
-    </p>
+<a href="#overview-replacement-note">
+       Scenario limits and replacement analysis →
+      </a>
+</p>
+</div>
 <div class="read-step">
 <span>
       3
@@ -355,23 +376,37 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
      </h3>
 </div>
 <blockquote class="read-quote">
-     “In the simulated comparison, CRL substantially reduces severe client losses. Brokers must assess its economic value against their own risk management model and costs.”
+     In the simulated comparison, CRL beats traditional 5× leverage on severe losses and client capital in all 18 variants at baseline pricing. A-book earns more at the model coverage price; in B-book, the broker chooses the price and the trade-off.
     </blockquote>
-<p>
-<strong>
-      The B-book analysis remains a separate assessment.
-     </strong>
-     The replacement analysis, including replacement-client margins and acquisition costs, did not identify a configuration benefiting both client and broker under the conditions tested. A higher premium can increase broker margin, but reduces client wealth. Exit scenarios show when a relationship could last longer: they do not yet demonstrate actual commercial lifetime.
-    </p>
+<aside class="read-warning" id="overview-notes">
+<h3>
+      Overview conditions and notes
+     </h3>
+<p class="read-scope">
+      24-month comparison, starting capital of $50,000: averages across 18 correlated historical variants. Charts and table use baseline pricing, with no additional voluntary exits. Q + 5% and Q + 7.5% are separate pricing scenarios. These are simulated results, not commercial promises.
+     </p>
+<p id="overview-abook-note">
+      The coverage price is still a model price. On average, the A-book advantage holds up to about 0.60% above it (0.35–0.89% across variants). A real quote is the next step.
+     </p>
+<p class="small">
+      Conditions: provider priced at the theoretical premium Q, disclosed costs, A-book execution stress of 5 seconds + 0.5 pip. The B-book retains all risk; no cost of capital is included. No revenue from retention has been added.
+     </p>
+<p id="overview-client-note">
+      Fewer severe losses do not mean fewer clients below starting capital: at month 24, 837.3 CRL clients versus 798.5 traditional per 1,000. Higher commercial retention has not yet been demonstrated.
+     </p>
+<p id="overview-replacement-note">
+      The replacement analysis, which includes replacement-client margins and acquisition costs, found no tested configuration combining higher average client capital, a longer relationship and positive B-book margin above traditional. Exit scenarios do not yet demonstrate actual commercial lifetime.
+     </p>
 <div class="read-warning">
 <strong>
-      How to read “Average client wealth”.
-     </strong>
-     The chart above uses the baseline premium. In tests with a higher premium, the CRL curve can fall below traditional: this is the cost of that pricing variant, not the baseline-pricing result. The two configurations are kept separate in the detailed analysis.
-    </div>
+       How to read “Average client wealth”.
+      </strong>
+      The chart above uses the baseline premium. In tests with a higher premium, the CRL curve can fall below traditional: this is the cost of that pricing variant, not the baseline-pricing result. The two configurations are kept separate in the detailed analysis.
+     </div>
 <p class="small">
-     The strength of the work lies in comparing the same cohorts and reconciling cash flows. The cohort is a controlled 5× leverage scenario, not an empirically calibrated retail population. Rules, costs, sources and limitations are integral to the assessment.
-    </p>
+      The strength of the work lies in comparing the same cohorts and reconciling cash flows. The cohort is a controlled 5× leverage scenario, not an empirically calibrated retail population. Rules, costs, sources and limitations are integral to the assessment.
+     </p>
+</aside>
 <div class="read-links">
 <a href="#risultati">
       View all client KPIs →
@@ -2216,7 +2251,7 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
         More margin and fewer severe losses: a measurable trade-off
        </h3>
 <p>
-        At Q + 7.5%, average B-book margin is $12,783 ($1,349 above traditional). Clients crossing a 50% loss threshold number 33.3 per 1,000, versus 371.3 under traditional. The cost of protection remains visible: average wealth of $35,940 versus $37,914; clients below initial capital of 978.2 versus 798.5. Higher broker margin and fewer −50% threshold crossings coexist in 17/18 variants. This combines higher margin with less severe losses, not higher margin with higher average client capital.
+        At Q + 7.5%, average B-book margin is $12,783 ($1,349 above traditional). Clients crossing a 50% loss threshold number 33.3 per 1,000, versus 371.3 under traditional. The higher premium reduces average client capital: average wealth of $35,940 versus $37,914; clients below initial capital of 978.2 versus 798.5. Higher broker margin and fewer −50% threshold crossings coexist in 17/18 variants. This combines higher margin with less severe losses, not higher margin with higher average client capital.
        </p>
 <h3>
         All admissible pricing levels · results at 24 months
@@ -2319,7 +2354,7 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
        </h2>
 <p>
 <strong>
-         Actual relationship duration is distinct from capital protection.
+         Actual relationship duration is distinct from capital preserved.
         </strong>
         This analysis extends only the B-book; A-book and hybrid models retain the conditions disclosed in their respective sections.
        </p>
@@ -3415,7 +3450,7 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
 <strong>
        The commercial question:
       </strong>
-      how much capital protection does CRL offer, at what cost to the client and with what sustainable margin for the specific broker? The calculator also shows the conditions under which CRL produces less margin.
+      how much capital does CRL preserve, at what cost to the client and with what sustainable margin for the specific broker? The calculator also shows the conditions under which CRL produces less margin.
      </p>
 <p>
 <a href="#premium-test">
@@ -3836,7 +3871,7 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
         ASIC · Report 724
        </h3>
 <p>
-        Average quarterly occurrences of negative balances fall from 21,727 to 2,524 following a package of CFD protections.
+        Average quarterly occurrences of negative balances fall from 21,727 to 2,524 following a package of CFD rules.
        </p>
 <p class="small">
 <strong>

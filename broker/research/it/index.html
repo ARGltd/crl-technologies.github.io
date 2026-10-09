@@ -60,6 +60,9 @@ h2{font:500 clamp(30px,3.7vw,49px)/1.04 var(--serif);letter-spacing:-.025em;marg
    .read-lead{font-size:21px;line-height:1.6;max-width:950px}.read-scope{font-size:13px;color:#586374;padding:15px 18px;background:#f0f3f7}.read-step{display:flex;align-items:center;gap:15px;margin:36px 0 18px}.read-step span{background:#1264ff;color:white;min-width:34px;height:34px;display:grid;place-items:center;border-radius:50%;font:18px Georgia}.read-step h3{margin:0;font-size:20px}.read-charts{display:grid;grid-template-columns:1fr 1fr;gap:30px}.read-chart{padding:24px;border:1px solid #d9dce2}.read-chart h3{margin:0 0 10px;font-size:18px;line-height:1.45}.read-bar-label{display:flex;justify-content:space-between;gap:15px;margin:20px 0 8px;font-size:14px}.read-bar-label strong{font-size:19px;white-space:nowrap}.read-track{height:20px;background:#eef0f3}.read-track>div{height:100%;min-width:2px}.read-std{background:#858b96}.read-crl{background:#1264ff}.read-message{font-size:18px}.read-caveat{padding:16px 18px;border-left:3px solid #8c7959;background:#f6f1e8;font-size:14px}.read-table{max-height:none}.read-table th,.read-table td{white-space:normal!important;vertical-align:top;padding:18px 14px!important}.read-table td:nth-child(2),.read-table td:nth-child(3){white-space:nowrap!important;font-size:19px}.read-blue{color:#1264ff;font-weight:700}.read-quote{font:26px/1.5 Georgia,serif;margin:24px 0;padding:26px;border-left:4px solid #1264ff;background:#edf3ff}.read-warning{padding:20px;background:#f0f3f7;font-size:15px;line-height:1.65}.read-links{display:flex;gap:24px;flex-wrap:wrap;margin-top:25px}.read-details{border-block-start:1px solid #c9ced6;padding:24px 0;margin:0!important}.read-details>summary{font:23px/1.4 Georgia,serif;cursor:pointer;color:#18212e}.read-details-note{color:#586374;font-size:14px}.read-details>.panel{margin-top:20px}#esito .read-table table{min-width:650px}#esito{scroll-margin-top:20px}@media(max-width:800px){.read-charts{grid-template-columns:1fr}.read-quote{font-size:22px}.read-lead{font-size:18px}.read-chart{padding:18px}.read-step h3{font-size:18px}}@media print{.read-details{display:block}.read-quote,.read-chart{break-inside:avoid}}
 header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bottom:22px}header .hero-benefit{font:400 clamp(26px,2.5vw,34px)/1.15 var(--serif);letter-spacing:-.015em;color:var(--ink);margin:0 0 30px}header .hero-benefit span{display:block}header .hero-benefit span:last-child{color:#1264ff}header .intro{grid-column:2}@media(max-width:800px){header .intro{grid-column:1}header .hero-heading h1{margin-bottom:18px}header .hero-benefit{font-size:27px;margin-bottom:26px}}
 .book-paths,.book-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:22px 0}.book-paths>a{display:flex;flex-direction:column;gap:12px;border:1px solid #d9dce2;padding:22px;text-decoration:none;color:#18212e}.book-paths>a:hover{border-color:#1264ff;background:#edf3ff}.book-paths strong{font:25px Georgia,serif}.book-paths span{font-size:15px;line-height:1.5}.book-kpis article{padding:20px;background:#f0f3f7}.book-kpis span{display:block;font-size:13px;margin-bottom:12px}.book-kpis strong{font-size:27px}.book-columns{display:grid;grid-template-columns:1fr 1fr;gap:26px}.book-curve svg{width:100%;height:auto;display:block}.book-curve text{font:12px Arial,sans-serif;fill:#586374}.book-detail{scroll-margin-top:20px}.book-detail .panel{padding-bottom:20px}.book-detail details{margin:20px 0}.book-detail .read-details{margin-top:28px!important}@media(max-width:800px){.book-paths,.book-kpis,.book-columns{grid-template-columns:1fr}.book-kpis{gap:8px}.book-kpis article{padding:14px 18px}}
+
+/* Overview hierarchy: readable notes and a table without mobile overflow. */
+.hero-results{font-size:16px;line-height:1.6;max-width:580px}#overview-notes{scroll-margin-top:24px}#overview-notes p{overflow-wrap:anywhere}@media(max-width:600px){#esito .read-table table{min-width:0;width:100%;table-layout:fixed}#esito .read-table{overflow-x:visible}#esito .read-table thead{display:none}#esito .read-table tr{display:grid;grid-template-columns:1.1fr 1fr 1fr;border-bottom:1px solid #d9dce2}#esito .read-table td{min-width:0;padding:12px 6px!important;font-size:13px!important;white-space:normal!important;overflow-wrap:anywhere}#esito .read-table td:nth-child(2)::before{content:"Tradizionale";display:block;font-size:10px;color:#586374}html[lang=en] #esito .read-table td:nth-child(2)::before{content:"Traditional"}#esito .read-table td:nth-child(3)::before{content:"CRL";display:block;font-size:10px}#esito .read-table td:last-child{grid-column:1/-1}.read-quote{padding:18px;margin-inline:0}.read-warning{padding:16px}}
   </style>
  
 <style data-source="site.css">
@@ -107,6 +110,9 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
       <span>
        Più capitale preservato.
       </span>
+     </p>
+     <p class="hero-results">
+      Entrambi i risultati valgono in tutte le 18 varianti. Al prezzo base, le perdite gravi scendono in media da 371 a 2 ogni 1.000 clienti. Il capitale finale medio sale da 37.914 $ a 42.096 $.
      </p>
     </div>
     <p class="intro">
@@ -163,14 +169,7 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
      Che cosa conviene al broker.
     </h2>
     <p class="read-lead">
-     Il beneficio più netto del modello è la
-     <strong>
-      riduzione delle perdite profonde
-     </strong>
-     . Alle tariffe di riferimento, CRL lascia anche più capitale medio al cliente. La convenienza economica del broker dipende dal book.
-    </p>
-    <p class="read-scope">
-     Tutti i numeri di questa sintesi: 24 mesi, 50.000 $ iniziali, medie delle 18 varianti storiche correlate. Nessun aumento del premium cliente e nessuna uscita volontaria aggiunti. Sono risultati simulati, non promesse commerciali.
+     Entrambi i risultati valgono in tutte le 18 varianti. Al prezzo base, le perdite gravi scendono in media da 371 a 2 ogni 1.000 clienti. Il capitale finale medio sale da 37.914 $ a 42.096 $.
     </p>
     <div class="read-step">
      <span>
@@ -245,11 +244,10 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
      </strong>
      per cliente iniziale. Entrambi i prodotti hanno un risultato medio negativo rispetto ai 50.000 $ iniziali.
     </p>
-    <p class="read-caveat">
-     <strong>
-      Perdita meno grave non significa meno clienti in perdita.
-     </strong>
-     A 24 mesi sono sotto il capitale iniziale 837,3 clienti CRL contro 798,5 tradizionali su 1.000. Maggiore retention commerciale non è ancora dimostrata.
+    <p class="small">
+     <a href="#overview-notes">
+      Condizioni e note del confronto →
+     </a>
     </p>
     <div class="read-step">
      <span>
@@ -315,10 +313,10 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
         </td>
         <td>
          <strong>
-          Profittevole in media, ma sotto il tradizionale
+          Profittevole in media, ma sotto il tradizionale al prezzo base
          </strong>
          <br/>
-         CRL produce margine positivo in 15/18 varianti; in media 4.892 $ in meno. Non è dimostrato un vantaggio economico complessivo della relazione.
+         CRL produce margine positivo in 15/18 varianti; in media 4.892 $ in meno. Con Q + 5%: circa il 95% del margine tradizionale e 16 contro 371 perdite gravi ogni 1.000 clienti, in media.
         </td>
        </tr>
        <tr>
@@ -344,9 +342,32 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
       </tbody>
      </table>
     </div>
-    <p class="small">
-     Condizioni: provider al premio teorico Q, costi dichiarati, stress di esecuzione A-book 5 secondi + 0,5 pip. Il B-book trattiene integralmente il rischio; non include un costo di capitale. Nessun ricavo da retention è stato aggiunto.
-    </p>
+    <div class="read-message" id="overview-abook">
+     <h3>
+      A-book: margine più alto in tutte le 18 varianti al prezzo modello della copertura.
+     </h3>
+     <p>
+      <a href="#overview-abook-note">
+       Prezzo della copertura e quotazione reale →
+      </a>
+     </p>
+    </div>
+    <div class="read-message" id="overview-bbook">
+     <h3>
+      B-book: il prezzo cambia l'economia.
+     </h3>
+     <p>
+      Con Q + 5%, i clienti chiudono con quasi lo stesso capitale medio della leva tradizionale (37.882 $ contro 37.914 $). Il broker mantiene circa il 95% del margine tradizionale, mentre le perdite gravi scendono in media da 371 a 16 ogni 1.000.
+     </p>
+     <p>
+      Con Q + 7,5%, margine più alto e meno perdite gravi coesistono in 17/18 varianti (in media 33 ogni 1.000); il premio più alto riduce il capitale medio del cliente (35.940 $ contro 37.914 $).
+     </p>
+     <p class="small">
+      <a href="#overview-replacement-note">
+       Limiti degli scenari e analisi di sostituzione →
+      </a>
+     </p>
+    </div>
     <div class="read-step">
      <span>
       3
@@ -356,23 +377,37 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
      </h3>
     </div>
     <blockquote class="read-quote">
-     «Nel confronto simulato, CRL riduce fortemente le perdite profonde del cliente. Il broker deve valutarne la convenienza in base al proprio modello di gestione del rischio e ai propri costi.»
+     Nel confronto simulato, CRL batte la leva tradizionale 5× su perdite gravi e capitale del cliente in tutte le 18 varianti, al prezzo base. L'A-book guadagna di più al prezzo modello della copertura; nel B-book il broker sceglie il prezzo e il compromesso.
     </blockquote>
-    <p>
-     <strong>
-      Il filone B-book resta una valutazione distinta.
-     </strong>
-     La verifica del ricambio, includendo margini dei sostituti e acquisizione, non ha individuato una configurazione con vantaggio congiunto cliente–broker nelle condizioni esaminate. Un premium più alto può aumentarne il margine, ma riduce il patrimonio cliente. Gli scenari di uscita mostrano quando una relazione può durare di più: non dimostrano ancora la durata commerciale reale.
-    </p>
-    <div class="read-warning">
-     <strong>
-      Come leggere “Patrimonio medio cliente”.
-     </strong>
-     Il grafico qui sopra usa il premium di riferimento. Nei test con premium maggiorato la curva CRL può scendere sotto il tradizionale: è il costo di quella variante, non il risultato della tariffa di riferimento. Le due configurazioni sono separate negli approfondimenti.
-    </div>
-    <p class="small">
-     La solidità del lavoro sta nel confronto delle stesse coorti e nella verifica dei flussi. La coorte è uno scenario controllato a leva 5×, non una popolazione retail empiricamente calibrata. I dettagli su regole, costi, fonti e limiti sono parte integrante della valutazione.
-    </p>
+    <aside class="read-warning" id="overview-notes">
+     <h3>
+      Condizioni e note della panoramica
+     </h3>
+     <p class="read-scope">
+      Confronto a 24 mesi, 50.000 $ iniziali: medie delle 18 varianti storiche correlate. Grafici e tabella usano il prezzo base, senza uscite volontarie aggiunte. I risultati Q + 5% e Q + 7,5% sono scenari di prezzo distinti. Sono risultati simulati, non promesse commerciali.
+     </p>
+     <p id="overview-abook-note">
+      Il prezzo della copertura è ancora un prezzo di modello. In media il vantaggio A-book regge fino a circa lo 0,60% sopra (0,35–0,89% per variante). Il prossimo passo è una quotazione reale.
+     </p>
+     <p class="small">
+      Condizioni: provider al premio teorico Q, costi dichiarati, stress di esecuzione A-book 5 secondi + 0,5 pip. Il B-book trattiene integralmente il rischio; non include un costo di capitale. Nessun ricavo da retention è stato aggiunto.
+     </p>
+     <p id="overview-client-note">
+      Meno perdite gravi non significa meno clienti sotto il capitale iniziale: al mese 24, 837,3 clienti CRL contro 798,5 tradizionali ogni 1.000. Maggiore retention commerciale non è ancora dimostrata.
+     </p>
+     <p id="overview-replacement-note">
+      L’analisi di sostituzione, che include margini dei clienti sostitutivi e costi di acquisizione, non ha trovato una configurazione testata che migliori contemporaneamente il capitale medio del cliente, la durata della relazione e un margine B-book positivo superiore al tradizionale. Gli scenari di uscita non dimostrano ancora la durata commerciale reale.
+     </p>
+     <div class="read-warning">
+      <strong>
+       Come leggere “Patrimonio medio cliente”.
+      </strong>
+      Il grafico qui sopra usa il premium di riferimento. Nei test con premium maggiorato la curva CRL può scendere sotto il tradizionale: è il costo di quella variante, non il risultato della tariffa di riferimento. Le due configurazioni sono separate negli approfondimenti.
+     </div>
+     <p class="small">
+      La solidità del lavoro sta nel confronto delle stesse coorti e nella verifica dei flussi. La coorte è uno scenario controllato a leva 5×, non una popolazione retail empiricamente calibrata. I dettagli su regole, costi, fonti e limiti sono parte integrante della valutazione.
+     </p>
+    </aside>
     <div class="read-links">
      <a href="#risultati">
       Vedere tutti i KPI cliente →
@@ -2217,7 +2252,7 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
         Più margine e meno perdite profonde: un compromesso misurabile
        </h3>
        <p>
-        Con Q + 7,5%, il margine B-book medio è 12.783 $ (1.349 $ rispetto al tradizionale). I clienti che attraversano una perdita del 50% sono 33,3 su 1.000, contro 371,3 nel tradizionale. Il costo della protezione resta visibile: patrimonio medio 35.940 $ contro 37.914 $; clienti sotto il capitale iniziale 978,2 contro 798,5. Margine broker superiore e meno attraversamenti del -50% coesistono in 17/18 varianti. Questa è una combinazione di maggior margine e minore gravità delle perdite, non di maggior margine e maggior capitale medio per il cliente.
+        Con Q + 7,5%, il margine B-book medio è 12.783 $ (1.349 $ rispetto al tradizionale). I clienti che attraversano una perdita del 50% sono 33,3 su 1.000, contro 371,3 nel tradizionale. Il premio più alto riduce il capitale medio del cliente: patrimonio medio 35.940 $ contro 37.914 $; clienti sotto il capitale iniziale 978,2 contro 798,5. Margine broker superiore e meno attraversamenti del -50% coesistono in 17/18 varianti. Questa è una combinazione di maggior margine e minore gravità delle perdite, non di maggior margine e maggior capitale medio per il cliente.
        </p>
        <h3>
         Tutte le tariffe ammissibili · risultato a 24 mesi
@@ -2320,7 +2355,7 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
        </h2>
        <p>
         <strong>
-         La durata effettiva della relazione è distinta dalla protezione del capitale.
+         La durata effettiva della relazione è distinta dal capitale preservato.
         </strong>
         Questa analisi completa il solo B-book; A-book e ibridi conservano le condizioni dichiarate nelle rispettive sezioni.
        </p>
@@ -3416,7 +3451,7 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
       <strong>
        La domanda commerciale:
       </strong>
-      quanta protezione del capitale offre CRL, a quale costo per il cliente e con quale margine sostenibile per lo specifico broker? Il calcolatore espone anche le condizioni in cui CRL produce meno margine.
+      quanto capitale preserva CRL, a quale costo per il cliente e con quale margine sostenibile per lo specifico broker? Il calcolatore espone anche le condizioni in cui CRL produce meno margine.
      </p>
      <p>
       <a href="#premium-test">
@@ -3837,7 +3872,7 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
         ASIC · Report 724
        </h3>
        <p>
-        Le occorrenze medie trimestrali di saldi negativi passano da 21.727 a 2.524 dopo un pacchetto di protezioni CFD.
+        Le occorrenze medie trimestrali di saldi negativi passano da 21.727 a 2.524 dopo un pacchetto di regole CFD.
        </p>
        <p class="small">
         <strong>
