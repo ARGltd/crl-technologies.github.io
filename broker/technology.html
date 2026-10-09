@@ -46,7 +46,7 @@
     <h1 class="reveal">How the CRL engine works</h1>
     <div class="text-col reveal" style="margin-top:24px">
       <p>Technically, CRL is a leverage engine that sits between your price feed and your order management. It does not replace your platform and it does not touch execution or custody.</p>
-      <p>Until a specific trigger is hit, the client behaves as if essentially linear. When the trigger is confirmed, the whole move from entry is multiplied according to a predefined rule, with a payoff that can be hedged and reported using standard tools.</p>
+      <p>Until a specific trigger is hit, the client behaves as if essentially linear. When the trigger is confirmed, the whole move from entry is multiplied according to a predefined rule, with a payoff that can be hedged with established instruments and reported using standard tools.</p>
     </div>
   </section>
 
@@ -87,10 +87,10 @@
     <div class="reveal" style="max-width:64ch">
       <div class="sec-index">Position states</div>
       <h2>From linear exposure to conditional leverage</h2>
-      <p class="body-small" style="margin-top:22px">CRL does not add hidden exposure to your book. It reshapes <em>when</em> leverage appears and how it is accounted for. Each CRL position lives in a small, finite set of states that your risk team can read in plain language. In risk terms, you move from an always-leveraged profile, where the client is exposed from the first tick, to a structure where leverage only appears once the move you care about has actually happened.</p>
+      <p class="body-small" style="margin-top:22px">CRL does not add hidden exposure to your book: the amount owed at the trigger is explicit from opening. It reshapes <em>when</em> leverage appears and how it is accounted for. Each CRL position lives in a small, finite set of states that your risk team can read in plain language. In risk terms, you move from an always-leveraged profile, where the client is exposed from the first tick, to a structure where leverage only appears once the move you care about has actually happened.</p>
     </div>
     <div class="rows" style="margin-top:48px">
-      <div class="row reveal"><div class="idx">01</div><h3>Pre-trigger: essentially linear</h3><p>The client enters a CRL trade. Until the trigger level is reached, the position behaves like a non-leveraged exposure with a clearly defined notional and direction. There is no hidden leverage in the book at this stage.</p></div>
+      <div class="row reveal"><div class="idx">01</div><h3>Pre-trigger: essentially linear</h3><p>The client enters a CRL trade. Until the trigger level is reached, the position behaves like a non-leveraged exposure with a clearly defined notional and direction. There is no leverage on the client position at this stage. The broker&rsquo;s book also carries the amount owed if the trigger is reached; its sensitivity rises as price approaches the trigger, which is why the pilot sets near-trigger hedging rules.</p></div>
       <div class="row reveal"><div class="idx">02</div><h3>Trigger: activation and retro calculation</h3><p>When the market reaches the agreed trigger, the engine locks the path from entry and applies the leverage rule to that whole move. At this moment the position becomes a leveraged payoff with an explicit strike, notional and settlement formula.</p></div>
       <div class="row reveal"><div class="idx">03</div><h3>Post-trigger: settlement and closure</h3><p>Once activated, the position follows a clear policy-defined payoff until termination. The engine returns the resulting P&amp;L, and your systems treat it as they would treat any other structured payoff: settlement, booking and reporting follow your normal procedures.</p></div>
     </div>
@@ -227,7 +227,7 @@
     <div class="feature-grid cols-3 reveal">
       <div class="feature"><h4>Your governance</h4><p>Your institution remains fully responsible for product governance, client classification, suitability, disclosures and regulatory reporting.</p></div>
       <div class="feature"><h4>Configurable</h4><p>CRL operates as a configurable software component inside your existing framework. You decide which client segments and instruments may access CRL-based structures.</p></div>
-      <div class="feature"><h4>Evidence-based</h4><p>All quantitative statements anchored in a documented validation programme: large-scale Monte Carlo across multiple regimes, a five-year historical backtest, parameter-sensitivity studies and deterministic engine verification. Methodology and parameters available under NDA.</p></div>
+      <div class="feature"><h4>Evidence-based</h4><p>All quantitative statements anchored in a documented validation programme: large-scale Monte Carlo across multiple regimes, a five-year historical backtest, parameter-sensitivity studies and deterministic engine verification. Methodology and parameters available under NDA; the <a href="research/" style="text-decoration:underline;text-underline-offset:3px">24-month client and broker study</a> is public.</p></div>
     </div>
     <p class="claim-note" style="margin-top:22px">Full methodology, assumptions and test inventory available in the CRL Quantitative Validation Dossier, shared under NDA.</p>
   </section>
