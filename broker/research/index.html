@@ -7,6 +7,12 @@
 <meta content="Quantitative research on CRL 5×: simulated client capital and broker economics under A-book, B-book and hybrid models. 24 months, EUR/USD, 1,000 clients per cohort." name="description"/>
 <meta content="website" property="og:type"/>
 <meta content="Quantitative research on CRL 5×: simulated client capital and broker economics under A-book, B-book and hybrid models. 24 months, EUR/USD, 1,000 clients per cohort." property="og:description"/>
+<link href="https://crl-technologies.com/broker/research/" rel="canonical"/>
+<link href="https://crl-technologies.com/broker/research/" hreflang="en" rel="alternate"/>
+<link href="https://crl-technologies.com/broker/research/it/" hreflang="it" rel="alternate"/>
+<link href="https://crl-technologies.com/broker/research/" hreflang="x-default" rel="alternate"/>
+<meta content="https://crl-technologies.com/broker/research/" property="og:url"/>
+<meta content="https://crl-technologies.com/broker/research/assets/crl-logo.png" property="og:image"/>
 <title>
    CRL 5× · Clients, brokers and business models
   </title>
@@ -640,7 +646,7 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
         When it makes economic sense
        </h3>
 <p>
-        The client already pays Q; the additional budget is the headroom for a higher coverage cost before reaching parity with traditional leverage. Under the presented stress (5 seconds + 0.5 pip), the average advantage reaches zero at approximately 0.60% above Q: thresholds across variants are 0.35–0.89% of Q, not percentage points of capital. Under baseline execution, the average threshold is approximately 1.9% above Q. These thresholds hold client pricing, trades and other costs fixed; they indicate parity with traditional leverage, not zero CRL margin. Different client pricing requires a separate assessment.
+        The client already pays Q; the additional budget is the headroom for a higher coverage cost before reaching parity with traditional leverage. Under the presented stress (5 seconds + 0.5 pip), the average advantage reaches zero at approximately 0.60% above Q: thresholds across variants are 0.35–0.89% of Q, not percentage points of capital. Under baseline execution, the average threshold is approximately 1.9% above Q (1.45–2.27% across variants). These thresholds hold client pricing, trades and other costs fixed; they indicate parity with traditional leverage, not zero CRL margin. Different client pricing requires a separate assessment.
        </p>
 </article>
 </div>
@@ -2497,7 +2503,7 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
         When it makes economic sense
        </h3>
 <p>
-        The 10% share is an illustrative scenario, not an estimated optimum. The 90% externally covered share depends on the same coverage availability and pricing assumption as A-book; however, the hybrid budget must be assessed against its own margin, not the 0.60% threshold of pure A-book. Additional costs can absorb the small average advantage. Other shares can be explored in the economic calculator with trades held fixed, without resimulating clients.
+        The 10% share is an illustrative scenario, not an estimated optimum. The 90% externally covered share depends on the same coverage availability and pricing assumption as A-book; however, the hybrid budget must be assessed against its own margin, not the 0.60% threshold of pure A-book. Additional costs can absorb the small average advantage. Other shares can be explored in the economic calculator with trades held fixed, without resimulating clients. With internalised share fixed, loading_max = Δhybrid / [(1 - internalised share) × Q] per variant; average parity is about 0.03% above Q. Some variants are already below traditional at price Q. This threshold concerns parity, not zero CRL margin.
        </p>
 </article>
 </div>
@@ -3188,7 +3194,7 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
       </p>
 </div>
 <p class="read-lead">
-      The original configuration leaves a positive average economic budget in all three book models. That budget must cover acquisition, additional support, the provider's actual price and capital: it is not yet profit after all costs. Aggregate risk measures do not show a uniform reduction in broker risk.
+      The original configuration leaves positive modelled margin on average in all three books. This margin must cover acquisition, additional support, the actual provider price and capital: it is not yet profit after all costs. Aggregate risk measures do not confirm uniformly lower broker risk.
      </p>
 <p>
       5× leverage, unchanged premium and trigger. No assumption of greater skill or loyalty among premium clients. Three book models applied to the same product; A-book execution of 5 seconds + 0.5 pip and provider at theoretical premium Q.
@@ -3201,7 +3207,7 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
           Book
          </th>
 <th>
-          Average budget / client, 24 months
+          Average margin / client, 24 months
          </th>
 <th>
           Minimum / maximum across variants
@@ -3258,7 +3264,10 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
 </table>
 </div>
 <p class="small">
-      After commissions/operating costs, licence, funding and fixed costs under the book's conventions; before the unquoted costs below. Correlated variants, not confidence intervals. “Budget” is a model-generated amount that still needs to cover additional costs.
+      After commissions/operating costs, licence, funding and fixed costs under the book conventions; before the unquoted costs below. Correlated variants, not confidence intervals. Absolute margin is not the additional coverage cost compatible with parity against traditional leverage.
+     </p>
+<p class="small">
+      Arithmetic example, not a quote: average cumulative Q is $95,688 per client over 24 months. A 1% provider loading uses $957 of the $2,127 A-book margin, leaving $1,170 before other missing costs. This is below the traditional $1,555: parity is lost at 1%. Average parity is about 0.60% above Q (0.35–0.89% across variants), not zero CRL margin.
      </p>
 <details id="capacity-costs">
 <summary>
@@ -3309,7 +3318,7 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
 </label>
 </div>
 <p class="small">
-       Zero inputs show the budget before new charges: they do not establish zero costs or fully costed profit. Support is additional to costs already included. Allocated capital is constant and remunerated over 24 months; it is not calculated by the model. Provider loading applies only to the external share. Client pricing is unchanged.
+       Zeros show margin without additional charges: they do not establish zero costs or full profit. Support beyond costs already included. Capital is allocated constantly and remunerated for 24 months; it is not calculated by the model. Provider loading applies only to the external share. No change to client fees.
       </p>
 <p class="read-message" id="capBudget">
 </p>
@@ -3952,6 +3961,7 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
 <p>Nothing here constitutes investment advice, a personal recommendation, or an offer or solicitation to buy or sell any financial instrument or service.</p>
 <p>Leveraged trading carries a high risk of rapid capital loss. In these simulations most clients end the 24 months below their initial capital, under both traditional 5× leverage and CRL.</p>
 <p>This page sets no cookies and loads no third-party scripts, fonts or analytics. It is hosted on GitHub Pages; GitHub may process technical data such as IP addresses to deliver and protect the service.</p>
+<p class="publisher">Published by: CRL Technologies, Inc. · 1313 N Market Street, Suite 5100, Wilmington, DE 19801, United States · info@crl-technologies.com</p>
 </section>
 <footer>
     CRL Technologies · Quantitative research · Economic conditions and KPI definitions are integral to the results.

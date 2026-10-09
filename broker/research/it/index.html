@@ -7,6 +7,12 @@
 <meta content="Ricerca quantitativa su CRL 5×: capitale del cliente simulato ed economia del broker nei modelli A-book, B-book e ibrido. 24 mesi, EUR/USD, 1.000 clienti per coorte." name="description"/>
 <meta content="website" property="og:type"/>
 <meta content="Ricerca quantitativa su CRL 5×: capitale del cliente simulato ed economia del broker nei modelli A-book, B-book e ibrido. 24 mesi, EUR/USD, 1.000 clienti per coorte." property="og:description"/>
+<link href="https://crl-technologies.com/broker/research/it/" rel="canonical"/>
+<link href="https://crl-technologies.com/broker/research/" hreflang="en" rel="alternate"/>
+<link href="https://crl-technologies.com/broker/research/it/" hreflang="it" rel="alternate"/>
+<link href="https://crl-technologies.com/broker/research/" hreflang="x-default" rel="alternate"/>
+<meta content="https://crl-technologies.com/broker/research/it/" property="og:url"/>
+<meta content="https://crl-technologies.com/broker/research/assets/crl-logo.png" property="og:image"/>
   <title>
    CRL 5× · Cliente, broker e modelli di business
   </title>
@@ -641,7 +647,7 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
         Quando conviene
        </h3>
        <p>
-        Il cliente paga già Q; il budget aggiuntivo è il margine disponibile per un maggior costo della copertura prima di raggiungere la parità con il tradizionale. Nello stress presentato (5 secondi + 0,5 pip), il vantaggio medio si annulla a circa +0,60% di Q: soglie per variante 0,35–0,89%, non punti percentuali sul capitale. Nel caso base di esecuzione la soglia media è circa +1,9% di Q. Queste soglie tengono fissi prezzo al cliente, operazioni e altri costi; indicano la parità col tradizionale, non l’azzeramento del margine CRL. Un diverso prezzo al cliente richiede una valutazione separata.
+        Il cliente paga già Q; il budget aggiuntivo è il margine disponibile per un maggior costo della copertura prima di raggiungere la parità con il tradizionale. Nello stress presentato (5 secondi + 0,5 pip), il vantaggio medio si annulla a circa +0,60% di Q: soglie per variante 0,35–0,89%, non punti percentuali sul capitale. Nel caso base di esecuzione la soglia media è circa +1,9% di Q (1,45–2,27% per variante). Queste soglie tengono fissi prezzo al cliente, operazioni e altri costi; indicano la parità col tradizionale, non l’azzeramento del margine CRL. Un diverso prezzo al cliente richiede una valutazione separata.
        </p>
       </article>
      </div>
@@ -2498,7 +2504,7 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
         Quando conviene
        </h3>
        <p>
-        Il 10% è uno scenario illustrativo, non una quota ottimale stimata. Il 90% coperto all’esterno dipende dalla stessa ipotesi di disponibilità e prezzo della copertura A-book; il budget dell’ibrido va però valutato sul suo margine, non sulla soglia dello 0,60% dell’A-book puro. Il piccolo vantaggio medio può essere assorbito da costi aggiuntivi. Le altre quote si esplorano nel calcolatore economico a operazioni fisse, senza risimulare i clienti.
+        Il 10% è uno scenario illustrativo, non una quota ottimale stimata. Il 90% coperto all’esterno dipende dalla stessa ipotesi di disponibilità e prezzo della copertura A-book; il budget dell’ibrido va però valutato sul suo margine, non sulla soglia dello 0,60% dell’A-book puro. Il piccolo vantaggio medio può essere assorbito da costi aggiuntivi. Le altre quote si esplorano nel calcolatore economico a operazioni fisse, senza risimulare i clienti. A quota internalizzata fissa, carico_max = Δibrido / [(1 - quota internalizzata) × Q] per variante; la soglia di parità sulla media è circa +0,03% di Q. Alcune varianti sono già sotto il tradizionale al prezzo Q. La soglia riguarda la parità, non il margine CRL zero.
        </p>
       </article>
      </div>
@@ -3189,7 +3195,7 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
       </p>
      </div>
      <p class="read-lead">
-      La configurazione originale lascia un budget economico positivo in media nei tre book. Quel budget deve remunerare acquisizione, assistenza aggiuntiva, prezzo effettivo del provider e capitale: non è ancora un utile dopo tutti i costi. Le misure di rischio aggregate non confermano una riduzione uniforme del rischio per il broker.
+      La configurazione originale lascia un margine modellato positivo in media nei tre book. Quel margine deve remunerare acquisizione, assistenza aggiuntiva, prezzo effettivo del provider e capitale: non è ancora un utile dopo tutti i costi. Le misure di rischio aggregate non confermano una riduzione uniforme del rischio per il broker.
      </p>
      <p>
       Leva 5×, premium e trigger invariati. Nessuna ipotesi di maggiore abilità o fedeltà dei clienti premium. Tre book sullo stesso prodotto; A-book con esecuzione 5 secondi + 0,5 pip e provider al premio teorico Q.
@@ -3202,7 +3208,7 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
           Book
          </th>
          <th>
-          Budget medio / cliente, 24 mesi
+          Margine medio / cliente, 24 mesi
          </th>
          <th>
           Minimo / massimo fra varianti
@@ -3259,7 +3265,10 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
       </table>
      </div>
      <p class="small">
-      Dopo commissioni/costi operativi, licenza, finanziamento e fisso secondo le convenzioni del book; prima dei costi non quotati sotto. Varianti correlate, non intervalli di confidenza. “Budget” è un importo generato dal modello, ancora da destinare ai costi aggiuntivi.
+      Dopo commissioni/costi operativi, licenza, finanziamento e fisso secondo le convenzioni del book; prima dei costi non quotati sotto. Varianti correlate, non intervalli di confidenza. Il margine assoluto non è il maggior costo della copertura compatibile con la parità sul tradizionale.
+     </p>
+     <p class="small">
+      Esempio aritmetico, non quotazione: Q medio cumulato è 95.688 $ per cliente su 24 mesi. Un loading provider dell’1% assorbe 957 $ del margine A-book di 2.127 $, lasciando 1.170 $ prima degli altri costi mancanti. È sotto i 1.555 $ del tradizionale: all’1% la parità è persa. La soglia media di parità è circa +0,60% di Q (0,35–0,89% per variante), non il margine CRL zero.
      </p>
      <details id="capacity-costs">
       <summary>
@@ -3310,7 +3319,7 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
        </label>
       </div>
       <p class="small">
-       Gli zeri mostrano il budget senza nuovi addebiti: non attestano costi nulli o utile completo. Assistenza oltre i costi già inclusi. Capitale allocato costante, remunerato per 24 mesi; non calcolato dal modello. Loading provider solo sulla quota esterna. Nessuna modifica alle tariffe del cliente.
+       Gli zeri mostrano il margine senza nuovi addebiti: non attestano costi nulli o utile completo. Assistenza oltre i costi già inclusi. Capitale allocato costante, remunerato per 24 mesi; non calcolato dal modello. Loading provider solo sulla quota esterna. Nessuna modifica alle tariffe del cliente.
       </p>
       <p class="read-message" id="capBudget">
       </p>
@@ -3953,6 +3962,7 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
 <p>Nulla in questa pagina costituisce consulenza in materia di investimenti, raccomandazione personalizzata, offerta o sollecitazione all’acquisto o alla vendita di strumenti o servizi finanziari.</p>
 <p>Il trading con leva comporta un rischio elevato di perdita rapida del capitale. In queste simulazioni la maggior parte dei clienti termina i 24 mesi sotto il capitale iniziale, sia con la leva tradizionale 5× sia con CRL.</p>
 <p>Questa pagina non usa cookie e non carica script, font o strumenti di analisi di terze parti. È ospitata su GitHub Pages; GitHub può trattare dati tecnici come l’indirizzo IP per erogare e proteggere il servizio.</p>
+<p class="publisher">Pubblicato da: CRL Technologies, Inc. · 1313 N Market Street, Suite 5100, Wilmington, DE 19801, United States · info@crl-technologies.com</p>
 </section>
 <footer>
     CRL Technologies · Ricerca quantitativa · Le condizioni economiche e le definizioni dei KPI sono parte integrante dei risultati.
