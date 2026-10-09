@@ -199,6 +199,36 @@
 
       <p class="qrisk">For Risk teams, the full campaign, the per-figure defence and the reproducibility scripts are available under NDA. <button class="qrisk-btn" type="button" data-open-gate data-doc="Quantitative evidence pack">Request the evidence pack <span>&rarr;</span></button></p>
     </div>
+    <div class="qevidence reveal" id="study-evidence" style="margin-top:clamp(48px,6vw,72px)">
+      <div class="sec-index">Model evidence &middot; 24-month study</div>
+      <h3 class="qtitle">Confirmed in a 24-month client and broker study</h3>
+      <p class="qlede">1,000 simulated clients per cohort, 24 months of real EUR/USD quotes from 2017 to 2022, 18 correlated variants. The same clients trade traditional 5&times; leverage and CRL, and client capital and broker margin are reconciled month by month. Synthetic clients: model evidence, not observed client outcomes.</p>
+
+      <div class="qscore">
+        <div class="qcard">
+          <div class="qk">Clients losing more than half their capital</div>
+          <div class="qv"><span class="qa">Standard 5&times;</span><b>371</b></div>
+          <div class="qv"><span class="qa">CRL</span><b>2</b></div>
+          <p class="qc">Per 1,000 clients after 24 months. Lower under CRL in all 18 variants.</p>
+        </div>
+        <div class="qcard">
+          <div class="qk">Average capital after 24 months</div>
+          <div class="qv"><span class="qa">Standard 5&times;</span><b>$37,914</b></div>
+          <div class="qv"><span class="qa">CRL</span><b>$42,096</b></div>
+          <p class="qc">From $50,000 starting capital. Higher under CRL in all 18 variants.</p>
+        </div>
+        <div class="qcard">
+          <div class="qk">Still trading after 24 months</div>
+          <div class="qv"><span class="qa">Standard 5&times;</span><b>648</b></div>
+          <div class="qv"><span class="qa">CRL</span><b>998</b></div>
+          <p class="qc">Per 1,000 clients, in the scenario where a client stops after losing half of the starting capital. A scenario, not observed behaviour.</p>
+        </div>
+      </div>
+
+      <p class="qnote">For a B-book, CRL changes where the margin comes from. In the same scenario, with a 5% loading on the premium the B-book margin is about the same as today ($10,806 against $10,846 per client over 24 months), with 987 clients still trading instead of 648. With a 7.5% loading it is higher ($12,762). These results hold with the coverage priced at its model value, about 76 basis points per opening on average, not at the diagnostic charge used in the survival campaign. The study simulates closing the position at the trigger, with the amplified result locked in.</p>
+
+      <p class="qrisk">Survival, drawdown and trigger figures above come from the August 2026 campaign of 540,000 paired accounts. Client capital, loss severity and economics by book come from the October 2026 study, which is public. <a class="qrisk-btn" href="research/" style="text-decoration:none">Read the 24-month study <span>&rarr;</span></a></p>
+    </div>
     <div class="rows" style="margin-top:56px">
       <div class="row reveal"><div class="idx">01</div><h3>New revenue line</h3><p>A line of revenue you price and control, on top of the spread and commissions you already earn. It is billed on the notional opened under the product, whether or not the trigger activates. The engine reports it; you own it.</p></div>
       <div class="row reveal"><div class="idx">02</div><h3>A product that's genuinely new</h3><p>This is a new category of instrument, not a sharper quote on the same one. Most venues compete on identical underlyings, platforms and spreads. CRL is something the rest of the market does not yet list, and you would be first to carry it.</p></div>
@@ -225,7 +255,7 @@
     <div class="turbo reveal" style="margin-top:clamp(40px,5vw,56px);max-width:74ch">
       <div class="k">What are those extra months worth on your book?</div>
       <p>That depends on your own volume, spread, commissions, financing, hedge cost, capital usage and net contribution per account-month. Our broker economics framework replaces the model assumptions with your own data.</p>
-      <div style="margin-top:20px"><button class="btn" type="button" data-open-gate data-doc="Broker economics review">Model CRL on your book <span>&rarr;</span></button></div>
+      <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:12px"><button class="btn" type="button" data-open-gate data-doc="Broker economics review">Model CRL on your book <span>&rarr;</span></button><a class="btn ghost" href="research/#read-broker">Try the broker calculator <span>&rarr;</span></a></div>
     </div>
   </section>
 
@@ -379,8 +409,8 @@
       <div class="reveal"><div class="sec-index">Evidence</div><h2>Tested, not asserted.</h2></div>
       <div class="reveal">
         <p class="body-large">Claims are simulation-based, under stated assumptions. No performance or return promises. The methodology is open to review under NDA.</p>
-        <p class="claim-note">Full Quantitative Validation Dossier available to qualified counterparties under NDA.</p>
-        <div style="margin-top:24px"><button class="btn" type="button" data-open-gate>Request the dossier <span>→</span></button></div>
+        <p class="claim-note">Full Quantitative Validation Dossier available to qualified counterparties under NDA. The 24-month client and broker study is public.</p>
+        <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:12px"><button class="btn" type="button" data-open-gate>Request the dossier <span>→</span></button><a class="btn ghost" href="research/">Read the public study <span>→</span></a></div>
       </div>
     </div>
     <div class="metrics reveal" style="margin-top:clamp(40px,5vw,60px)">

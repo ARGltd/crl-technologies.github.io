@@ -100,12 +100,12 @@
     <div class="reveal" style="max-width:64ch">
       <div class="sec-index">Trigger event</div>
       <h2>The data and hedging flow at the trigger</h2>
-      <p class="body-small" style="margin-top:22px">A calculation and lifecycle layer alongside the platform: no execution, no custody, no core replacement. Before the trigger the position is linear and the hedge is the native position. From the trigger onward the delta is redetermined from 1&times; to L&times; and the payoff is retroactive from entry. MT5 is used as an example; the same mechanics apply to any trading platform.</p>
+      <p class="body-small" style="margin-top:22px">A calculation and lifecycle layer alongside the platform: no execution, no custody, no core replacement. Before the trigger the position is linear: the native position is hedged as usual, and the retroactive amount the trigger will add needs contingent coverage arranged at opening. From the trigger onward the delta is redetermined from 1&times; to L&times; and the payoff is retroactive from entry. MT5 is used as an example; the same mechanics apply to any trading platform.</p>
     </div>
 
     <div class="trigflow reveal">
       <div class="tf-bands">
-        <div class="tf-band">Pre-trigger: linear 1&times;, hedge = native position</div>
+        <div class="tf-band">Pre-trigger: linear 1&times;, native hedge + contingent cover</div>
         <div class="tf-band">Trigger onward: delta redetermined 1&times; to L&times;, retroactive payoff</div>
       </div>
       <div class="tf-steps">
@@ -128,7 +128,7 @@
         </div>
         <div class="tf-call">
           <div class="tf-k">Broker side, at the trigger</div>
-          <p>A-book: the broker hedges (L&minus;1) &times; notional. B-book: the broker warehouses the exposure.</p>
+          <p>A-book: the retroactive amount (L&minus;1) &middot; &Delta;P &middot; Q is paid by contingent coverage bought at opening (for example a one-touch option) or built by dynamic hedging before the trigger; from the trigger the broker hedges (L&minus;1) &times; notional for the move that follows. B-book: the broker warehouses the exposure.</p>
         </div>
       </div>
     </div>
