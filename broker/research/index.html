@@ -63,6 +63,8 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
 
 /* Overview hierarchy: readable notes and a table without mobile overflow. */
 .hero-results{font-size:16px;line-height:1.6;max-width:580px}#overview-notes{scroll-margin-top:24px}#overview-notes p{overflow-wrap:anywhere}@media(max-width:600px){#esito .read-table table{min-width:0;width:100%;table-layout:fixed}#esito .read-table{overflow-x:visible}#esito .read-table thead{display:none}#esito .read-table tr{display:grid;grid-template-columns:1.1fr 1fr 1fr;border-bottom:1px solid #d9dce2}#esito .read-table td{min-width:0;padding:12px 6px!important;font-size:13px!important;white-space:normal!important;overflow-wrap:anywhere}#esito .read-table td:nth-child(2)::before{content:"Tradizionale";display:block;font-size:10px;color:#586374}html[lang=en] #esito .read-table td:nth-child(2)::before{content:"Traditional"}#esito .read-table td:nth-child(3)::before{content:"CRL";display:block;font-size:10px}#esito .read-table td:last-child{grid-column:1/-1}.read-quote{padding:18px;margin-inline:0}.read-warning{padding:16px}}
+
+#overview-funding-note,#overview-spread-note{margin-top:18px}.funding-table{width:100%;border-collapse:collapse;margin:10px 0 8px;font-size:14px;font-variant-numeric:tabular-nums}.funding-table th,.funding-table td{padding:6px 8px;border-bottom:1px solid #d9dce2;text-align:right}.funding-table th:first-child,.funding-table td:first-child{text-align:left}.funding-table th{font-size:12px;font-weight:600;color:#586374}@media(max-width:600px){.funding-table{font-size:12.5px}.funding-table th,.funding-table td{padding:5px 4px}}
   </style>
 <style data-source="site.css">
 .brand-bar{flex-wrap:wrap}
@@ -248,6 +250,11 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
       Comparison conditions and notes →
      </a>
 </p>
+<p class="small">
+<a href="#overview-funding-note">
+      The cost of leverage and spread →
+     </a>
+</p>
 <div class="read-step">
 <span>
       2
@@ -391,6 +398,90 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
 <p class="small">
       Conditions: provider priced at the theoretical premium Q, disclosed costs, A-book execution stress of 5 seconds + 0.5 pip. The B-book retains all risk; no cost of capital is included. No revenue from retention has been added.
      </p>
+<div id="overview-funding-note">
+<h3>
+       The cost of leverage
+      </h3>
+<p>
+       Leverage is financed: interest is charged on the full position for every night it is held. Before the trigger a CRL position is 1×, so it carries one fifth of the financing of a traditional 5× position; after the trigger it carries the same. The study charges 3% a year on notional to both products. The capital comparison depends on this cost.
+      </p>
+<table class="funding-table">
+<thead>
+<tr>
+<th>
+          Annual financing
+         </th>
+<th>
+          Traditional 5×
+         </th>
+<th>
+          CRL
+         </th>
+<th>
+          CRL higher in
+         </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+          3% (study)
+         </td>
+<td>
+          37,914 $
+         </td>
+<td>
+          42,096 $
+         </td>
+<td>
+          18/18
+         </td>
+</tr>
+<tr>
+<td>
+          1.5%
+         </td>
+<td>
+          41,340 $
+         </td>
+<td>
+          42,818 $
+         </td>
+<td>
+          14/18
+         </td>
+</tr>
+<tr>
+<td>
+          0%
+         </td>
+<td>
+          44,766 $
+         </td>
+<td>
+          43,541 $
+         </td>
+<td>
+          4/18
+         </td>
+</tr>
+</tbody>
+</table>
+<p class="small">
+       Average capital per client after 24 months. The 1.5% and 0% rows recompute financing on the same trades: they are not new simulations, and severe losses were not recomputed. The capital advantage grows with the cost of leverage; with free financing CRL is not ahead on average.
+      </p>
+</div>
+<div id="overview-spread-note">
+<h3>
+       Spread and broker revenue
+      </h3>
+<p>
+       In the study, in A-book, the broker adds no spread markup and retains no financing, for either product: both pay the same market spread. The rules are the same, but the effect is not neutral. A markup is earned on volume, and a traditional 5× client trades on average about 4.4 times the volume of a CRL client: the more a broker earns per million traded, the more traditional leverage is worth to it.
+      </p>
+<p>
+       Under the presented execution stress, the CRL A-book margin advantage holds up to an additional markup of about 0.08 pip per side on average (0.04–0.11 across variants), or up to about 0.32% a year of financing retained (0.20–0.41%). Under baseline execution: about 0.24 pip (0.17–0.32) and about 0.98% a year (0.82–1.24%). A broker that earns mainly from spread can set the CRL service fee or premium accordingly; this moves value from client to broker, as in the B-book pricing scenarios. For the client the effect runs the other way: a markup costs the 5× client more.
+      </p>
+</div>
 <p id="overview-client-note">
       Fewer severe losses do not mean fewer clients below starting capital: at month 24, 837.3 CRL clients versus 798.5 traditional per 1,000. Higher commercial retention has not yet been demonstrated.
      </p>

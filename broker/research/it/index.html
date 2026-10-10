@@ -63,6 +63,8 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
 
 /* Overview hierarchy: readable notes and a table without mobile overflow. */
 .hero-results{font-size:16px;line-height:1.6;max-width:580px}#overview-notes{scroll-margin-top:24px}#overview-notes p{overflow-wrap:anywhere}@media(max-width:600px){#esito .read-table table{min-width:0;width:100%;table-layout:fixed}#esito .read-table{overflow-x:visible}#esito .read-table thead{display:none}#esito .read-table tr{display:grid;grid-template-columns:1.1fr 1fr 1fr;border-bottom:1px solid #d9dce2}#esito .read-table td{min-width:0;padding:12px 6px!important;font-size:13px!important;white-space:normal!important;overflow-wrap:anywhere}#esito .read-table td:nth-child(2)::before{content:"Tradizionale";display:block;font-size:10px;color:#586374}html[lang=en] #esito .read-table td:nth-child(2)::before{content:"Traditional"}#esito .read-table td:nth-child(3)::before{content:"CRL";display:block;font-size:10px}#esito .read-table td:last-child{grid-column:1/-1}.read-quote{padding:18px;margin-inline:0}.read-warning{padding:16px}}
+
+#overview-funding-note,#overview-spread-note{margin-top:18px}.funding-table{width:100%;border-collapse:collapse;margin:10px 0 8px;font-size:14px;font-variant-numeric:tabular-nums}.funding-table th,.funding-table td{padding:6px 8px;border-bottom:1px solid #d9dce2;text-align:right}.funding-table th:first-child,.funding-table td:first-child{text-align:left}.funding-table th{font-size:12px;font-weight:600;color:#586374}@media(max-width:600px){.funding-table{font-size:12.5px}.funding-table th,.funding-table td{padding:5px 4px}}
   </style>
  
 <style data-source="site.css">
@@ -249,6 +251,11 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
       Condizioni e note del confronto →
      </a>
     </p>
+    <p class="small">
+     <a href="#overview-funding-note">
+      Il costo della leva e lo spread →
+     </a>
+    </p>
     <div class="read-step">
      <span>
       2
@@ -392,6 +399,90 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
      <p class="small">
       Condizioni: provider al premio teorico Q, costi dichiarati, stress di esecuzione A-book 5 secondi + 0,5 pip. Il B-book trattiene integralmente il rischio; non include un costo di capitale. Nessun ricavo da retention è stato aggiunto.
      </p>
+     <div id="overview-funding-note">
+      <h3>
+       Il costo della leva
+      </h3>
+      <p>
+       La leva si finanzia: si pagano interessi su tutta la posizione per ogni notte in cui resta aperta. Prima del trigger una posizione CRL è 1×, quindi porta un quinto del finanziamento di una posizione tradizionale 5×; dopo il trigger porta lo stesso. Lo studio applica il 3% annuo sul nozionale a entrambi i prodotti. Il confronto sul capitale dipende da questo costo.
+      </p>
+      <table class="funding-table">
+       <thead>
+        <tr>
+         <th>
+          Finanziamento annuo
+         </th>
+         <th>
+          Tradizionale 5×
+         </th>
+         <th>
+          CRL
+         </th>
+         <th>
+          CRL più alto in
+         </th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td>
+          3% (studio)
+         </td>
+         <td>
+          37.914 $
+         </td>
+         <td>
+          42.096 $
+         </td>
+         <td>
+          18/18
+         </td>
+        </tr>
+        <tr>
+         <td>
+          1,5%
+         </td>
+         <td>
+          41.340 $
+         </td>
+         <td>
+          42.818 $
+         </td>
+         <td>
+          14/18
+         </td>
+        </tr>
+        <tr>
+         <td>
+          0%
+         </td>
+         <td>
+          44.766 $
+         </td>
+         <td>
+          43.541 $
+         </td>
+         <td>
+          4/18
+         </td>
+        </tr>
+       </tbody>
+      </table>
+      <p class="small">
+       Capitale medio per cliente a 24 mesi. Le righe 1,5% e 0% ricalcolano il finanziamento sulle stesse operazioni: non sono nuove simulazioni e le perdite gravi non sono state ricalcolate. Il vantaggio sul capitale cresce con il costo della leva; con finanziamento gratuito CRL in media non è avanti.
+      </p>
+     </div>
+     <div id="overview-spread-note">
+      <h3>
+       Spread e ricavi del broker
+      </h3>
+      <p>
+       Nello studio, in A-book, il broker non aggiunge ricarico sullo spread e non trattiene funding, per nessuno dei due prodotti: entrambi pagano lo stesso spread di mercato. La regola è la stessa, ma l’effetto non è neutro. Il ricarico si guadagna sul volume, e un cliente tradizionale 5× scambia in media circa 4,4 volte il volume di un cliente CRL: più il broker guadagna per milione scambiato, più la leva tradizionale gli rende.
+      </p>
+      <p>
+       Nello stress di esecuzione presentato, il vantaggio di margine A-book di CRL regge fino a un ricarico aggiuntivo medio di circa 0,08 pip per lato (0,04–0,11 per variante), oppure fino a circa lo 0,32% annuo di funding trattenuto (0,20–0,41%). In esecuzione base: circa 0,24 pip (0,17–0,32) e circa lo 0,98% annuo (0,82–1,24%). Un broker che guadagna soprattutto sullo spread può tarare di conseguenza la fee di servizio o il premio CRL; questo sposta valore dal cliente al broker, come negli scenari di prezzo B-book. Per il cliente l’effetto è opposto: il ricarico costa di più al cliente 5×.
+      </p>
+     </div>
      <p id="overview-client-note">
       Meno perdite gravi non significa meno clienti sotto il capitale iniziale: al mese 24, 837,3 clienti CRL contro 798,5 tradizionali ogni 1.000. Maggiore retention commerciale non è ancora dimostrata.
      </p>
