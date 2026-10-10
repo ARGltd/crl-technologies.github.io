@@ -524,6 +524,19 @@ body[data-page="for-traders"].scrolled .nav-toggle span{background:var(--ink)}
   .modal .actions{flex-direction:column-reverse}
   .modal .actions .btn{width:100%;justify-content:center}
 }
+/* hero su schermi stretti: la superficie va in un blocco suo sotto il testo e i bottoni,
+   invece di passare sotto il paragrafo; la formula non copre piu' i bottoni */
+@media(max-width:980px){
+  .hero-main{flex-direction:column;align-items:stretch;min-height:0}
+  .hero-main::after{display:none}
+  .hero-surface{position:relative;inset:auto;width:100%;aspect-ratio:900/470;margin-top:clamp(16px,4vw,32px);opacity:1}
+  .hero-surface canvas{left:-20%;width:120%}
+  .surface-label.payoff,.surface-label.cond{display:none}
+  .surface-label.eq{left:0;right:auto;bottom:0}
+}
+@media(max-width:640px){
+  .surface-label.eq{display:none}
+}
 @media(prefers-reduced-motion:reduce){
   *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
   .reveal,.reveal.pre{opacity:1;transform:none}
