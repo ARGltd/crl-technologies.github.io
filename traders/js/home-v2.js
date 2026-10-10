@@ -116,9 +116,10 @@
     var cv = document.getElementById('heroFan');
     if (!cv || !cv.getContext) return;
     var INK = '15,17,19', BLUE = '27,79,166', GREY = '139,143,152', HAIR = '211,205,190', IVORY = '#F6F3EC';
-    var L = 2, ns = 100, CYCLE = 20;
+    var L = 2, ns = 100, CYCLE = 20, SWEEP_END = 0.78, HOLD_END = 0.88, LIFT = 0.5;
     var tr = [], epochCur = -1;
     function clamp(x, a, b) { return Math.max(a, Math.min(b, x)); }
+    function easeOut(x) { return 1 - Math.pow(1 - x, 3); }
     function rngFactory(a) {
       return function () {
         a |= 0; a = a + 0x6D2B79F5 | 0;
@@ -151,6 +152,60 @@
         tr.push({ d: d, tcross: tcross, a: 0.05 + rng() * 0.10, w: 0.4 + rng() * 0.4 });
       }
     }
+
+    /* I percorsi di ogni ciclo sono noti dall'inizio: cono fantasma ed ensemble grigio si
+       disegnano interi, un tratto continuo per percorso, in due livelli fuori schermo, e il
+       presente li rivela con un clip al pixel. Niente scatti di campione, niente giunture, e i
+       1.800 tracciati tenui non si ridisegnano a ogni fotogramma. Il disegno dei livelli e'
+       spalmato sui primi fotogrammi del ciclo, mentre il fan compare in dissolvenza. */
+    var geo = null, layers = null, pre = 0, CHUNK = 150;
+    function X(k) { return geo.x0 + (k / (ns - 1)) * (geo.x1 - geo.x0); }
+    function Yd(v) { return geo.yc - v * geo.yScale; }
+    function setup(W, H, dpr) {
+      var S = Math.min(W, H) / 470, m = 14 * S;
+      geo = { W: W, H: H, dpr: dpr, S: S, m: m, x0: m + 44 * S, x1: W - m - 18 * S, yc: H * 0.5, yScale: (H * 0.5 - m - 24 * S) / 2.6 };
+      function mk() {
+        var c = document.createElement('canvas');
+        c.width = Math.round(W * dpr); c.height = Math.round(H * dpr);
+        var x = c.getContext('2d'); x.setTransform(dpr, 0, 0, dpr, 0, 0);
+        x.lineCap = 'butt'; x.globalCompositeOperation = 'multiply';
+        return { c: c, x: x };
+      }
+      layers = { ghost: mk(), grey: mk() }; pre = 0;
+    }
+    /* curva morbida per i punti medi: nessun angolo condiviso da 1.800 tracciati sottili,
+       quindi nessuna colonna piu' chiara dove il browser rasterizza gli spigoli */
+    function poly(c, d, mult, a, b) {
+      c.beginPath(); c.moveTo(X(a), Yd(mult * d[a]));
+      for (var j = a + 1; j < b; j++) {
+        var xa = X(j), ya = Yd(mult * d[j]), xb = X(j + 1), yb = Yd(mult * d[j + 1]);
+        c.quadraticCurveTo(xa, ya, (xa + xb) / 2, (ya + yb) / 2);
+      }
+      c.lineTo(X(b), Yd(mult * d[b]));
+      c.stroke();
+    }
+    function prerender(budget) {
+      var gx = layers.ghost.x, ex = layers.grey.x, S = geo.S, end = Math.min(tr.length, pre + budget), i, t, d;
+      gx.lineJoin = ex.lineJoin = 'round'; gx.lineCap = ex.lineCap = 'round'; gx.lineWidth = 0.5 * S;
+      for (i = pre; i < end; i++) {
+        t = tr[i]; d = t.d;
+        gx.strokeStyle = 'rgba(' + GREY + ',' + (t.a * 0.26).toFixed(3) + ')';
+        poly(gx, d, L, 0, ns - 1);
+        var ge = t.tcross >= 0 ? t.tcross : ns - 1, fade = clamp(1 - Math.abs(d[ge]) / 2.6, 0.25, 1);
+        ex.strokeStyle = 'rgba(' + GREY + ',' + (t.a * (0.7 + fade * 0.3)).toFixed(3) + ')';
+        ex.lineWidth = t.w * S;
+        poly(ex, d, 1, 0, ge);
+      }
+      pre = end;
+    }
+    function reveal(ctx, layer, xh, alpha) {
+      if (alpha <= 0) return;
+      ctx.save(); ctx.beginPath(); ctx.rect(0, 0, xh, geo.H); ctx.clip();
+      ctx.globalAlpha = alpha; ctx.globalCompositeOperation = 'multiply';
+      ctx.drawImage(layer.c, 0, 0, geo.W, geo.H);
+      ctx.restore();
+    }
+
     function draw(time) {
       var spd = reduce ? 0.30 : 1, T = time * spd;
       var dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -159,45 +214,38 @@
       if (cv.width !== Math.round(W * dpr) || cv.height !== Math.round(H * dpr)) {
         cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
       }
+      var epoch = Math.floor(T / CYCLE);
+      if (epoch !== epochCur) { epochCur = epoch; gen(epoch); setup(W, H, dpr); }
+      else if (!geo || geo.W !== W || geo.H !== H || geo.dpr !== dpr) setup(W, H, dpr);
       var ctx = cv.getContext('2d');
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      var S = Math.min(W, H) / 470;
-      var epoch = Math.floor(T / CYCLE);
-      if (epoch !== epochCur) { epochCur = epoch; gen(epoch); }
-      var frac = (T % CYCLE) / CYCLE, sweepEnd = 0.78, holdEnd = 0.88, tnow, ens;
-      if (frac < sweepEnd) { tnow = frac / sweepEnd; ens = clamp(frac / 0.05, 0, 1); }
-      else if (frac < holdEnd) { tnow = 1; ens = 1; }
-      else { tnow = 1; ens = 1 - (frac - holdEnd) / (1 - holdEnd); }
-      var m = 14 * S, x0 = m + 44 * S, x1 = W - m - 18 * S;
-      var yc = H * 0.5, halfH = H * 0.5 - m - 24 * S, yScale = halfH / 2.6;
-      function X(k) { return x0 + (k / (ns - 1)) * (x1 - x0); }
-      function Yd(disp) { return yc - disp * yScale; }
-      var idx = Math.round(tnow * (ns - 1)), i, k, y;
+      var S = geo.S, m = geo.m, x0 = geo.x0, x1 = geo.x1, yc = geo.yc;
 
+      var frac = (T % CYCLE) / CYCLE, tnow, ens;
+      if (frac < SWEEP_END) { tnow = frac / SWEEP_END; ens = clamp(frac / 0.05, 0, 1); }
+      else if (frac < HOLD_END) { tnow = 1; ens = 1; }
+      else { tnow = 1; ens = 1 - (frac - HOLD_END) / (1 - HOLD_END); }
+      var h = tnow * (ns - 1), k0 = Math.floor(h), f = h - k0, xh = X(h), i, k, y;
+      if (pre < tr.length) prerender(CHUNK);
+
+      ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
       ctx.fillStyle = IVORY; ctx.fillRect(0, 0, W, H);
 
       /* cono fantasma: leva standard, gia' amplificata da t0 */
-      var baseSig = 0.62;
-      function sigAt(k) { return baseSig * Math.sqrt(k / (ns - 1)); }
-      ctx.globalCompositeOperation = 'multiply'; ctx.lineCap = 'round';
-      for (i = 0; i < tr.length; i++) {
-        var dg = tr[i].d;
-        ctx.beginPath();
-        for (k = 0; k <= idx; k++) { y = Yd(L * dg[k]); if (k === 0) ctx.moveTo(X(k), y); else ctx.lineTo(X(k), y); }
-        ctx.strokeStyle = 'rgba(' + GREY + ',' + (tr[i].a * ens * 0.26).toFixed(3) + ')';
-        ctx.lineWidth = 0.5 * S; ctx.stroke();
-      }
-      ctx.globalCompositeOperation = 'source-over';
+      reveal(ctx, layers.ghost, xh, ens);
 
       ctx.strokeStyle = 'rgba(' + HAIR + ',0.55)'; ctx.lineWidth = 1;
       ctx.beginPath(); ctx.moveTo(x0, yc); ctx.lineTo(x1, yc); ctx.stroke();
 
-      /* inviluppo di probabilita' dell'ensemble CRL */
+      /* inviluppo di probabilita' dell'ensemble CRL, fino al presente esatto */
+      var baseSig = 0.62;
+      function sigAt(kk) { return baseSig * Math.sqrt(kk / (ns - 1)); }
       ctx.globalCompositeOperation = 'multiply';
       [[2.0, 0.04], [1.0, 0.06]].forEach(function (p) {
         ctx.beginPath();
-        for (k = 0; k <= idx; k++) { y = Yd(sigAt(k) * p[0]); if (k === 0) ctx.moveTo(X(k), y); else ctx.lineTo(X(k), y); }
-        for (k = idx; k >= 0; k--) ctx.lineTo(X(k), Yd(-sigAt(k) * p[0]));
+        for (k = 0; k <= k0; k++) { y = Yd(sigAt(k) * p[0]); if (k === 0) ctx.moveTo(X(k), y); else ctx.lineTo(X(k), y); }
+        ctx.lineTo(xh, Yd(sigAt(h) * p[0])); ctx.lineTo(xh, Yd(-sigAt(h) * p[0]));
+        for (k = k0; k >= 0; k--) ctx.lineTo(X(k), Yd(-sigAt(k) * p[0]));
         ctx.closePath();
         ctx.fillStyle = 'rgba(' + GREY + ',' + (p[1] * ens).toFixed(3) + ')'; ctx.fill();
       });
@@ -224,37 +272,33 @@
       ctx.beginPath(); ctx.moveTo(x0, Yd(1)); ctx.lineTo(x1, Yd(1)); ctx.stroke(); ctx.restore();
 
       /* ensemble: grigio non risolto */
-      ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-      ctx.globalCompositeOperation = 'multiply';
+      reveal(ctx, layers.grey, xh, ens);
+
+      /* ensemble: blu realizzato. Al trigger il P&L maturato viene rimisurato da S0 a L:
+         il salto cresce in mezzo secondo e il tratto prosegue alla leva fino al presente. */
+      ctx.globalCompositeOperation = 'source-over'; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      var t0Epoch = epoch * CYCLE;
       for (i = 0; i < tr.length; i++) {
-        var t1 = tr[i], d1 = t1.d;
-        var realised = t1.tcross >= 0 && idx >= t1.tcross;
-        var greyEnd = realised ? t1.tcross : idx;
+        var t2 = tr[i], d2 = t2.d, tc = t2.tcross;
+        if (tc < 0 || h < tc) continue;
+        var tCross = t0Epoch + (tc / (ns - 1)) * SWEEP_END * CYCLE;
+        var mult = 1 + (L - 1) * easeOut(clamp((T - tCross) / LIFT, 0, 1));
         ctx.beginPath();
-        for (k = 0; k <= greyEnd; k++) { y = Yd(d1[k]); if (k === 0) ctx.moveTo(X(k), y); else ctx.lineTo(X(k), y); }
-        var fade = clamp(1 - Math.abs(d1[greyEnd]) / 2.6, 0.25, 1);
-        ctx.strokeStyle = 'rgba(' + GREY + ',' + (t1.a * ens * (0.7 + fade * 0.3)).toFixed(3) + ')';
-        ctx.lineWidth = t1.w * S; ctx.stroke();
-      }
-      /* ensemble: blu realizzato, rimisurato da S0 a L */
-      ctx.globalCompositeOperation = 'source-over';
-      for (i = 0; i < tr.length; i++) {
-        var t2 = tr[i], d2 = t2.d;
-        if (!(t2.tcross >= 0 && idx >= t2.tcross)) continue;
-        ctx.beginPath();
-        ctx.moveTo(X(t2.tcross), Yd(d2[t2.tcross]));
-        ctx.lineTo(X(t2.tcross), Yd(L * d2[t2.tcross]));
-        for (k = t2.tcross; k <= idx; k++) ctx.lineTo(X(k), Yd(L * d2[k]));
+        ctx.moveTo(X(tc), Yd(d2[tc]));
+        ctx.lineTo(X(tc), Yd(mult * d2[tc]));
+        for (k = tc + 1; k <= k0; k++) ctx.lineTo(X(k), Yd(mult * d2[k]));
+        var tipX = X(k0), tipV = d2[k0];
+        if (k0 < ns - 1 && h > tc) { tipV = d2[k0] + (d2[k0 + 1] - d2[k0]) * f; tipX = xh; ctx.lineTo(tipX, Yd(mult * tipV)); }
         var a2 = clamp(t2.a * 2.4, 0.16, 0.5) * ens;
         ctx.strokeStyle = 'rgba(' + BLUE + ',' + a2.toFixed(3) + ')';
         ctx.lineWidth = (t2.w + 0.3) * S; ctx.stroke();
         ctx.fillStyle = 'rgba(' + BLUE + ',' + (0.7 * ens).toFixed(3) + ')';
-        ctx.beginPath(); ctx.arc(X(idx), Yd(L * d2[idx]), 1.7 * S, 0, Math.PI * 2); ctx.fill();
+        ctx.beginPath(); ctx.arc(tipX, Yd(mult * tipV), 1.7 * S, 0, Math.PI * 2); ctx.fill();
       }
 
       /* linea del presente */
       ctx.strokeStyle = 'rgba(' + INK + ',' + (0.10 * ens).toFixed(3) + ')'; ctx.lineWidth = 1;
-      ctx.beginPath(); ctx.moveTo(X(idx), m + 6 * S); ctx.lineTo(X(idx), H - m - 6 * S); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(xh, m + 6 * S); ctx.lineTo(xh, H - m - 6 * S); ctx.stroke();
 
       /* S0 inchiodato */
       ctx.fillStyle = 'rgba(' + INK + ',0.9)';
@@ -273,10 +317,10 @@
       /* alone di carta dietro il testo, cosi' resta leggibile sopra i tracciati */
       function tag(txt, x, y, col, px, align) {
         ctx.font = label(px); ctx.textAlign = align || 'left'; ctx.textBaseline = 'middle';
-        var w = ctx.measureText(txt).width, h = px * LS, pad = 3 * LS;
+        var w = ctx.measureText(txt).width, hh = px * LS, pad = 3 * LS;
         var bx = align === 'right' ? x - w - pad : x - pad;
         ctx.fillStyle = IVORY; ctx.globalAlpha = 0.82;
-        ctx.fillRect(bx, y - h * 0.62 - pad * 0.4, w + pad * 2, h * 1.24 + pad * 0.8);
+        ctx.fillRect(bx, y - hh * 0.62 - pad * 0.4, w + pad * 2, hh * 1.24 + pad * 0.8);
         ctx.globalAlpha = 1; ctx.fillStyle = col; ctx.fillText(txt, x, y);
       }
       tag('S₀', x0 + 9 * LS, yc - 13 * LS, 'rgba(' + INK + ',0.95)', 13);
