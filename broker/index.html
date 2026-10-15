@@ -79,6 +79,10 @@
 .qcard .qv .qa{font-family:var(--mono,'IBM Plex Mono',monospace);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#6a7079}
 .qcard .qv b{font-family:var(--mono,'IBM Plex Mono',monospace);font-weight:500;font-size:clamp(28px,2.8vw,40px);color:#0f1113;line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}
 .qcard .qc{font-size:12px;line-height:1.5;color:#6a7079;margin-top:14px}
+.qbooks{margin-top:clamp(40px,5vw,60px);padding-top:clamp(28px,3.5vw,40px);border-top:1px solid #e2ddd1}
+.qbooks-title{font-family:var(--serif,'Cormorant Garamond',Georgia,serif);font-weight:500;font-size:clamp(26px,2.6vw,36px);line-height:1.08;letter-spacing:-.015em;color:#0f1113;margin:0}
+.qbooks-lede{font-size:clamp(15px,1.3vw,17px);line-height:1.6;color:#4a4e56;margin-top:12px;max-width:62ch}
+.qbooks .qscore{margin-top:26px}
 .qevidence .qnote{font-size:clamp(14px,1.2vw,15.5px);line-height:1.62;color:#3a3e46;max-width:72ch;margin-top:22px}
 .qdisclosure{margin-top:30px;border:1px solid #d9d3c4;border-left:3px solid #1b4fa6;background:#f6f3ec;padding:18px 22px}
 .qdisclosure .qd-label{font-family:var(--mono,'IBM Plex Mono',monospace);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#1b4fa6;margin-bottom:9px}
@@ -108,7 +112,7 @@
         <div class="hero-title reveal">
           <h1>Conditional Leverage Infrastructure</h1>
           <div class="rule"></div>
-          <p class="sub">White-label infrastructure for brokers and venues that serve professional clients.</p>
+          <p class="sub">White-label infrastructure for brokers and venues that serve professional clients. A-book, B-book or hybrid.</p>
           <p class="lead">A white-label engine to structure, price and settle a new category of leveraged instrument.</p>
           <p class="claim">Before confirmation the position is linear. On confirmation, leverage applies from entry.</p>
           <div class="hero-cta">
@@ -225,7 +229,32 @@
         </div>
       </div>
 
-      <p class="qnote">For a B-book, the broker chooses the price. Without any exit assumption, with a 5% loading on the premium clients finish with almost the same average capital as under traditional 5&times; leverage ($37,882 against $37,914), the broker keeps about 95% of today&rsquo;s B-book margin, and clients losing more than half their capital fall from an average of 371 to 16 per 1,000. In the scenario where clients stop after losing half, the same 5% loading gives a B-book margin about the same as today ($10,806 against $10,846 per client over 24 months), with 987 clients still trading instead of 648. With a 7.5% loading it is higher ($12,762). These results hold with the coverage priced at its model value, about 76 basis points per opening on average, not at the diagnostic charge used in the survival campaign.</p>
+      <div class="qbooks">
+        <h4 class="qbooks-title">One product for every book</h4>
+        <p class="qbooks-lede">A-book, B-book or hybrid: the CRL product is the same, you keep your risk model and set the price. Broker margin per client over 24 months, average of the 18 variants.</p>
+        <div class="qscore">
+          <div class="qcard">
+            <div class="qk">A-book</div>
+            <div class="qv"><span class="qa">Standard 5&times;</span><b>$1,555</b></div>
+            <div class="qv"><span class="qa">CRL</span><b>$2,127</b></div>
+            <p class="qc">37% more margin, higher in all 18 variants, from the service fee and commissions. On average the advantage holds with coverage up to about 0.60% above its model price.</p>
+          </div>
+          <div class="qcard">
+            <div class="qk">B-book</div>
+            <div class="qv"><span class="qa">Standard 5&times;</span><b>$10,846</b></div>
+            <div class="qv"><span class="qa">CRL +5%</span><b>$10,806</b></div>
+            <div class="qv"><span class="qa">CRL +7.5%</span><b>$12,762</b></div>
+            <p class="qc">You choose the loading on the premium. At +5% the margin is about the same as today with 987 clients still trading instead of 648; at +7.5% it is higher.</p>
+          </div>
+          <div class="qcard">
+            <div class="qk">Hybrid &middot; 10% internalised</div>
+            <div class="qv"><span class="qa">Standard 5&times;</span><b>$2,543</b></div>
+            <div class="qv"><span class="qa">CRL</span><b>$2,569</b></div>
+            <p class="qc">Positive margin in all 18 variants, in line with traditional leverage. The same internalised share for both products, with no client selection.</p>
+          </div>
+        </div>
+        <p class="qnote">All three books price the coverage at its model value, about 76 basis points per opening on average, not at the diagnostic charge used in the survival campaign. A-book and hybrid include an execution stress of 5 seconds + 0.5 pip. B-book figures are in the scenario where a client stops after losing half of the starting capital; without any exit assumption, a 5% loading keeps about 95% of today&rsquo;s B-book margin, with 16 instead of 371 clients per 1,000 losing more than half.</p>
+      </div>
 
       <p class="qrisk">Survival, drawdown and trigger figures above come from the August 2026 campaign of 540,000 paired accounts. Client capital, loss severity and economics by book come from the October 2026 study, which is public. <a class="qrisk-btn" href="research/" style="text-decoration:none">Read the 24-month study <span>&rarr;</span></a></p>
     </div>
