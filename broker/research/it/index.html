@@ -70,6 +70,10 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
 <style data-source="site.css">
 .brand-bar{flex-wrap:wrap}
 .brand-bar .brand-context{margin-left:auto}
+.site-nav{display:flex;gap:24px;align-items:center}
+.site-home{font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;border-bottom:1px solid transparent;padding:2px 0}
+.site-home:hover,.site-home:focus-visible{color:var(--crl);border-bottom-color:currentColor}
+.brand-sign[role=link]{cursor:pointer}
 .lang-switch{display:flex;gap:12px;align-items:center;font:500 11px var(--mono);letter-spacing:.12em}
 .lang-switch a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent;padding:2px 0}
 .lang-switch a:hover,.lang-switch a:focus-visible{color:var(--crl);border-bottom-color:currentColor}
@@ -79,8 +83,8 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
 .legal-notice p{font-size:13px;line-height:1.6;color:var(--muted);margin:0 0 10px}
 .legal-notice p:last-child{margin-bottom:0}
 .legal-notice .publisher{color:var(--ink)}
-@media(max-width:800px){.legal-notice{padding:20px 18px}.lang-switch{width:100%;justify-content:flex-end}}
-@media print{.lang-switch{display:none}}
+@media(max-width:800px){.legal-notice{padding:20px 18px}.lang-switch{width:100%;justify-content:flex-end}.site-nav{width:100%;justify-content:space-between}.site-nav .lang-switch{width:auto}}
+@media print{.lang-switch,.site-nav{display:none}}
 </style>
 </head>
  <body>
@@ -93,7 +97,7 @@ header .hero-heading{grid-column:1;min-width:0}header .hero-heading h1{margin-bo
     <div class="brand-context">
      RICERCA QUANTITATIVA · CLIENTE E BROKER · OTTOBRE 2026
     </div>
-<div aria-label="Lingua" class="lang-switch"><a href="../index.html" hreflang="en" lang="en">EN</a><span aria-current="page">IT</span></div>
+<div class="site-nav"><a class="site-home" href="../../index.html"><span aria-hidden="true">&larr;</span> Sito broker</a><div aria-label="Lingua" class="lang-switch"><a href="../index.html" hreflang="en" lang="en">EN</a><span aria-current="page">IT</span></div></div>
    </div>
    <header>
     <div class="eyebrow">
@@ -4320,6 +4324,14 @@ for(const id of ['capBook','capCAC','capService','capLoading','capCapital','capR
 document.querySelectorAll('.lang-switch a').forEach(function(a){
  a.addEventListener('click',function(){a.href=a.getAttribute('href').split('#')[0]+location.hash;});
 });
+(function(){
+ var logo=document.querySelector('.brand-sign'),home=document.querySelector('.site-home');
+ if(!logo||!home)return;
+ logo.setAttribute('role','link');logo.setAttribute('tabindex','0');logo.setAttribute('aria-label',home.textContent.replace(/\u2190/g,'').trim());
+ function go(){location.href=home.href;}
+ logo.addEventListener('click',go);
+ logo.addEventListener('keydown',function(e){if(e.key==='Enter'){go();}});
+})();
 </script>
 </body>
 </html>
