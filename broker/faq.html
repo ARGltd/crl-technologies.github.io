@@ -86,7 +86,7 @@
     </div>
     <div class="prose reveal" style="margin-top:24px">
       <h3>What authentication and security measures are in place?</h3>
-      <p>Requests to the engine are signed with HMAC keys dedicated to each institution, and traffic is encrypted in transit with TLS 1.2 or 1.3. IP allowlists and stricter credential handling can be added to align with your security policies; mutual TLS is not required, and can be designed with you if your policy calls for it. Full security notes are available in the technical pack under NDA.</p>
+      <p>Requests to the engine are signed with HMAC keys dedicated to each institution, and traffic is encrypted in transit with TLS 1.2 or 1.3. IP allowlists, stricter credential handling and, if your policy requires it, mutual TLS can be added to align with your security policies. Full security notes are available in the technical pack under NDA.</p>
 
       <h3>What happens if the CRL engine is unavailable?</h3>
       <p>CRL does not replace your core trading or custody systems, so an outage does not stop your platform. In practice we design deployments with high availability and clear failure modes: how requests are retried, how states are reconciled, and how you want to treat new CRL orders during a disruption. Target availability and recovery objectives are agreed as part of a pilot.</p>
