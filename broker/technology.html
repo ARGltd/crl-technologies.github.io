@@ -197,22 +197,13 @@
 
   <section class="section wrap">
     <div class="reveal" style="max-width:64ch">
-      <div class="sec-index">Developer kit</div>
-      <h2>Developer integration and HMAC SDK pack</h2>
+      <div class="sec-index">Integration</div>
+      <h2>Developer integration</h2>
     </div>
     <div class="text-col reveal" style="margin-top:24px">
-      <p>For institutional developer teams, CRL ships with a small, opinionated integration pack. The engine is exposed as an authenticated REST API with HMAC-signed requests; the SDK pack gives your team a working reference implementation so you do not have to reverse-engineer the signing rules from scratch.</p>
-      <p>The pack includes a Postman collection and environment for <code>HMAC v1</code>, together with minimal client stubs in Python, TypeScript/Node.js, Java, C# and Go. Each language uses the same golden test vector: if your local test reproduces the expected hash and signature, your implementation is correct. Once you receive real tenant credentials, a properly signed request will return <code>201 Created</code>.</p>
-      <p>The SDK pack includes example credentials that are <strong>not valid</strong> against any live CRL endpoint. They are provided purely to let developer teams verify their local HMAC implementation against the golden vector without requiring network access or real credentials. Test and production credentials for real tenants are issued separately, under NDA, via secure out-of-band channels and are never shipped inside the SDK pack or public documentation.</p>
-      <p>The SDK pack contains no production credentials and is safe to share with your internal teams. The example credentials used for the <code>HMAC v1</code> golden vector are dummy values that are not accepted by any CRL endpoint. They exist solely to let your team verify their local HMAC implementation offline. Production and sandbox keys are issued under NDA via out-of-band channels and must live in your own secure secret store or KMS, never in application code.</p>
-    </div>
-    <div class="feature-grid cols-3 reveal">
-      <div class="feature"><h4>What your developers get</h4><p>A self-contained archive with a Postman collection, environment, HMAC helper functions, a golden request/response pair and a small test script. It is designed to be read and copied into your existing stack, not to replace your internal SDK conventions. The SDK pack focuses on HMAC authentication and uses a minimal example payload. Product-specific fields such as leverage, triggers and TTL are defined at product level and can be added to the same signed JSON body without changing the signing logic</p></div>
-      <div class="feature"><h4>How integration works in practice</h4><p>Your team downloads the pack, runs the golden test against our API and then wires the same signing logic into your own pricing or order layer. From there, CRL behaves like any other internal service: authenticated HTTP calls, clear JSON payloads, deterministic responses that you can monitor and log with your current tools.</p></div>
-      <div class="feature"><h4>Scope and eligibility</h4><p>The SDK pack is provided for institutional use only and assumes a professional development environment (version control, CI, secure secret storage). If you prefer, we can prepare a tenant-specific sandbox and keys for your team as part of a structured pilot process.</p></div>
+      <p>CRL is exposed as an authenticated REST API. Every request is signed with HMAC-SHA256 using keys dedicated to each institution and is carried over TLS 1.2 or 1.3. Integration materials, including the OpenAPI specification and request signing examples, are delivered to brokers together with their API credentials.</p>
     </div>
     <div class="hero-cta" style="margin-top:28px">
-      <p>SDKs and integration materials are delivered to brokers together with their API credentials.</p>
       <button class="btn" type="button" data-open-gate>Request integration notes <span>→</span></button>
     </div>
     <p class="claim-note" style="margin-top:22px">Full integration diagrams, tenant provisioning details and operational runbooks are available in the gated documentation pack for qualified institutions.</p>
